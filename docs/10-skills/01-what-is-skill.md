@@ -110,7 +110,7 @@ Skill 可能包含脚本和外部操作说明，因此安装与使用前要检�
 ## 继续学习
 
 - [上一篇：MCP 和 Agent 有什么区别](../09-mcp/06-mcp-vs-agent.md)
-- 下一篇（待完成）：Prompt 和 Skill 有什么区别？
+- [下一篇：Prompt 和 Skill 有什么区别](./02-skill-vs-prompt.md)
 
 ## 资料与核验
 

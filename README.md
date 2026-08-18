@@ -580,7 +580,7 @@ Coding Agent / Computer Use
 
 # 项目状态
 
-当前：**Main Path 42 篇已完成并通过批次 Review**
+当前：**Main Path 45 篇已完成并通过批次 Review**
 
 当前已完成的 Main Path：
 
@@ -626,10 +626,13 @@ Coding Agent / Computer Use
 40. [MCP 和 Function Calling 有什么区别](./docs/09-mcp/05-mcp-vs-function-calling.md)（Done）
 41. [MCP 和 Agent 有什么区别](./docs/09-mcp/06-mcp-vs-agent.md)（Done）
 42. [Skill 是什么](./docs/10-skills/01-what-is-skill.md)（Done）
+43. [Prompt 和 Skill 有什么区别](./docs/10-skills/02-skill-vs-prompt.md)（Done）
+44. [Tool 和 Skill 有什么区别](./docs/10-skills/03-skill-vs-tool.md)（Done）
+45. [MCP 和 Skill 有什么区别](./docs/10-skills/04-skill-vs-mcp.md)（Done）
 
 完整内容地图见 [`CONTENT_MAP.md`](./CONTENT_MAP.md)。
 
-下一批继续完成 Prompt / Tool / MCP 与 Skill 的区别。
+下一批继续完成 Agent vs Skill，并进入 AI Coding 与 Coding Agent。
 
 ---
 

@@ -241,9 +241,9 @@ Path（学习路径优先级）：
 | 内容 | 等级 | Path | 状态 | 主要问题 |
 |---|---|---|---|---|
 | Skill | Core | Main | Done | Skill 到底是什么？ |
-| Prompt vs Skill | Core | Main | Todo | Skill 只是一个长 Prompt 吗？ |
-| Tool vs Skill | Core | Main | Todo | Skill 和 Tool 有什么区别？ |
-| MCP vs Skill | Core | Main | Todo | MCP 和 Skill 是什么关系？ |
+| Prompt vs Skill | Core | Main | Done | Skill 只是一个长 Prompt 吗？ |
+| Tool vs Skill | Core | Main | Done | Skill 和 Tool 有什么区别？ |
+| MCP vs Skill | Core | Main | Done | MCP 和 Skill 是什么关系？ |
 | Agent vs Skill | Core | Main | Todo | Agent 为什么需要 Skill？ |
 
 ---
@@ -526,6 +526,9 @@ Path（学习路径优先级）：
 | 40 | MCP 和 Function Calling 有什么区别 | Core | Main | Done | `docs/09-mcp/05-mcp-vs-function-calling.md` |
 | 41 | MCP 和 Agent 有什么区别 | Core | Main | Done | `docs/09-mcp/06-mcp-vs-agent.md` |
 | 42 | Skill 是什么 | Core | Main | Done | `docs/10-skills/01-what-is-skill.md` |
+| 43 | Prompt 和 Skill 有什么区别 | Core | Main | Done | `docs/10-skills/02-skill-vs-prompt.md` |
+| 44 | Tool 和 Skill 有什么区别 | Core | Main | Done | `docs/10-skills/03-skill-vs-tool.md` |
+| 45 | MCP 和 Skill 有什么区别 | Core | Main | Done | `docs/10-skills/04-skill-vs-mcp.md` |
 
 ---
 

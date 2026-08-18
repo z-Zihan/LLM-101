@@ -110,6 +110,9 @@ Review 中修复：
 | 40 | [MCP 和 Function Calling 有什么区别](./docs/09-mcp/05-mcp-vs-function-calling.md) | Core | Done |
 | 41 | [MCP 和 Agent 有什么区别](./docs/09-mcp/06-mcp-vs-agent.md) | Core | Done |
 | 42 | [Skill 是什么](./docs/10-skills/01-what-is-skill.md) | Core | Done |
+| 43 | [Prompt 和 Skill 有什么区别](./docs/10-skills/02-skill-vs-prompt.md) | Core | Done |
+| 44 | [Tool 和 Skill 有什么区别](./docs/10-skills/03-skill-vs-tool.md) | Core | Done |
+| 45 | [MCP 和 Skill 有什么区别](./docs/10-skills/04-skill-vs-mcp.md) | Core | Done |
 
 ## 本批 Research
 
@@ -181,7 +184,7 @@ Review 中修复：
 
 ## 正在进行
 
-- 无。Batch 14 Review 已完成，提交并推送后自动进入 Batch 15。
+- 无。Batch 15 Review 已完成，提交并推送后自动进入 Batch 16。
 
 ## Batch 3：参数量与数据、Token、Context
 
@@ -475,12 +478,24 @@ Review 中修复：
 - Skill 限定为 Agent Skills 风格能力包，并保留渐进披露、脚本审查和最小权限要求。
 - 8 个官方来源与全部内部链接检查通过。
 
+## Batch 15：Prompt / Tool / MCP vs Skill
+
+完成：Prompt vs Skill、Tool vs Skill、MCP vs Skill。
+
+Review：Accuracy / Beginner / Architecture / Terminology / Duplication / Source / Link 全部 PASS。
+
+Review 中修复：
+
+- 区分当前输入、执行能力、连接协议和任务能力包四个层次。
+- 明确 Skill 中的脚本仍需 Runtime 授权，MCP Prompt 与 Tool Description 不等于 Skill。
+- 5 个官方来源与全部内部链接检查通过。
+
 ## 下一批任务
 
 下一批最多处理 1～3 篇，建议按顺序：
 
-1. Prompt 和 Skill 有什么区别
-2. Tool 和 Skill 有什么区别
-3. MCP 和 Skill 有什么区别
+1. Agent 和 Skill 有什么区别
+2. AI Coding 是什么
+3. Coding Agent 是什么
 
 开始前仍须逐篇执行 Research → Draft → Fact Check → Concept Check → Beginner Check → Dependency Check → Link Check。
