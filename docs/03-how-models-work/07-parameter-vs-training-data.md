@@ -136,7 +136,7 @@ T = trillion = 万亿
 ## 继续学习
 
 - [上一篇：参数到底是什么](./06-parameter.md)
-- [下一篇：Token 是什么](../02-chat-and-context/04-token.md)
+- [下一篇：Prompt 是什么](../02-chat-and-context/01-prompt.md)
 - [相关：什么是模型](../01-ai-and-llm/03-what-is-model.md)
 
 ## 资料与核验

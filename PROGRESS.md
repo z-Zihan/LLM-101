@@ -80,6 +80,9 @@ Review 中修复：
 | 10 | [一个大模型到底是怎么诞生的](./docs/03-how-models-work/01-model-lifecycle.md) | Core | Done |
 | 11 | [为什么预测下一个 Token 还能学到能力](./docs/03-how-models-work/10-next-token-prediction.md) | Core | Done |
 | 12 | [Training 和 Inference 有什么区别](./docs/03-how-models-work/18-training-vs-inference.md) | Core | Done |
+| 13 | [Prompt 是什么](./docs/02-chat-and-context/01-prompt.md) | Core | Done |
+| 14 | [模型架构是什么](./docs/03-how-models-work/02-architecture.md) | Core | Done |
+| 15 | [Transformer 是什么](./docs/03-how-models-work/03-transformer.md) | Core | Done |
 
 ## 本批 Research
 
@@ -151,7 +154,7 @@ Review 中修复：
 
 ## 正在进行
 
-- 无。Batch 4 Review 已完成，等待提交后自动进入 Batch 5。
+- 无。Batch 5 Review 已完成，等待提交后自动进入 Batch 6。
 
 ## Batch 3：参数量与数据、Token、Context
 
@@ -209,12 +212,38 @@ Review 中修复：
 - Training / Inference 文章限定“普通推理通常不更新模型训练参数”，同时保留缓存、日志和 Memory 等系统状态可能变化的边界。
 - Glossary 新增 Inference / Training 后重新校正字母与词条顺序。
 
+## Batch 5：Prompt、Architecture、Transformer
+
+完成：
+
+- Prompt 是什么
+- 模型架构是什么
+- Transformer 是什么
+
+Review：
+
+- Accuracy: PASS
+- Beginner: PASS
+- Architecture: PASS
+- Terminology: PASS
+- Duplication: PASS
+- Source: PASS
+- Link: PASS
+
+Review 中修复：
+
+- Prompt 正文明确用户 Prompt 只是完整 Context 的一部分，不把具体平台消息角色写成永久标准。
+- Architecture 区分架构、框架、参数、训练方法和产品，并避免把参数量完全归因于架构名称。
+- Transformer 明确原始论文为 Encoder–Decoder，现代 LLM 可使用 Decoder-only 等变体；同时说明生成阶段仍通常逐 Token 进行。
+- Prompt 的两个外部辅助来源在本机持续超时，已替换为可访问的 Microsoft Learn 官方文档；OpenAI 官方文档保留为 P0 来源。
+- 重新连接 Main Path 上的前后文章，避免 Prompt、Architecture 和 Transformer 成为导航孤岛。
+
 ## 下一批任务
 
 下一批最多处理 1～3 篇，建议按顺序：
 
-1. Prompt 是什么
-2. Architecture 是什么
-3. Transformer 是什么
+1. Attention 是什么
+2. Generalization 是什么
+3. Reasoning 是什么
 
 开始前仍须逐篇执行 Research → Draft → Fact Check → Concept Check → Beginner Check → Dependency Check → Link Check。

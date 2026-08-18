@@ -63,7 +63,7 @@ Path（学习路径优先级）：
 
 | 内容 | 等级 | Path | 状态 | 真实问题 / 目标 |
 |---|---|---|---|---|
-| Prompt | Core | Main | Todo | Prompt 到底是什么？ |
+| Prompt | Core | Main | Done | Prompt 到底是什么？ |
 | System Prompt | Core | Optional | Todo | 为什么 AI 会有“隐藏规则”？ |
 | Prompt Engineering | Core | Optional | Todo | 怎么把需求表达得更清楚？ |
 | Zero-shot / Few-shot | Advanced | Optional | Todo | 为什么给示例会更稳定？ |
@@ -87,8 +87,8 @@ Path（学习路径优先级）：
 | 内容 | 等级 | Path | 状态 | 真实问题 / 目标 |
 |---|---|---|---|---|
 | Model Lifecycle | Core | Main | Done | 一个模型从零到上线经历什么？ |
-| Architecture | Core | Main | Todo | 架构到底是什么意思？ |
-| Transformer | Core | Main | Todo | Transformer 是框架吗？ |
+| Architecture | Core | Main | Done | 架构到底是什么意思？ |
+| Transformer | Core | Main | Done | Transformer 是框架吗？ |
 | PyTorch / JAX | Advanced | Optional | Todo | 框架和架构有什么区别？ |
 | Layer | Core | Optional | Todo | “多少层”是什么意思？ |
 | Hidden Size / Width | Advanced | Optional | Todo | “多宽”是什么意思？ |
@@ -478,7 +478,7 @@ Path（学习路径优先级）：
 
 ---
 
-# v0.1 Main Path
+# Main Path 课程进度
 
 第一版只做 12 篇 Core：
 
@@ -496,6 +496,9 @@ Path（学习路径优先级）：
 | 10 | 一个大模型到底是怎么诞生的 | Core | Main | Done | `docs/03-how-models-work/01-model-lifecycle.md` |
 | 11 | 为什么“预测下一个 Token”还能学到能力 | Core | Main | Done | `docs/03-how-models-work/10-next-token-prediction.md` |
 | 12 | Training 和 Inference 有什么区别 | Core | Main | Done | `docs/03-how-models-work/18-training-vs-inference.md` |
+| 13 | Prompt 是什么 | Core | Main | Done | `docs/02-chat-and-context/01-prompt.md` |
+| 14 | 模型架构是什么 | Core | Main | Done | `docs/03-how-models-work/02-architecture.md` |
+| 15 | Transformer 是什么 | Core | Main | Done | `docs/03-how-models-work/03-transformer.md` |
 
 ---
 

@@ -149,7 +149,7 @@
 ## 继续学习
 
 - [上一篇：Context / Context Window 是什么](../02-chat-and-context/07-context.md)
-- [下一篇：为什么预测下一个 Token 还能学到能力](./10-next-token-prediction.md)
+- [下一篇：模型架构是什么](./02-architecture.md)
 - [相关：参数到底是什么](./06-parameter.md)
 
 ## 资料与核验

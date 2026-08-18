@@ -4,6 +4,14 @@
 
 ## A
 
+### Architecture
+
+中文：模型架构
+
+一句话：规定模型由哪些计算组件组成、怎样连接以及信息如何流动的结构设计。
+
+主页面：[模型架构是什么](./docs/03-how-models-work/02-architecture.md)
+
 ### Artificial Intelligence（AI）
 
 中文：人工智能
@@ -122,6 +130,14 @@
 
 主页面：[参数量和训练数据有什么区别](./docs/03-how-models-work/07-parameter-vs-training-data.md)
 
+### Prompt
+
+中文：提示 / 提示词
+
+一句话：提供给模型、用于影响当前输出的输入内容。
+
+主页面：[Prompt 是什么](./docs/02-chat-and-context/01-prompt.md)
+
 ## T
 
 ### Token
@@ -155,3 +171,11 @@
 一句话：训练过程用于提供输入、目标或其他学习信号的数据。
 
 主页面：[参数量和训练数据有什么区别](./docs/03-how-models-work/07-parameter-vs-training-data.md)
+
+### Transformer
+
+中文：Transformer 架构
+
+一句话：通过 Attention 等组件处理序列信息的一类神经网络架构。
+
+主页面：[Transformer 是什么](./docs/03-how-models-work/03-transformer.md)

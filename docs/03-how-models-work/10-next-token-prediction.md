@@ -122,7 +122,7 @@ Token 可能是词、子词、字符或其他片段。模型预测的是 Tokeniz
 
 ## 继续学习
 
-- [上一篇：一个大模型到底是怎么诞生的](./01-model-lifecycle.md)
+- [上一篇：Transformer 是什么](./03-transformer.md)
 - [下一篇：Training 和 Inference 有什么区别](./18-training-vs-inference.md)
 - [相关：Token 是什么](../02-chat-and-context/04-token.md)
 

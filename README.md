@@ -580,7 +580,7 @@ Coding Agent / Computer Use
 
 # 项目状态
 
-当前：**v0.1 Main Path 12 篇已完成并通过批次 Review**
+当前：**Main Path 15 篇已完成并通过批次 Review**
 
 第一批优先完成：
 
@@ -598,6 +598,12 @@ Coding Agent / Computer Use
 12. [Training 和 Inference 有什么区别](./docs/03-how-models-work/18-training-vs-inference.md)（Done）
 
 完整内容地图见 [`CONTENT_MAP.md`](./CONTENT_MAP.md)。
+
+继续完成的 Main Path：
+
+- [Prompt 是什么](./docs/02-chat-and-context/01-prompt.md)
+- [模型架构是什么](./docs/03-how-models-work/02-architecture.md)
+- [Transformer 是什么](./docs/03-how-models-work/03-transformer.md)
 
 ---
 
