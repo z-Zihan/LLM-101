@@ -1,0 +1,507 @@
+version: 3
+updated: "2026-08-18"
+
+questions:
+  - id: q-token-units-001
+    question: "1k、1m、1b、1t 分别是多少 Token？1.5b 又是什么意思？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: false
+    concepts: ["token"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/02-聊天Token与上下文/04-Token到底是什么.md"
+    cluster: token-units
+
+  - id: q-parameter-data-001
+    question: "参数量就是训练数据吗？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: false
+    concepts: ["model", "parameter", "training-data"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/01-AI与大模型/03-模型到底是什么.md"
+    cluster: parameter-vs-training-data
+
+  - id: q-parameter-capacity-001
+    question: "参数量能决定什么？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: false
+    concepts: ["parameter", "generalization", "reasoning"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/03-模型原理与训练/06-参数到底是什么.md"
+    cluster: parameter-capacity
+
+  - id: q-context-window-001
+    question: "上下文窗口是啥意思？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: false
+    concepts: ["token", "context", "context-window"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/02-聊天Token与上下文/07-上下文和上下文窗口是什么.md"
+    cluster: context-window
+
+  - id: q-model-origin-001
+    question: "等一下，你说把数据喂给模型，但是这个模型是怎么诞生的？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: false
+    concepts: ["model", "parameter", "model-lifecycle", "training"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/01-AI与大模型/03-模型到底是什么.md"
+    cluster: model-origin
+
+  - id: q-architecture-code-001
+    question: "设计图纸这一步是咋完成的？写代码吗？多少层、多宽、专家数是框架自带的吗？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: true
+    concepts: ["model-lifecycle", "transformer", "attention"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/03-模型原理与训练/02-模型架构是什么.md"
+    cluster: architecture-design
+
+  - id: q-parameter-form-001
+    question: "参数最后体现形式是啥？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: false
+    concepts: ["model", "parameter"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/01-AI与大模型/03-模型到底是什么.md"
+    cluster: parameter-form
+
+  - id: q-intelligence-origin-001
+    question: "这些东西为啥就有了智能呢？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: false
+    concepts: ["model", "parameter", "training", "generalization", "reasoning"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/01-AI与大模型/03-模型到底是什么.md"
+    cluster: capability-origin
+
+  - id: q-more-is-better-001
+    question: "层数越多、宽度越宽、专家数越多，岂不是越好？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: true
+    concepts: ["parameter", "transformer", "attention"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/03-模型原理与训练/06-参数到底是什么.md"
+    cluster: scale-tradeoffs
+
+  - id: q-hallucination-001
+    question: "幻觉是啥意思？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: false
+    concepts: ["llm", "hallucination", "verification"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/05-幻觉与模型局限/01-幻觉是什么.md"
+    cluster: hallucination
+
+  - id: q-token-generation-001
+    question: "模型怎么部署，最终怎么生成一个 Token？要串起来。"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: false
+    concepts: ["token", "transformer", "attention", "inference"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/03-模型原理与训练/18-训练和推理有什么区别.md"
+    cluster: token-generation
+
+  - id: q-undertraining-001
+    question: "喂饱是什么意思，怎么算喂饱呢？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: false
+    concepts: ["parameter", "training-data", "training", "generalization"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/03-模型原理与训练/07-参数量和训练数据有什么区别.md"
+    cluster: compute-optimal-training
+
+  - id: q-training-loop-001
+    question: "训练模型是怎么一个过程？发生在哪个阶段？参数是怎么变的？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: true
+    concepts: ["parameter", "model-lifecycle", "training"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/03-模型原理与训练/18-训练和推理有什么区别.md"
+    cluster: training-loop
+
+  - id: q-loss-judgement-001
+    question: "错误程度怎么判断？怎么知道是对还是错？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: true
+    concepts: ["training-data", "training"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/03-模型原理与训练/10-为什么预测下一个Token能学到能力.md"
+    cluster: training-objective
+
+  - id: q-compute-memory-001
+    question: "算力账和显存账到底是啥？算力体现在哪？卡又是什么？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: true
+    concepts: ["training", "inference"]
+    difficulty: beginner
+    priority: medium
+    status: planned
+    answer_path: null
+    cluster: compute-and-memory
+
+  - id: q-reproducibility-001
+    question: "如果架构、训练数据、方法和卡都一样，会不会训练出一模一样的模型？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: true
+    concepts: ["model", "parameter", "training"]
+    difficulty: intermediate
+    priority: medium
+    status: planned
+    answer_path: null
+    cluster: reproducibility
+
+  - id: q-cache-001
+    question: "缓存是啥？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: false
+    concepts: ["token", "context", "inference"]
+    difficulty: beginner
+    priority: medium
+    status: planned
+    answer_path: null
+    cluster: kv-cache
+
+  - id: q-prompt-001
+    question: "提示词工程怎么和模型说话效果最好？结构化提示和 few-shot 示例是什么？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: true
+    concepts: ["prompt", "context"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/02-聊天Token与上下文/01-Prompt到底是什么.md"
+    cluster: prompt-engineering
+
+  - id: q-rag-001
+    question: "RAG 检索增强是什么？为什么说它能让模型先查资料再回答？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: true
+    concepts: ["context", "hallucination", "rag", "embedding", "vector-database"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/08-RAG与知识库/01-RAG到底是什么.md"
+    cluster: rag-basics
+
+  - id: q-agent-001
+    question: "Agent 智能体是什么？模型加上工具和自主规划后，为什么就能连续做事？"
+    source_type: original_chat
+    source_url: null
+    source_title: "用户提供的原始聊天记录（2026-08-13）"
+    language: zh
+    paraphrased: true
+    concepts: ["model", "tool", "agent"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/07-Agent/01-Agent到底是什么.md"
+    cluster: agent-basics
+
+  - id: q-ai-ml-dl-web-001
+    question: "数据科学、人工智能、机器学习和计算机视觉是什么关系？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/36759/what-is-the-relationship-between-data-science-artificial-intelligence-machine-l"
+    source_title: "What is the relationship between data science, artificial intelligence, machine learning and computer vision?"
+    language: en
+    paraphrased: true
+    concepts: ["ai", "machine-learning"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/01-AI与大模型/02-AI机器学习和深度学习是什么关系.md"
+    cluster: ai-ml-dl
+
+  - id: q-deep-learning-web-001
+    question: "什么时候使用深度学习反而是小题大做？它会让其他机器学习方法变得没用吗？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/3002/when-is-deep-learning-overkill"
+    source_title: "When is deep learning overkill?"
+    language: en
+    paraphrased: true
+    concepts: ["machine-learning", "deep-learning"]
+    difficulty: beginner
+    priority: medium
+    status: answered
+    answer_path: "docs/01-AI与大模型/02-AI机器学习和深度学习是什么关系.md"
+    cluster: machine-learning-vs-deep-learning
+
+  - id: q-model-algorithm-web-001
+    question: "机器学习里的模型、算法和假设到底有什么区别？这些词为什么经常混着用？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/42135/what-is-the-difference-between-machine-learning-model-algorithm-and-hypothesis"
+    source_title: "What is the difference between Machine Learning model, algorithm and hypothesis?"
+    language: en
+    paraphrased: true
+    concepts: ["ai", "machine-learning", "model"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/01-AI与大模型/03-模型到底是什么.md"
+    cluster: model-vs-algorithm
+
+  - id: q-language-model-web-001
+    question: "从根本上说，语言模型到底在对什么建模？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/23557/fundamentally-what-is-a-perfect-language-model"
+    source_title: "Fundamentally, what is a perfect language model?"
+    language: en
+    paraphrased: true
+    concepts: ["language-model", "llm", "token", "inference"]
+    difficulty: intermediate
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/01-AI与大模型/04-什么是大语言模型.md"
+    cluster: language-model-definition
+
+  - id: q-llm-foundation-web-001
+    question: "大语言模型和基础模型是一回事吗？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/36766/is-large-language-model-and-foundation-model-the-same-thing"
+    source_title: "Is large language model and foundation model the same thing?"
+    language: en
+    paraphrased: true
+    concepts: ["language-model", "llm"]
+    difficulty: beginner
+    priority: medium
+    status: needs_rewrite
+    answer_path: "docs/01-AI与大模型/04-什么是大语言模型.md"
+    cluster: llm-vs-foundation-model
+
+  - id: q-token-length-web-001
+    question: "一个 Token 固定是四个字符吗？最长的 Token 能包含多长的文本？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/48988/what-is-the-longest-text-that-is-represented-in-one-token"
+    source_title: "What is the longest text that is represented in one token?"
+    language: en
+    paraphrased: true
+    concepts: ["token"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/02-聊天Token与上下文/04-Token到底是什么.md"
+    cluster: token-boundaries
+
+  - id: q-context-stateless-web-001
+    question: "上下文窗口里明明有历史消息，为什么 LLM API 仍然被称为无状态？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/50647/if-the-context-window-holds-past-messages-why-is-the-system-still-called-statel"
+    source_title: "If the context window holds past messages, why is the system still called stateless?"
+    language: en
+    paraphrased: true
+    concepts: ["api", "context", "context-window", "conversation-history"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/12-Memory/01-聊天记录是什么.md"
+    cluster: context-vs-history
+
+  - id: q-parameter-scale-web-001
+    question: "为什么只增加参数不一定让模型更聪明？参数翻倍时训练数据也要翻倍吗？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/48914/why-more-parameters-alone-aren-t-enough-to-make-ai-smarter-according-to-the-chi"
+    source_title: "Why more parameters alone aren't enough to make AI smarter, according to the Chinchilla study?"
+    language: en
+    paraphrased: true
+    concepts: ["parameter", "training-data", "training", "generalization"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/03-模型原理与训练/07-参数量和训练数据有什么区别.md"
+    cluster: compute-optimal-training
+
+  - id: q-function-calling-web-001
+    question: "大语言模型里的 Function Calling 到底是什么意思？是模型自己立即执行函数吗？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/40939/what-is-function-calling-in-openais-chatgpt-models"
+    source_title: "What is function calling in OpenAI's ChatGPT models?"
+    language: en
+    paraphrased: true
+    concepts: ["api", "tool", "function-calling"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/06-工具与Function-Calling/03-Function-Calling是什么.md"
+    cluster: function-calling-boundary
+
+  - id: q-agent-definition-web-001
+    question: "AI 里的 Agent 有没有跨领域都适用的严格定义？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/12991/what-is-an-agent-in-artificial-intelligence"
+    source_title: "What is an agent in Artificial Intelligence?"
+    language: en
+    paraphrased: true
+    concepts: ["agent"]
+    difficulty: intermediate
+    priority: medium
+    status: needs_rewrite
+    answer_path: "docs/07-Agent/01-Agent到底是什么.md"
+    cluster: agent-definition
+
+  - id: q-vector-store-web-001
+    question: "RAG 检索最后要把文本交给模型，向量数据库会同时保存切片原文吗？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/45643/does-a-vector-database-maintain-pre-vector-chunked-data-for-rag-systems"
+    source_title: "Does a vector database maintain pre-vector chunked data for RAG systems?"
+    language: en
+    paraphrased: true
+    concepts: ["rag", "embedding", "vector-database"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/08-RAG与知识库/05-向量数据库是什么.md"
+    cluster: vector-database-content
+
+  - id: q-embedding-semantics-web-001
+    question: "为什么语义相近的内容在 Embedding 空间里往往也更接近？它的边界是什么？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/46458/what-is-the-existing-literature-on-why-vector-embeddings-work"
+    source_title: "What is the existing literature on why vector embeddings work?"
+    language: en
+    paraphrased: true
+    concepts: ["embedding", "vector-database"]
+    difficulty: intermediate
+    priority: medium
+    status: needs_rewrite
+    answer_path: "docs/08-RAG与知识库/03-Embedding是什么.md"
+    cluster: embedding-semantics
+
+  - id: q-rag-hallucination-web-001
+    question: "RAG 已经给了正确资料，模型为什么仍可能答错或混入没有依据的内容？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/50496/why-do-transformer-models-sometimes-produce-fluent-but-logically-inconsistent-an"
+    source_title: "Why do transformer models sometimes produce fluent but logically inconsistent answers even when retrieval provides the correct context?"
+    language: en
+    paraphrased: true
+    concepts: ["hallucination", "verification", "rag"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/08-RAG与知识库/12-RAG有哪些局限.md"
+    cluster: rag-limitations
+
+  - id: q-mcp-openapi-hn-001
+    question: "OpenAPI 已经能描述接口并配合权限控制，MCP 到底额外带来了什么？"
+    source_type: public_web
+    source_url: "https://news.ycombinator.com/item?id=48337175"
+    source_title: "Hacker News comment on ‘MCP is dead?’"
+    language: en
+    paraphrased: true
+    concepts: ["api", "tool", "mcp"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/09-MCP/04-MCP和API有什么区别.md"
+    cluster: mcp-vs-api
+
+  - id: q-skill-mcp-github-001
+    question: "Skill 可以直接作为 MCP Tool 或 MCP Prompt 暴露吗？三种形式的职责有什么差别？"
+    source_type: public_web
+    source_url: "https://github.com/patternfly/patternfly-mcp/issues/186"
+    source_title: "Allow MCP skills as MCP tools and prompts"
+    language: en
+    paraphrased: true
+    concepts: ["tool", "mcp", "skill"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/10-Skill/03-Tool和Skill有什么区别.md"
+    cluster: skill-vs-tool
+
+  - id: q-coding-context-github-001
+    question: "编程 Agent 探索大型代码库时，为什么还需要像 IDE 一样的符号导航，而不只读原始文件？"
+    source_type: public_web
+    source_url: "https://github.com/openai/codex/issues/30561"
+    source_title: "Feature request: give Codex IDE-like semantic code navigation"
+    language: en
+    paraphrased: true
+    concepts: ["context", "coding-agent", "conversation-history"]
+    difficulty: beginner
+    priority: high
+    status: needs_rewrite
+    answer_path: "docs/11-Coding-Agent/08-项目上下文是什么.md"
+    cluster: coding-agent-context

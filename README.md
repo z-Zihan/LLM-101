@@ -6,7 +6,7 @@
 
 我们从真实小白会问的问题出发，沿着连续追问，一步一步建立完整心智模型。
 
-> 当前正在进行 v2 全量重构。旧版文章保留作参考，但除前三篇 Style Checkpoint 外，统一标记为 `Needs Rewrite`。
+> 当前正在进行 V3 全量重构。旧版文章保留作研究材料；除已完成的前三篇外，其余 48 篇统一标记为 `Needs Rewrite`，并按每批最多 3 篇持续重写。
 
 ## 你可以怎样使用这个项目？
 
@@ -22,7 +22,7 @@
 
 ### 我脑子里刚好有一个问题
 
-打开 [小白问题库](./FAQ/小白问题库.md)。例如：
+打开 [真实问题矩阵](./真实问题矩阵.md)。这里的问题来自用户原始聊天或可追溯的公开讨论，并与概念和答案页面双向连接。例如：
 
 - 参数量就是训练数据吗？
 - 数据是喂给模型的，那模型在被喂之前从哪来？
@@ -46,7 +46,7 @@
 
 ## 主学习路线
 
-主学习路线是阅读顺序，不是写作顺序。v2 当前规划如下：
+主学习路线是阅读顺序，不是写作顺序。V3 当前规划如下：
 
 ```text
 AI
@@ -70,13 +70,13 @@ RAG → MCP → Skill → Coding Agent
 AI 全景图
 ```
 
-当前 Style Checkpoint：
+已经按当前质量基线完成：
 
 1. [AI 到底是什么？](./docs/01-AI与大模型/01-AI到底是什么.md)
 2. [AI、机器学习和深度学习是什么关系？](./docs/01-AI与大模型/02-AI机器学习和深度学习是什么关系.md)
 3. [模型到底是什么？](./docs/01-AI与大模型/03-模型到底是什么.md)
 
-前三篇通过人工风格确认后，才会继续全量重写。
+后续文章不再设置人工停点，按“研究 → 重写 → 真实问题与知识网络更新 → 15 项审查 → 自动检查 → 提交推送”的批次循环持续推进。
 
 ## 扩展学习路线
 
@@ -152,16 +152,20 @@ flowchart LR
 
 ## 这个项目怎样保证质量？
 
-每篇 v2 文章都要经过：
+每篇 V3 文章都要经过：
 
 - Accuracy Review
 - Beginner Review
 - Beginner Depth Review
 - Chinese Language Review
-- Architecture Review
-- Terminology Review
+- Real Question Review
+- Question Coverage Review
 - Knowledge Graph Review
 - Cross-link Review
+- Layout Review
+- AI Writing Smell Review
+- Architecture Review
+- Terminology Review
 - Duplication Review
 - Source Review
 - Link Review
@@ -173,6 +177,9 @@ flowchart LR
 - [项目进度](./项目进度.md)
 - [内容地图](./内容地图.md)
 - [知识网络](./知识网络.md)
+- [真实问题矩阵](./真实问题矩阵.md)
+- [真实问题库](./真实问题库.yml)
+- [排版规范](./排版规范.md)
 - [术语表](./术语表.md)
 - [文章模板](./文章模板.md)
 - [目录结构](./目录结构.md)
@@ -184,10 +191,12 @@ flowchart LR
 python3 scripts/build_knowledge_graph.py
 python3 scripts/check_links.py
 python3 scripts/check_concepts.py
+python3 scripts/build_question_matrix.py
+python3 scripts/check_questions.py
 git diff --check
 ```
 
-只有自动检查和全部 Review 通过后，文章才能标记为 `Done`。
+只有自动检查和 15 项 Review 全部通过后，文章才能标记为 `Done`。项目终审还会使用 `python3 scripts/check_questions.py --strict`，确保所有高价值问题都已回答。
 
 ---
 

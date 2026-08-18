@@ -48,6 +48,7 @@ concepts:
     summary: 研究和构建围绕目标处理输入，并产生预测、内容、建议、决策或行动的机器系统的广泛领域。
     prerequisites: []
     related: ["machine-learning", "model", "agent"]
+    questions: ["q-ai-ml-dl-web-001", "q-model-algorithm-web-001"]
 
   - id: machine-learning
     name: 机器学习
@@ -59,6 +60,7 @@ concepts:
     summary: 让计算系统从数据中调整模型，而不是把每条判断规则都由人逐条写死的方法。
     prerequisites: ["ai"]
     related: ["deep-learning", "model", "training-data"]
+    questions: ["q-ai-ml-dl-web-001", "q-deep-learning-web-001", "q-model-algorithm-web-001"]
 
   - id: deep-learning
     name: 深度学习
@@ -70,6 +72,7 @@ concepts:
     summary: 主要使用多层神经网络从数据中学习表示的一类机器学习方法。
     prerequisites: ["machine-learning"]
     related: ["model", "transformer", "llm"]
+    questions: ["q-deep-learning-web-001"]
 
   - id: model
     name: 模型
@@ -81,6 +84,7 @@ concepts:
     summary: 经过训练后，用来把输入转换为预测、分数或生成结果的计算关系。
     prerequisites: ["machine-learning"]
     related: ["parameter", "training", "inference", "llm"]
+    questions: ["q-parameter-data-001", "q-model-origin-001", "q-parameter-form-001", "q-intelligence-origin-001", "q-reproducibility-001", "q-agent-001", "q-model-algorithm-web-001"]
 
   - id: language-model
     name: 语言模型
@@ -92,6 +96,7 @@ concepts:
     summary: 对语言序列及其中 Token 的可能性进行建模的模型。
     prerequisites: ["model"]
     related: ["llm", "token", "inference"]
+    questions: ["q-language-model-web-001", "q-llm-foundation-web-001"]
 
   - id: llm
     name: 大语言模型
@@ -103,6 +108,7 @@ concepts:
     summary: 在大量数据和计算资源上训练、能够处理和生成语言的大规模语言模型。
     prerequisites: ["language-model", "deep-learning"]
     related: ["transformer", "prompt", "context", "hallucination"]
+    questions: ["q-hallucination-001", "q-language-model-web-001", "q-llm-foundation-web-001"]
 
   - id: parameter
     name: 参数
@@ -114,6 +120,7 @@ concepts:
     summary: 训练过程会调整、推理过程会使用的模型内部数值。
     prerequisites: ["model"]
     related: ["training", "training-data", "inference"]
+    questions: ["q-parameter-data-001", "q-parameter-capacity-001", "q-model-origin-001", "q-parameter-form-001", "q-intelligence-origin-001", "q-more-is-better-001", "q-undertraining-001", "q-training-loop-001", "q-reproducibility-001", "q-parameter-scale-web-001"]
 
   - id: training-data
     name: 训练数据
@@ -125,6 +132,7 @@ concepts:
     summary: 训练时用来计算目标和调整模型参数的数据。
     prerequisites: ["machine-learning", "model"]
     related: ["parameter", "training"]
+    questions: ["q-parameter-data-001", "q-undertraining-001", "q-loss-judgement-001", "q-parameter-scale-web-001"]
 
   - id: prompt
     name: 提示
@@ -136,6 +144,7 @@ concepts:
     summary: 用户或系统提供给模型、用来表达任务和约束的输入内容。
     prerequisites: ["llm"]
     related: ["context", "token", "inference"]
+    questions: ["q-prompt-001"]
 
   - id: token
     name: Token
@@ -147,6 +156,7 @@ concepts:
     summary: 模型编码和生成文本时处理的离散单位，不固定等于一个字或一个单词。
     prerequisites: ["llm"]
     related: ["context", "context-window", "inference"]
+    questions: ["q-token-units-001", "q-context-window-001", "q-token-generation-001", "q-cache-001", "q-language-model-web-001", "q-token-length-web-001"]
 
   - id: context
     name: 上下文
@@ -158,6 +168,7 @@ concepts:
     summary: 当前一次计算中，模型实际可以使用的信息。
     prerequisites: ["prompt", "token"]
     related: ["context-window", "inference", "rag", "conversation-history"]
+    questions: ["q-context-window-001", "q-cache-001", "q-prompt-001", "q-rag-001", "q-context-stateless-web-001", "q-coding-context-github-001"]
 
   - id: context-window
     name: 上下文窗口
@@ -169,6 +180,7 @@ concepts:
     summary: 模型一次处理输入和输出时可容纳内容的容量边界。
     prerequisites: ["context", "token"]
     related: ["inference", "conversation-history"]
+    questions: ["q-context-window-001", "q-context-stateless-web-001"]
 
   - id: model-lifecycle
     name: 模型生命周期
@@ -180,6 +192,7 @@ concepts:
     summary: 从目标、数据、初始化和训练，到评估、部署和持续改进的完整过程。
     prerequisites: ["model", "parameter"]
     related: ["training", "inference", "training-data"]
+    questions: ["q-model-origin-001", "q-architecture-code-001", "q-training-loop-001"]
 
   - id: transformer
     name: Transformer
@@ -191,6 +204,7 @@ concepts:
     summary: 以注意力等模块处理序列信息的一类神经网络架构。
     prerequisites: ["model", "deep-learning"]
     related: ["attention", "llm", "token"]
+    questions: ["q-architecture-code-001", "q-more-is-better-001", "q-token-generation-001"]
 
   - id: attention
     name: 注意力机制
@@ -202,6 +216,7 @@ concepts:
     summary: 根据当前计算需要，为不同位置的信息分配不同影响权重的机制。
     prerequisites: ["token", "transformer"]
     related: ["context", "llm"]
+    questions: ["q-architecture-code-001", "q-more-is-better-001", "q-token-generation-001"]
 
   - id: training
     name: 训练
@@ -213,6 +228,7 @@ concepts:
     summary: 利用数据和目标函数调整模型参数的过程。
     prerequisites: ["model", "parameter", "training-data"]
     related: ["inference", "model-lifecycle"]
+    questions: ["q-model-origin-001", "q-intelligence-origin-001", "q-undertraining-001", "q-training-loop-001", "q-loss-judgement-001", "q-compute-memory-001", "q-reproducibility-001", "q-parameter-scale-web-001"]
 
   - id: inference
     name: 推理
@@ -224,6 +240,7 @@ concepts:
     summary: 使用已经训练好的模型参数，根据当前输入计算输出的过程。
     prerequisites: ["model", "parameter"]
     related: ["training", "context", "token"]
+    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-web-001"]
 
   - id: generalization
     name: 泛化
@@ -235,6 +252,7 @@ concepts:
     summary: 模型把训练中学到的规律用于未见过但相关情形的能力。
     prerequisites: ["model", "training"]
     related: ["reasoning", "hallucination"]
+    questions: ["q-parameter-capacity-001", "q-intelligence-origin-001", "q-undertraining-001", "q-parameter-scale-web-001"]
 
   - id: reasoning
     name: 推理能力
@@ -246,6 +264,7 @@ concepts:
     summary: 根据给定信息和规则经过中间步骤得到结论的任务能力。
     prerequisites: ["model", "generalization"]
     related: ["inference", "hallucination"]
+    questions: ["q-parameter-capacity-001", "q-intelligence-origin-001"]
 
   - id: hallucination
     name: 幻觉
@@ -257,6 +276,7 @@ concepts:
     summary: 模型生成了看似合理、实际上与事实或给定资料不一致的内容。
     prerequisites: ["llm", "inference"]
     related: ["verification", "rag"]
+    questions: ["q-hallucination-001", "q-rag-001", "q-rag-hallucination-web-001"]
 
   - id: verification
     name: 验证
@@ -268,6 +288,7 @@ concepts:
     summary: 用适合问题类型的证据检查 AI 输出，而不是只看表达是否自信。
     prerequisites: ["hallucination"]
     related: ["rag", "tool"]
+    questions: ["q-hallucination-001", "q-rag-hallucination-web-001"]
 
   - id: api
     name: API
@@ -279,6 +300,7 @@ concepts:
     summary: 软件之间按照约定发送请求和接收结果的接口。
     prerequisites: ["model"]
     related: ["tool", "function-calling", "mcp"]
+    questions: ["q-context-stateless-web-001", "q-function-calling-web-001", "q-mcp-openapi-hn-001"]
 
   - id: tool
     name: AI 工具
@@ -290,6 +312,7 @@ concepts:
     summary: AI 系统可以请求外部程序执行的受控能力。
     prerequisites: ["api"]
     related: ["function-calling", "agent", "mcp", "skill"]
+    questions: ["q-agent-001", "q-function-calling-web-001", "q-mcp-openapi-hn-001", "q-skill-mcp-github-001"]
 
   - id: function-calling
     name: 函数调用
@@ -301,6 +324,7 @@ concepts:
     summary: 模型按结构描述要调用的函数和参数，由外部程序验证并执行。
     prerequisites: ["tool"]
     related: ["api", "agent", "mcp"]
+    questions: ["q-function-calling-web-001"]
 
   - id: agent
     name: Agent
@@ -312,6 +336,7 @@ concepts:
     summary: 围绕目标反复获取信息、选择行动、使用工具并根据结果继续推进的系统。
     prerequisites: ["model", "tool"]
     related: ["rag", "mcp", "skill", "coding-agent"]
+    questions: ["q-agent-001", "q-agent-definition-web-001"]
 
   - id: rag
     name: RAG
@@ -323,6 +348,7 @@ concepts:
     summary: 在生成前检索外部资料，并把相关内容提供给模型作为上下文的方法。
     prerequisites: ["llm", "context"]
     related: ["embedding", "vector-database", "hallucination"]
+    questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-hallucination-web-001"]
 
   - id: embedding
     name: 向量表示
@@ -334,6 +360,7 @@ concepts:
     summary: 把对象转换为一组数值，使系统可以计算某些关系或相似性。
     prerequisites: ["model"]
     related: ["vector-database", "rag"]
+    questions: ["q-rag-001", "q-vector-store-web-001", "q-embedding-semantics-web-001"]
 
   - id: vector-database
     name: 向量数据库
@@ -345,6 +372,7 @@ concepts:
     summary: 存储向量并支持按相似性检索的数据系统。
     prerequisites: ["embedding"]
     related: ["rag"]
+    questions: ["q-rag-001", "q-vector-store-web-001", "q-embedding-semantics-web-001"]
 
   - id: mcp
     name: MCP
@@ -356,6 +384,7 @@ concepts:
     summary: 让 AI 应用用统一方式发现和连接外部工具、资源与提示的开放协议。
     prerequisites: ["api", "tool"]
     related: ["agent", "skill"]
+    questions: ["q-mcp-openapi-hn-001", "q-skill-mcp-github-001"]
 
   - id: skill
     name: Skill
@@ -367,6 +396,7 @@ concepts:
     summary: 面向 Agent 的可复用能力包，用文件组织说明、流程和所需资源。
     prerequisites: ["agent", "tool"]
     related: ["mcp", "coding-agent"]
+    questions: ["q-skill-mcp-github-001"]
 
   - id: coding-agent
     name: Coding Agent
@@ -378,6 +408,7 @@ concepts:
     summary: 能读取项目、修改文件、运行命令并验证结果的编程任务 Agent。
     prerequisites: ["agent", "tool"]
     related: ["skill", "conversation-history"]
+    questions: ["q-coding-context-github-001"]
 
   - id: conversation-history
     name: 聊天记录
@@ -389,6 +420,7 @@ concepts:
     summary: 系统保存的一组历史消息；只有被重新选入上下文时才会影响当前回答。
     prerequisites: ["context"]
     related: ["context-window", "agent"]
+    questions: ["q-context-stateless-web-001", "q-coding-context-github-001"]
 
 relations:
   - from: machine-learning

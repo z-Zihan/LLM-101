@@ -23,7 +23,10 @@ def main() -> int:
     for concept_id, count in Counter(ids).items():
         if count > 1:
             errors.append(f"概念 ID 重复：{concept_id}")
-    required = {"id", "name", "path", "aliases", "level", "path_type", "summary", "prerequisites", "related"}
+    required = {
+        "id", "name", "path", "aliases", "level", "path_type", "summary",
+        "prerequisites", "related", "questions",
+    }
     for item in concepts:
         missing = required - item.keys()
         if missing:

@@ -7,6 +7,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from knowledge_graph_lib import load_graph
+from question_lib import load_questions
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,8 +25,10 @@ def mermaid_id(concept_id: str) -> str:
 
 def main() -> None:
     graph = load_graph(GRAPH_PATH)
+    question_data = load_questions(ROOT / "真实问题库.yml")
     concepts = graph["concepts"]
     by_id = {item["id"]: item for item in concepts}
+    by_question = {item["id"]: item for item in question_data["questions"]}
     incoming = defaultdict(list)
     outgoing = defaultdict(list)
     for relation in graph["relations"]:
@@ -54,17 +57,28 @@ def main() -> None:
         "",
         "## 知识网络矩阵",
         "",
-        "| 概念 | 一句话 | 前置 | 谁会指向它 | 它会指向什么 | 容易一起比较 |",
+        "| 概念 | 一句话 | 前置 | 语义关系 | 相关真实问题 | 主文章 |",
         "|---|---|---|---|---|---|",
     ]
     for node in concepts:
         cid = node["id"]
         prerequisites = "、".join(link(by_id[item]) for item in node.get("prerequisites", [])) or "—"
-        users = "、".join(link(by_id[item["from"]]) for item in incoming[cid][:4]) or "—"
-        effects = "、".join(link(by_id[item["to"]]) for item in outgoing[cid][:4]) or "—"
-        related = "、".join(link(by_id[item]) for item in node.get("related", [])[:4]) or "—"
+        relations = []
+        for item in outgoing[cid][:3]:
+            relations.append(f"{item['relation']} {link(by_id[item['to']])}")
+        for item in incoming[cid][:2]:
+            relations.append(f"{link(by_id[item['from']])} {item['relation']}它")
+        relation_text = "；".join(relations) or "—"
+        questions = []
+        for question_id in node.get("questions", [])[:3]:
+            question = by_question[question_id]
+            if question.get("answer_path"):
+                questions.append(f"[{question['question']}](./{question['answer_path']})")
+            else:
+                questions.append(question["question"])
+        question_text = "<br>".join(questions) or "—"
         lines.append(
-            f"| {link(node)} | {node['summary']} | {prerequisites} | {users} | {effects} | {related} |"
+            f"| {link(node)} | {node['summary']} | {prerequisites} | {relation_text} | {question_text} | {link(node)} |"
         )
 
     groups = defaultdict(list)

@@ -1,32 +1,15 @@
 #!/usr/bin/env python3
-"""读取 LLM-101 使用的受限 YAML 子集，不依赖第三方包。"""
+"""读取 LLM-101 真实问题库使用的受限 YAML 子集。"""
 
 from __future__ import annotations
 
-import ast
 from pathlib import Path
 
-
-def _value(raw: str):
-    raw = raw.strip()
-    if not raw:
-        return ""
-    if raw.startswith("["):
-        return ast.literal_eval(raw)
-    if raw.startswith(('"', "'")):
-        return ast.literal_eval(raw)
-    if raw in {"true", "false"}:
-        return raw == "true"
-    if raw in {"null", "~"}:
-        return None
-    try:
-        return int(raw)
-    except ValueError:
-        return raw
+from knowledge_graph_lib import _value
 
 
-def load_graph(path: Path) -> dict:
-    data: dict = {"main_path": [], "extended_path": [], "concepts": [], "relations": []}
+def load_questions(path: Path) -> dict:
+    data: dict = {"questions": []}
     section = None
     current = None
 
@@ -43,10 +26,7 @@ def load_graph(path: Path) -> dict:
             key, raw = stripped.split(":", 1)
             data[key] = _value(raw)
             continue
-        if section in {"main_path", "extended_path"} and stripped.startswith("- "):
-            data[section].append(_value(stripped[2:]))
-            continue
-        if section in {"concepts", "relations"}:
+        if section == "questions":
             if stripped.startswith("- "):
                 current = {}
                 data[section].append(current)
