@@ -190,8 +190,8 @@ Path（学习路径优先级）：
 | Agent Loop | Core | Main | Done | Agent 为什么能连续做多步？ |
 | Planning | Core | Optional | Todo | Planning 是什么？ |
 | Tool Use | Core | Optional | Todo | Agent 怎么使用工具？ |
-| Workflow | Core | Optional | Todo | Workflow 是什么？ |
-| Workflow vs Agent | Core | Main | Todo | Workflow 和 Agent 有什么区别？ |
+| Workflow | Core | Optional | Done | Workflow 是什么？ |
+| Workflow vs Agent | Core | Main | Done | Workflow 和 Agent 有什么区别？ |
 | Copilot | Core | Optional | Todo | Copilot 和 Agent 有什么区别？ |
 | AI Embedded → Copilot → Agent | Core | Optional | Todo | AI 产品为什么越来越“自主”？ |
 | Multi-Agent | Advanced | Optional | Todo | 多 Agent 是什么？ |
@@ -203,8 +203,8 @@ Path（学习路径优先级）：
 
 | 内容 | 等级 | Path | 状态 | 主要问题 |
 |---|---|---|---|---|
-| RAG | Core | Main | Todo | RAG 是什么？ |
-| Knowledge Base | Core | Main | Todo | 知识库是什么？ |
+| RAG | Core | Main | Done | RAG 是什么？ |
+| Knowledge Base | Core | Main | Done | 知识库是什么？ |
 | Knowledge Base vs Vector DB | Core | Optional | Todo | 知识库就是向量数据库吗？ |
 | Embedding | Core | Main | Todo | Embedding 是什么？ |
 | Vector | Core | Optional | Todo | Vector 为什么能表达语义？ |
@@ -511,6 +511,9 @@ Path（学习路径优先级）：
 | 25 | Agent 是什么 | Core | Main | Done | `docs/07-agent/01-what-is-agent.md` |
 | 26 | Model 和 Agent 有什么区别 | Core | Main | Done | `docs/07-agent/02-model-vs-agent.md` |
 | 27 | Agent Loop 是什么 | Core | Main | Done | `docs/07-agent/03-agent-loop.md` |
+| 28 | Workflow 和 Agent 有什么区别 | Core | Main | Done | `docs/07-agent/05-workflow-vs-agent.md` |
+| 29 | RAG 是什么 | Core | Main | Done | `docs/08-rag/01-what-is-rag.md` |
+| 30 | Knowledge Base 是什么 | Core | Main | Done | `docs/08-rag/02-knowledge-base.md` |
 
 ---
 

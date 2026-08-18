@@ -95,6 +95,9 @@ Review 中修复：
 | 25 | [Agent 是什么](./docs/07-agent/01-what-is-agent.md) | Core | Done |
 | 26 | [Model 和 Agent 有什么区别](./docs/07-agent/02-model-vs-agent.md) | Core | Done |
 | 27 | [Agent Loop 是什么](./docs/07-agent/03-agent-loop.md) | Core | Done |
+| 28 | [Workflow 和 Agent 有什么区别](./docs/07-agent/05-workflow-vs-agent.md) | Core | Done |
+| 29 | [RAG 是什么](./docs/08-rag/01-what-is-rag.md) | Core | Done |
+| 30 | [Knowledge Base 是什么](./docs/08-rag/02-knowledge-base.md) | Core | Done |
 
 ## 本批 Research
 
@@ -166,7 +169,7 @@ Review 中修复：
 
 ## 正在进行
 
-- 无。Batch 9 Review 已完成，提交并推送后自动进入 Batch 10。
+- 无。Batch 10 Review 已完成，提交并推送后自动进入 Batch 11。
 
 ## Batch 3：参数量与数据、Token、Context
 
@@ -354,12 +357,38 @@ Review 中修复：
 - 新增正文后删除 `docs/07-agent/` 中失去作用的 `.gitkeep`，并把 Function Calling 的下一篇接入 Agent。
 - 4 个新外部来源与全部发布用 Markdown 相对链接检查通过。
 
+## Batch 10：Workflow vs Agent、RAG、Knowledge Base
+
+完成：
+
+- Workflow 和 Agent 有什么区别
+- RAG 是什么
+- Knowledge Base 是什么
+
+Review：
+
+- Accuracy: PASS
+- Beginner: PASS
+- Architecture: PASS
+- Terminology: PASS
+- Duplication: PASS
+- Source: PASS
+- Link: PASS
+
+Review 中修复：
+
+- Workflow 与 Agent 按“主要控制路径由程序预先定义，还是由模型根据状态动态选择”区分，并明确两者可以组合。
+- RAG 定义为检索增强生成流程，不依赖 Agent，也不等于 Function Calling、Fine-tuning 或 Vector Database。
+- Knowledge Base 保留原始资料、元数据、权限、版本和索引等管理边界，不把知识库简化成文件夹或向量数据库。
+- 新增正文后删除 `docs/08-rag/` 中失去作用的 `.gitkeep`，并把 Agent Loop 接入 Workflow vs Agent。
+- 6 个新外部来源与全部发布用 Markdown 相对链接检查通过。
+
 ## 下一批任务
 
 下一批最多处理 1～3 篇，建议按顺序：
 
-1. Workflow 和 Agent 有什么区别
-2. RAG 是什么
-3. Knowledge Base 是什么
+1. Embedding 是什么
+2. Vector Database 是什么
+3. Retrieval 是什么
 
 开始前仍须逐篇执行 Research → Draft → Fact Check → Concept Check → Beginner Check → Dependency Check → Link Check。

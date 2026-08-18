@@ -149,7 +149,7 @@ Agent Loop 是 Agent 能连续做事的核心，也是许多风险出现的位�
 ## 继续学习
 
 - [上一篇：Model 和 Agent 有什么区别](./02-model-vs-agent.md)
-- 下一篇（待完成）：Workflow 和 Agent 有什么区别？
+- [下一篇：Workflow 和 Agent 有什么区别](./05-workflow-vs-agent.md)
 - [相关：Function Calling 是什么](../06-tools/03-function-calling.md)
 
 ## 资料与核验

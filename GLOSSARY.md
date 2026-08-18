@@ -144,6 +144,16 @@
 
 主页面：[Training 和 Inference 有什么区别](./docs/03-how-models-work/18-training-vs-inference.md)
 
+## K
+
+### Knowledge Base
+
+中文：知识库
+
+一句话：为了查询、回答或完成任务而组织和管理的一组资料及其元数据、权限和版本边界。
+
+主页面：[Knowledge Base 是什么](./docs/08-rag/02-knowledge-base.md)
+
 ## L
 
 ### Language Model
@@ -207,6 +217,14 @@
 主页面：[Prompt 是什么](./docs/02-chat-and-context/01-prompt.md)
 
 ## R
+
+### RAG
+
+中文：检索增强生成
+
+一句话：先检索外部资料，再把相关内容放入 Context 供模型生成回答的流程。
+
+主页面：[RAG 是什么](./docs/08-rag/01-what-is-rag.md)
 
 ### Reasoning
 
@@ -275,3 +293,13 @@
 一句话：把可检查的主张拆开，并用独立证据或可重复方法逐项核对。
 
 主页面：[怎么验证 AI 的回答](./docs/05-limitations/04-verification.md)
+
+## W
+
+### Workflow
+
+中文：工作流
+
+一句话：主要步骤和分支由程序预先规定、按明确路径协调任务的自动化方式。
+
+主页面：[Workflow 和 Agent 有什么区别](./docs/07-agent/05-workflow-vs-agent.md)
