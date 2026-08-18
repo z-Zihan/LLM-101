@@ -27,7 +27,7 @@ questions:
     difficulty: beginner
     priority: high
     status: answered
-    answer_path: "docs/01-AI与大模型/03-模型到底是什么.md"
+    answer_path: "docs/03-模型原理与训练/07-参数量和训练数据有什么区别.md"
     cluster: parameter-vs-training-data
 
   - id: q-parameter-capacity-001
@@ -152,7 +152,7 @@ questions:
     concepts: ["token", "transformer", "attention", "inference"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/03-模型原理与训练/18-训练和推理有什么区别.md"
     cluster: token-generation
 
@@ -166,7 +166,7 @@ questions:
     concepts: ["parameter", "training-data", "training", "generalization"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/03-模型原理与训练/07-参数量和训练数据有什么区别.md"
     cluster: compute-optimal-training
 
@@ -180,7 +180,7 @@ questions:
     concepts: ["parameter", "model-lifecycle", "training"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/03-模型原理与训练/18-训练和推理有什么区别.md"
     cluster: training-loop
 
@@ -208,8 +208,8 @@ questions:
     concepts: ["training", "inference"]
     difficulty: beginner
     priority: medium
-    status: planned
-    answer_path: null
+    status: answered
+    answer_path: "docs/03-模型原理与训练/18-训练和推理有什么区别.md"
     cluster: compute-and-memory
 
   - id: q-reproducibility-001
@@ -404,7 +404,7 @@ questions:
     concepts: ["parameter", "training-data", "training", "generalization"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/03-模型原理与训练/07-参数量和训练数据有什么区别.md"
     cluster: compute-optimal-training
 
