@@ -206,12 +206,12 @@ Path（学习路径优先级）：
 | RAG | Core | Main | Done | RAG 是什么？ |
 | Knowledge Base | Core | Main | Done | 知识库是什么？ |
 | Knowledge Base vs Vector DB | Core | Optional | Todo | 知识库就是向量数据库吗？ |
-| Embedding | Core | Main | Todo | Embedding 是什么？ |
+| Embedding | Core | Main | Done | Embedding 是什么？ |
 | Vector | Core | Optional | Todo | Vector 为什么能表达语义？ |
 | Semantic Similarity | Core | Optional | Todo | “意思像不像”是怎么算的？ |
-| Vector Database | Core | Main | Todo | 向量数据库是干什么的？ |
+| Vector Database | Core | Main | Done | 向量数据库是干什么的？ |
 | Chunk | Core | Optional | Todo | 为什么文档要切片？ |
-| Retrieval | Core | Main | Todo | Retrieval 是怎么找到相关资料的？ |
+| Retrieval | Core | Main | Done | Retrieval 是怎么找到相关资料的？ |
 | Rerank | Advanced | Optional | Todo | 为什么召回后还要重排？ |
 | Knowledge Graph | Advanced | Optional | Todo | 知识图谱和向量库有什么区别？ |
 | RAG vs Fine-tuning | Core | Main | Todo | RAG 和微调怎么选？ |
@@ -514,6 +514,9 @@ Path（学习路径优先级）：
 | 28 | Workflow 和 Agent 有什么区别 | Core | Main | Done | `docs/07-agent/05-workflow-vs-agent.md` |
 | 29 | RAG 是什么 | Core | Main | Done | `docs/08-rag/01-what-is-rag.md` |
 | 30 | Knowledge Base 是什么 | Core | Main | Done | `docs/08-rag/02-knowledge-base.md` |
+| 31 | Embedding 是什么 | Core | Main | Done | `docs/08-rag/03-embedding.md` |
+| 32 | Vector Database 是什么 | Core | Main | Done | `docs/08-rag/05-vector-database.md` |
+| 33 | Retrieval 是什么 | Core | Main | Done | `docs/08-rag/08-retrieval.md` |
 
 ---
 

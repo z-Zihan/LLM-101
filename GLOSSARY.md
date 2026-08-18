@@ -96,6 +96,16 @@
 
 主页面：[AI、ML、DL 到底什么关系](./docs/01-ai-and-llm/02-ai-ml-dl.md)
 
+## E
+
+### Embedding
+
+中文：嵌入表示
+
+一句话：模型把对象转换成可比较的数值向量表示，以支持相似性计算和检索。
+
+主页面：[Embedding 是什么](./docs/08-rag/03-embedding.md)
+
 ## F
 
 ### Function Calling
@@ -234,6 +244,14 @@
 
 主页面：[Reasoning（推理能力）是什么](./docs/04-capabilities/03-reasoning.md)
 
+### Retrieval
+
+中文：检索
+
+一句话：根据查询从候选集合中召回并排序可能相关内容的过程。
+
+主页面：[Retrieval 是什么](./docs/08-rag/08-retrieval.md)
+
 ## T
 
 ### Tool
@@ -285,6 +303,14 @@
 主页面：[Transformer 是什么](./docs/03-how-models-work/03-transformer.md)
 
 ## V
+
+### Vector Database
+
+中文：向量数据库
+
+一句话：面向向量保存、索引、元数据过滤和相似性检索设计的数据库系统。
+
+主页面：[Vector Database 是什么](./docs/08-rag/05-vector-database.md)
 
 ### Verification
 

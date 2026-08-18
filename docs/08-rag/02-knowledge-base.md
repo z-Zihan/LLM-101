@@ -149,7 +149,7 @@ Knowledge Base
 ## 继续学习
 
 - [上一篇：RAG 是什么](./01-what-is-rag.md)
-- 下一篇（待完成）：Embedding 是什么？
+- [下一篇：Embedding 是什么](./03-embedding.md)
 - [相关：为什么 LLM 不是数据库](../05-limitations/02-llm-is-not-database.md)
 
 ## 资料与核验

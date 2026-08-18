@@ -580,7 +580,7 @@ Coding Agent / Computer Use
 
 # 项目状态
 
-当前：**Main Path 30 篇已完成并通过批次 Review**
+当前：**Main Path 33 篇已完成并通过批次 Review**
 
 当前已完成的 Main Path：
 
@@ -614,10 +614,13 @@ Coding Agent / Computer Use
 28. [Workflow 和 Agent 有什么区别](./docs/07-agent/05-workflow-vs-agent.md)（Done）
 29. [RAG 是什么](./docs/08-rag/01-what-is-rag.md)（Done）
 30. [Knowledge Base 是什么](./docs/08-rag/02-knowledge-base.md)（Done）
+31. [Embedding 是什么](./docs/08-rag/03-embedding.md)（Done）
+32. [Vector Database 是什么](./docs/08-rag/05-vector-database.md)（Done）
+33. [Retrieval 是什么](./docs/08-rag/08-retrieval.md)（Done）
 
 完整内容地图见 [`CONTENT_MAP.md`](./CONTENT_MAP.md)。
 
-下一批继续完成 Embedding、Vector Database 与 Retrieval。
+下一批继续完成 RAG vs Fine-tuning、RAG Limitations，并进入 MCP。
 
 ---
 

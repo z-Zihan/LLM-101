@@ -98,6 +98,9 @@ Review 中修复：
 | 28 | [Workflow 和 Agent 有什么区别](./docs/07-agent/05-workflow-vs-agent.md) | Core | Done |
 | 29 | [RAG 是什么](./docs/08-rag/01-what-is-rag.md) | Core | Done |
 | 30 | [Knowledge Base 是什么](./docs/08-rag/02-knowledge-base.md) | Core | Done |
+| 31 | [Embedding 是什么](./docs/08-rag/03-embedding.md) | Core | Done |
+| 32 | [Vector Database 是什么](./docs/08-rag/05-vector-database.md) | Core | Done |
+| 33 | [Retrieval 是什么](./docs/08-rag/08-retrieval.md) | Core | Done |
 
 ## 本批 Research
 
@@ -169,7 +172,7 @@ Review 中修复：
 
 ## 正在进行
 
-- 无。Batch 10 Review 已完成，提交并推送后自动进入 Batch 11。
+- 无。Batch 11 Review 已完成，提交并推送后自动进入 Batch 12。
 
 ## Batch 3：参数量与数据、Token、Context
 
@@ -383,12 +386,38 @@ Review 中修复：
 - 新增正文后删除 `docs/08-rag/` 中失去作用的 `.gitkeep`，并把 Agent Loop 接入 Workflow vs Agent。
 - 6 个新外部来源与全部发布用 Markdown 相对链接检查通过。
 
+## Batch 11：Embedding、Vector Database、Retrieval
+
+完成：
+
+- Embedding 是什么
+- Vector Database 是什么
+- Retrieval 是什么
+
+Review：
+
+- Accuracy: PASS
+- Beginner: PASS
+- Architecture: PASS
+- Terminology: PASS
+- Duplication: PASS
+- Source: PASS
+- Link: PASS
+
+Review 中修复：
+
+- Embedding 明确为特定模型和训练目标下的向量表示，不把单个维度解释成人类概念，也不允许不同模型向量直接混用。
+- Vector Database 区分精确与近似最近邻，说明速度、内存和召回率权衡，并保留原文、ID、元数据和权限边界。
+- Retrieval 区分关键词、Dense 与 Hybrid，解释 top-k、Recall、Precision、Rerank，并强调召回候选不等于生成答案。
+- Knowledge Base 的下一篇接入 Embedding，三篇内部导航形成连续 Main Path。
+- 6 个论文来源与全部发布用 Markdown 相对链接检查通过。
+
 ## 下一批任务
 
 下一批最多处理 1～3 篇，建议按顺序：
 
-1. Embedding 是什么
-2. Vector Database 是什么
-3. Retrieval 是什么
+1. RAG 和 Fine-tuning 有什么区别
+2. RAG 有哪些局限
+3. MCP 是什么
 
 开始前仍须逐篇执行 Research → Draft → Fact Check → Concept Check → Beginner Check → Dependency Check → Link Check。
