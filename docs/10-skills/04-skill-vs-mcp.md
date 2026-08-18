@@ -87,7 +87,7 @@ Server 的 Tool 描述帮助调用能力，不等于完整组织规范和多步�
 ## 继续学习
 
 - [上一篇：Tool 和 Skill 有什么区别](./03-skill-vs-tool.md)
-- 下一篇（待完成）：Agent 和 Skill 有什么区别？
+- [下一篇：Agent 和 Skill 有什么区别](./05-skill-vs-agent.md)
 
 ## 资料与核验
 

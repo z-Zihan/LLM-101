@@ -580,7 +580,7 @@ Coding Agent / Computer Use
 
 # 项目状态
 
-当前：**Main Path 45 篇已完成并通过批次 Review**
+当前：**Main Path 48 篇已完成并通过批次 Review**
 
 当前已完成的 Main Path：
 
@@ -629,10 +629,13 @@ Coding Agent / Computer Use
 43. [Prompt 和 Skill 有什么区别](./docs/10-skills/02-skill-vs-prompt.md)（Done）
 44. [Tool 和 Skill 有什么区别](./docs/10-skills/03-skill-vs-tool.md)（Done）
 45. [MCP 和 Skill 有什么区别](./docs/10-skills/04-skill-vs-mcp.md)（Done）
+46. [Agent 和 Skill 有什么区别](./docs/10-skills/05-skill-vs-agent.md)（Done）
+47. [AI Coding 是什么](./docs/11-coding-agent/01-ai-coding.md)（Done）
+48. [Coding Agent 是什么](./docs/11-coding-agent/04-coding-agent.md)（Done）
 
 完整内容地图见 [`CONTENT_MAP.md`](./CONTENT_MAP.md)。
 
-下一批继续完成 Agent vs Skill，并进入 AI Coding 与 Coding Agent。
+下一批继续完成 Project Context、Context Engineering 与 Conversation History。
 
 ---
 

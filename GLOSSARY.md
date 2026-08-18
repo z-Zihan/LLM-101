@@ -20,6 +20,14 @@
 
 主页面：[Agent Loop 是什么](./docs/07-agent/03-agent-loop.md)
 
+### AI Coding
+
+中文：AI 辅助编程
+
+一句话：把模型用于代码补全、解释、生成、测试、Review 与多步开发任务的广泛应用类别。
+
+主页面：[AI Coding 是什么](./docs/11-coding-agent/01-ai-coding.md)
+
 ### API
 
 中文：应用程序编程接口
@@ -61,6 +69,14 @@
 一句话：OpenAI 面向用户提供、组合模型与其他系统能力的 AI 产品服务。
 
 主页面：[GPT 和 ChatGPT 有什么区别](./docs/01-ai-and-llm/05-gpt-vs-chatgpt.md)
+
+### Coding Agent
+
+中文：编程智能体
+
+一句话：组合项目 Context、开发工具和 Agent Loop，能够跨文件修改并验证软件任务的系统。
+
+主页面：[Coding Agent 是什么](./docs/11-coding-agent/04-coding-agent.md)
 
 ### Context
 

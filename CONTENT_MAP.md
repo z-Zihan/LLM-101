@@ -244,7 +244,7 @@ Path（学习路径优先级）：
 | Prompt vs Skill | Core | Main | Done | Skill 只是一个长 Prompt 吗？ |
 | Tool vs Skill | Core | Main | Done | Skill 和 Tool 有什么区别？ |
 | MCP vs Skill | Core | Main | Done | MCP 和 Skill 是什么关系？ |
-| Agent vs Skill | Core | Main | Todo | Agent 为什么需要 Skill？ |
+| Agent vs Skill | Core | Main | Done | Agent 为什么需要 Skill？ |
 
 ---
 
@@ -252,10 +252,10 @@ Path（学习路径优先级）：
 
 | 内容 | 等级 | Path | 状态 | 主要问题 |
 |---|---|---|---|---|
-| AI Coding | Core | Main | Todo | AI Coding 是什么？ |
+| AI Coding | Core | Main | Done | AI Coding 是什么？ |
 | Code Completion | Core | Optional | Todo | 自动补全和 Agent 差在哪？ |
 | Copilot | Core | Optional | Todo | Coding Copilot 是什么？ |
-| Coding Agent | Core | Main | Todo | Coding Agent 为什么能修改整个项目？ |
+| Coding Agent | Core | Main | Done | Coding Agent 为什么能修改整个项目？ |
 | IDE | Core | Optional | Todo | IDE 在 AI Coding 里是什么角色？ |
 | Terminal | Core | Optional | Todo | 为什么 Agent 需要终端？ |
 | Shell / Command | Advanced | Optional | Todo | Shell 和命令是什么？ |
@@ -529,6 +529,9 @@ Path（学习路径优先级）：
 | 43 | Prompt 和 Skill 有什么区别 | Core | Main | Done | `docs/10-skills/02-skill-vs-prompt.md` |
 | 44 | Tool 和 Skill 有什么区别 | Core | Main | Done | `docs/10-skills/03-skill-vs-tool.md` |
 | 45 | MCP 和 Skill 有什么区别 | Core | Main | Done | `docs/10-skills/04-skill-vs-mcp.md` |
+| 46 | Agent 和 Skill 有什么区别 | Core | Main | Done | `docs/10-skills/05-skill-vs-agent.md` |
+| 47 | AI Coding 是什么 | Core | Main | Done | `docs/11-coding-agent/01-ai-coding.md` |
+| 48 | Coding Agent 是什么 | Core | Main | Done | `docs/11-coding-agent/04-coding-agent.md` |
 
 ---
 
