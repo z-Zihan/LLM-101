@@ -238,7 +238,7 @@ AI：希望机器完成智能任务
 ## 继续学习
 
 - [上一篇：AI、ML、DL 到底什么关系](./02-ai-ml-dl.md)
-- 下一篇（待完成）：什么是大语言模型 LLM
+- [下一篇：什么是大语言模型 LLM](./04-what-is-llm.md)
 - [术语表](../../GLOSSARY.md)
 - [真实小白问题池](../../faq/beginner-questions.md)
 

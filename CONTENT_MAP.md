@@ -53,9 +53,9 @@ Path（学习路径优先级）：
 | Computer Vision | Advanced | Optional | Todo | CV 和 NLP 是什么关系？ |
 | Foundation Model | Core | Optional | Todo | 什么叫“基础模型 / 底座模型”？ |
 | Language Model | Core | Main | Todo | 语言模型到底在建模什么？ |
-| LLM | Core | Main | Todo | Large 到底“大”在哪里？ |
-| GPT | Core | Main | Todo | GPT 是产品还是模型？ |
-| Model / API / Product / Company | Core | Main | Todo | GPT、ChatGPT、OpenAI 为什么不能混为一谈？ |
+| LLM | Core | Main | Done | Large 到底“大”在哪里？ |
+| GPT | Core | Main | Done | GPT 是产品还是模型？ |
+| Model / API / Product / Company | Core | Main | Done | GPT、ChatGPT、OpenAI 为什么不能混为一谈？ |
 
 ---
 
@@ -95,7 +95,7 @@ Path（学习路径优先级）：
 | Attention | Core | Main | Todo | Attention 到底在做什么？ |
 | Self-Attention | Advanced | Optional | Todo | Self-Attention 是什么？ |
 | FFN | Advanced | Optional | Todo | Transformer 一层里除了 Attention 还有什么？ |
-| Parameter | Core | Main | Todo | 参数到底是什么？ |
+| Parameter | Core | Main | Done | 参数到底是什么？ |
 | Parameter Count | Core | Main | Todo | 1.5B / 7B / 70B 表示什么？ |
 | 参数量来源 | Core | Main | Todo | 参数量是工程师直接填进去的吗？ |
 | Training Data | Core | Main | Todo | 参数量就是训练数据吗？ |
@@ -487,9 +487,9 @@ Path（学习路径优先级）：
 | 01 | AI 是什么 | Core | Main | Done | `docs/01-ai-and-llm/01-what-is-ai.md` |
 | 02 | AI、ML、DL 到底什么关系 | Core | Main | Done | `docs/01-ai-and-llm/02-ai-ml-dl.md` |
 | 03 | 什么是模型 | Core | Main | Done | `docs/01-ai-and-llm/03-what-is-model.md` |
-| 04 | 什么是大语言模型 LLM | Core | Main | Todo | `docs/01-ai-and-llm/04-what-is-llm.md` |
-| 05 | GPT 和 ChatGPT 有什么区别 | Core | Main | Todo | `docs/01-ai-and-llm/05-gpt-vs-chatgpt.md` |
-| 06 | 参数到底是什么 | Core | Main | Todo | `docs/03-how-models-work/06-parameter.md` |
+| 04 | 什么是大语言模型 LLM | Core | Main | Done | `docs/01-ai-and-llm/04-what-is-llm.md` |
+| 05 | GPT 和 ChatGPT 有什么区别 | Core | Main | Done | `docs/01-ai-and-llm/05-gpt-vs-chatgpt.md` |
+| 06 | 参数到底是什么 | Core | Main | Done | `docs/03-how-models-work/06-parameter.md` |
 | 07 | 参数量和训练数据有什么区别 | Core | Main | Todo | `docs/03-how-models-work/07-parameter-vs-training-data.md` |
 | 08 | Token 是什么 | Core | Main | Todo | `docs/02-chat-and-context/04-token.md` |
 | 09 | Context / Context Window 是什么 | Core | Main | Todo | `docs/02-chat-and-context/07-context.md` |

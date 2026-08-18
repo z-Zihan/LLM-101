@@ -6,7 +6,7 @@
 
 # {概念名} 是什么？
 
-> Level: `Core / Advanced / Appendix`
+> Level: `Core / Advanced / Appendix` · Path: `Main / Optional`
 
 ## 一个小白真的会怎么问？
 

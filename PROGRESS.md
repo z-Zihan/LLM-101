@@ -71,6 +71,9 @@ Review 中修复：
 | 01 | [AI 是什么](./docs/01-ai-and-llm/01-what-is-ai.md) | Core | Done |
 | 02 | [AI、ML、DL 到底什么关系](./docs/01-ai-and-llm/02-ai-ml-dl.md) | Core | Done |
 | 03 | [什么是模型](./docs/01-ai-and-llm/03-what-is-model.md) | Core | Done |
+| 04 | [什么是大语言模型 LLM](./docs/01-ai-and-llm/04-what-is-llm.md) | Core | Done |
+| 05 | [GPT 和 ChatGPT 有什么区别](./docs/01-ai-and-llm/05-gpt-vs-chatgpt.md) | Core | Done |
+| 06 | [参数到底是什么](./docs/03-how-models-work/06-parameter.md) | Core | Done |
 
 ## 本批 Research
 
@@ -115,6 +118,31 @@ Review 中修复：
 - 通过。前三篇上一页 / 下一页链接、Glossary、README 和 Progress 链接均指向现有文件。
 - 模板中的 `XXX` 示例链接属于占位示例，不计为项目死链。
 
+## Batch 2：LLM、GPT / ChatGPT、参数
+
+完成：
+
+- 什么是大语言模型 LLM
+- GPT 和 ChatGPT 有什么区别
+- 参数到底是什么
+
+Review：
+
+- Accuracy: PASS
+- Beginner: PASS
+- Architecture: PASS
+- Terminology: PASS
+- Duplication: PASS
+- Source: PASS
+- Link: PASS
+
+Review 中修复：
+
+- Parameter 初稿首次出现 Checkpoint 和 Tokenizer 时解释不足，已补充最小定义。
+- Glossary 新增词条后字母分组顺序混乱，已按 A–P 重排。
+- 上一批“模型”文章的待完成文本已替换为可用的 LLM 正文链接；Parameter 的下一篇尚未完成，保留为非链接文本，避免死链。
+- OpenAI 官方网页对命令行请求返回访问限制；历史 GPT 事实同时使用可访问的 OpenAI 官方论文，产品页仅支持 ChatGPT 首发事实，不扩写当前套餐和功能。
+
 ## 正在进行
 
 - 无。按照 Master Prompt，前三篇完成 Review 后在此批停止。
@@ -129,8 +157,8 @@ Review 中修复：
 
 下一批最多处理 1～3 篇，建议按顺序：
 
-1. 什么是大语言模型 LLM
-2. GPT 和 ChatGPT 有什么区别
-3. 参数到底是什么
+1. 参数量和训练数据有什么区别
+2. Token 是什么
+3. Context / Context Window 是什么
 
 开始前仍须逐篇执行 Research → Draft → Fact Check → Concept Check → Beginner Check → Dependency Check → Link Check。

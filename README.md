@@ -580,16 +580,16 @@ Coding Agent / Computer Use
 
 # 项目状态
 
-当前：**v0.1 第一批 Core 已完成并通过批次 Review**
+当前：**v0.1 前两批 Main Core 已完成并通过批次 Review**
 
 第一批优先完成：
 
 1. [AI 是什么](./docs/01-ai-and-llm/01-what-is-ai.md)（Done）
 2. [AI、ML、DL 到底什么关系](./docs/01-ai-and-llm/02-ai-ml-dl.md)（Done）
 3. [什么是模型](./docs/01-ai-and-llm/03-what-is-model.md)（Done）
-4. 什么是 LLM
-5. GPT 和 ChatGPT 有什么区别
-6. 参数到底是什么
+4. [什么是 LLM](./docs/01-ai-and-llm/04-what-is-llm.md)（Done）
+5. [GPT 和 ChatGPT 有什么区别](./docs/01-ai-and-llm/05-gpt-vs-chatgpt.md)（Done）
+6. [参数到底是什么](./docs/03-how-models-work/06-parameter.md)（Done）
 7. 参数量和训练数据有什么区别
 8. Token 是什么
 9. Context / Context Window 是什么
