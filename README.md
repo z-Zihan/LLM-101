@@ -6,7 +6,7 @@
 
 我们从真实小白会问的问题出发，沿着连续追问，一步一步建立完整心智模型。
 
-> 当前正在进行 V3 全量重构。已有 27 篇文章达到当前标准，其余 24 篇旧正文继续按每批最多 3 篇重写。
+> 当前正在进行 V3 全量重构。已有 30 篇文章达到当前标准，其余 21 篇旧正文继续按每批最多 3 篇重写。
 
 ## 你可以怎样使用这个项目？
 
@@ -94,6 +94,8 @@ AI 全景图
 20. [API 到底是什么？](./docs/06-工具与Function-Calling/01-API到底是什么.md)
 21. [AI 工具到底是什么？](./docs/06-工具与Function-Calling/02-AI工具到底是什么.md)
 22. [Agent 到底是什么？](./docs/07-Agent/01-Agent到底是什么.md)
+23. [RAG 到底是什么？](./docs/08-RAG与知识库/01-RAG到底是什么.md)
+24. [知识库是什么？](./docs/08-RAG与知识库/02-知识库是什么.md)
 
 已经完成的扩展节点：
 
@@ -102,6 +104,7 @@ AI 全景图
 - [Function Calling 是什么？](./docs/06-工具与Function-Calling/03-Function-Calling是什么.md)
 - [模型和 Agent 有什么区别？](./docs/07-Agent/02-模型和Agent有什么区别.md)
 - [Agent Loop 是什么？](./docs/07-Agent/03-Agent-Loop是什么.md)
+- [Workflow 和 Agent 有什么区别？](./docs/07-Agent/05-Workflow和Agent有什么区别.md)
 
 后续文章不再设置人工停点，按“研究 → 重写 → 真实问题与知识网络更新 → 15 项审查 → 自动检查 → 提交推送”的批次循环持续推进。
 

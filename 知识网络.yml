@@ -28,6 +28,7 @@ main_path:
   - tool
   - agent
   - rag
+  - knowledge-base
   - mcp
   - skill
   - coding-agent
@@ -402,6 +403,18 @@ concepts:
     related: ["embedding", "vector-database", "hallucination"]
     questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-hallucination-web-001"]
 
+  - id: knowledge-base
+    name: 知识库
+    path: docs/08-RAG与知识库/02-知识库是什么.md
+    aliases: ["Knowledge Base", "知识库"]
+    level: Core
+    path_type: Main
+    group: RAG与知识
+    summary: 为查询和任务组织、治理的一组原文、记录、元数据、权限、版本与检索入口。
+    prerequisites: ["database-boundary"]
+    related: ["rag", "embedding", "vector-database"]
+    questions: ["q-rag-001", "q-vector-store-web-001"]
+
   - id: embedding
     name: 向量表示
     path: docs/08-RAG与知识库/03-Embedding是什么.md
@@ -577,6 +590,12 @@ relations:
   - from: rag
     relation: 可以使用
     to: embedding
+  - from: rag
+    relation: 检索
+    to: knowledge-base
+  - from: knowledge-base
+    relation: 可以建立
+    to: vector-database
   - from: vector-database
     relation: 存储和检索
     to: embedding
