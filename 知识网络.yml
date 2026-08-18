@@ -1,0 +1,522 @@
+version: 2
+updated: "2026-08-18"
+
+main_path:
+  - ai
+  - machine-learning
+  - deep-learning
+  - model
+  - language-model
+  - llm
+  - parameter
+  - prompt
+  - token
+  - context
+  - model-lifecycle
+  - training
+  - inference
+  - transformer
+  - generalization
+  - reasoning
+  - hallucination
+  - verification
+  - api
+  - tool
+  - agent
+  - rag
+  - mcp
+  - skill
+  - coding-agent
+  - conversation-history
+
+extended_path:
+  - training-data
+  - context-window
+  - attention
+  - function-calling
+  - embedding
+  - vector-database
+
+concepts:
+  - id: ai
+    name: 人工智能
+    path: docs/01-AI与大模型/01-AI到底是什么.md
+    aliases: ["AI", "Artificial Intelligence", "人工智能"]
+    level: Core
+    path_type: Main
+    group: AI与模型
+    summary: 研究和构建围绕目标处理输入，并产生预测、内容、建议、决策或行动的机器系统的广泛领域。
+    prerequisites: []
+    related: ["machine-learning", "model", "agent"]
+
+  - id: machine-learning
+    name: 机器学习
+    path: docs/01-AI与大模型/02-AI机器学习和深度学习是什么关系.md
+    aliases: ["Machine Learning", "ML", "机器学习"]
+    level: Core
+    path_type: Main
+    group: AI与模型
+    summary: 让计算系统从数据中调整模型，而不是把每条判断规则都由人逐条写死的方法。
+    prerequisites: ["ai"]
+    related: ["deep-learning", "model", "training-data"]
+
+  - id: deep-learning
+    name: 深度学习
+    path: docs/01-AI与大模型/02-AI机器学习和深度学习是什么关系.md
+    aliases: ["Deep Learning", "DL", "深度学习"]
+    level: Core
+    path_type: Main
+    group: AI与模型
+    summary: 主要使用多层神经网络从数据中学习表示的一类机器学习方法。
+    prerequisites: ["machine-learning"]
+    related: ["model", "transformer", "llm"]
+
+  - id: model
+    name: 模型
+    path: docs/01-AI与大模型/03-模型到底是什么.md
+    aliases: ["Model", "机器学习模型", "模型"]
+    level: Core
+    path_type: Main
+    group: AI与模型
+    summary: 经过训练后，用来把输入转换为预测、分数或生成结果的计算关系。
+    prerequisites: ["machine-learning"]
+    related: ["parameter", "training", "inference", "llm"]
+
+  - id: language-model
+    name: 语言模型
+    path: docs/01-AI与大模型/04-什么是大语言模型.md
+    aliases: ["Language Model", "LM", "语言模型"]
+    level: Core
+    path_type: Main
+    group: AI与模型
+    summary: 对语言序列及其中 Token 的可能性进行建模的模型。
+    prerequisites: ["model"]
+    related: ["llm", "token", "inference"]
+
+  - id: llm
+    name: 大语言模型
+    path: docs/01-AI与大模型/04-什么是大语言模型.md
+    aliases: ["Large Language Model", "LLM", "大语言模型"]
+    level: Core
+    path_type: Main
+    group: AI与模型
+    summary: 在大量数据和计算资源上训练、能够处理和生成语言的大规模语言模型。
+    prerequisites: ["language-model", "deep-learning"]
+    related: ["transformer", "prompt", "context", "hallucination"]
+
+  - id: parameter
+    name: 参数
+    path: docs/03-模型原理与训练/06-参数到底是什么.md
+    aliases: ["Parameter", "Parameters", "参数", "权重"]
+    level: Core
+    path_type: Main
+    group: 模型训练
+    summary: 训练过程会调整、推理过程会使用的模型内部数值。
+    prerequisites: ["model"]
+    related: ["training", "training-data", "inference"]
+
+  - id: training-data
+    name: 训练数据
+    path: docs/03-模型原理与训练/07-参数量和训练数据有什么区别.md
+    aliases: ["Training Data", "训练数据"]
+    level: Core
+    path_type: Extended
+    group: 模型训练
+    summary: 训练时用来计算目标和调整模型参数的数据。
+    prerequisites: ["machine-learning", "model"]
+    related: ["parameter", "training"]
+
+  - id: prompt
+    name: 提示
+    path: docs/02-聊天Token与上下文/01-Prompt到底是什么.md
+    aliases: ["Prompt", "提示", "提示词"]
+    level: Core
+    path_type: Main
+    group: 推理与Token
+    summary: 用户或系统提供给模型、用来表达任务和约束的输入内容。
+    prerequisites: ["llm"]
+    related: ["context", "token", "inference"]
+
+  - id: token
+    name: Token
+    path: docs/02-聊天Token与上下文/04-Token到底是什么.md
+    aliases: ["Token", "token", "词元"]
+    level: Core
+    path_type: Main
+    group: 推理与Token
+    summary: 模型编码和生成文本时处理的离散单位，不固定等于一个字或一个单词。
+    prerequisites: ["llm"]
+    related: ["context", "context-window", "inference"]
+
+  - id: context
+    name: 上下文
+    path: docs/02-聊天Token与上下文/07-上下文和上下文窗口是什么.md
+    aliases: ["Context", "上下文"]
+    level: Core
+    path_type: Main
+    group: 推理与Token
+    summary: 当前一次计算中，模型实际可以使用的信息。
+    prerequisites: ["prompt", "token"]
+    related: ["context-window", "inference", "rag", "conversation-history"]
+
+  - id: context-window
+    name: 上下文窗口
+    path: docs/02-聊天Token与上下文/07-上下文和上下文窗口是什么.md
+    aliases: ["Context Window", "上下文窗口"]
+    level: Core
+    path_type: Extended
+    group: 推理与Token
+    summary: 模型一次处理输入和输出时可容纳内容的容量边界。
+    prerequisites: ["context", "token"]
+    related: ["inference", "conversation-history"]
+
+  - id: model-lifecycle
+    name: 模型生命周期
+    path: docs/03-模型原理与训练/01-一个大模型到底是怎么诞生的.md
+    aliases: ["Model Lifecycle", "模型生命周期"]
+    level: Core
+    path_type: Main
+    group: 模型训练
+    summary: 从目标、数据、初始化和训练，到评估、部署和持续改进的完整过程。
+    prerequisites: ["model", "parameter"]
+    related: ["training", "inference", "training-data"]
+
+  - id: transformer
+    name: Transformer
+    path: docs/03-模型原理与训练/03-Transformer到底是什么.md
+    aliases: ["Transformer"]
+    level: Core
+    path_type: Main
+    group: 模型训练
+    summary: 以注意力等模块处理序列信息的一类神经网络架构。
+    prerequisites: ["model", "deep-learning"]
+    related: ["attention", "llm", "token"]
+
+  - id: attention
+    name: 注意力机制
+    path: docs/03-模型原理与训练/05-Attention到底是什么.md
+    aliases: ["Attention", "注意力", "注意力机制"]
+    level: Core
+    path_type: Extended
+    group: 模型训练
+    summary: 根据当前计算需要，为不同位置的信息分配不同影响权重的机制。
+    prerequisites: ["token", "transformer"]
+    related: ["context", "llm"]
+
+  - id: training
+    name: 训练
+    path: docs/03-模型原理与训练/18-训练和推理有什么区别.md
+    aliases: ["Training", "训练"]
+    level: Core
+    path_type: Main
+    group: 模型训练
+    summary: 利用数据和目标函数调整模型参数的过程。
+    prerequisites: ["model", "parameter", "training-data"]
+    related: ["inference", "model-lifecycle"]
+
+  - id: inference
+    name: 推理
+    path: docs/03-模型原理与训练/18-训练和推理有什么区别.md
+    aliases: ["Inference", "推理"]
+    level: Core
+    path_type: Main
+    group: 推理与Token
+    summary: 使用已经训练好的模型参数，根据当前输入计算输出的过程。
+    prerequisites: ["model", "parameter"]
+    related: ["training", "context", "token"]
+
+  - id: generalization
+    name: 泛化
+    path: docs/04-模型能力/01-泛化是什么.md
+    aliases: ["Generalization", "泛化"]
+    level: Core
+    path_type: Main
+    group: AI与模型
+    summary: 模型把训练中学到的规律用于未见过但相关情形的能力。
+    prerequisites: ["model", "training"]
+    related: ["reasoning", "hallucination"]
+
+  - id: reasoning
+    name: 推理能力
+    path: docs/04-模型能力/03-推理能力是什么.md
+    aliases: ["Reasoning", "推理能力"]
+    level: Core
+    path_type: Main
+    group: AI与模型
+    summary: 根据给定信息和规则经过中间步骤得到结论的任务能力。
+    prerequisites: ["model", "generalization"]
+    related: ["inference", "hallucination"]
+
+  - id: hallucination
+    name: 幻觉
+    path: docs/05-幻觉与模型局限/01-幻觉是什么.md
+    aliases: ["Hallucination", "幻觉"]
+    level: Core
+    path_type: Main
+    group: RAG与知识
+    summary: 模型生成了看似合理、实际上与事实或给定资料不一致的内容。
+    prerequisites: ["llm", "inference"]
+    related: ["verification", "rag"]
+
+  - id: verification
+    name: 验证
+    path: docs/05-幻觉与模型局限/04-怎么验证AI的回答.md
+    aliases: ["Verification", "验证", "核验"]
+    level: Core
+    path_type: Main
+    group: RAG与知识
+    summary: 用适合问题类型的证据检查 AI 输出，而不是只看表达是否自信。
+    prerequisites: ["hallucination"]
+    related: ["rag", "tool"]
+
+  - id: api
+    name: API
+    path: docs/06-工具与Function-Calling/01-API到底是什么.md
+    aliases: ["API", "Application Programming Interface", "应用程序接口"]
+    level: Core
+    path_type: Main
+    group: Tool与Agent
+    summary: 软件之间按照约定发送请求和接收结果的接口。
+    prerequisites: ["model"]
+    related: ["tool", "function-calling", "mcp"]
+
+  - id: tool
+    name: AI 工具
+    path: docs/06-工具与Function-Calling/02-AI工具到底是什么.md
+    aliases: ["Tool", "AI Tool", "工具"]
+    level: Core
+    path_type: Main
+    group: Tool与Agent
+    summary: AI 系统可以请求外部程序执行的受控能力。
+    prerequisites: ["api"]
+    related: ["function-calling", "agent", "mcp", "skill"]
+
+  - id: function-calling
+    name: 函数调用
+    path: docs/06-工具与Function-Calling/03-Function-Calling是什么.md
+    aliases: ["Function Calling", "函数调用"]
+    level: Core
+    path_type: Extended
+    group: Tool与Agent
+    summary: 模型按结构描述要调用的函数和参数，由外部程序验证并执行。
+    prerequisites: ["tool"]
+    related: ["api", "agent", "mcp"]
+
+  - id: agent
+    name: Agent
+    path: docs/07-Agent/01-Agent到底是什么.md
+    aliases: ["Agent", "智能体"]
+    level: Core
+    path_type: Main
+    group: Tool与Agent
+    summary: 围绕目标反复获取信息、选择行动、使用工具并根据结果继续推进的系统。
+    prerequisites: ["model", "tool"]
+    related: ["rag", "mcp", "skill", "coding-agent"]
+
+  - id: rag
+    name: RAG
+    path: docs/08-RAG与知识库/01-RAG到底是什么.md
+    aliases: ["RAG", "Retrieval-Augmented Generation", "检索增强生成"]
+    level: Core
+    path_type: Main
+    group: RAG与知识
+    summary: 在生成前检索外部资料，并把相关内容提供给模型作为上下文的方法。
+    prerequisites: ["llm", "context"]
+    related: ["embedding", "vector-database", "hallucination"]
+
+  - id: embedding
+    name: 向量表示
+    path: docs/08-RAG与知识库/03-Embedding是什么.md
+    aliases: ["Embedding", "嵌入", "向量表示"]
+    level: Core
+    path_type: Extended
+    group: RAG与知识
+    summary: 把对象转换为一组数值，使系统可以计算某些关系或相似性。
+    prerequisites: ["model"]
+    related: ["vector-database", "rag"]
+
+  - id: vector-database
+    name: 向量数据库
+    path: docs/08-RAG与知识库/05-向量数据库是什么.md
+    aliases: ["Vector Database", "Vector DB", "向量数据库"]
+    level: Core
+    path_type: Extended
+    group: RAG与知识
+    summary: 存储向量并支持按相似性检索的数据系统。
+    prerequisites: ["embedding"]
+    related: ["rag"]
+
+  - id: mcp
+    name: MCP
+    path: docs/09-MCP/01-MCP到底是什么.md
+    aliases: ["MCP", "Model Context Protocol", "模型上下文协议"]
+    level: Core
+    path_type: Main
+    group: MCP与Skill
+    summary: 让 AI 应用用统一方式发现和连接外部工具、资源与提示的开放协议。
+    prerequisites: ["api", "tool"]
+    related: ["agent", "skill"]
+
+  - id: skill
+    name: Skill
+    path: docs/10-Skill/01-Skill到底是什么.md
+    aliases: ["Skill", "Agent Skill", "技能包"]
+    level: Core
+    path_type: Main
+    group: MCP与Skill
+    summary: 面向 Agent 的可复用能力包，用文件组织说明、流程和所需资源。
+    prerequisites: ["agent", "tool"]
+    related: ["mcp", "coding-agent"]
+
+  - id: coding-agent
+    name: Coding Agent
+    path: docs/11-Coding-Agent/04-Coding-Agent是什么.md
+    aliases: ["Coding Agent", "编程 Agent"]
+    level: Core
+    path_type: Main
+    group: Coding Agent
+    summary: 能读取项目、修改文件、运行命令并验证结果的编程任务 Agent。
+    prerequisites: ["agent", "tool"]
+    related: ["skill", "conversation-history"]
+
+  - id: conversation-history
+    name: 聊天记录
+    path: docs/12-Memory/01-聊天记录是什么.md
+    aliases: ["Conversation History", "聊天记录", "对话历史"]
+    level: Core
+    path_type: Main
+    group: Memory
+    summary: 系统保存的一组历史消息；只有被重新选入上下文时才会影响当前回答。
+    prerequisites: ["context"]
+    related: ["context-window", "agent"]
+
+relations:
+  - from: machine-learning
+    relation: 属于
+    to: ai
+  - from: deep-learning
+    relation: 属于
+    to: machine-learning
+  - from: machine-learning
+    relation: 训练得到
+    to: model
+  - from: deep-learning
+    relation: 常用架构包括
+    to: transformer
+  - from: model
+    relation: 包含
+    to: parameter
+  - from: training-data
+    relation: 用于
+    to: training
+  - from: training
+    relation: 更新
+    to: parameter
+  - from: inference
+    relation: 使用
+    to: parameter
+  - from: model-lifecycle
+    relation: 包含
+    to: training
+  - from: model-lifecycle
+    relation: 包含
+    to: inference
+  - from: language-model
+    relation: 是一种
+    to: model
+  - from: llm
+    relation: 是大规模的
+    to: language-model
+  - from: llm
+    relation: 常采用
+    to: transformer
+  - from: transformer
+    relation: 使用
+    to: attention
+  - from: language-model
+    relation: 建模并生成
+    to: token
+  - from: prompt
+    relation: 进入
+    to: context
+  - from: context-window
+    relation: 限制
+    to: context
+  - from: context-window
+    relation: 通常用数量衡量
+    to: token
+  - from: inference
+    relation: 根据
+    to: context
+  - from: inference
+    relation: 逐步生成
+    to: token
+  - from: attention
+    relation: 处理上下文中的
+    to: token
+  - from: model
+    relation: 可能表现出
+    to: generalization
+  - from: generalization
+    relation: 支撑部分
+    to: reasoning
+  - from: llm
+    relation: 可能产生
+    to: hallucination
+  - from: verification
+    relation: 检查
+    to: hallucination
+  - from: rag
+    relation: 帮助缓解
+    to: hallucination
+  - from: rag
+    relation: 把检索结果加入
+    to: context
+  - from: rag
+    relation: 可以使用
+    to: embedding
+  - from: vector-database
+    relation: 存储和检索
+    to: embedding
+  - from: api
+    relation: 可以暴露
+    to: model
+  - from: tool
+    relation: 可以封装
+    to: api
+  - from: function-calling
+    relation: 描述如何请求
+    to: tool
+  - from: agent
+    relation: 使用
+    to: model
+  - from: agent
+    relation: 使用
+    to: tool
+  - from: agent
+    relation: 可以使用
+    to: rag
+  - from: mcp
+    relation: 标准化连接
+    to: tool
+  - from: agent
+    relation: 可以通过
+    to: mcp
+  - from: agent
+    relation: 可以使用
+    to: skill
+  - from: skill
+    relation: 可以描述如何使用
+    to: mcp
+  - from: skill
+    relation: 可以编排
+    to: tool
+  - from: coding-agent
+    relation: 是一种
+    to: agent
+  - from: coding-agent
+    relation: 可以加载
+    to: skill
+  - from: conversation-history
+    relation: 可被选入
+    to: context

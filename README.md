@@ -1,647 +1,194 @@
 # LLM-101
 
-> 从真实小白问题出发，用大白话建立完整的 AI / LLM 心智模型。
+完全不懂 AI？从这里开始。
 
-`LLM-101` 不是一份“大模型名词大全”，也不是一门要求数学、机器学习背景的课程。
+`LLM-101` 是一套面向中文零基础读者的 AI / 大语言模型教程。它不要求数学或编程背景，也不把一百多个名词扔给你自己拼。
 
-它希望解决的是另一件事：
+我们从真实小白会问的问题出发，沿着连续追问，一步一步建立完整心智模型。
 
-**让一个完全不懂 AI 的人，按照正确的认知顺序，真正搞清楚 AI、LLM、Token、Context、RAG、Agent、MCP、Skill、Coding Agent 等概念到底是什么，以及它们之间是什么关系。**
+> 当前正在进行 v2 全量重构。旧版文章保留作参考，但除前三篇 Style Checkpoint 外，统一标记为 `Needs Rewrite`。
 
----
+## 你可以怎样使用这个项目？
 
-## 为什么做这个项目？
+### 我是完全小白
 
-现在关于大模型的资料很多，但初学者常见的问题不是“资料太少”，而是：
+按主学习路线开始。第一站：[AI 到底是什么？](./docs/01-AI与大模型/01-AI到底是什么.md)
 
-- 每篇文章只解释一个名词，看完以后仍然不知道概念之间是什么关系。
-- 教程经常默认读者已经知道“模型、参数、训练、推理、上下文”等基础概念。
-- 很多内容为了好懂使用类比，但没有说明类比的边界。
-- AI 产品、模型、API、Agent、MCP 经常被混在一起讨论。
-- 技术更新很快，产品榜单和厂商参数容易过期，而底层概念其实更值得先学。
+主路线只保留“跳过后会明显影响后续理解”的概念，目标控制在 25～35 篇。
 
-`LLM-101` 的内容设计来自一批真实的小白追问，例如：
+### 我已经知道几个概念
+
+打开 [知识网络](./知识网络.md)，从“模型”“Token”“Agent”或“RAG”等任意节点开始探索。
+
+### 我脑子里刚好有一个问题
+
+打开 [小白问题库](./FAQ/小白问题库.md)。例如：
 
 - 参数量就是训练数据吗？
-- 1.5B 到底是什么意思？
-- 上下文窗口是什么？
-- 数据是“喂给模型”的，那被喂之前的模型从哪来？
-- 架构、层数、宽度到底是什么？
-- 参数最后长什么样？
-- 几个数字为什么会有“智能”？
-- GPU 到底在算什么？
-- RAG、Agent、MCP、Skill 到底是什么关系？
-- 如果两个公司训练条件完全一样，会训练出同一个模型吗？
+- 数据是喂给模型的，那模型在被喂之前从哪来？
+- Agent 和模型到底差在哪？
+- Skill、Tool、MCP、Agent 是什么关系？
 
-我们不照着提问顺序直接堆内容，而是把这些真实问题重新组织成一条从零开始的学习路径。
+### 我想系统学一个专题
 
----
+- [AI 与大模型](./docs/01-AI与大模型/)
+- [Token 与上下文](./docs/02-聊天Token与上下文/)
+- [模型原理与训练](./docs/03-模型原理与训练/)
+- [模型能力](./docs/04-模型能力/)
+- [幻觉与模型局限](./docs/05-幻觉与模型局限/)
+- [工具与函数调用](./docs/06-工具与Function-Calling/)
+- [Agent](./docs/07-Agent/)
+- [RAG 与知识库](./docs/08-RAG与知识库/)
+- [MCP](./docs/09-MCP/)
+- [Skill](./docs/10-Skill/)
+- [Coding Agent](./docs/11-Coding-Agent/)
+- [Memory](./docs/12-Memory/)
 
-# 推荐学习路线
+## 主学习路线
+
+主学习路线是阅读顺序，不是写作顺序。v2 当前规划如下：
 
 ```text
 AI
  ↓
-Machine Learning / Deep Learning
+机器学习与深度学习
  ↓
-Model
+模型 → 语言模型 → 大语言模型
  ↓
-Language Model
+参数 → Prompt → Token → 上下文
  ↓
-LLM
+模型生命周期 → 训练与推理 → Transformer
  ↓
-Prompt / Token / Context
+泛化 → 推理能力 → 幻觉与验证
  ↓
-模型如何训练和推理
+API → Tool → Agent
  ↓
-Capabilities / Limitations
+RAG → MCP → Skill → Coding Agent
  ↓
-Tools
+聊天记录与 Memory
  ↓
-Agent
- ↓
-RAG
- ↓
-MCP
- ↓
-Skill
- ↓
-Coding Agent
- ↓
-Memory
- ↓
-AI World Map
+AI 全景图
 ```
 
-第一次学习时，只需要按照这个顺序阅读 `Main` 内容；`Optional` 内容可以按兴趣补充。
+当前 Style Checkpoint：
 
-历史、厂商、GPU、训练工程、并行计算等内容全部放在扩展区域，不会阻塞主学习路线。
+1. [AI 到底是什么？](./docs/01-AI与大模型/01-AI到底是什么.md)
+2. [AI、机器学习和深度学习是什么关系？](./docs/01-AI与大模型/02-AI机器学习和深度学习是什么关系.md)
+3. [模型到底是什么？](./docs/01-AI与大模型/03-模型到底是什么.md)
 
----
+前三篇通过人工风格确认后，才会继续全量重写。
 
-# AI 世界总览
+## 扩展学习路线
 
-一棵树无法准确表达所有 AI 概念。先用三张小图分别看技术路线、应用组成和 RAG 流程。
+扩展路线负责解释主线中可以先略过、但系统学习时值得深入的内容，例如：
 
-## 1. AI 与模型技术路线
+- Tokenizer、上下文窗口、Attention；
+- Loss、Gradient、SFT、RLHF、DPO；
+- Embedding、向量数据库、Rerank；
+- MCP 客户端/服务端、Resource、Prompt；
+- Agent Loop、Project Context、Prompt 与 Skill 的区别。
 
-```text
-Artificial Intelligence
-├── Rules / Search / Planning / …
-└── Machine Learning
-          ↓
-     Deep Learning
-          ↓
-Transformer 等模型架构
-          ↓
-   Language Model
-          ↓
-         LLM
+完整规划见 [内容地图](./内容地图.md)。
+
+## 先看懂四张关系图
+
+一棵树不能准确表达所有 AI 概念。下面四张图分别回答四个问题。
+
+### 1. AI、机器学习、模型和 LLM 是什么关系？
+
+```mermaid
+flowchart TD
+    AI["人工智能 AI"] --> ML["机器学习"]
+    ML --> DL["深度学习"]
+    ML --> Model["训练得到模型"]
+    DL --> Transformer["可使用 Transformer 等架构"]
+    Transformer --> LM["语言模型"]
+    LM --> LLM["大语言模型 LLM"]
 ```
 
-这是一条帮助入门的技术路线，不是说 AI 只能由机器学习实现，也不是说所有深度学习模型都是语言模型。
+机器学习是实现 AI 的一种重要路线，但不是唯一路线。不是所有机器学习都属于深度学习，也不是所有模型都是语言模型。
 
-## 2. 现代 AI 应用由什么组成
+### 2. 一个典型 Agent 应用由什么组成？
 
-```text
-                     AI Application
-                            │
-                     Workflow / Agent
-                            │
-        ┌───────────┬───────┼───────────┐
-        │           │       │           │
-      Model       Context  Memory      Skills
-        │                                   │
-        └────────────── Tools ──────────────┘
-                            │
-               ┌────────────┼──────────────┐
-               │            │              │
-              API          MCP        Browser /
-                                    Computer Use
+```mermaid
+flowchart TD
+    Goal["用户目标"] --> Agent["Agent 系统"]
+    Agent --> Model["模型"]
+    Agent --> Context["上下文"]
+    Agent --> Tool["工具"]
+    Agent -.可选.-> Memory["Memory"]
+    Agent -.可选.-> Skill["Skill"]
+    Tool --> API["API"]
+    Tool -.可通过.-> MCP["MCP"]
 ```
 
-这些是可以组合的系统部件和连接方式，不是严格父子关系。MCP 可以连接工具与数据，Skill 可以组织做事方法；Coding Agent 则是一类把模型、上下文、工具和工作循环组合起来的应用。
+Agent 不是一种模型。它是围绕目标组织模型、上下文、工具和状态的系统。
 
-## 3. RAG 是一条检索增强流程
+### 3. RAG 回答问题时发生了什么？
 
-```text
-Question
-   ↓
-Retrieval
-   ↓
-Knowledge Base / Search
-   ↓
-Relevant Context
-   ↓
-Model
-   ↓
-Answer
+```mermaid
+flowchart LR
+    Q["用户问题"] --> Retrieve["检索资料"]
+    Source["知识库或其他来源"] --> Retrieve
+    Retrieve --> Context["把相关资料加入上下文"]
+    Context --> LLM["模型生成回答"]
+    LLM --> Verify["引用与验证"]
 ```
 
-RAG 可以被普通应用或 Agent 使用，但不依赖 Agent，也不属于 Function Calling。
-
----
-
-# 章节
-
-## 01. AI 与大语言模型
-
-回答：
-
-> AI 到底是什么？LLM 又处在 AI 世界的什么位置？
-
-核心概念：
-
-- AI
-- Narrow AI / AGI
-- Machine Learning
-- Deep Learning
-- NLP
-- Generative AI
-- AIGC
-- Foundation Model
-- Language Model
-- LLM
-- GPT
-- Model / API / Product / Company
-
----
-
-## 02. 你和大模型聊天时发生了什么
-
-回答：
-
-> 我输入一句话以后，大模型到底经历了什么？
-
-核心概念：
-
-- Prompt
-- System Prompt
-- Token
-- K / M / B / T
-- Tokenizer
-- Input / Output Token
-- Context
-- Context Window
-- Sampling
-- Temperature / Top-p
-- KV Cache
-
----
-
-## 03. 一个大模型是怎么诞生的
-
-回答：
-
-> 数据是“喂给模型”的，那被喂之前的模型从哪来？
-
-核心概念：
-
-- Architecture
-- Transformer
-- Layer
-- Hidden Size
-- Attention
-- Parameter
-- Parameter Count
-- Training Data
-- Random Initialization
-- Pre-training
-- Loss
-- Gradient
-- Backpropagation
-- Post-training
-- SFT
-- Alignment
-- RLHF
-- DPO
-- Checkpoint
-- Deployment
-- Inference
-
----
-
-## 04. 大模型为什么会有能力
-
-回答：
-
-> 一堆数字为什么最后会表现得像“懂”东西？
-
-核心概念：
-
-- Memorization
-- Generalization
-- Emergence
-- In-context Learning
-- Reasoning
-- Multimodal
-- MoE
-- Scaling Laws
-- Distillation
-- Quantization
-- LoRA
-
----
-
-## 05. 幻觉与模型局限
-
-回答：
-
-> 为什么 AI 会一本正经地说错话？
-
-核心概念：
-
-- Hallucination
-- Knowledge in Parameters
-- LLM ≠ Database
-- Verification
-- Prompt Injection
-- Jailbreak
-- Red Team
-
----
-
-## 06. Tool / API / Function Calling
-
-回答：
-
-> 为什么现在 AI 能搜索网页、读文件、运行代码？
-
-核心概念：
-
-- API
-- Tool
-- Function Calling
-- Tool Calling
-- Web Search
-- File Tool
-- Code Execution
-- Browser / Computer Use
-- Database Tool
-- OCR
-
----
-
-## 07. Agent
-
-回答：
-
-> Agent 和普通大模型到底差在哪？
-
-核心概念：
-
-- Agent
-- Agent Loop
-- Planning
-- Tool Use
-- Workflow
-- Copilot
-- AI Embedded → Copilot → Agent
-- Multi-Agent
-
----
-
-## 08. RAG
-
-回答：
-
-> 模型不知道我的私有资料，为什么还能“看着资料回答”？
-
-核心概念：
-
-- RAG
-- Knowledge Base
-- Embedding
-- Vector
-- Semantic Search
-- Vector Database
-- Chunk
-- Retrieval
-- Rerank
-- Knowledge Graph
-- RAG vs Fine-tuning
-
----
-
-## 09. MCP
-
-回答：
-
-> MCP 是 API、Tool 还是 Agent？
-
-核心概念：
-
-- MCP
-- Client / Server
-- Tool
-- Resource
-- Prompt
-- MCP vs API
-- MCP vs Function Calling
-- MCP vs Agent
-
----
-
-## 10. Skill
-
-回答：
-
-> Prompt、Skill、Tool、MCP、Agent 到底什么关系？
-
-核心概念：
-
-- Skill
-- Prompt vs Skill
-- Tool vs Skill
-- MCP vs Skill
-- Agent vs Skill
-
----
-
-## 11. Coding Agent
-
-回答：
-
-> 为什么 Codex / Claude Code 这类产品可以直接修改整个代码项目？
-
-核心概念：
-
-- AI Coding
-- Code Completion
-- Copilot
-- Coding Agent
-- IDE
-- Terminal
-- Git
-- Project Context
-- Context Engineering
-
----
-
-## 12. Memory
-
-回答：
-
-> AI “记住我”到底是什么意思？
-
-核心概念：
-
-- Conversation History
-- Context
-- Memory
-- Long-term Memory
-- RAG
-- Cache
-- Context vs Memory vs RAG vs Cache
-
----
-
-## 13. AI 世界全景图
-
-把前面所有概念重新串起来：
-
-```text
-Data
- ↓
-Training
- ↓
-Model
- ↓
-Deployment
- ↓
-Inference
- ↓
-API
- ↓
-Application
- ↓
-Workflow / Agent
- ↓
-Tools / RAG / MCP / Skills / Memory
+RAG 不会把知识永久写进模型参数，也不能自动保证答案正确。
+
+### 4. 知识网络怎样连接正文？
+
+```mermaid
+flowchart LR
+    Data["知识网络.yml"] --> Matrix["概念矩阵"]
+    Data --> Routes["Main / Extended Path"]
+    Data --> Graphs["子网络与全景图"]
+    Matrix --> Article["唯一概念主页面"]
+    Article --> Related["前置、后续、易混、使用者"]
 ```
 
----
+关系数据与文章正文分开维护，文件改名也不会改变概念 ID。
 
-# 扩展内容
+## 这个项目怎样保证质量？
 
-## AI 发展史
+每篇 v2 文章都要经过：
 
-只讲关键节点，不做年份流水账：
+- Accuracy Review
+- Beginner Review
+- Beginner Depth Review
+- Chinese Language Review
+- Architecture Review
+- Terminology Review
+- Knowledge Graph Review
+- Cross-link Review
+- Duplication Review
+- Source Review
+- Link Review
 
-```text
-Rule-based AI
-    ↓
-Machine Learning
-    ↓
-Deep Learning
-    ↓
-Transformer
-    ↓
-Foundation Model
-    ↓
-LLM
-    ↓
-Instruction / Chat
-    ↓
-RAG / Tool Calling
-    ↓
-Agent
-    ↓
-MCP
-    ↓
-Coding Agent / Computer Use
+关键事实优先使用原始论文、官方规范、官方文档和权威教材。聊天记录只提供小白问题与追问顺序，不作为事实来源。
+
+## 项目管理入口
+
+- [项目进度](./项目进度.md)
+- [内容地图](./内容地图.md)
+- [知识网络](./知识网络.md)
+- [术语表](./术语表.md)
+- [文章模板](./文章模板.md)
+- [目录结构](./目录结构.md)
+- [小白问题库](./FAQ/小白问题库.md)
+
+## 自动检查
+
+```bash
+python3 scripts/build_knowledge_graph.py
+python3 scripts/check_links.py
+python3 scripts/check_concepts.py
+git diff --check
 ```
 
----
-
-## AI 模型分类
-
-按不同维度理解模型：
-
-- Closed / Open-weight / Open-source
-- Dense / MoE
-- Text / Vision / Audio / Video / Multimodal
-- General / Reasoning / Embedding / Reranker / Generation
-- Base / Instruction / Chat / Fine-tuned
-- SLM / LLM
+只有自动检查和全部 Review 通过后，文章才能标记为 `Done`。
 
 ---
 
-## AI 产业生态
-
-不做排行榜，只解释产业角色：
-
-- Model Provider
-- Cloud Provider
-- Application Company
-- Model Hub
-- Inference Provider
-- Hardware Vendor
-
-厂商、产品、价格、具体型号等内容属于易变信息，正式文章中需要单独核验和标注更新时间。
-
----
-
-## AI 硬件扫盲
-
-放在 `appendix/hardware/`：
-
-- CPU
-- GPU
-- CUDA
-- Tensor Core
-- FLOPS
-- VRAM
-- RAM
-- SSD
-- HBM
-- Bandwidth
-- Interconnect
-- PCIe / NVLink
-- Server
-- Cluster
-- Data Center
-- Distributed Training
-
----
-
-# 内容等级与学习路径
-
-每篇内容会标记为：
-
-- **Core**：面向零基础读者解释的核心概念
-- **Advanced**：理解主线后继续深入
-- **Appendix**：硬件、训练、生态等扩展知识
-
-文章还会标记独立的学习路径：
-
-- **Main**：主学习路线，跳过可能影响后文理解
-- **Optional**：补充阅读，不阻塞主学习路线
-
----
-
-# 每篇文章怎么写
-
-`LLM-101` 不采用纯百科式定义。
-
-每篇文章优先按照：
-
-```text
-真实问题
-   ↓
-先说人话
-   ↓
-举例
-   ↓
-严格定义
-   ↓
-工作原理
-   ↓
-最容易混淆的概念
-   ↓
-为什么需要知道
-   ↓
-下一步学习什么
-```
-
-详细模板见 [`ARTICLE_TEMPLATE.md`](./ARTICLE_TEMPLATE.md)。
-
----
-
-# 内容原则
-
-### 1. 先建立心智模型，再补专业术语
-
-如果一个概念可以先用 20 秒讲明白，就不要先上公式。
-
-### 2. 类比不是定义
-
-例如：
-
-> “上下文窗口像短期工作台”
-
-可以帮助理解，但文章必须同时说明：
-
-> 这只是类比，不代表 LLM 拥有人类意义上的短期记忆。
-
-### 3. 不为了简单而写错
-
-简单和准确不是二选一。
-
-### 4. 不把易变信息写成永久事实
-
-厂商排名、具体模型参数、价格、API 行为、产品功能等需要标注时间并重新核验。
-
-### 5. 区分基础概念与具体产品
-
-重点解释长期稳定的概念，再用产品作为案例。
-
----
-
-# 项目状态
-
-当前：**Main Path 51 篇已完成并通过批次 Review**
-
-当前已完成的 Main Path：
-
-1. [AI 是什么](./docs/01-ai-and-llm/01-what-is-ai.md)（Done）
-2. [AI、ML、DL 到底什么关系](./docs/01-ai-and-llm/02-ai-ml-dl.md)（Done）
-3. [什么是模型](./docs/01-ai-and-llm/03-what-is-model.md)（Done）
-4. [什么是 LLM](./docs/01-ai-and-llm/04-what-is-llm.md)（Done）
-5. [GPT 和 ChatGPT 有什么区别](./docs/01-ai-and-llm/05-gpt-vs-chatgpt.md)（Done）
-6. [参数到底是什么](./docs/03-how-models-work/06-parameter.md)（Done）
-7. [参数量和训练数据有什么区别](./docs/03-how-models-work/07-parameter-vs-training-data.md)（Done）
-8. [Token 是什么](./docs/02-chat-and-context/04-token.md)（Done）
-9. [Context / Context Window 是什么](./docs/02-chat-and-context/07-context.md)（Done）
-10. [一个大模型到底是怎么诞生的](./docs/03-how-models-work/01-model-lifecycle.md)（Done）
-11. [为什么“预测下一个 Token”还能学到能力](./docs/03-how-models-work/10-next-token-prediction.md)（Done）
-12. [Training 和 Inference 有什么区别](./docs/03-how-models-work/18-training-vs-inference.md)（Done）
-13. [Prompt 是什么](./docs/02-chat-and-context/01-prompt.md)（Done）
-14. [模型架构是什么](./docs/03-how-models-work/02-architecture.md)（Done）
-15. [Transformer 是什么](./docs/03-how-models-work/03-transformer.md)（Done）
-16. [Attention 是什么](./docs/03-how-models-work/05-attention.md)（Done）
-17. [Generalization（泛化）是什么](./docs/04-capabilities/01-generalization.md)（Done）
-18. [Reasoning（推理能力）是什么](./docs/04-capabilities/03-reasoning.md)（Done）
-19. [Hallucination（幻觉）是什么](./docs/05-limitations/01-hallucination.md)（Done）
-20. [为什么 LLM 不是数据库](./docs/05-limitations/02-llm-is-not-database.md)（Done）
-21. [怎么验证 AI 的回答](./docs/05-limitations/04-verification.md)（Done）
-22. [API 是什么](./docs/06-tools/01-api.md)（Done）
-23. [AI Tool 是什么](./docs/06-tools/02-tool.md)（Done）
-24. [Function Calling 是什么](./docs/06-tools/03-function-calling.md)（Done）
-25. [Agent 是什么](./docs/07-agent/01-what-is-agent.md)（Done）
-26. [Model 和 Agent 有什么区别](./docs/07-agent/02-model-vs-agent.md)（Done）
-27. [Agent Loop 是什么](./docs/07-agent/03-agent-loop.md)（Done）
-28. [Workflow 和 Agent 有什么区别](./docs/07-agent/05-workflow-vs-agent.md)（Done）
-29. [RAG 是什么](./docs/08-rag/01-what-is-rag.md)（Done）
-30. [Knowledge Base 是什么](./docs/08-rag/02-knowledge-base.md)（Done）
-31. [Embedding 是什么](./docs/08-rag/03-embedding.md)（Done）
-32. [Vector Database 是什么](./docs/08-rag/05-vector-database.md)（Done）
-33. [Retrieval 是什么](./docs/08-rag/08-retrieval.md)（Done）
-34. [RAG 和 Fine-tuning 有什么区别](./docs/08-rag/11-rag-vs-finetuning.md)（Done）
-35. [RAG 有哪些局限](./docs/08-rag/12-rag-limitations.md)（Done）
-36. [MCP 是什么](./docs/09-mcp/01-what-is-mcp.md)（Done）
-37. [MCP Client 和 Server 是什么](./docs/09-mcp/02-client-server.md)（Done）
-38. [MCP Tools、Resources、Prompts 是什么](./docs/09-mcp/03-tools-resources-prompts.md)（Done）
-39. [MCP 和 API 有什么区别](./docs/09-mcp/04-mcp-vs-api.md)（Done）
-40. [MCP 和 Function Calling 有什么区别](./docs/09-mcp/05-mcp-vs-function-calling.md)（Done）
-41. [MCP 和 Agent 有什么区别](./docs/09-mcp/06-mcp-vs-agent.md)（Done）
-42. [Skill 是什么](./docs/10-skills/01-what-is-skill.md)（Done）
-43. [Prompt 和 Skill 有什么区别](./docs/10-skills/02-skill-vs-prompt.md)（Done）
-44. [Tool 和 Skill 有什么区别](./docs/10-skills/03-skill-vs-tool.md)（Done）
-45. [MCP 和 Skill 有什么区别](./docs/10-skills/04-skill-vs-mcp.md)（Done）
-46. [Agent 和 Skill 有什么区别](./docs/10-skills/05-skill-vs-agent.md)（Done）
-47. [AI Coding 是什么](./docs/11-coding-agent/01-ai-coding.md)（Done）
-48. [Coding Agent 是什么](./docs/11-coding-agent/04-coding-agent.md)（Done）
-49. [Project Context 是什么](./docs/11-coding-agent/08-project-context.md)（Done）
-50. [Context Engineering 是什么](./docs/11-coding-agent/09-context-engineering.md)（Done）
-51. [Conversation History 是什么](./docs/12-memory/01-conversation-history.md)（Done）
-
-完整内容地图见 [`CONTENT_MAP.md`](./CONTENT_MAP.md)。
-
-下一批继续完成 Context vs Memory、Memory、RAG vs Memory。
-
----
-
-## License
-
-待确定。
+`LLM-101` 的目标不是让你背会术语，而是让你能把这些概念用自己的话讲清楚，并知道它们为什么会连接在一起。
