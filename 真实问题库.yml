@@ -138,9 +138,23 @@ questions:
     concepts: ["llm", "hallucination", "verification"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/05-幻觉与模型局限/01-幻觉是什么.md"
     cluster: hallucination
+
+  - id: q-neural-soft-database-web-001
+    question: "神经网络是不是一种‘软数据库’？它和可查询、可更新的数据库差在哪里？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/47863/is-neural-network-just-a-soft-database"
+    source_title: "Is neural network just a soft database?"
+    language: en
+    paraphrased: true
+    concepts: ["llm", "parameter", "database-boundary"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/05-幻觉与模型局限/02-为什么LLM不是数据库.md"
+    cluster: llm-vs-database
 
   - id: q-token-generation-001
     question: "模型怎么部署，最终怎么生成一个 Token？要串起来。"
@@ -502,8 +516,8 @@ questions:
     concepts: ["hallucination", "verification", "rag"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
-    answer_path: "docs/08-RAG与知识库/12-RAG有哪些局限.md"
+    status: answered
+    answer_path: "docs/05-幻觉与模型局限/01-幻觉是什么.md"
     cluster: rag-limitations
 
   - id: q-mcp-openapi-hn-001

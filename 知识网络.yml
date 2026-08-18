@@ -22,6 +22,7 @@ main_path:
   - generalization
   - reasoning
   - hallucination
+  - database-boundary
   - verification
   - api
   - tool
@@ -111,7 +112,7 @@ concepts:
     summary: 在大量数据和计算资源上训练、能够处理和生成语言的大规模语言模型。
     prerequisites: ["language-model", "deep-learning"]
     related: ["transformer", "prompt", "context", "hallucination"]
-    questions: ["q-hallucination-001", "q-language-model-web-001", "q-llm-foundation-web-001", "q-chatgpt-product-web-001"]
+    questions: ["q-hallucination-001", "q-language-model-web-001", "q-llm-foundation-web-001", "q-chatgpt-product-web-001", "q-neural-soft-database-web-001"]
 
   - id: gpt
     name: GPT
@@ -147,7 +148,7 @@ concepts:
     summary: 训练过程会调整、推理过程会使用的模型内部数值。
     prerequisites: ["model"]
     related: ["training", "training-data", "inference"]
-    questions: ["q-parameter-data-001", "q-parameter-capacity-001", "q-model-origin-001", "q-parameter-form-001", "q-intelligence-origin-001", "q-more-is-better-001", "q-undertraining-001", "q-training-loop-001", "q-reproducibility-001", "q-parameter-scale-web-001"]
+    questions: ["q-parameter-data-001", "q-parameter-capacity-001", "q-model-origin-001", "q-parameter-form-001", "q-intelligence-origin-001", "q-more-is-better-001", "q-undertraining-001", "q-training-loop-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-neural-soft-database-web-001"]
 
   - id: training-data
     name: 训练数据
@@ -328,6 +329,18 @@ concepts:
     prerequisites: ["hallucination"]
     related: ["rag", "tool"]
     questions: ["q-hallucination-001", "q-rag-hallucination-web-001"]
+
+  - id: database-boundary
+    name: LLM 与数据库边界
+    path: docs/05-幻觉与模型局限/02-为什么LLM不是数据库.md
+    aliases: ["LLM vs Database", "LLM 不是数据库", "参数化知识"]
+    level: Core
+    path_type: Main
+    group: RAG与知识
+    summary: LLM 用分布式参数生成内容，数据库则保存、查询和更新可定位记录，两者可以组合但保证不同。
+    prerequisites: ["llm", "parameter"]
+    related: ["hallucination", "verification", "rag"]
+    questions: ["q-neural-soft-database-web-001"]
 
   - id: api
     name: API
@@ -546,6 +559,12 @@ relations:
   - from: llm
     relation: 可能产生
     to: hallucination
+  - from: llm
+    relation: 不等同于
+    to: database-boundary
+  - from: database-boundary
+    relation: 要求区分生成与权威记录
+    to: verification
   - from: verification
     relation: 检查
     to: hallucination
