@@ -89,6 +89,9 @@ Review 中修复：
 | 19 | [Hallucination（幻觉）是什么](./docs/05-limitations/01-hallucination.md) | Core | Done |
 | 20 | [为什么 LLM 不是数据库](./docs/05-limitations/02-llm-is-not-database.md) | Core | Done |
 | 21 | [怎么验证 AI 的回答](./docs/05-limitations/04-verification.md) | Core | Done |
+| 22 | [API 是什么](./docs/06-tools/01-api.md) | Core | Done |
+| 23 | [AI Tool 是什么](./docs/06-tools/02-tool.md) | Core | Done |
+| 24 | [Function Calling 是什么](./docs/06-tools/03-function-calling.md) | Core | Done |
 
 ## 本批 Research
 
@@ -160,7 +163,7 @@ Review 中修复：
 
 ## 正在进行
 
-- 无。Batch 7 Review 已完成，提交并推送后自动进入 Batch 8。
+- 无。Batch 8 Review 已完成，提交并推送后自动进入 Batch 9。
 
 ## Batch 3：参数量与数据、Token、Context
 
@@ -296,12 +299,38 @@ Review 中修复：
 - 新增正文后删除 `docs/05-limitations/` 中失去作用的 `.gitkeep`，并把 Reasoning 的下一篇接入 Hallucination。
 - 7 个新外部来源与全部发布用 Markdown 相对链接检查通过。
 
+## Batch 8：API、Tool、Function Calling
+
+完成：
+
+- API 是什么
+- AI Tool 是什么
+- Function Calling 是什么
+
+Review：
+
+- Accuracy: PASS
+- Beginner: PASS
+- Architecture: PASS
+- Terminology: PASS
+- Duplication: PASS
+- Source: PASS
+- Link: PASS
+
+Review 中修复：
+
+- API 明确为软件交互接口，不局限于 URL 或 HTTP，并区分 Model、SDK、UI 与 Product。
+- Tool 定义为提供给模型选择的外部能力；它可以包装 API、本地函数、数据库或浏览器，但不等于其中任何一种实现。
+- Function Calling 明确“模型提出结构化调用、宿主应用验证并执行”的 Tool Execution Boundary；JSON Schema 不替代业务授权与安全校验。
+- 现有目录未为 Tool Execution Boundary 规划独立文章，因此将其作为 Function Calling 主页面的核心段落，并在 Content Map 标记 Done。
+- 新增正文后删除 `docs/06-tools/` 中失去作用的 `.gitkeep`；6 个新外部来源与全部内部链接检查通过。
+
 ## 下一批任务
 
 下一批最多处理 1～3 篇，建议按顺序：
 
-1. API 是什么
-2. Tool 是什么
-3. Function Calling 是什么
+1. Agent 是什么
+2. Model 和 Agent 有什么区别
+3. Agent Loop 是什么
 
 开始前仍须逐篇执行 Research → Draft → Fact Check → Concept Check → Beginner Check → Dependency Check → Link Check。

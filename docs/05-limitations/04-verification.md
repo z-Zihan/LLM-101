@@ -156,7 +156,7 @@ Verification（验证）不是让答案“看起来更可信”，而是把其�
 ## 继续学习
 
 - [上一篇：为什么 LLM 不是数据库](./02-llm-is-not-database.md)
-- 下一篇（待完成）：API 是什么？
+- [下一篇：API 是什么](../06-tools/01-api.md)
 - [相关：Hallucination（幻觉）是什么](./01-hallucination.md)
 
 ## 资料与核验

@@ -4,6 +4,14 @@
 
 ## A
 
+### API
+
+中文：应用程序编程接口
+
+一句话：让软件之间按照约定请求操作并交换结果的接口。
+
+主页面：[API 是什么](./docs/06-tools/01-api.md)
+
 ### Architecture
 
 中文：模型架构
@@ -71,6 +79,16 @@
 一句话：使用多层神经网络从数据中学习表示的一类机器学习方法。
 
 主页面：[AI、ML、DL 到底什么关系](./docs/01-ai-and-llm/02-ai-ml-dl.md)
+
+## F
+
+### Function Calling
+
+中文：函数调用
+
+一句话：让模型用函数名和结构化参数表达调用请求、再由外部程序验证并执行的机制。
+
+主页面：[Function Calling 是什么](./docs/06-tools/03-function-calling.md)
 
 ## G
 
@@ -183,6 +201,14 @@
 主页面：[Reasoning（推理能力）是什么](./docs/04-capabilities/03-reasoning.md)
 
 ## T
+
+### Tool
+
+中文：AI 工具
+
+一句话：AI 应用提供给模型选择使用、由外部程序真实执行的一项能力。
+
+主页面：[AI Tool 是什么](./docs/06-tools/02-tool.md)
 
 ### Token
 

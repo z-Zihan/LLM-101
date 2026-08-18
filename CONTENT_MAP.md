@@ -167,11 +167,11 @@ Path（学习路径优先级）：
 
 | 内容 | 等级 | Path | 状态 | 主要问题 |
 |---|---|---|---|---|
-| API | Core | Main | Todo | API 是什么？ |
-| Tool | Core | Main | Todo | Tool 是什么？ |
-| Function Calling | Core | Main | Todo | 模型怎么“调用函数”？ |
+| API | Core | Main | Done | API 是什么？ |
+| Tool | Core | Main | Done | Tool 是什么？ |
+| Function Calling | Core | Main | Done | 模型怎么“调用函数”？ |
 | Tool Calling | Core | Optional | Todo | Tool Calling 和 Function Calling 什么关系？ |
-| Tool Execution Boundary | Core | Main | Todo | 真正执行 API 的是模型还是程序？ |
+| Tool Execution Boundary | Core | Main | Done | 真正执行 API 的是模型还是程序？ |
 | Web Search | Core | Optional | Todo | AI 怎么联网？ |
 | File Tool | Core | Optional | Todo | AI 怎么读文件？ |
 | Code Execution | Core | Optional | Todo | AI 怎么运行代码？ |
@@ -505,6 +505,9 @@ Path（学习路径优先级）：
 | 19 | Hallucination（幻觉）是什么 | Core | Main | Done | `docs/05-limitations/01-hallucination.md` |
 | 20 | 为什么 LLM 不是数据库 | Core | Main | Done | `docs/05-limitations/02-llm-is-not-database.md` |
 | 21 | 怎么验证 AI 的回答 | Core | Main | Done | `docs/05-limitations/04-verification.md` |
+| 22 | API 是什么 | Core | Main | Done | `docs/06-tools/01-api.md` |
+| 23 | AI Tool 是什么 | Core | Main | Done | `docs/06-tools/02-tool.md` |
+| 24 | Function Calling 是什么 | Core | Main | Done | `docs/06-tools/03-function-calling.md` |
 
 ---
 

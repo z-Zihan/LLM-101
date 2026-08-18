@@ -580,7 +580,7 @@ Coding Agent / Computer Use
 
 # 项目状态
 
-当前：**Main Path 21 篇已完成并通过批次 Review**
+当前：**Main Path 24 篇已完成并通过批次 Review**
 
 当前已完成的 Main Path：
 
@@ -605,10 +605,13 @@ Coding Agent / Computer Use
 19. [Hallucination（幻觉）是什么](./docs/05-limitations/01-hallucination.md)（Done）
 20. [为什么 LLM 不是数据库](./docs/05-limitations/02-llm-is-not-database.md)（Done）
 21. [怎么验证 AI 的回答](./docs/05-limitations/04-verification.md)（Done）
+22. [API 是什么](./docs/06-tools/01-api.md)（Done）
+23. [AI Tool 是什么](./docs/06-tools/02-tool.md)（Done）
+24. [Function Calling 是什么](./docs/06-tools/03-function-calling.md)（Done）
 
 完整内容地图见 [`CONTENT_MAP.md`](./CONTENT_MAP.md)。
 
-下一批继续进入工具基础：API、Tool、Function Calling。
+下一批继续进入 Agent 基础：Agent、Model vs Agent、Agent Loop。
 
 ---
 
