@@ -40,34 +40,40 @@
 # 推荐学习路线
 
 ```text
-AI / ML / DL / LLM
-        ↓
+AI
+ ↓
+Machine Learning / Deep Learning
+ ↓
+Model
+ ↓
+Language Model
+ ↓
+LLM
+ ↓
 Prompt / Token / Context
-        ↓
-模型怎么诞生
-        ↓
-模型为什么会有能力
-        ↓
-幻觉与局限
-        ↓
-Tool / API / Function Calling
-        ↓
+ ↓
+模型如何训练和推理
+ ↓
+Capabilities / Limitations
+ ↓
+Tools
+ ↓
 Agent
-        ↓
+ ↓
 RAG
-        ↓
+ ↓
 MCP
-        ↓
+ ↓
 Skill
-        ↓
+ ↓
 Coding Agent
-        ↓
+ ↓
 Memory
-        ↓
-AI 世界全景图
+ ↓
+AI World Map
 ```
 
-第一次学习时，只需要按照这个顺序阅读 Core 内容。
+第一次学习时，只需要按照这个顺序阅读 `Main` 内容；`Optional` 内容可以按兴趣补充。
 
 历史、厂商、GPU、训练工程、并行计算等内容全部放在扩展区域，不会阻塞主学习路线。
 
@@ -75,35 +81,64 @@ AI 世界全景图
 
 # AI 世界总览
 
+一棵树无法准确表达所有 AI 概念。先用三张小图分别看技术路线、应用组成和 RAG 流程。
+
+## 1. AI 与模型技术路线
+
 ```text
-                         AI
-                          │
-                    Machine Learning
-                          │
-                     Deep Learning
-                          │
-                    Transformer
-                          │
-                         LLM
-                          │
-        ┌─────────────────┼─────────────────┐
-        │                 │                 │
-      Prompt            Context            Tools
-                                             │
-                                     Function Calling
-                                             │
-                        ┌────────────────────┴─────────────────┐
-                        │                                      │
-                       RAG                                   Agent
-                        │                                      │
-              Embedding / Vector DB                       Skills
-                                                               │
-                                                              MCP
-                                                               │
-                                                        Coding Agent
+Artificial Intelligence
+├── Rules / Search / Planning / …
+└── Machine Learning
+          ↓
+     Deep Learning
+          ↓
+Transformer 等模型架构
+          ↓
+   Language Model
+          ↓
+         LLM
 ```
 
-这张图只是帮助建立第一层关系。后续章节会逐步修正和细化其中的概念。
+这是一条帮助入门的技术路线，不是说 AI 只能由机器学习实现，也不是说所有深度学习模型都是语言模型。
+
+## 2. 现代 AI 应用由什么组成
+
+```text
+                     AI Application
+                            │
+                     Workflow / Agent
+                            │
+        ┌───────────┬───────┼───────────┐
+        │           │       │           │
+      Model       Context  Memory      Skills
+        │                                   │
+        └────────────── Tools ──────────────┘
+                            │
+               ┌────────────┼──────────────┐
+               │            │              │
+              API          MCP        Browser /
+                                    Computer Use
+```
+
+这些是可以组合的系统部件和连接方式，不是严格父子关系。MCP 可以连接工具与数据，Skill 可以组织做事方法；Coding Agent 则是一类把模型、上下文、工具和工作循环组合起来的应用。
+
+## 3. RAG 是一条检索增强流程
+
+```text
+Question
+   ↓
+Retrieval
+   ↓
+Knowledge Base / Search
+   ↓
+Relevant Context
+   ↓
+Model
+   ↓
+Answer
+```
+
+RAG 可以被普通应用或 Agent 使用，但不依赖 Agent，也不属于 Function Calling。
 
 ---
 
@@ -470,13 +505,18 @@ Coding Agent / Computer Use
 
 ---
 
-# 内容等级
+# 内容等级与学习路径
 
 每篇内容会标记为：
 
-- **Core**：第一次学习必须理解
+- **Core**：面向零基础读者解释的核心概念
 - **Advanced**：理解主线后继续深入
 - **Appendix**：硬件、训练、生态等扩展知识
+
+文章还会标记独立的学习路径：
+
+- **Main**：主学习路线，跳过可能影响后文理解
+- **Optional**：补充阅读，不阻塞主学习路线
 
 ---
 

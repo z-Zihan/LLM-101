@@ -6,7 +6,31 @@
 
 ## 当前阶段
 
-Phase 1 第一批 Core 已完成：本批只处理前三篇，未继续批量生成后续文章。
+Phase 1 第一批 Core 已完成。持续执行模式已经启用：每批最多三篇，Review 通过后提交并推送，再自动进入下一批。
+
+## Pre-Batch Architecture Review Fix
+
+完成：
+
+- README 主路线补入 Model 和 Language Model。
+- 将错误的一棵总览树拆成技术路线、现代 AI 应用组成和 RAG 流程三张图。
+- 删除前三篇正文中的内部编辑说明。
+- 明确正文中的“模型”默认指机器学习模型，尤其是神经网络模型。
+- 修正模型落盘可能由权重、架构配置、Tokenizer 配置等一个或多个文件共同表示。
+- 删除已有正式内容目录中的无意义 `.gitkeep`。
+- CONTENT_MAP 增加独立的 `Path: Main / Optional` 维度，并为 v0.1 Main Path 记录 Article Path。
+
+Review：
+
+- Architecture: PASS
+- Beginner: PASS
+- Terminology: PASS
+- Link: PASS
+
+Review 中修复：
+
+- README 的 Core 定义与新 Path 维度职责重叠，已改为 `Level` 表示内容深度、`Path` 表示阅读优先级。
+- Main 路线最初用同一行箭头压缩多个章节，可能被误读成概念父子关系，已改成逐步学习顺序。
 
 ## Phase 0 仓库检查
 
