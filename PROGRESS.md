@@ -116,6 +116,9 @@ Review 中修复：
 | 46 | [Agent 和 Skill 有什么区别](./docs/10-skills/05-skill-vs-agent.md) | Core | Done |
 | 47 | [AI Coding 是什么](./docs/11-coding-agent/01-ai-coding.md) | Core | Done |
 | 48 | [Coding Agent 是什么](./docs/11-coding-agent/04-coding-agent.md) | Core | Done |
+| 49 | [Project Context 是什么](./docs/11-coding-agent/08-project-context.md) | Core | Done |
+| 50 | [Context Engineering 是什么](./docs/11-coding-agent/09-context-engineering.md) | Core | Done |
+| 51 | [Conversation History 是什么](./docs/12-memory/01-conversation-history.md) | Core | Done |
 
 ## 本批 Research
 
@@ -187,7 +190,7 @@ Review 中修复：
 
 ## 正在进行
 
-- 无。Batch 16 Review 已完成，提交并推送后自动进入 Batch 17。
+- 无。Batch 17 Review 已完成，提交并推送后自动进入 Batch 18。
 
 ## Batch 3：参数量与数据、Token、Context
 
@@ -505,12 +508,24 @@ Review 中修复：
 - Coding Agent 的完成条件要求 Diff、测试、构建、需求与人工 Review 证据。
 - 6 个论文 / 官方来源与全部内部链接检查通过。
 
+## Batch 17：Project Context、Context Engineering、Conversation History
+
+完成：Project Context、Context Engineering、Conversation History。
+
+Review：Accuracy / Beginner / Architecture / Terminology / Duplication / Source / Link 全部 PASS。
+
+Review 中修复：
+
+- 区分项目资料选择、运行时 Context 管理与产品保存的消息历史。
+- 删除 `docs/11-coding-agent/` 中已失去作用的 `.gitkeep`。
+- 4 个论文 / 官方来源与全部内部链接检查通过。
+
 ## 下一批任务
 
 下一批最多处理 1～3 篇，建议按顺序：
 
-1. Project Context 是什么
-2. Context Engineering 是什么
-3. Conversation History 是什么
+1. Context 和 Memory 有什么区别
+2. Memory 是什么
+3. RAG 和 Memory 有什么区别
 
 开始前仍须逐篇执行 Research → Draft → Fact Check → Concept Check → Beginner Check → Dependency Check → Link Check。

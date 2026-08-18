@@ -86,6 +86,14 @@
 
 主页面：[Context 和 Context Window 是什么](./docs/02-chat-and-context/07-context.md)
 
+### Context Engineering
+
+中文：上下文工程
+
+一句话：系统性管理模型运行时信息的获取、选择、组织、更新与压缩。
+
+主页面：[Context Engineering 是什么](./docs/11-coding-agent/09-context-engineering.md)
+
 ### Context Window
 
 中文：上下文窗口
@@ -93,6 +101,14 @@
 一句话：模型一次能够处理的 Token 容量边界。
 
 主页面：[Context 和 Context Window 是什么](./docs/02-chat-and-context/07-context.md)
+
+### Conversation History
+
+中文：对话历史
+
+一句话：产品保存的用户消息、助手回复和相关事件序列，不等于本次模型看到的全部 Context。
+
+主页面：[Conversation History 是什么](./docs/12-memory/01-conversation-history.md)
 
 ## D
 
@@ -281,6 +297,14 @@
 一句话：模型中可训练参数的数量，和训练数据的数量不是一回事。
 
 主页面：[参数量和训练数据有什么区别](./docs/03-how-models-work/07-parameter-vs-training-data.md)
+
+### Project Context
+
+中文：项目上下文
+
+一句话：Coding Agent 完成当前任务所需的代码、配置、测试、规则和项目状态。
+
+主页面：[Project Context 是什么](./docs/11-coding-agent/08-project-context.md)
 
 ### Prompt
 

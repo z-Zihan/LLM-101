@@ -1,0 +1,99 @@
+# Project Context 是什么？
+
+> Level: `Core` · Path: `Main`
+
+## 先说人话
+
+Project Context（项目上下文）是 Coding Agent 完成当前任务需要了解的项目信息：相关代码、配置、测试、文档、仓库规则和当前变更状态。
+
+它不等于把整个仓库一次性塞进模型窗口。
+
+## 举个例子
+
+任务是“修复登录超时”。有用 Context 可能包括：
+
+- 登录入口和会话代码；
+- 超时配置与环境变量；
+- 失败日志和相关测试；
+- 项目编码规范；
+- 当前 Git Diff 与近期相关提交。
+
+图片素材、无关模块和完整历史日志可能只会增加噪声。
+
+## Project Context 从哪里来？
+
+```text
+用户需求
+ + 仓库指令
+ + 文件与符号搜索
+ + 配置、测试和文档
+ + 终端 / Git 当前状态
+ + 工具执行结果
+       ↓
+当前任务可用的 Project Context
+```
+
+Context 会随任务推进变化。测试报错后，新日志和相关文件可能比最初计划更重要。
+
+## 为什么不能读取整个项目？
+
+仓库可能远大于 Context Window。即使放得下，更多信息也不保证利用得更好：无关内容会稀释重点，旧文件还可能误导模型。
+
+更合理的过程是先建立项目地图，再按任务检索，读取必要邻域，并在发现新证据时更新选择。
+
+## 除了代码还要看什么？
+
+- `README`、`AGENTS.md` 与贡献规范；
+- 依赖和构建配置；
+- 数据库迁移与接口 Schema；
+- 测试、CI 和发布设置；
+- 当前分支、未提交变更与 Diff；
+- 需求、错误复现与验收标准。
+
+只读实现文件，可能写出能编译却破坏项目约定的修改。
+
+## 最容易搞混的东西
+
+### Project Context ≠ 模型训练知识
+
+模型可能懂某个框架，但不知道当前仓库使用的版本、封装和规则。
+
+### Project Context ≠ Context Window
+
+Context Window 是容量边界；Project Context 是从项目中选择出来的任务信息。
+
+### Project Context ≠ 全部文件
+
+关键是相关、最新且可验证，不是数量最大。
+
+## 常见误区
+
+### 误区 1：搜索到同名函数就找对了
+
+还要检查调用链、测试、配置和运行路径。
+
+### 误区 2：任务开始时读取一次就够了
+
+工具结果和代码修改会改变状态，需要持续更新 Context。
+
+### 误区 3：历史代码比当前工作区可靠
+
+当前未提交变更属于真实状态，操作前必须检查并保护用户修改。
+
+## 你只需要记住
+
+1. Project Context 是当前开发任务所需的代码、配置、测试、规则与状态。
+2. 它不等于整个仓库，也不等于模型训练知识。
+3. 需要按任务检索、筛选并随工具结果持续更新。
+4. Coding Agent 的质量取决于选择了什么 Context，也取决于遗漏了什么。
+
+## 继续学习
+
+- [上一篇：Coding Agent 是什么](./04-coding-agent.md)
+- [下一篇：Context Engineering 是什么](./09-context-engineering.md)
+
+## 资料与核验
+
+- [Yang et al.: SWE-agent](https://arxiv.org/abs/2405.15793)
+- [Anthropic: Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+- [Liu et al.: Lost in the Middle](https://arxiv.org/abs/2307.03172)

@@ -99,7 +99,7 @@ Benchmark 只覆盖特定仓库、任务和评测；真实环境还有权限、�
 ## 继续学习
 
 - [上一篇：AI Coding 是什么](./01-ai-coding.md)
-- 下一篇（待完成）：Project Context 是什么？
+- [下一篇：Project Context 是什么](./08-project-context.md)
 
 ## 资料与核验
 

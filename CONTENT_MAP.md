@@ -260,8 +260,8 @@ Path（学习路径优先级）：
 | Terminal | Core | Optional | Todo | 为什么 Agent 需要终端？ |
 | Shell / Command | Advanced | Optional | Todo | Shell 和命令是什么？ |
 | Git | Core | Optional | Todo | 为什么 Git 对 Coding Agent 很重要？ |
-| Project Context | Core | Main | Todo | Agent 怎么理解整个项目？ |
-| Context Engineering | Core | Main | Todo | Context Engineering 是什么？ |
+| Project Context | Core | Main | Done | Agent 怎么理解整个项目？ |
+| Context Engineering | Core | Main | Done | Context Engineering 是什么？ |
 | Codex | Verify | Optional | Verify | 产品案例，需要按更新时间核验 |
 | Claude Code | Verify | Optional | Verify | 产品案例，需要按更新时间核验 |
 | Cursor | Verify | Optional | Verify | 产品案例，需要按更新时间核验 |
@@ -272,7 +272,7 @@ Path（学习路径优先级）：
 
 | 内容 | 等级 | Path | 状态 | 主要问题 |
 |---|---|---|---|---|
-| Conversation History | Core | Main | Todo | 聊天记录等于记忆吗？ |
+| Conversation History | Core | Main | Done | 聊天记录等于记忆吗？ |
 | Context | Core | Main | Todo | Context 和 Memory 一样吗？ |
 | Memory | Core | Main | Todo | AI Memory 到底是什么？ |
 | Long-term Memory | Advanced | Optional | Todo | 长期记忆怎么实现？ |
@@ -532,6 +532,9 @@ Path（学习路径优先级）：
 | 46 | Agent 和 Skill 有什么区别 | Core | Main | Done | `docs/10-skills/05-skill-vs-agent.md` |
 | 47 | AI Coding 是什么 | Core | Main | Done | `docs/11-coding-agent/01-ai-coding.md` |
 | 48 | Coding Agent 是什么 | Core | Main | Done | `docs/11-coding-agent/04-coding-agent.md` |
+| 49 | Project Context 是什么 | Core | Main | Done | `docs/11-coding-agent/08-project-context.md` |
+| 50 | Context Engineering 是什么 | Core | Main | Done | `docs/11-coding-agent/09-context-engineering.md` |
+| 51 | Conversation History 是什么 | Core | Main | Done | `docs/12-memory/01-conversation-history.md` |
 
 ---
 

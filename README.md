@@ -580,7 +580,7 @@ Coding Agent / Computer Use
 
 # 项目状态
 
-当前：**Main Path 48 篇已完成并通过批次 Review**
+当前：**Main Path 51 篇已完成并通过批次 Review**
 
 当前已完成的 Main Path：
 
@@ -632,10 +632,13 @@ Coding Agent / Computer Use
 46. [Agent 和 Skill 有什么区别](./docs/10-skills/05-skill-vs-agent.md)（Done）
 47. [AI Coding 是什么](./docs/11-coding-agent/01-ai-coding.md)（Done）
 48. [Coding Agent 是什么](./docs/11-coding-agent/04-coding-agent.md)（Done）
+49. [Project Context 是什么](./docs/11-coding-agent/08-project-context.md)（Done）
+50. [Context Engineering 是什么](./docs/11-coding-agent/09-context-engineering.md)（Done）
+51. [Conversation History 是什么](./docs/12-memory/01-conversation-history.md)（Done）
 
 完整内容地图见 [`CONTENT_MAP.md`](./CONTENT_MAP.md)。
 
-下一批继续完成 Project Context、Context Engineering 与 Conversation History。
+下一批继续完成 Context vs Memory、Memory、RAG vs Memory。
 
 ---
 
