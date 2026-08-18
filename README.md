@@ -580,9 +580,9 @@ Coding Agent / Computer Use
 
 # 项目状态
 
-当前：**Main Path 18 篇已完成并通过批次 Review**
+当前：**Main Path 21 篇已完成并通过批次 Review**
 
-第一批优先完成：
+当前已完成的 Main Path：
 
 1. [AI 是什么](./docs/01-ai-and-llm/01-what-is-ai.md)（Done）
 2. [AI、ML、DL 到底什么关系](./docs/01-ai-and-llm/02-ai-ml-dl.md)（Done）
@@ -602,10 +602,13 @@ Coding Agent / Computer Use
 16. [Attention 是什么](./docs/03-how-models-work/05-attention.md)（Done）
 17. [Generalization（泛化）是什么](./docs/04-capabilities/01-generalization.md)（Done）
 18. [Reasoning（推理能力）是什么](./docs/04-capabilities/03-reasoning.md)（Done）
+19. [Hallucination（幻觉）是什么](./docs/05-limitations/01-hallucination.md)（Done）
+20. [为什么 LLM 不是数据库](./docs/05-limitations/02-llm-is-not-database.md)（Done）
+21. [怎么验证 AI 的回答](./docs/05-limitations/04-verification.md)（Done）
 
 完整内容地图见 [`CONTENT_MAP.md`](./CONTENT_MAP.md)。
 
-下一批继续进入模型局限：Hallucination、LLM ≠ Database、Verification。
+下一批继续进入工具基础：API、Tool、Function Calling。
 
 ---
 

@@ -86,6 +86,9 @@ Review 中修复：
 | 16 | [Attention 是什么](./docs/03-how-models-work/05-attention.md) | Core | Done |
 | 17 | [Generalization（泛化）是什么](./docs/04-capabilities/01-generalization.md) | Core | Done |
 | 18 | [Reasoning（推理能力）是什么](./docs/04-capabilities/03-reasoning.md) | Core | Done |
+| 19 | [Hallucination（幻觉）是什么](./docs/05-limitations/01-hallucination.md) | Core | Done |
+| 20 | [为什么 LLM 不是数据库](./docs/05-limitations/02-llm-is-not-database.md) | Core | Done |
+| 21 | [怎么验证 AI 的回答](./docs/05-limitations/04-verification.md) | Core | Done |
 
 ## 本批 Research
 
@@ -157,7 +160,7 @@ Review 中修复：
 
 ## 正在进行
 
-- 无。Batch 6 Review 已完成，提交并推送后自动进入 Batch 7。
+- 无。Batch 7 Review 已完成，提交并推送后自动进入 Batch 8。
 
 ## Batch 3：参数量与数据、Token、Context
 
@@ -267,12 +270,38 @@ Review 中修复：
 - 修复 Parameter、Token 与新增文章接入后的上一篇 / 下一篇链接，使现有 Main Path 形成连续导航。
 - `docs/04-capabilities/` 加入正式正文后删除失去作用的 `.gitkeep`。
 
+## Batch 7：Hallucination、LLM ≠ Database、Verification
+
+完成：
+
+- Hallucination（幻觉）是什么
+- 为什么 LLM 不是数据库
+- 怎么验证 AI 的回答
+
+Review：
+
+- Accuracy: PASS
+- Beginner: PASS
+- Architecture: PASS
+- Terminology: PASS
+- Duplication: PASS
+- Source: PASS
+- Link: PASS
+
+Review 中修复：
+
+- Hallucination 区分事实性与对给定来源的忠实性，并把定义修正为“与事实不符或缺乏来源支持”，不把所有不满意回答都归入幻觉。
+- LLM 与 Database 按生成机制、可寻址记录和更新方式区分；“参数化知识”不写成事实逐条存储。
+- Verification 明确模型自检只提供辅助信号，补充 Primary Source 与置信度校准的零基础解释。
+- 新增正文后删除 `docs/05-limitations/` 中失去作用的 `.gitkeep`，并把 Reasoning 的下一篇接入 Hallucination。
+- 7 个新外部来源与全部发布用 Markdown 相对链接检查通过。
+
 ## 下一批任务
 
 下一批最多处理 1～3 篇，建议按顺序：
 
-1. Hallucination 是什么
-2. 为什么 LLM 不是数据库
-3. Verification 是什么
+1. API 是什么
+2. Tool 是什么
+3. Function Calling 是什么
 
 开始前仍须逐篇执行 Research → Draft → Fact Check → Concept Check → Beginner Check → Dependency Check → Link Check。

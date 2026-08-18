@@ -153,10 +153,10 @@ Path（学习路径优先级）：
 
 | 内容 | 等级 | Path | 状态 | 主要问题 |
 |---|---|---|---|---|
-| Hallucination | Core | Main | Todo | AI 为什么会一本正经地说错？ |
-| LLM ≠ Database | Core | Main | Todo | 模型是不是数据库？ |
+| Hallucination | Core | Main | Done | AI 为什么会一本正经地说错？ |
+| LLM ≠ Database | Core | Main | Done | 模型是不是数据库？ |
 | Knowledge in Parameters | Advanced | Optional | Todo | “知识存在参数里”到底是什么意思？ |
-| Verification | Core | Main | Todo | 怎么降低错误答案风险？ |
+| Verification | Core | Main | Done | 怎么降低错误答案风险？ |
 | Prompt Injection | Core | Optional | Todo | Prompt Injection 是什么？ |
 | Jailbreak | Advanced | Optional | Todo | Jailbreak 和 Injection 什么区别？ |
 | Red Team | Advanced | Optional | Todo | 红队测试在测什么？ |
@@ -502,6 +502,9 @@ Path（学习路径优先级）：
 | 16 | Attention 是什么 | Core | Main | Done | `docs/03-how-models-work/05-attention.md` |
 | 17 | Generalization（泛化）是什么 | Core | Main | Done | `docs/04-capabilities/01-generalization.md` |
 | 18 | Reasoning（推理能力）是什么 | Core | Main | Done | `docs/04-capabilities/03-reasoning.md` |
+| 19 | Hallucination（幻觉）是什么 | Core | Main | Done | `docs/05-limitations/01-hallucination.md` |
+| 20 | 为什么 LLM 不是数据库 | Core | Main | Done | `docs/05-limitations/02-llm-is-not-database.md` |
+| 21 | 怎么验证 AI 的回答 | Core | Main | Done | `docs/05-limitations/04-verification.md` |
 
 ---
 

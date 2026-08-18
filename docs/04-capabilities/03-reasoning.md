@@ -140,7 +140,7 @@ Reasoning 是要评估的能力或行为；Chain of Thought 是一种提示和�
 ## 继续学习
 
 - [上一篇：Generalization（泛化）是什么](./01-generalization.md)
-- 下一篇（待完成）：为什么 AI 会产生幻觉？
+- [下一篇：Hallucination（幻觉）是什么](../05-limitations/01-hallucination.md)
 - [相关：Training 和 Inference 有什么区别](../03-how-models-work/18-training-vs-inference.md)
 
 ## 资料与核验

@@ -56,6 +56,14 @@
 
 ## D
 
+### Database
+
+中文：数据库
+
+一句话：按照明确的数据结构保存、查询和更新记录的系统，与按概率生成 Token 的 LLM 职责不同。
+
+主页面：[为什么 LLM 不是数据库](./docs/05-limitations/02-llm-is-not-database.md)
+
 ### Deep Learning（DL）
 
 中文：深度学习
@@ -81,6 +89,16 @@
 一句话：名称来自 Generative Pre-trained Transformer 的 OpenAI 模型家族。
 
 主页面：[GPT 和 ChatGPT 有什么区别](./docs/01-ai-and-llm/05-gpt-vs-chatgpt.md)
+
+## H
+
+### Hallucination
+
+中文：幻觉
+
+一句话：生成模型产出看似合理、却与事实不符或缺乏给定来源与任务条件支持的内容。
+
+主页面：[Hallucination（幻觉）是什么](./docs/05-limitations/01-hallucination.md)
 
 ## I
 
@@ -205,3 +223,13 @@
 一句话：通过 Attention 等组件处理序列信息的一类神经网络架构。
 
 主页面：[Transformer 是什么](./docs/03-how-models-work/03-transformer.md)
+
+## V
+
+### Verification
+
+中文：验证
+
+一句话：把可检查的主张拆开，并用独立证据或可重复方法逐项核对。
+
+主页面：[怎么验证 AI 的回答](./docs/05-limitations/04-verification.md)
