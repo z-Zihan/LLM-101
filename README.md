@@ -580,7 +580,7 @@ Coding Agent / Computer Use
 
 # 项目状态
 
-当前：**Main Path 15 篇已完成并通过批次 Review**
+当前：**Main Path 18 篇已完成并通过批次 Review**
 
 第一批优先完成：
 
@@ -596,14 +596,16 @@ Coding Agent / Computer Use
 10. [一个大模型到底是怎么诞生的](./docs/03-how-models-work/01-model-lifecycle.md)（Done）
 11. [为什么“预测下一个 Token”还能学到能力](./docs/03-how-models-work/10-next-token-prediction.md)（Done）
 12. [Training 和 Inference 有什么区别](./docs/03-how-models-work/18-training-vs-inference.md)（Done）
+13. [Prompt 是什么](./docs/02-chat-and-context/01-prompt.md)（Done）
+14. [模型架构是什么](./docs/03-how-models-work/02-architecture.md)（Done）
+15. [Transformer 是什么](./docs/03-how-models-work/03-transformer.md)（Done）
+16. [Attention 是什么](./docs/03-how-models-work/05-attention.md)（Done）
+17. [Generalization（泛化）是什么](./docs/04-capabilities/01-generalization.md)（Done）
+18. [Reasoning（推理能力）是什么](./docs/04-capabilities/03-reasoning.md)（Done）
 
 完整内容地图见 [`CONTENT_MAP.md`](./CONTENT_MAP.md)。
 
-继续完成的 Main Path：
-
-- [Prompt 是什么](./docs/02-chat-and-context/01-prompt.md)
-- [模型架构是什么](./docs/03-how-models-work/02-architecture.md)
-- [Transformer 是什么](./docs/03-how-models-work/03-transformer.md)
+下一批继续进入模型局限：Hallucination、LLM ≠ Database、Verification。
 
 ---
 

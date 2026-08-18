@@ -123,7 +123,7 @@ GPT 是采用 Transformer 路线的一类具体模型家族。Transformer 不是
 ## 继续学习
 
 - [上一篇：模型架构是什么](./02-architecture.md)
-- [下一篇：为什么预测下一个 Token 还能学到能力](./10-next-token-prediction.md)
+- [下一篇：Attention 是什么](./05-attention.md)
 - [相关：什么是大语言模型 LLM](../01-ai-and-llm/04-what-is-llm.md)
 
 ## 资料与核验

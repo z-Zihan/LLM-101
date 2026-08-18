@@ -20,6 +20,14 @@
 
 主页面：[AI 是什么](./docs/01-ai-and-llm/01-what-is-ai.md)
 
+### Attention
+
+中文：注意力机制
+
+一句话：根据位置之间的相关性计算权重，并按权重汇总信息的数值计算机制。
+
+主页面：[Attention 是什么](./docs/03-how-models-work/05-attention.md)
+
 ## C
 
 ### ChatGPT
@@ -57,6 +65,14 @@
 主页面：[AI、ML、DL 到底什么关系](./docs/01-ai-and-llm/02-ai-ml-dl.md)
 
 ## G
+
+### Generalization
+
+中文：泛化
+
+一句话：模型把训练中学到的模式用于未参与训练的新样本，并继续有效表现的能力。
+
+主页面：[Generalization（泛化）是什么](./docs/04-capabilities/01-generalization.md)
 
 ### GPT
 
@@ -137,6 +153,16 @@
 一句话：提供给模型、用于影响当前输出的输入内容。
 
 主页面：[Prompt 是什么](./docs/02-chat-and-context/01-prompt.md)
+
+## R
+
+### Reasoning
+
+中文：推理能力
+
+一句话：组合信息、遵守约束并经过中间步骤解决问题的可观察行为能力。
+
+主页面：[Reasoning（推理能力）是什么](./docs/04-capabilities/03-reasoning.md)
 
 ## T
 

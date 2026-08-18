@@ -177,7 +177,7 @@
 ## 继续学习
 
 - [上一篇：GPT 和 ChatGPT 有什么区别](../01-ai-and-llm/05-gpt-vs-chatgpt.md)
-- 下一篇（待完成）：参数量和训练数据有什么区别
+- [下一篇：参数量和训练数据有什么区别](./07-parameter-vs-training-data.md)
 - [相关：什么是模型](../01-ai-and-llm/03-what-is-model.md)
 
 ## 资料与核验

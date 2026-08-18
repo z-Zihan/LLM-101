@@ -83,6 +83,9 @@ Review 中修复：
 | 13 | [Prompt 是什么](./docs/02-chat-and-context/01-prompt.md) | Core | Done |
 | 14 | [模型架构是什么](./docs/03-how-models-work/02-architecture.md) | Core | Done |
 | 15 | [Transformer 是什么](./docs/03-how-models-work/03-transformer.md) | Core | Done |
+| 16 | [Attention 是什么](./docs/03-how-models-work/05-attention.md) | Core | Done |
+| 17 | [Generalization（泛化）是什么](./docs/04-capabilities/01-generalization.md) | Core | Done |
+| 18 | [Reasoning（推理能力）是什么](./docs/04-capabilities/03-reasoning.md) | Core | Done |
 
 ## 本批 Research
 
@@ -154,7 +157,7 @@ Review 中修复：
 
 ## 正在进行
 
-- 无。Batch 5 Review 已完成，等待提交后自动进入 Batch 6。
+- 无。Batch 6 Review 已完成，提交并推送后自动进入 Batch 7。
 
 ## Batch 3：参数量与数据、Token、Context
 
@@ -238,12 +241,38 @@ Review 中修复：
 - Prompt 的两个外部辅助来源在本机持续超时，已替换为可访问的 Microsoft Learn 官方文档；OpenAI 官方文档保留为 P0 来源。
 - 重新连接 Main Path 上的前后文章，避免 Prompt、Architecture 和 Transformer 成为导航孤岛。
 
+## Batch 6：Attention、Generalization、Reasoning
+
+完成：
+
+- Attention 是什么
+- Generalization（泛化）是什么
+- Reasoning（推理能力）是什么
+
+Review：
+
+- Accuracy: PASS
+- Beginner: PASS
+- Architecture: PASS
+- Terminology: PASS
+- Duplication: PASS
+- Source: PASS
+- Link: PASS
+
+Review 中修复：
+
+- Attention 明确为 Query / Key 相关性驱动的加权信息汇总，“关注”仅作类比；Self-Attention 的 `Self` 指同一序列来源，不拟人化。
+- Generalization 限定在具体任务、数据分布与评测条件下讨论，并明确记忆与泛化可以同时存在。
+- Reasoning 采用可观察行为的操作性定义，区分工程中的 Inference，并说明 Chain of Thought 不保证忠实反映内部因果过程。
+- 修复 Parameter、Token 与新增文章接入后的上一篇 / 下一篇链接，使现有 Main Path 形成连续导航。
+- `docs/04-capabilities/` 加入正式正文后删除失去作用的 `.gitkeep`。
+
 ## 下一批任务
 
 下一批最多处理 1～3 篇，建议按顺序：
 
-1. Attention 是什么
-2. Generalization 是什么
-3. Reasoning 是什么
+1. Hallucination 是什么
+2. 为什么 LLM 不是数据库
+3. Verification 是什么
 
 开始前仍须逐篇执行 Research → Draft → Fact Check → Concept Check → Beginner Check → Dependency Check → Link Check。

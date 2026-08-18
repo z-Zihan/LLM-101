@@ -129,7 +129,7 @@ Token 连接了后续很多概念：
 
 ## 继续学习
 
-- [上一篇：参数量和训练数据有什么区别](../03-how-models-work/07-parameter-vs-training-data.md)
+- [上一篇：Prompt 是什么](./01-prompt.md)
 - [下一篇：Context / Context Window 是什么](./07-context.md)
 - [相关：什么是大语言模型 LLM](../01-ai-and-llm/04-what-is-llm.md)
 

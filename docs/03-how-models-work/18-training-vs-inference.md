@@ -133,7 +133,7 @@ Deployment 是把模型放进可运行服务的工程过程；Inference 是服�
 ## 继续学习
 
 - [上一篇：为什么预测下一个 Token 还能学到能力](./10-next-token-prediction.md)
-- 下一篇（待完成）：泛化是什么？
+- [下一篇：Generalization（泛化）是什么](../04-capabilities/01-generalization.md)
 - [相关：参数到底是什么](./06-parameter.md)
 
 ## 资料与核验

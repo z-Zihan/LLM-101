@@ -92,7 +92,7 @@ Path（学习路径优先级）：
 | PyTorch / JAX | Advanced | Optional | Todo | 框架和架构有什么区别？ |
 | Layer | Core | Optional | Todo | “多少层”是什么意思？ |
 | Hidden Size / Width | Advanced | Optional | Todo | “多宽”是什么意思？ |
-| Attention | Core | Main | Todo | Attention 到底在做什么？ |
+| Attention | Core | Main | Done | Attention 到底在做什么？ |
 | Self-Attention | Advanced | Optional | Todo | Self-Attention 是什么？ |
 | FFN | Advanced | Optional | Todo | Transformer 一层里除了 Attention 还有什么？ |
 | Parameter | Core | Main | Done | 参数到底是什么？ |
@@ -126,13 +126,13 @@ Path（学习路径优先级）：
 | 内容 | 等级 | Path | 状态 | 主要问题 |
 |---|---|---|---|---|
 | Memorization | Advanced | Optional | Todo | 模型是在背答案吗？ |
-| Generalization | Core | Main | Todo | 什么叫泛化？ |
+| Generalization | Core | Main | Done | 什么叫泛化？ |
 | Train / Validation / Test | Advanced | Optional | Todo | 怎么判断模型是真的学会？ |
 | Overfitting | Advanced | Optional | Todo | 什么叫过拟合？ |
 | Underfitting | Advanced | Optional | Todo | 什么叫欠拟合？ |
 | Emergence | Core | Optional | Todo | 什么叫涌现？ |
 | In-context Learning | Advanced | Optional | Todo | 为什么只在 Prompt 里给示例也能“学”？ |
-| Reasoning | Core | Main | Todo | 推理能力和知识量是一回事吗？ |
+| Reasoning | Core | Main | Done | 推理能力和知识量是一回事吗？ |
 | Reasoning Model | Core | Optional | Todo | 什么叫推理模型？ |
 | Chain of Thought | Advanced | Optional | Todo | CoT 是模型真实完整思考过程吗？ |
 | Tree of Thought | Appendix | Optional | Todo | ToT 是什么？ |
@@ -480,7 +480,7 @@ Path（学习路径优先级）：
 
 # Main Path 课程进度
 
-第一版只做 12 篇 Core：
+当前已纳入主学习路线的文章：
 
 | # | 文章 | Level | Path | 状态 | Article Path |
 |---|---|---|---|---|---|
@@ -499,6 +499,9 @@ Path（学习路径优先级）：
 | 13 | Prompt 是什么 | Core | Main | Done | `docs/02-chat-and-context/01-prompt.md` |
 | 14 | 模型架构是什么 | Core | Main | Done | `docs/03-how-models-work/02-architecture.md` |
 | 15 | Transformer 是什么 | Core | Main | Done | `docs/03-how-models-work/03-transformer.md` |
+| 16 | Attention 是什么 | Core | Main | Done | `docs/03-how-models-work/05-attention.md` |
+| 17 | Generalization（泛化）是什么 | Core | Main | Done | `docs/04-capabilities/01-generalization.md` |
+| 18 | Reasoning（推理能力）是什么 | Core | Main | Done | `docs/04-capabilities/03-reasoning.md` |
 
 ---
 
