@@ -1,4 +1,4 @@
-version: 2
+version: 3
 updated: "2026-08-18"
 
 main_path:
@@ -8,6 +8,8 @@ main_path:
   - model
   - language-model
   - llm
+  - gpt
+  - chatgpt-product
   - parameter
   - prompt
   - token
@@ -84,7 +86,7 @@ concepts:
     summary: 经过训练后，用来把输入转换为预测、分数或生成结果的计算关系。
     prerequisites: ["machine-learning"]
     related: ["parameter", "training", "inference", "llm"]
-    questions: ["q-parameter-data-001", "q-model-origin-001", "q-parameter-form-001", "q-intelligence-origin-001", "q-reproducibility-001", "q-agent-001", "q-model-algorithm-web-001"]
+    questions: ["q-parameter-data-001", "q-model-origin-001", "q-parameter-form-001", "q-intelligence-origin-001", "q-reproducibility-001", "q-agent-001", "q-model-algorithm-web-001", "q-chatgpt-product-web-001"]
 
   - id: language-model
     name: 语言模型
@@ -108,7 +110,31 @@ concepts:
     summary: 在大量数据和计算资源上训练、能够处理和生成语言的大规模语言模型。
     prerequisites: ["language-model", "deep-learning"]
     related: ["transformer", "prompt", "context", "hallucination"]
-    questions: ["q-hallucination-001", "q-language-model-web-001", "q-llm-foundation-web-001"]
+    questions: ["q-hallucination-001", "q-language-model-web-001", "q-llm-foundation-web-001", "q-chatgpt-product-web-001"]
+
+  - id: gpt
+    name: GPT
+    path: docs/01-AI与大模型/05-GPT和ChatGPT有什么区别.md
+    aliases: ["GPT", "Generative Pre-trained Transformer"]
+    level: Core
+    path_type: Main
+    group: AI与模型
+    summary: OpenAI 使用“生成式预训练 Transformer”路线发展的一组模型家族名称，不等于 ChatGPT 产品。
+    prerequisites: ["llm"]
+    related: ["chatgpt-product", "model", "api", "transformer"]
+    questions: ["q-chatgpt-product-web-001"]
+
+  - id: chatgpt-product
+    name: ChatGPT 产品
+    path: docs/01-AI与大模型/05-GPT和ChatGPT有什么区别.md
+    aliases: ["ChatGPT", "ChatGPT 产品"]
+    level: Core
+    path_type: Main
+    group: AI与模型
+    summary: OpenAI 面向用户提供的 AI 产品服务，会在模型之外组织界面、上下文、规则和工具等系统能力。
+    prerequisites: ["model", "llm"]
+    related: ["gpt", "api", "agent"]
+    questions: ["q-chatgpt-product-web-001"]
 
   - id: parameter
     name: 参数
@@ -462,6 +488,12 @@ relations:
   - from: llm
     relation: 常采用
     to: transformer
+  - from: gpt
+    relation: 属于
+    to: llm
+  - from: chatgpt-product
+    relation: 通过产品层调用
+    to: model
   - from: transformer
     relation: 使用
     to: attention

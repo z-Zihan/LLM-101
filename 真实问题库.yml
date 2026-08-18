@@ -40,7 +40,7 @@ questions:
     concepts: ["parameter", "generalization", "reasoning"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/03-模型原理与训练/06-参数到底是什么.md"
     cluster: parameter-capacity
 
@@ -97,7 +97,7 @@ questions:
     difficulty: beginner
     priority: high
     status: answered
-    answer_path: "docs/01-AI与大模型/03-模型到底是什么.md"
+    answer_path: "docs/03-模型原理与训练/06-参数到底是什么.md"
     cluster: parameter-form
 
   - id: q-intelligence-origin-001
@@ -111,7 +111,7 @@ questions:
     difficulty: beginner
     priority: high
     status: answered
-    answer_path: "docs/01-AI与大模型/03-模型到底是什么.md"
+    answer_path: "docs/03-模型原理与训练/06-参数到底是什么.md"
     cluster: capability-origin
 
   - id: q-more-is-better-001
@@ -124,7 +124,7 @@ questions:
     concepts: ["parameter", "transformer", "attention"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/03-模型原理与训练/06-参数到底是什么.md"
     cluster: scale-tradeoffs
 
@@ -334,7 +334,7 @@ questions:
     concepts: ["language-model", "llm", "token", "inference"]
     difficulty: intermediate
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/01-AI与大模型/04-什么是大语言模型.md"
     cluster: language-model-definition
 
@@ -348,9 +348,23 @@ questions:
     concepts: ["language-model", "llm"]
     difficulty: beginner
     priority: medium
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/01-AI与大模型/04-什么是大语言模型.md"
     cluster: llm-vs-foundation-model
+
+  - id: q-chatgpt-product-web-001
+    question: "ChatGPT 到底是一个生成模型，还是一个使用生成模型的产品？为什么两种说法都能看到？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/39012/what-makes-chatgpt-a-generative-model"
+    source_title: "What makes ChatGPT a generative model?"
+    language: en
+    paraphrased: true
+    concepts: ["model", "llm", "gpt", "chatgpt-product"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/01-AI与大模型/05-GPT和ChatGPT有什么区别.md"
+    cluster: model-vs-product
 
   - id: q-token-length-web-001
     question: "一个 Token 固定是四个字符吗？最长的 Token 能包含多长的文本？"
