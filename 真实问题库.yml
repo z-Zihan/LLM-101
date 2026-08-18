@@ -12,7 +12,7 @@ questions:
     concepts: ["token"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/02-聊天Token与上下文/04-Token到底是什么.md"
     cluster: token-units
 
@@ -54,7 +54,7 @@ questions:
     concepts: ["token", "context", "context-window"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/02-聊天Token与上下文/07-上下文和上下文窗口是什么.md"
     cluster: context-window
 
@@ -236,8 +236,8 @@ questions:
     concepts: ["token", "context", "inference"]
     difficulty: beginner
     priority: medium
-    status: planned
-    answer_path: null
+    status: answered
+    answer_path: "docs/02-聊天Token与上下文/07-上下文和上下文窗口是什么.md"
     cluster: kv-cache
 
   - id: q-prompt-001
@@ -250,7 +250,7 @@ questions:
     concepts: ["prompt", "context"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/02-聊天Token与上下文/01-Prompt到底是什么.md"
     cluster: prompt-engineering
 
@@ -376,7 +376,7 @@ questions:
     concepts: ["token"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/02-聊天Token与上下文/04-Token到底是什么.md"
     cluster: token-boundaries
 
@@ -390,8 +390,8 @@ questions:
     concepts: ["api", "context", "context-window", "conversation-history"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
-    answer_path: "docs/12-Memory/01-聊天记录是什么.md"
+    status: answered
+    answer_path: "docs/02-聊天Token与上下文/07-上下文和上下文窗口是什么.md"
     cluster: context-vs-history
 
   - id: q-parameter-scale-web-001
