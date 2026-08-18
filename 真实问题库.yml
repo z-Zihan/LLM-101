@@ -69,7 +69,7 @@ questions:
     difficulty: beginner
     priority: high
     status: answered
-    answer_path: "docs/01-AI与大模型/03-模型到底是什么.md"
+    answer_path: "docs/03-模型原理与训练/01-一个大模型到底是怎么诞生的.md"
     cluster: model-origin
 
   - id: q-architecture-code-001
@@ -79,10 +79,10 @@ questions:
     source_title: "用户提供的原始聊天记录（2026-08-13）"
     language: zh
     paraphrased: true
-    concepts: ["model-lifecycle", "transformer", "attention"]
+    concepts: ["model-lifecycle", "architecture", "transformer", "attention"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/03-模型原理与训练/02-模型架构是什么.md"
     cluster: architecture-design
 
@@ -121,7 +121,7 @@ questions:
     source_title: "用户提供的原始聊天记录（2026-08-13）"
     language: zh
     paraphrased: true
-    concepts: ["parameter", "transformer", "attention"]
+    concepts: ["parameter", "architecture", "transformer", "attention"]
     difficulty: beginner
     priority: high
     status: answered

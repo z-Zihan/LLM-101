@@ -15,9 +15,10 @@ main_path:
   - token
   - context
   - model-lifecycle
+  - architecture
+  - transformer
   - training
   - inference
-  - transformer
   - generalization
   - reasoning
   - hallucination
@@ -220,6 +221,18 @@ concepts:
     related: ["training", "inference", "training-data"]
     questions: ["q-model-origin-001", "q-architecture-code-001", "q-training-loop-001"]
 
+  - id: architecture
+    name: 模型架构
+    path: docs/03-模型原理与训练/02-模型架构是什么.md
+    aliases: ["Architecture", "Model Architecture", "模型架构", "架构"]
+    level: Core
+    path_type: Main
+    group: 模型训练
+    summary: 规定模型由哪些计算组件组成、组件怎样连接以及信息如何流动的结构设计。
+    prerequisites: ["model"]
+    related: ["model-lifecycle", "transformer", "parameter"]
+    questions: ["q-architecture-code-001", "q-more-is-better-001"]
+
   - id: transformer
     name: Transformer
     path: docs/03-模型原理与训练/03-Transformer到底是什么.md
@@ -228,7 +241,7 @@ concepts:
     path_type: Main
     group: 模型训练
     summary: 以注意力等模块处理序列信息的一类神经网络架构。
-    prerequisites: ["model", "deep-learning"]
+    prerequisites: ["architecture", "deep-learning"]
     related: ["attention", "llm", "token"]
     questions: ["q-architecture-code-001", "q-more-is-better-001", "q-token-generation-001"]
 
@@ -464,6 +477,12 @@ relations:
   - from: model
     relation: 包含
     to: parameter
+  - from: architecture
+    relation: 决定布局
+    to: parameter
+  - from: transformer
+    relation: 是一种
+    to: architecture
   - from: training-data
     relation: 用于
     to: training
