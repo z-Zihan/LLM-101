@@ -22,6 +22,22 @@
 
 主页面：[GPT 和 ChatGPT 有什么区别](./docs/01-ai-and-llm/05-gpt-vs-chatgpt.md)
 
+### Context
+
+中文：上下文
+
+一句话：模型在当前这次计算中可以利用的信息。
+
+主页面：[Context 和 Context Window 是什么](./docs/02-chat-and-context/07-context.md)
+
+### Context Window
+
+中文：上下文窗口
+
+一句话：模型一次能够处理的 Token 容量边界。
+
+主页面：[Context 和 Context Window 是什么](./docs/02-chat-and-context/07-context.md)
+
 ## D
 
 ### Deep Learning（DL）
@@ -87,3 +103,37 @@
 一句话：模型内部由训练调整、在推理中参与计算的数值变量。
 
 主页面：[参数到底是什么](./docs/03-how-models-work/06-parameter.md)
+
+### Parameter Count
+
+中文：参数量
+
+一句话：模型中可训练参数的数量，和训练数据的数量不是一回事。
+
+主页面：[参数量和训练数据有什么区别](./docs/03-how-models-work/07-parameter-vs-training-data.md)
+
+## T
+
+### Token
+
+中文：Token / 文本单元
+
+一句话：Tokenizer 将内容转换成、供模型处理的离散单元。
+
+主页面：[Token 是什么](./docs/02-chat-and-context/04-token.md)
+
+### Tokenizer
+
+中文：分词器
+
+一句话：把输入内容编码成 Token 和 Token ID，并把输出解码回内容的组件。
+
+主页面：[Token 是什么](./docs/02-chat-and-context/04-token.md)
+
+### Training Data
+
+中文：训练数据
+
+一句话：训练过程用于提供输入、目标或其他学习信号的数据。
+
+主页面：[参数量和训练数据有什么区别](./docs/03-how-models-work/07-parameter-vs-training-data.md)

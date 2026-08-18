@@ -74,6 +74,9 @@ Review 中修复：
 | 04 | [什么是大语言模型 LLM](./docs/01-ai-and-llm/04-what-is-llm.md) | Core | Done |
 | 05 | [GPT 和 ChatGPT 有什么区别](./docs/01-ai-and-llm/05-gpt-vs-chatgpt.md) | Core | Done |
 | 06 | [参数到底是什么](./docs/03-how-models-work/06-parameter.md) | Core | Done |
+| 07 | [参数量和训练数据有什么区别](./docs/03-how-models-work/07-parameter-vs-training-data.md) | Core | Done |
+| 08 | [Token 是什么](./docs/02-chat-and-context/04-token.md) | Core | Done |
+| 09 | [Context / Context Window 是什么](./docs/02-chat-and-context/07-context.md) | Core | Done |
 
 ## 本批 Research
 
@@ -145,7 +148,32 @@ Review 中修复：
 
 ## 正在进行
 
-- 无。按照 Master Prompt，前三篇完成 Review 后在此批停止。
+- 无。Batch 3 Review 已完成，等待提交后自动进入 Batch 4。
+
+## Batch 3：参数量与数据、Token、Context
+
+完成：
+
+- 参数量和训练数据有什么区别
+- Token 是什么
+- Context / Context Window 是什么
+
+Review：
+
+- Accuracy: PASS
+- Beginner: PASS
+- Architecture: PASS
+- Terminology: PASS
+- Duplication: PASS
+- Source: PASS
+- Link: PASS
+
+Review 中修复：
+
+- 原目录同时规划 `context.md` 与 `context-window.md`，会和 Phase 1 合并文章产生重复；已将后者调整为未来 Optional 的 `long-context.md`。
+- 新增正式内容后删除 `docs/02-chat-and-context/` 与 `docs/03-how-models-work/` 中失去作用的 `.gitkeep`。
+- Glossary 的 C 分组重新按 ChatGPT、Context、Context Window 排序。
+- Token 文章明确拒绝固定中英文 Token 换算；Context 文章区分容量上限和信息利用质量。
 
 ## 待核验
 
@@ -157,8 +185,8 @@ Review 中修复：
 
 下一批最多处理 1～3 篇，建议按顺序：
 
-1. 参数量和训练数据有什么区别
-2. Token 是什么
-3. Context / Context Window 是什么
+1. 一个大模型到底是怎么诞生的
+2. 为什么“预测下一个 Token”还能学到能力
+3. Training 和 Inference 有什么区别
 
 开始前仍须逐篇执行 Research → Draft → Fact Check → Concept Check → Beginner Check → Dependency Check → Link Check。

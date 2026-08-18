@@ -67,12 +67,12 @@ Path（学习路径优先级）：
 | System Prompt | Core | Optional | Todo | 为什么 AI 会有“隐藏规则”？ |
 | Prompt Engineering | Core | Optional | Todo | 怎么把需求表达得更清楚？ |
 | Zero-shot / Few-shot | Advanced | Optional | Todo | 为什么给示例会更稳定？ |
-| Token | Core | Main | Todo | Token 是字还是单词？ |
+| Token | Core | Main | Done | Token 是字还是单词？ |
 | K / M / B / T | Core | Optional | Todo | 1K、1M、1B、1T 到底是多少？ |
 | Tokenizer | Core | Optional | Todo | 文本是怎么变成 Token 的？ |
 | Input / Output Token | Core | Optional | Todo | API 为什么分输入和输出计费？ |
-| Context | Core | Main | Todo | Context 到底是什么？ |
-| Context Window | Core | Main | Todo | 上下文窗口是什么意思？ |
+| Context | Core | Main | Done | Context 到底是什么？ |
+| Context Window | Core | Main | Done | 上下文窗口是什么意思？ |
 | Long Context | Advanced | Optional | Todo | 窗口越大就一定记得越好吗？ |
 | Sampling | Advanced | Optional | Todo | 模型怎么选下一个 Token？ |
 | Temperature | Advanced | Optional | Todo | 为什么同一个问题答案不一样？ |
@@ -96,9 +96,9 @@ Path（学习路径优先级）：
 | Self-Attention | Advanced | Optional | Todo | Self-Attention 是什么？ |
 | FFN | Advanced | Optional | Todo | Transformer 一层里除了 Attention 还有什么？ |
 | Parameter | Core | Main | Done | 参数到底是什么？ |
-| Parameter Count | Core | Main | Todo | 1.5B / 7B / 70B 表示什么？ |
+| Parameter Count | Core | Main | Done | 1.5B / 7B / 70B 表示什么？ |
 | 参数量来源 | Core | Main | Todo | 参数量是工程师直接填进去的吗？ |
-| Training Data | Core | Main | Todo | 参数量就是训练数据吗？ |
+| Training Data | Core | Main | Done | 参数量就是训练数据吗？ |
 | Random Initialization | Core | Main | Todo | “模型出生”到底发生了什么？ |
 | Symmetry Breaking | Advanced | Optional | Todo | 为什么不能所有参数初始化成 0？ |
 | Pre-training | Core | Main | Todo | 预训练到底在做什么？ |
@@ -490,9 +490,9 @@ Path（学习路径优先级）：
 | 04 | 什么是大语言模型 LLM | Core | Main | Done | `docs/01-ai-and-llm/04-what-is-llm.md` |
 | 05 | GPT 和 ChatGPT 有什么区别 | Core | Main | Done | `docs/01-ai-and-llm/05-gpt-vs-chatgpt.md` |
 | 06 | 参数到底是什么 | Core | Main | Done | `docs/03-how-models-work/06-parameter.md` |
-| 07 | 参数量和训练数据有什么区别 | Core | Main | Todo | `docs/03-how-models-work/07-parameter-vs-training-data.md` |
-| 08 | Token 是什么 | Core | Main | Todo | `docs/02-chat-and-context/04-token.md` |
-| 09 | Context / Context Window 是什么 | Core | Main | Todo | `docs/02-chat-and-context/07-context.md` |
+| 07 | 参数量和训练数据有什么区别 | Core | Main | Done | `docs/03-how-models-work/07-parameter-vs-training-data.md` |
+| 08 | Token 是什么 | Core | Main | Done | `docs/02-chat-and-context/04-token.md` |
+| 09 | Context / Context Window 是什么 | Core | Main | Done | `docs/02-chat-and-context/07-context.md` |
 | 10 | 一个大模型到底是怎么诞生的 | Core | Main | Todo | `docs/03-how-models-work/01-model-lifecycle.md` |
 | 11 | 为什么“预测下一个 Token”还能学到能力 | Core | Main | Todo | `docs/03-how-models-work/10-next-token-prediction.md` |
 | 12 | Training 和 Inference 有什么区别 | Core | Main | Todo | `docs/03-how-models-work/18-training-vs-inference.md` |

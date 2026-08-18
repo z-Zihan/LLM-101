@@ -32,7 +32,7 @@ LLM-101/
 │   │   ├── 05-k-m-b-t.md
 │   │   ├── 06-tokenizer.md
 │   │   ├── 07-context.md
-│   │   ├── 08-context-window.md
+│   │   ├── 08-long-context.md
 │   │   ├── 09-next-token-generation.md
 │   │   ├── 10-temperature-top-p.md
 │   │   └── 11-kv-cache.md

@@ -580,7 +580,7 @@ Coding Agent / Computer Use
 
 # 项目状态
 
-当前：**v0.1 前两批 Main Core 已完成并通过批次 Review**
+当前：**v0.1 前三批 Main Core 已完成并通过批次 Review**
 
 第一批优先完成：
 
@@ -590,9 +590,9 @@ Coding Agent / Computer Use
 4. [什么是 LLM](./docs/01-ai-and-llm/04-what-is-llm.md)（Done）
 5. [GPT 和 ChatGPT 有什么区别](./docs/01-ai-and-llm/05-gpt-vs-chatgpt.md)（Done）
 6. [参数到底是什么](./docs/03-how-models-work/06-parameter.md)（Done）
-7. 参数量和训练数据有什么区别
-8. Token 是什么
-9. Context / Context Window 是什么
+7. [参数量和训练数据有什么区别](./docs/03-how-models-work/07-parameter-vs-training-data.md)（Done）
+8. [Token 是什么](./docs/02-chat-and-context/04-token.md)（Done）
+9. [Context / Context Window 是什么](./docs/02-chat-and-context/07-context.md)（Done）
 10. 一个大模型到底是怎么诞生的
 11. 为什么“预测下一个 Token”还能学到能力
 12. Training 和 Inference 有什么区别
