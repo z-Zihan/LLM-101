@@ -4,6 +4,22 @@
 
 ## A
 
+### Agent
+
+中文：智能体 / Agent
+
+一句话：围绕目标组合模型、状态、工具和控制循环，并根据结果继续推进任务的系统。
+
+主页面：[Agent 是什么](./docs/07-agent/01-what-is-agent.md)
+
+### Agent Loop
+
+中文：Agent 循环
+
+一句话：反复执行观察、决定、行动和状态更新，让新结果影响下一步的运行机制。
+
+主页面：[Agent Loop 是什么](./docs/07-agent/03-agent-loop.md)
+
 ### API
 
 中文：应用程序编程接口

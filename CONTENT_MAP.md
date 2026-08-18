@@ -185,9 +185,9 @@ Path（学习路径优先级）：
 
 | 内容 | 等级 | Path | 状态 | 主要问题 |
 |---|---|---|---|---|
-| Agent | Core | Main | Todo | Agent 到底是什么？ |
-| Model vs Agent | Core | Main | Todo | Agent 和模型差在哪？ |
-| Agent Loop | Core | Main | Todo | Agent 为什么能连续做多步？ |
+| Agent | Core | Main | Done | Agent 到底是什么？ |
+| Model vs Agent | Core | Main | Done | Agent 和模型差在哪？ |
+| Agent Loop | Core | Main | Done | Agent 为什么能连续做多步？ |
 | Planning | Core | Optional | Todo | Planning 是什么？ |
 | Tool Use | Core | Optional | Todo | Agent 怎么使用工具？ |
 | Workflow | Core | Optional | Todo | Workflow 是什么？ |
@@ -508,6 +508,9 @@ Path（学习路径优先级）：
 | 22 | API 是什么 | Core | Main | Done | `docs/06-tools/01-api.md` |
 | 23 | AI Tool 是什么 | Core | Main | Done | `docs/06-tools/02-tool.md` |
 | 24 | Function Calling 是什么 | Core | Main | Done | `docs/06-tools/03-function-calling.md` |
+| 25 | Agent 是什么 | Core | Main | Done | `docs/07-agent/01-what-is-agent.md` |
+| 26 | Model 和 Agent 有什么区别 | Core | Main | Done | `docs/07-agent/02-model-vs-agent.md` |
+| 27 | Agent Loop 是什么 | Core | Main | Done | `docs/07-agent/03-agent-loop.md` |
 
 ---
 

@@ -148,7 +148,7 @@ Function Calling 是模型从“生成文字”走向“连接软件能力”的
 ## 继续学习
 
 - [上一篇：AI Tool 是什么](./02-tool.md)
-- 下一篇（待完成）：Agent 是什么？
+- [下一篇：Agent 是什么](../07-agent/01-what-is-agent.md)
 - [相关：API 是什么](./01-api.md)
 
 ## 资料与核验

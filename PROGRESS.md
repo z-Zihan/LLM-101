@@ -92,6 +92,9 @@ Review 中修复：
 | 22 | [API 是什么](./docs/06-tools/01-api.md) | Core | Done |
 | 23 | [AI Tool 是什么](./docs/06-tools/02-tool.md) | Core | Done |
 | 24 | [Function Calling 是什么](./docs/06-tools/03-function-calling.md) | Core | Done |
+| 25 | [Agent 是什么](./docs/07-agent/01-what-is-agent.md) | Core | Done |
+| 26 | [Model 和 Agent 有什么区别](./docs/07-agent/02-model-vs-agent.md) | Core | Done |
+| 27 | [Agent Loop 是什么](./docs/07-agent/03-agent-loop.md) | Core | Done |
 
 ## 本批 Research
 
@@ -163,7 +166,7 @@ Review 中修复：
 
 ## 正在进行
 
-- 无。Batch 8 Review 已完成，提交并推送后自动进入 Batch 9。
+- 无。Batch 9 Review 已完成，提交并推送后自动进入 Batch 10。
 
 ## Batch 3：参数量与数据、Token、Context
 
@@ -325,12 +328,38 @@ Review 中修复：
 - 现有目录未为 Tool Execution Boundary 规划独立文章，因此将其作为 Function Calling 主页面的核心段落，并在 Content Map 标记 Done。
 - 新增正文后删除 `docs/06-tools/` 中失去作用的 `.gitkeep`；6 个新外部来源与全部内部链接检查通过。
 
+## Batch 9：Agent、Model vs Agent、Agent Loop
+
+完成：
+
+- Agent 是什么
+- Model 和 Agent 有什么区别
+- Agent Loop 是什么
+
+Review：
+
+- Accuracy: PASS
+- Beginner: PASS
+- Architecture: PASS
+- Terminology: PASS
+- Duplication: PASS
+- Source: PASS
+- Link: PASS
+
+Review 中修复：
+
+- Agent 没有跨论文和厂商统一的单句定义，因此采用“围绕目标、动态决定步骤、根据结果继续”的教学定义，并明确自主程度是一条连续谱。
+- Model 与 Agent 按计算组件和多组件运行系统区分；模型提出行动不等于已获权限或已经执行。
+- Agent Loop 补齐成功、失败、人工输入、预算、取消和安全停止条件，并解释幂等、日志、重试限制与恢复的重要性。
+- 新增正文后删除 `docs/07-agent/` 中失去作用的 `.gitkeep`，并把 Function Calling 的下一篇接入 Agent。
+- 4 个新外部来源与全部发布用 Markdown 相对链接检查通过。
+
 ## 下一批任务
 
 下一批最多处理 1～3 篇，建议按顺序：
 
-1. Agent 是什么
-2. Model 和 Agent 有什么区别
-3. Agent Loop 是什么
+1. Workflow 和 Agent 有什么区别
+2. RAG 是什么
+3. Knowledge Base 是什么
 
 开始前仍须逐篇执行 Research → Draft → Fact Check → Concept Check → Beginner Check → Dependency Check → Link Check。

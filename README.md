@@ -580,7 +580,7 @@ Coding Agent / Computer Use
 
 # 项目状态
 
-当前：**Main Path 24 篇已完成并通过批次 Review**
+当前：**Main Path 27 篇已完成并通过批次 Review**
 
 当前已完成的 Main Path：
 
@@ -608,10 +608,13 @@ Coding Agent / Computer Use
 22. [API 是什么](./docs/06-tools/01-api.md)（Done）
 23. [AI Tool 是什么](./docs/06-tools/02-tool.md)（Done）
 24. [Function Calling 是什么](./docs/06-tools/03-function-calling.md)（Done）
+25. [Agent 是什么](./docs/07-agent/01-what-is-agent.md)（Done）
+26. [Model 和 Agent 有什么区别](./docs/07-agent/02-model-vs-agent.md)（Done）
+27. [Agent Loop 是什么](./docs/07-agent/03-agent-loop.md)（Done）
 
 完整内容地图见 [`CONTENT_MAP.md`](./CONTENT_MAP.md)。
 
-下一批继续进入 Agent 基础：Agent、Model vs Agent、Agent Loop。
+下一批继续完成 Workflow vs Agent，并进入 RAG 与 Knowledge Base。
 
 ---
 
