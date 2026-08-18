@@ -192,6 +192,46 @@
 
 主页面：[MCP 是什么](./docs/09-mcp/01-what-is-mcp.md)
 
+### MCP Client
+
+中文：MCP 客户端
+
+一句话：Host 内负责与一个 MCP Server 建立和管理协议连接的组件。
+
+主页面：[MCP Client 和 Server 是什么](./docs/09-mcp/02-client-server.md)
+
+### MCP Prompt
+
+中文：MCP 提示模板
+
+一句话：MCP Server 提供、由用户或应用选择使用的可复用提示模板。
+
+主页面：[MCP Tools、Resources、Prompts 是什么](./docs/09-mcp/03-tools-resources-prompts.md)
+
+### MCP Resource
+
+中文：MCP 资源
+
+一句话：MCP Server 通过 URI 暴露、由应用决定何时读取的 Context 内容。
+
+主页面：[MCP Tools、Resources、Prompts 是什么](./docs/09-mcp/03-tools-resources-prompts.md)
+
+### MCP Server
+
+中文：MCP 服务端
+
+一句话：通过 MCP 连接暴露 Tools、Resources 或 Prompts 的程序角色。
+
+主页面：[MCP Client 和 Server 是什么](./docs/09-mcp/02-client-server.md)
+
+### MCP Tool
+
+中文：MCP 工具
+
+一句话：MCP Server 通过协议声明和执行、可由模型请求调用的操作。
+
+主页面：[MCP Tools、Resources、Prompts 是什么](./docs/09-mcp/03-tools-resources-prompts.md)
+
 ### Machine Learning（ML）
 
 中文：机器学习

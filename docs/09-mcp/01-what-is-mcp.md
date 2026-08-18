@@ -109,7 +109,7 @@ Agent 围绕目标决定步骤并运行循环；MCP 提供连接外部能力的�
 ## 继续学习
 
 - [上一篇：RAG 有哪些局限](../08-rag/12-rag-limitations.md)
-- 下一篇（待完成）：MCP Client 和 Server 做什么？
+- [下一篇：MCP Client 和 Server 是什么](./02-client-server.md)
 - [相关：AI Tool 是什么](../06-tools/02-tool.md)
 
 ## 资料与核验

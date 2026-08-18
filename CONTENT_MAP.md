@@ -225,12 +225,12 @@ Path（学习路径优先级）：
 | 内容 | 等级 | Path | 状态 | 主要问题 |
 |---|---|---|---|---|
 | MCP | Core | Main | Done | MCP 到底是什么？ |
-| MCP Client | Core | Main | Todo | Client 做什么？ |
-| MCP Server | Core | Main | Todo | Server 做什么？ |
-| MCP Tool | Core | Main | Todo | MCP Tool 和普通 Tool 什么关系？ |
-| MCP Resource | Advanced | Optional | Todo | Resource 是什么？ |
-| MCP Prompt | Advanced | Optional | Todo | MCP Prompt 是什么？ |
-| MCP vs API | Core | Main | Todo | MCP 是不是一种 API？ |
+| MCP Client | Core | Main | Done | Client 做什么？ |
+| MCP Server | Core | Main | Done | Server 做什么？ |
+| MCP Tool | Core | Main | Done | MCP Tool 和普通 Tool 什么关系？ |
+| MCP Resource | Advanced | Optional | Done | Resource 是什么？ |
+| MCP Prompt | Advanced | Optional | Done | MCP Prompt 是什么？ |
+| MCP vs API | Core | Main | Done | MCP 是不是一种 API？ |
 | MCP vs Function Calling | Core | Main | Todo | Function Calling 和 MCP 有什么区别？ |
 | MCP vs Agent | Core | Main | Todo | 有 MCP 就等于有 Agent 吗？ |
 
@@ -520,6 +520,9 @@ Path（学习路径优先级）：
 | 34 | RAG 和 Fine-tuning 有什么区别 | Core | Main | Done | `docs/08-rag/11-rag-vs-finetuning.md` |
 | 35 | RAG 有哪些局限 | Core | Main | Done | `docs/08-rag/12-rag-limitations.md` |
 | 36 | MCP 是什么 | Core | Main | Done | `docs/09-mcp/01-what-is-mcp.md` |
+| 37 | MCP Client 和 Server 是什么 | Core | Main | Done | `docs/09-mcp/02-client-server.md` |
+| 38 | MCP Tools、Resources、Prompts 是什么 | Core | Main | Done | `docs/09-mcp/03-tools-resources-prompts.md` |
+| 39 | MCP 和 API 有什么区别 | Core | Main | Done | `docs/09-mcp/04-mcp-vs-api.md` |
 
 ---
 

@@ -580,7 +580,7 @@ Coding Agent / Computer Use
 
 # 项目状态
 
-当前：**Main Path 36 篇已完成并通过批次 Review**
+当前：**Main Path 39 篇已完成并通过批次 Review**
 
 当前已完成的 Main Path：
 
@@ -620,10 +620,13 @@ Coding Agent / Computer Use
 34. [RAG 和 Fine-tuning 有什么区别](./docs/08-rag/11-rag-vs-finetuning.md)（Done）
 35. [RAG 有哪些局限](./docs/08-rag/12-rag-limitations.md)（Done）
 36. [MCP 是什么](./docs/09-mcp/01-what-is-mcp.md)（Done）
+37. [MCP Client 和 Server 是什么](./docs/09-mcp/02-client-server.md)（Done）
+38. [MCP Tools、Resources、Prompts 是什么](./docs/09-mcp/03-tools-resources-prompts.md)（Done）
+39. [MCP 和 API 有什么区别](./docs/09-mcp/04-mcp-vs-api.md)（Done）
 
 完整内容地图见 [`CONTENT_MAP.md`](./CONTENT_MAP.md)。
 
-下一批继续完成 MCP Client、MCP Server 与 MCP Tool。
+下一批继续完成 MCP vs Function Calling、MCP vs Agent，并进入 Skill。
 
 ---
 
