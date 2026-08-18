@@ -580,7 +580,7 @@ Coding Agent / Computer Use
 
 # 项目状态
 
-当前：**Main Path 39 篇已完成并通过批次 Review**
+当前：**Main Path 42 篇已完成并通过批次 Review**
 
 当前已完成的 Main Path：
 
@@ -623,10 +623,13 @@ Coding Agent / Computer Use
 37. [MCP Client 和 Server 是什么](./docs/09-mcp/02-client-server.md)（Done）
 38. [MCP Tools、Resources、Prompts 是什么](./docs/09-mcp/03-tools-resources-prompts.md)（Done）
 39. [MCP 和 API 有什么区别](./docs/09-mcp/04-mcp-vs-api.md)（Done）
+40. [MCP 和 Function Calling 有什么区别](./docs/09-mcp/05-mcp-vs-function-calling.md)（Done）
+41. [MCP 和 Agent 有什么区别](./docs/09-mcp/06-mcp-vs-agent.md)（Done）
+42. [Skill 是什么](./docs/10-skills/01-what-is-skill.md)（Done）
 
 完整内容地图见 [`CONTENT_MAP.md`](./CONTENT_MAP.md)。
 
-下一批继续完成 MCP vs Function Calling、MCP vs Agent，并进入 Skill。
+下一批继续完成 Prompt / Tool / MCP 与 Skill 的区别。
 
 ---
 

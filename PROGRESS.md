@@ -107,6 +107,9 @@ Review 中修复：
 | 37 | [MCP Client 和 Server 是什么](./docs/09-mcp/02-client-server.md) | Core | Done |
 | 38 | [MCP Tools、Resources、Prompts 是什么](./docs/09-mcp/03-tools-resources-prompts.md) | Core | Done |
 | 39 | [MCP 和 API 有什么区别](./docs/09-mcp/04-mcp-vs-api.md) | Core | Done |
+| 40 | [MCP 和 Function Calling 有什么区别](./docs/09-mcp/05-mcp-vs-function-calling.md) | Core | Done |
+| 41 | [MCP 和 Agent 有什么区别](./docs/09-mcp/06-mcp-vs-agent.md) | Core | Done |
+| 42 | [Skill 是什么](./docs/10-skills/01-what-is-skill.md) | Core | Done |
 
 ## 本批 Research
 
@@ -178,7 +181,7 @@ Review 中修复：
 
 ## 正在进行
 
-- 无。Batch 13 Review 已完成，提交并推送后自动进入 Batch 14。
+- 无。Batch 14 Review 已完成，提交并推送后自动进入 Batch 15。
 
 ## Batch 3：参数量与数据、Token、Context
 
@@ -460,12 +463,24 @@ Review 中修复：
 - 区分 Host、Client、Server、Primitive 与 Transport，并保留两层授权边界。
 - 7 个官方来源与全部内部链接检查通过。
 
+## Batch 14：MCP vs Function Calling、MCP vs Agent、Skill
+
+完成：MCP vs Function Calling、MCP vs Agent、Skill。
+
+Review：Accuracy / Beginner / Architecture / Terminology / Duplication / Source / Link 全部 PASS。
+
+Review 中修复：
+
+- 明确 Function Calling、MCP、Agent 分别位于不同系统边界。
+- Skill 限定为 Agent Skills 风格能力包，并保留渐进披露、脚本审查和最小权限要求。
+- 8 个官方来源与全部内部链接检查通过。
+
 ## 下一批任务
 
 下一批最多处理 1～3 篇，建议按顺序：
 
-1. MCP 和 Function Calling 有什么区别
-2. MCP 和 Agent 有什么区别
-3. Skill 是什么
+1. Prompt 和 Skill 有什么区别
+2. Tool 和 Skill 有什么区别
+3. MCP 和 Skill 有什么区别
 
 开始前仍须逐篇执行 Research → Draft → Fact Check → Concept Check → Beginner Check → Dependency Check → Link Check。

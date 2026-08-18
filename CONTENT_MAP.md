@@ -231,8 +231,8 @@ Path（学习路径优先级）：
 | MCP Resource | Advanced | Optional | Done | Resource 是什么？ |
 | MCP Prompt | Advanced | Optional | Done | MCP Prompt 是什么？ |
 | MCP vs API | Core | Main | Done | MCP 是不是一种 API？ |
-| MCP vs Function Calling | Core | Main | Todo | Function Calling 和 MCP 有什么区别？ |
-| MCP vs Agent | Core | Main | Todo | 有 MCP 就等于有 Agent 吗？ |
+| MCP vs Function Calling | Core | Main | Done | Function Calling 和 MCP 有什么区别？ |
+| MCP vs Agent | Core | Main | Done | 有 MCP 就等于有 Agent 吗？ |
 
 ---
 
@@ -240,7 +240,7 @@ Path（学习路径优先级）：
 
 | 内容 | 等级 | Path | 状态 | 主要问题 |
 |---|---|---|---|---|
-| Skill | Core | Main | Todo | Skill 到底是什么？ |
+| Skill | Core | Main | Done | Skill 到底是什么？ |
 | Prompt vs Skill | Core | Main | Todo | Skill 只是一个长 Prompt 吗？ |
 | Tool vs Skill | Core | Main | Todo | Skill 和 Tool 有什么区别？ |
 | MCP vs Skill | Core | Main | Todo | MCP 和 Skill 是什么关系？ |
@@ -523,6 +523,9 @@ Path（学习路径优先级）：
 | 37 | MCP Client 和 Server 是什么 | Core | Main | Done | `docs/09-mcp/02-client-server.md` |
 | 38 | MCP Tools、Resources、Prompts 是什么 | Core | Main | Done | `docs/09-mcp/03-tools-resources-prompts.md` |
 | 39 | MCP 和 API 有什么区别 | Core | Main | Done | `docs/09-mcp/04-mcp-vs-api.md` |
+| 40 | MCP 和 Function Calling 有什么区别 | Core | Main | Done | `docs/09-mcp/05-mcp-vs-function-calling.md` |
+| 41 | MCP 和 Agent 有什么区别 | Core | Main | Done | `docs/09-mcp/06-mcp-vs-agent.md` |
+| 42 | Skill 是什么 | Core | Main | Done | `docs/10-skills/01-what-is-skill.md` |
 
 ---
 

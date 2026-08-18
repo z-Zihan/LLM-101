@@ -100,7 +100,7 @@ Server 仍要把具体业务 API、数据和权限转换成合适的 MCP 能力�
 ## 继续学习
 
 - [上一篇：MCP Tools、Resources、Prompts 是什么](./03-tools-resources-prompts.md)
-- 下一篇（待完成）：MCP 和 Function Calling 有什么区别？
+- [下一篇：MCP 和 Function Calling 有什么区别](./05-mcp-vs-function-calling.md)
 - [相关：API 是什么](../06-tools/01-api.md)
 
 ## 资料与核验

@@ -300,6 +300,16 @@
 
 主页面：[Retrieval 是什么](./docs/08-rag/08-retrieval.md)
 
+## S
+
+### Skill
+
+中文：Agent Skill / 任务能力包
+
+一句话：通过 `SKILL.md` 和可选脚本、资料、素材封装任务方法，并由 Agent 按需加载的能力包。
+
+主页面：[Skill 是什么](./docs/10-skills/01-what-is-skill.md)
+
 ## T
 
 ### Tool
