@@ -460,7 +460,7 @@ questions:
     concepts: ["api", "tool", "function-calling"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/06-工具与Function-Calling/03-Function-Calling是什么.md"
     cluster: function-calling-boundary
 
