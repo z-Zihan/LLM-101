@@ -320,7 +320,7 @@ questions:
     concepts: ["model", "tool", "agent"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/07-Agent/01-Agent到底是什么.md"
     cluster: agent-basics
 
@@ -474,7 +474,7 @@ questions:
     concepts: ["agent"]
     difficulty: intermediate
     priority: medium
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/07-Agent/01-Agent到底是什么.md"
     cluster: agent-definition
 
