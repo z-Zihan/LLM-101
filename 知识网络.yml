@@ -183,7 +183,7 @@ concepts:
     summary: 模型编码和生成文本时处理的离散单位，不固定等于一个字或一个单词。
     prerequisites: ["llm"]
     related: ["context", "context-window", "inference"]
-    questions: ["q-token-units-001", "q-context-window-001", "q-token-generation-001", "q-cache-001", "q-language-model-web-001", "q-token-length-web-001"]
+    questions: ["q-token-units-001", "q-context-window-001", "q-token-generation-001", "q-cache-001", "q-language-model-web-001", "q-token-length-web-001", "q-next-token-capability-web-001"]
 
   - id: context
     name: 上下文
@@ -207,7 +207,7 @@ concepts:
     summary: 模型一次处理输入和输出时可容纳内容的容量边界。
     prerequisites: ["context", "token"]
     related: ["inference", "conversation-history"]
-    questions: ["q-context-window-001", "q-context-stateless-web-001"]
+    questions: ["q-context-window-001", "q-context-stateless-web-001", "q-reasoning-consistency-web-001"]
 
   - id: model-lifecycle
     name: 模型生命周期
@@ -267,7 +267,7 @@ concepts:
     summary: 利用数据和目标函数调整模型参数的过程。
     prerequisites: ["model", "parameter", "training-data"]
     related: ["inference", "model-lifecycle"]
-    questions: ["q-model-origin-001", "q-intelligence-origin-001", "q-undertraining-001", "q-training-loop-001", "q-loss-judgement-001", "q-compute-memory-001", "q-reproducibility-001", "q-parameter-scale-web-001"]
+    questions: ["q-model-origin-001", "q-intelligence-origin-001", "q-undertraining-001", "q-training-loop-001", "q-loss-judgement-001", "q-compute-memory-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001"]
 
   - id: inference
     name: 推理
@@ -291,7 +291,7 @@ concepts:
     summary: 模型把训练中学到的规律用于未见过但相关情形的能力。
     prerequisites: ["model", "training"]
     related: ["reasoning", "hallucination"]
-    questions: ["q-parameter-capacity-001", "q-intelligence-origin-001", "q-undertraining-001", "q-parameter-scale-web-001"]
+    questions: ["q-parameter-capacity-001", "q-intelligence-origin-001", "q-undertraining-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001"]
 
   - id: reasoning
     name: 推理能力
@@ -303,7 +303,7 @@ concepts:
     summary: 根据给定信息和规则经过中间步骤得到结论的任务能力。
     prerequisites: ["model", "generalization"]
     related: ["inference", "hallucination"]
-    questions: ["q-parameter-capacity-001", "q-intelligence-origin-001"]
+    questions: ["q-parameter-capacity-001", "q-intelligence-origin-001", "q-next-token-capability-web-001", "q-reasoning-consistency-web-001"]
 
   - id: hallucination
     name: 幻觉

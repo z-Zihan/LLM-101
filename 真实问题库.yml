@@ -194,9 +194,37 @@ questions:
     concepts: ["training-data", "training"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/03-模型原理与训练/10-为什么预测下一个Token能学到能力.md"
     cluster: training-objective
+
+  - id: q-next-token-capability-web-001
+    question: "只预测下一个 Token，足以解释复杂代码生成等能力吗？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/50233/is-next-token-prediction-sufficient-to-explain-emergent-capabilities-like-comple"
+    source_title: "Is next-token prediction sufficient to explain emergent capabilities like complex code generation in LLMs?"
+    language: en
+    paraphrased: true
+    concepts: ["token", "training", "generalization", "reasoning"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/10-为什么预测下一个Token能学到能力.md"
+    cluster: training-objective
+
+  - id: q-reasoning-consistency-web-001
+    question: "上下文窗口已经很长，为什么 LLM 仍会在多步推理中前后不一致？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/50427/why-do-modern-llms-still-struggle-with-multi-step-logical-reasoning-despite-larg"
+    source_title: "Why do modern LLMs still struggle with multi-step logical reasoning despite large context windows?"
+    language: en
+    paraphrased: true
+    concepts: ["context-window", "reasoning"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/03-推理能力是什么.md"
+    cluster: reasoning-consistency
 
   - id: q-compute-memory-001
     question: "算力账和显存账到底是啥？算力体现在哪？卡又是什么？"
