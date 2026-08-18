@@ -101,6 +101,9 @@ Review 中修复：
 | 31 | [Embedding 是什么](./docs/08-rag/03-embedding.md) | Core | Done |
 | 32 | [Vector Database 是什么](./docs/08-rag/05-vector-database.md) | Core | Done |
 | 33 | [Retrieval 是什么](./docs/08-rag/08-retrieval.md) | Core | Done |
+| 34 | [RAG 和 Fine-tuning 有什么区别](./docs/08-rag/11-rag-vs-finetuning.md) | Core | Done |
+| 35 | [RAG 有哪些局限](./docs/08-rag/12-rag-limitations.md) | Core | Done |
+| 36 | [MCP 是什么](./docs/09-mcp/01-what-is-mcp.md) | Core | Done |
 
 ## 本批 Research
 
@@ -172,7 +175,7 @@ Review 中修复：
 
 ## 正在进行
 
-- 无。Batch 11 Review 已完成，提交并推送后自动进入 Batch 12。
+- 无。Batch 12 Review 已完成，提交并推送后自动进入 Batch 13。
 
 ## Batch 3：参数量与数据、Token、Context
 
@@ -412,12 +415,33 @@ Review 中修复：
 - Knowledge Base 的下一篇接入 Embedding，三篇内部导航形成连续 Main Path。
 - 6 个论文来源与全部发布用 Markdown 相对链接检查通过。
 
+## Batch 12：RAG vs Fine-tuning、RAG Limitations、MCP
+
+完成：RAG 和 Fine-tuning、RAG 局限、MCP。
+
+Review：
+
+- Accuracy: PASS
+- Beginner: PASS
+- Architecture: PASS
+- Terminology: PASS
+- Duplication: PASS
+- Source: PASS
+- Link: PASS
+
+Review 中修复：
+
+- 区分 RAG 的请求时证据与 Fine-tuning 的参数更新。
+- 将 RAG 失败拆分为资料、检索、Context 和生成阶段。
+- MCP 按 2026-07-28 官方规范核验 Host / Client / Server、能力与传输边界。
+- 7 个来源与全部内部链接检查通过。
+
 ## 下一批任务
 
 下一批最多处理 1～3 篇，建议按顺序：
 
-1. RAG 和 Fine-tuning 有什么区别
-2. RAG 有哪些局限
-3. MCP 是什么
+1. MCP Client 是什么
+2. MCP Server 是什么
+3. MCP Tool 是什么
 
 开始前仍须逐篇执行 Research → Draft → Fact Check → Concept Check → Beginner Check → Dependency Check → Link Check。

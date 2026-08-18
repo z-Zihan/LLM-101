@@ -580,7 +580,7 @@ Coding Agent / Computer Use
 
 # 项目状态
 
-当前：**Main Path 33 篇已完成并通过批次 Review**
+当前：**Main Path 36 篇已完成并通过批次 Review**
 
 当前已完成的 Main Path：
 
@@ -617,10 +617,13 @@ Coding Agent / Computer Use
 31. [Embedding 是什么](./docs/08-rag/03-embedding.md)（Done）
 32. [Vector Database 是什么](./docs/08-rag/05-vector-database.md)（Done）
 33. [Retrieval 是什么](./docs/08-rag/08-retrieval.md)（Done）
+34. [RAG 和 Fine-tuning 有什么区别](./docs/08-rag/11-rag-vs-finetuning.md)（Done）
+35. [RAG 有哪些局限](./docs/08-rag/12-rag-limitations.md)（Done）
+36. [MCP 是什么](./docs/09-mcp/01-what-is-mcp.md)（Done）
 
 完整内容地图见 [`CONTENT_MAP.md`](./CONTENT_MAP.md)。
 
-下一批继续完成 RAG vs Fine-tuning、RAG Limitations，并进入 MCP。
+下一批继续完成 MCP Client、MCP Server 与 MCP Tool。
 
 ---
 

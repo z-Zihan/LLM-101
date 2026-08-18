@@ -141,7 +141,7 @@ Retrieval 决定模型在本次回答中能看到哪些证据。理解它后，�
 ## 继续学习
 
 - [上一篇：Vector Database 是什么](./05-vector-database.md)
-- 下一篇（待完成）：RAG 和 Fine-tuning 有什么区别？
+- [下一篇：RAG 和 Fine-tuning 有什么区别](./11-rag-vs-finetuning.md)
 - [相关：RAG 是什么](./01-what-is-rag.md)
 
 ## 资料与核验

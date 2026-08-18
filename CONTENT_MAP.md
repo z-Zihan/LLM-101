@@ -214,9 +214,9 @@ Path（学习路径优先级）：
 | Retrieval | Core | Main | Done | Retrieval 是怎么找到相关资料的？ |
 | Rerank | Advanced | Optional | Todo | 为什么召回后还要重排？ |
 | Knowledge Graph | Advanced | Optional | Todo | 知识图谱和向量库有什么区别？ |
-| RAG vs Fine-tuning | Core | Main | Todo | RAG 和微调怎么选？ |
+| RAG vs Fine-tuning | Core | Main | Done | RAG 和微调怎么选？ |
 | RAG vs Prompt Context | Core | Optional | Todo | RAG 和直接把资料贴进 Prompt 有什么区别？ |
-| RAG Limitations | Core | Main | Todo | RAG 能消灭幻觉吗？ |
+| RAG Limitations | Core | Main | Done | RAG 能消灭幻觉吗？ |
 
 ---
 
@@ -224,7 +224,7 @@ Path（学习路径优先级）：
 
 | 内容 | 等级 | Path | 状态 | 主要问题 |
 |---|---|---|---|---|
-| MCP | Core | Main | Todo | MCP 到底是什么？ |
+| MCP | Core | Main | Done | MCP 到底是什么？ |
 | MCP Client | Core | Main | Todo | Client 做什么？ |
 | MCP Server | Core | Main | Todo | Server 做什么？ |
 | MCP Tool | Core | Main | Todo | MCP Tool 和普通 Tool 什么关系？ |
@@ -517,6 +517,9 @@ Path（学习路径优先级）：
 | 31 | Embedding 是什么 | Core | Main | Done | `docs/08-rag/03-embedding.md` |
 | 32 | Vector Database 是什么 | Core | Main | Done | `docs/08-rag/05-vector-database.md` |
 | 33 | Retrieval 是什么 | Core | Main | Done | `docs/08-rag/08-retrieval.md` |
+| 34 | RAG 和 Fine-tuning 有什么区别 | Core | Main | Done | `docs/08-rag/11-rag-vs-finetuning.md` |
+| 35 | RAG 有哪些局限 | Core | Main | Done | `docs/08-rag/12-rag-limitations.md` |
+| 36 | MCP 是什么 | Core | Main | Done | `docs/09-mcp/01-what-is-mcp.md` |
 
 ---
 

@@ -184,6 +184,14 @@
 
 ## M
 
+### MCP
+
+中文：模型上下文协议
+
+一句话：让 AI 应用以统一方式连接外部 Tools、Resources 和 Prompts 的开放协议。
+
+主页面：[MCP 是什么](./docs/09-mcp/01-what-is-mcp.md)
+
 ### Machine Learning（ML）
 
 中文：机器学习
