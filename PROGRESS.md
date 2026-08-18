@@ -77,6 +77,9 @@ Review 中修复：
 | 07 | [参数量和训练数据有什么区别](./docs/03-how-models-work/07-parameter-vs-training-data.md) | Core | Done |
 | 08 | [Token 是什么](./docs/02-chat-and-context/04-token.md) | Core | Done |
 | 09 | [Context / Context Window 是什么](./docs/02-chat-and-context/07-context.md) | Core | Done |
+| 10 | [一个大模型到底是怎么诞生的](./docs/03-how-models-work/01-model-lifecycle.md) | Core | Done |
+| 11 | [为什么预测下一个 Token 还能学到能力](./docs/03-how-models-work/10-next-token-prediction.md) | Core | Done |
+| 12 | [Training 和 Inference 有什么区别](./docs/03-how-models-work/18-training-vs-inference.md) | Core | Done |
 
 ## 本批 Research
 
@@ -148,7 +151,7 @@ Review 中修复：
 
 ## 正在进行
 
-- 无。Batch 3 Review 已完成，等待提交后自动进入 Batch 4。
+- 无。Batch 4 Review 已完成，等待提交后自动进入 Batch 5。
 
 ## Batch 3：参数量与数据、Token、Context
 
@@ -181,12 +184,37 @@ Review 中修复：
 - 后续具体模型的参数、上下文窗口、训练数据、API 与产品能力。
 - 原参考手册中的 Kimi K3、硬件成本、Token 固定换算、训练计算量等具体说法，均不得直接复用。
 
+## Batch 4：模型生命周期、下一个 Token、训练与推理
+
+完成：
+
+- 一个大模型到底是怎么诞生的
+- 为什么预测下一个 Token 还能学到能力
+- Training 和 Inference 有什么区别
+
+Review：
+
+- Accuracy: PASS
+- Beginner: PASS
+- Architecture: PASS
+- Terminology: PASS
+- Duplication: PASS
+- Source: PASS
+- Link: PASS
+
+Review 中修复：
+
+- 生命周期明确为可回退、可并行的迭代过程，不写成所有组织必须照搬的固定流水线。
+- 下一 Token 文章区分自监督目标、可观察能力与有争议的“理解”，没有把预测目标写成能力的唯一来源。
+- Training / Inference 文章限定“普通推理通常不更新模型训练参数”，同时保留缓存、日志和 Memory 等系统状态可能变化的边界。
+- Glossary 新增 Inference / Training 后重新校正字母与词条顺序。
+
 ## 下一批任务
 
 下一批最多处理 1～3 篇，建议按顺序：
 
-1. 一个大模型到底是怎么诞生的
-2. 为什么“预测下一个 Token”还能学到能力
-3. Training 和 Inference 有什么区别
+1. Prompt 是什么
+2. Architecture 是什么
+3. Transformer 是什么
 
 开始前仍须逐篇执行 Research → Draft → Fact Check → Concept Check → Beginner Check → Dependency Check → Link Check。

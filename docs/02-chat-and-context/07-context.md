@@ -94,7 +94,7 @@ Context 决定模型这一次“拿到了什么材料”。它是理解长对话
 ## 继续学习
 
 - [上一篇：Token 是什么](./04-token.md)
-- 下一篇（待完成）：一个大模型到底是怎么诞生的
+- [下一篇：一个大模型到底是怎么诞生的](../03-how-models-work/01-model-lifecycle.md)
 - [相关：什么是大语言模型 LLM](../01-ai-and-llm/04-what-is-llm.md)
 
 ## 资料与核验

@@ -58,6 +58,16 @@
 
 主页面：[GPT 和 ChatGPT 有什么区别](./docs/01-ai-and-llm/05-gpt-vs-chatgpt.md)
 
+## I
+
+### Inference
+
+中文：推理 / 模型推理
+
+一句话：使用训练好的参数处理新输入并产生预测或生成结果的过程。
+
+主页面：[Training 和 Inference 有什么区别](./docs/03-how-models-work/18-training-vs-inference.md)
+
 ## L
 
 ### Language Model
@@ -129,6 +139,14 @@
 一句话：把输入内容编码成 Token 和 Token ID，并把输出解码回内容的组件。
 
 主页面：[Token 是什么](./docs/02-chat-and-context/04-token.md)
+
+### Training
+
+中文：训练
+
+一句话：利用数据和目标计算反馈并调整模型参数的过程。
+
+主页面：[Training 和 Inference 有什么区别](./docs/03-how-models-work/18-training-vs-inference.md)
 
 ### Training Data
 

@@ -52,7 +52,7 @@ Path（学习路径优先级）：
 | NLP | Core | Optional | Todo | NLP 是模型吗？ |
 | Computer Vision | Advanced | Optional | Todo | CV 和 NLP 是什么关系？ |
 | Foundation Model | Core | Optional | Todo | 什么叫“基础模型 / 底座模型”？ |
-| Language Model | Core | Main | Todo | 语言模型到底在建模什么？ |
+| Language Model | Core | Main | Done | 语言模型到底在建模什么？ |
 | LLM | Core | Main | Done | Large 到底“大”在哪里？ |
 | GPT | Core | Main | Done | GPT 是产品还是模型？ |
 | Model / API / Product / Company | Core | Main | Done | GPT、ChatGPT、OpenAI 为什么不能混为一谈？ |
@@ -77,7 +77,7 @@ Path（学习路径优先级）：
 | Sampling | Advanced | Optional | Todo | 模型怎么选下一个 Token？ |
 | Temperature | Advanced | Optional | Todo | 为什么同一个问题答案不一样？ |
 | Top-p | Advanced | Optional | Todo | Top-p 和 Temperature 有什么区别？ |
-| Autoregressive Generation | Core | Main | Todo | 为什么 AI 一个 Token 一个 Token 输出？ |
+| Autoregressive Generation | Core | Main | Done | 为什么 AI 一个 Token 一个 Token 输出？ |
 | KV Cache | Advanced | Optional | Todo | 缓存到底缓存了什么？ |
 
 ---
@@ -86,7 +86,7 @@ Path（学习路径优先级）：
 
 | 内容 | 等级 | Path | 状态 | 真实问题 / 目标 |
 |---|---|---|---|---|
-| Model Lifecycle | Core | Main | Todo | 一个模型从零到上线经历什么？ |
+| Model Lifecycle | Core | Main | Done | 一个模型从零到上线经历什么？ |
 | Architecture | Core | Main | Todo | 架构到底是什么意思？ |
 | Transformer | Core | Main | Todo | Transformer 是框架吗？ |
 | PyTorch / JAX | Advanced | Optional | Todo | 框架和架构有什么区别？ |
@@ -102,7 +102,7 @@ Path（学习路径优先级）：
 | Random Initialization | Core | Main | Todo | “模型出生”到底发生了什么？ |
 | Symmetry Breaking | Advanced | Optional | Todo | 为什么不能所有参数初始化成 0？ |
 | Pre-training | Core | Main | Todo | 预训练到底在做什么？ |
-| Next-token Prediction | Core | Main | Todo | 为什么猜下一个 Token 能学到知识？ |
+| Next-token Prediction | Core | Main | Done | 为什么猜下一个 Token 能学到知识？ |
 | Self-supervised Learning | Advanced | Optional | Todo | 没有人标答案，模型怎么知道对错？ |
 | Loss | Core | Main | Todo | Loss 是怎么判断模型错了多少？ |
 | Forward Pass | Advanced | Optional | Todo | 前向传播是什么？ |
@@ -117,7 +117,7 @@ Path（学习路径优先级）：
 | Checkpoint / Weights | Core | Optional | Todo | 参数最后体现成什么？ |
 | safetensors / GGUF | Advanced | Optional | Todo | 模型文件到底是什么？ |
 | Deployment | Core | Main | Todo | 训练完为什么还不能直接用？ |
-| Inference | Core | Main | Todo | 推理和训练有什么区别？ |
+| Inference | Core | Main | Done | 推理和训练有什么区别？ |
 
 ---
 
@@ -493,9 +493,9 @@ Path（学习路径优先级）：
 | 07 | 参数量和训练数据有什么区别 | Core | Main | Done | `docs/03-how-models-work/07-parameter-vs-training-data.md` |
 | 08 | Token 是什么 | Core | Main | Done | `docs/02-chat-and-context/04-token.md` |
 | 09 | Context / Context Window 是什么 | Core | Main | Done | `docs/02-chat-and-context/07-context.md` |
-| 10 | 一个大模型到底是怎么诞生的 | Core | Main | Todo | `docs/03-how-models-work/01-model-lifecycle.md` |
-| 11 | 为什么“预测下一个 Token”还能学到能力 | Core | Main | Todo | `docs/03-how-models-work/10-next-token-prediction.md` |
-| 12 | Training 和 Inference 有什么区别 | Core | Main | Todo | `docs/03-how-models-work/18-training-vs-inference.md` |
+| 10 | 一个大模型到底是怎么诞生的 | Core | Main | Done | `docs/03-how-models-work/01-model-lifecycle.md` |
+| 11 | 为什么“预测下一个 Token”还能学到能力 | Core | Main | Done | `docs/03-how-models-work/10-next-token-prediction.md` |
+| 12 | Training 和 Inference 有什么区别 | Core | Main | Done | `docs/03-how-models-work/18-training-vs-inference.md` |
 
 ---
 

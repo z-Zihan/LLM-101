@@ -580,7 +580,7 @@ Coding Agent / Computer Use
 
 # 项目状态
 
-当前：**v0.1 前三批 Main Core 已完成并通过批次 Review**
+当前：**v0.1 Main Path 12 篇已完成并通过批次 Review**
 
 第一批优先完成：
 
@@ -593,9 +593,9 @@ Coding Agent / Computer Use
 7. [参数量和训练数据有什么区别](./docs/03-how-models-work/07-parameter-vs-training-data.md)（Done）
 8. [Token 是什么](./docs/02-chat-and-context/04-token.md)（Done）
 9. [Context / Context Window 是什么](./docs/02-chat-and-context/07-context.md)（Done）
-10. 一个大模型到底是怎么诞生的
-11. 为什么“预测下一个 Token”还能学到能力
-12. Training 和 Inference 有什么区别
+10. [一个大模型到底是怎么诞生的](./docs/03-how-models-work/01-model-lifecycle.md)（Done）
+11. [为什么“预测下一个 Token”还能学到能力](./docs/03-how-models-work/10-next-token-prediction.md)（Done）
+12. [Training 和 Inference 有什么区别](./docs/03-how-models-work/18-training-vs-inference.md)（Done）
 
 完整内容地图见 [`CONTENT_MAP.md`](./CONTENT_MAP.md)。
 
