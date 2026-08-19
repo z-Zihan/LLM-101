@@ -1,102 +1,64 @@
-# MCP Tools、Resources、Prompts 是什么？
+# MCP 工具、资源和提示是什么？
 
-> Level: `Core` · Path: `Main`
+> 所属专题：MCP · 前置：[MCP 客户端和服务端是什么](./02-MCP客户端和服务端是什么.md) · 后续：[MCP 和 API 有什么区别](./04-MCP和API有什么区别.md)
 >
-> 最后核验：2026-08-18
+> 最后核验：2026-08-19
 
-## 先说人话
+MCP Server 可以暴露三类用途明显不同的能力：Tool 用来请求操作，Resource 用来读取内容，Prompt 用来提供可复用提示模板。把三者统称为 Tool，会让交互方式、权限和风险混在一起。
 
-MCP Server 可以提供三类核心能力：Tool 用于执行操作，Resource 用于提供可读取内容，Prompt 用于提供可复用的提示模板。
-
-它们用途不同，不能全部叫 Tool。
-
-## 一张表分清
-
-| Primitive | 主要作用 | 规范中的交互意图 |
+| Primitive | 解决的问题 | 典型交互意图 |
 |---|---|---|
-| Tool | 执行查询或操作 | Model-controlled |
-| Resource | 暴露可读取的 Context 数据 | Application-controlled |
-| Prompt | 提供可选择的提示模板 | User-controlled |
+| Tool | 可以执行什么操作 | 模型可建议调用 |
+| Resource | 可以读取什么内容 | 应用选择和管理 |
+| Prompt | 可以套用什么提示模板 | 用户明确选择 |
 
-这些“controlled”标签描述推荐的交互方式，不表示模型、应用或用户能绕过 Host 的权限与确认。
+规范中的控制标签描述推荐交互，不是授权捷径。Host 始终需要实施权限、同意与上下文管理。
 
-## MCP Tool
+## Tool：可请求执行的动作
 
-Tool 通常有名称、描述和输入 Schema。模型可以请求调用，Host 验证后由 Server 执行。
-
-```text
-Model 建议调用
-  ↓
-Host 检查权限与参数
-  ↓
-Client 请求 Server 执行
-  ↓
-结果返回 Host 与 Model
-```
-
-MCP Tool 与普通 AI Tool 的职责相同，区别在于它通过 MCP 的发现和调用协议暴露。
-
-## MCP Resource
-
-Resource 是 Server 暴露的可读取内容，通过 URI 标识。它可以表示文件、数据库记录、应用状态或其他 Context 数据。
-
-Resource 更像“可以读取什么”，不等于自动检索、RAG 或永久 Memory。Host 决定何时读取以及是否把内容放进模型 Context。
-
-## MCP Prompt
-
-Prompt 是 Server 提供的可复用提示模板，可以带参数并生成供用户或应用使用的消息内容。
-
-MCP Prompt 不等于平台隐藏的 System Prompt，也不是 Server 可以强制覆盖 Host 规则的通道。它应由用户选择或应用明确使用。
-
-## 为什么要分三类？
+Tool 通常声明名称、描述和输入 Schema。模型可以提出调用，Host 校验权限和参数后，通过 Client 请求 Server 执行。
 
 ```text
-读取项目说明 → Resource
-执行创建工单 → Tool
-套用代码审查模板 → Prompt
+模型建议 → Host 校验与确认 → MCP Server 执行 → 结果返回
 ```
 
-分开后，Host 可以针对读取、执行和模板选择设计不同的界面、权限与确认策略。
+这张图想强调模型建议和真实执行之间的边界。读图时注意，Schema 只约束数据形状；删除、付款或发送仍需要业务授权。
 
-## Tool 的安全边界
+MCP Tool 与普通 AI Tool 的职责相同，区别在于它通过 MCP 的发现和调用机制暴露。Host 可以再把它转换成模型平台支持的 Function Calling 定义。
 
-Server 声明 Tool 不代表 Host 必须调用。Host 应：
+## Resource：可读取的上下文内容
 
-- 展示工具来源与用途；
-- 验证输入 Schema 之外的业务权限；
-- 对破坏性或外部副作用操作确认；
-- 清洗和限制返回内容；
-- 记录失败、超时与调用日志。
+Resource 通过 URI 标识，可以表示文件、数据库记录、应用状态或其他内容。Host 决定何时读取、是否展示给用户、以及哪些部分进入模型上下文。
 
-## Resource 的安全边界
+Resource 不自动等于 RAG 或长期 Memory。它提供读取接口；检索、选择、缓存和上下文组织仍由应用设计。URI 能被列出，也不代表当前用户有权读取内容。
 
-Resource 可能包含隐私、凭证或恶意指令。读取前要检查访问权限，进入 Context 前要控制范围。URI 可访问也不表示当前用户有权读取。
+## Prompt：可选择的提示模板
 
-## 最容易搞混的东西
+Prompt 可以接收参数，并生成一组供用户或应用使用的消息。例如 Server 提供“代码审查”模板，用户选择后再填入仓库范围。
 
-### MCP Tool ≠ Function Calling
+MCP Prompt 不是平台隐藏的 System Prompt，也不能强制覆盖 Host 规则。它更像协议化提供的可复用入口，应让用户或应用明确选择。
 
-MCP Tool 是通过 MCP 暴露的能力；Function Calling 是模型生成结构化调用请求的机制。Host 可以把两者连接起来。
+## 为什么拆开后更安全
 
-### Resource ≠ Tool Result
+读取项目说明适合 Resource，创建工单适合 Tool，套用复盘模板适合 Prompt。Host 可以为读取、执行和模板选择设计不同界面：Resource 做访问控制，Tool 做副作用确认，Prompt 展示即将应用的内容。
 
-Resource 是可被读取的内容；Tool Result 是一次操作执行后的返回。某些内容可能相似，但生命周期和交互意图不同。
+三类返回都可能不可信。Resource 可能包含 Prompt Injection，Tool Result 可能过时或失败，Prompt 可能夹带不适合当前任务的指令。来源可见、最小权限和日志仍然必要。
 
-### MCP Prompt ≠ Skill
+## 回答容易混淆的问题
 
-Prompt 是可复用消息模板；Skill 通常还包含完成一类任务的方法、材料或脚本。后文会完整比较。
+**MCP Tool 就是 Function Calling 吗？** 不是。Tool 是协议暴露的能力，Function Calling 是模型生成结构化请求的机制。
 
-## 你只需要记住
+**Resource 就是 Tool Result 吗？** 不一定。Resource 是可主动读取的内容；Tool Result 是一次操作的返回，生命周期不同。
 
-1. Tool 执行操作，Resource 提供内容，Prompt 提供提示模板。
-2. MCP Tool 是普通 Tool 的协议化暴露方式，不等于 Function Calling。
-3. Resource 不自动等于 RAG，Prompt 也不等于 System Prompt 或 Skill。
-4. 三类能力都必须经过 Host 的权限、同意与 Context 管理。
+**MCP Prompt 就是 Skill 吗？** 不是。Prompt 是消息模板；Skill 通常还包含流程、材料、脚本和验收方法。
 
-## 继续学习
+**Resource 进入模型后会永久记住吗？** 不会自动发生，它通常只影响当前上下文。
 
-- [上一篇：MCP Client 和 Server 是什么](./02-MCP客户端和服务端是什么.md)
-- [下一篇：MCP 和 API 有什么区别](./04-MCP和API有什么区别.md)
+## 从这里继续
+
+- [MCP 和 API 有什么区别](./04-MCP和API有什么区别.md)
+- [MCP 和 Function Calling 有什么区别](./05-MCP和Function-Calling有什么区别.md)
+- 返回：[知识网络](../../知识网络.md) · [真实问题矩阵](../../真实问题矩阵.md)
 
 ## 资料与核验
 
