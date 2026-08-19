@@ -41,6 +41,7 @@ extended_path:
   - function-calling
   - embedding
   - vector-database
+  - retrieval
 
 concepts:
   - id: ai
@@ -439,6 +440,18 @@ concepts:
     related: ["rag"]
     questions: ["q-rag-001", "q-vector-store-web-001", "q-embedding-semantics-web-001"]
 
+  - id: retrieval
+    name: 检索
+    path: docs/08-RAG与知识库/08-检索是什么.md
+    aliases: ["Retrieval", "检索", "召回"]
+    level: Core
+    path_type: Extended
+    group: RAG与知识
+    summary: 根据查询从候选资料中召回、过滤并排序可能相关的证据。
+    prerequisites: ["knowledge-base"]
+    related: ["rag", "embedding", "vector-database"]
+    questions: ["q-rag-001", "q-vector-store-web-001"]
+
   - id: mcp
     name: MCP
     path: docs/09-MCP/01-MCP到底是什么.md
@@ -596,6 +609,12 @@ relations:
   - from: knowledge-base
     relation: 可以建立
     to: vector-database
+  - from: rag
+    relation: 先执行
+    to: retrieval
+  - from: retrieval
+    relation: 可以使用
+    to: embedding
   - from: vector-database
     relation: 存储和检索
     to: embedding

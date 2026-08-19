@@ -303,7 +303,7 @@ questions:
     source_title: "用户提供的原始聊天记录（2026-08-13）"
     language: zh
     paraphrased: true
-    concepts: ["context", "hallucination", "rag", "knowledge-base", "embedding", "vector-database"]
+    concepts: ["context", "hallucination", "rag", "knowledge-base", "embedding", "vector-database", "retrieval"]
     difficulty: beginner
     priority: high
     status: answered
@@ -485,10 +485,10 @@ questions:
     source_title: "Does a vector database maintain pre-vector chunked data for RAG systems?"
     language: en
     paraphrased: true
-    concepts: ["rag", "knowledge-base", "embedding", "vector-database"]
+    concepts: ["rag", "knowledge-base", "embedding", "vector-database", "retrieval"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/08-RAG与知识库/05-向量数据库是什么.md"
     cluster: vector-database-content
 
@@ -502,7 +502,7 @@ questions:
     concepts: ["embedding", "vector-database"]
     difficulty: intermediate
     priority: medium
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/08-RAG与知识库/03-Embedding是什么.md"
     cluster: embedding-semantics
 
