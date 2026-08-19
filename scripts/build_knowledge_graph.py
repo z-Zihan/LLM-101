@@ -103,7 +103,7 @@ def main() -> None:
                 [
                     f"### {index:02d} {group}网络",
                     "",
-                    "本专题节点将在对应的 v2 Rewrite Batch 中补入。",
+                    "本专题暂不进入当前 V3 发布范围；新增节点需要真实问题与主页面支撑。",
                     "",
                 ]
             )
@@ -129,7 +129,7 @@ def main() -> None:
             lines.append(
                 f'    {mermaid_id(relation["from"])} -->|"{relation["relation"]}"| {mermaid_id(relation["to"])}'
             )
-    lines.extend(["```", "", "## 如何自由探索", "", "- 从任意概念进入正文。", "- 正文第一次重要出现的概念会链接到唯一主页面。", "- 每篇 v2 文章底部都有前置、后续、相关和易混概念导航。", ""])
+    lines.extend(["```", "", "## 如何自由探索", "", "- 从任意概念进入正文。", "- 正文第一次重要出现的概念会链接到唯一主页面。", "- V3 正文通过课程导航和知识网络出口连接前置、后续、相关概念与真实问题。", ""])
 
     content = "\n".join(lines)
     OUTPUT_PATH.write_text(content, encoding="utf-8")
