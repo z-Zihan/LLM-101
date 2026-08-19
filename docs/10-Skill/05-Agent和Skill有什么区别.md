@@ -1,71 +1,48 @@
 # Agent 和 Skill 有什么区别？
 
-> Level: `Core` · Path: `Main`
+> 所属专题：Skill · 前置：[MCP 和 Skill 有什么区别](./04-MCP和Skill有什么区别.md) · 后续：[AI Coding 是什么](../11-Coding-Agent/01-AI-Coding是什么.md)
 >
-> 最后核验：2026-08-18
+> 最后核验：2026-08-19
 
-## 先说人话
+Agent 是围绕目标持续推进任务的运行系统；Skill 是 Agent 可以按需加载的一套任务方法和材料。可以把区别压缩成一句话：Agent 负责“谁在做并继续做”，Skill 负责“做这类任务时采用什么方法”。
 
-Agent 是围绕目标运行、会观察结果并继续行动的系统；Skill 是 Agent 可按需加载的一套任务方法和材料。
+## 发布说明怎样由两者协作
+
+Coding Agent 接到制作发布说明的目标后，可以加载发布说明 Skill。Skill 规定读取哪些提交、怎样分类变化、使用什么模板、如何检查链接；Agent 决定何时加载、调用哪些 Tools、失败后怎样调整以及何时完成。
 
 ```text
-Agent：谁在推进任务
-Skill：推进某类任务时采用什么方法
+Agent：目标、状态、循环、工具与停止条件
+  ↓ 按需加载
+Skill：步骤、规范、脚本、参考与验收
 ```
 
-## 举个例子
+这张图想说明 Skill 不独立运行。读图时注意，磁盘上存在 Skill 目录不会自动推进任务，必须由 Agent 或 Runtime 发现、读取并在权限范围内执行。
 
-一个 Coding Agent 要制作发布说明。它可以加载“发布说明” Skill，按照其中规范读取提交、分类变化、套用模板并检查链接。
+一个 Agent 可以加载多个 Skills，同一个 Skill 也能被不同 Agent 使用。简单任务没有 Skill 也能完成；Skill 的价值是把反复使用的专业方法从临时 Prompt 中抽出，便于维护和验证。
 
-Agent 负责决定何时加载、调用哪些 Tools 和何时完成；Skill 只提供方法、脚本和参考。
+Skill 不是“小 Agent”：它没有自己的持续目标、环境状态和 Agent Loop。Skill 中的脚本也不自带权限，Agent 请求执行时仍受 Host、沙箱和操作系统控制。
 
-## 核心区别
+## 可靠性来自治理，不是数量
 
-| 维度 | Agent | Skill |
-|---|---|---|
-| 类型 | 运行系统 | 文件形式的能力包 |
-| 是否有目标与状态 | 通常有 | 不独立运行 |
-| 是否有 Agent Loop | 可以有 | 不提供运行循环 |
-| 是否执行 Tool | 由 Host 授权后可执行 | 只能指导或提供脚本 |
-| 数量关系 | 一个 Agent 可加载多个 Skills | 一个 Skill 可被多个 Agent 使用 |
+更多 Skills 不自动让 Agent 更强。过时、重叠或恶意 Skill 会让触发选择冲突，甚至诱导高权限 Tool。安装前要检查来源和脚本，运行时要限制权限，并用结果证据验证任务。
 
-## Skill 会不会自己运行？
+Skill 内容通常进入运行时 Context，不会因此永久写入模型参数。下一次是否使用，仍取决于发现与触发机制。
 
-不会。Skill 文件需要被 Agent 或其他 Runtime 发现、读取，并在权限允许时执行脚本。仅把目录放在磁盘上不会自动推进任务。
+## 回答关键问题
 
-## Agent 没有 Skill 能工作吗？
+**Skill 会自己运行吗？** 不会，需要 Agent 或 Runtime 加载和执行。
 
-可以。简单任务可以直接依赖 Prompt 和 Tools。Skill 的价值是把反复使用的专业方法从临时 Prompt 中抽出，便于复用和维护。
+**Agent 没有 Skill 能工作吗？** 可以，简单任务可直接使用 Prompt 和 Tools。
 
-## 安全边界
+**Skill 是一个小 Agent 吗？** 不是，它没有独立目标、状态和循环。
 
-Agent 的权限、预算和停止条件由 Host 管理；Skill 内容与脚本需要来源审查。Agent 选中了 Skill，也不表示其中每个操作都已授权。
-
-## 常见误区
-
-### 误区 1：Skill 是一个小 Agent
-
-Skill 没有独立目标、状态和循环，更像可加载的任务知识包。
-
-### 误区 2：装更多 Skills 会自动让 Agent 更可靠
-
-过时、重叠或恶意 Skill 会增加错误和风险，仍需评测与治理。
-
-### 误区 3：Agent 会永久学会 Skill
-
-Skill 通常在运行时进入 Context，不等于更新模型参数。
-
-## 你只需要记住
-
-1. Agent 是运行系统，Skill 是可加载的任务能力包。
-2. Agent 负责目标、状态、循环和 Tool 使用；Skill 提供方法与材料。
-3. 二者可以多对多复用，但 Skill 不会独立运行。
-4. 选择 Skill 不等于获得额外权限或完成训练。
+**加载 Skill 就获得新权限吗？** 不会，权限仍由执行环境控制。
 
 ## 继续学习
 
-- [上一篇：MCP 和 Skill 有什么区别](./04-MCP和Skill有什么区别.md)
-- [下一篇：AI Coding 是什么](../11-Coding-Agent/01-AI-Coding是什么.md)
+- [AI Coding 是什么](../11-Coding-Agent/01-AI-Coding是什么.md)
+- [Coding Agent 是什么](../11-Coding-Agent/04-Coding-Agent是什么.md)
+- 返回：[知识网络](../../知识网络.md) · [真实问题矩阵](../../真实问题矩阵.md)
 
 ## 资料与核验
 
