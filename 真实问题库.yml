@@ -264,8 +264,8 @@ questions:
     concepts: ["model", "parameter", "training"]
     difficulty: intermediate
     priority: medium
-    status: planned
-    answer_path: null
+    status: answered
+    answer_path: "docs/03-模型原理与训练/02-模型架构是什么.md"
     cluster: reproducibility
 
   - id: q-cache-001
@@ -558,6 +558,6 @@ questions:
     concepts: ["context", "coding-agent", "conversation-history"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/11-Coding-Agent/08-项目上下文是什么.md"
     cluster: coding-agent-context
