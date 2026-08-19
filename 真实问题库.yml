@@ -561,3 +561,45 @@ questions:
     status: answered
     answer_path: "docs/11-Coding-Agent/08-项目上下文是什么.md"
     cluster: coding-agent-context
+
+  - id: q-inference-randomness-web-001
+    question: "除了 Token 采样，LLM 推理中还会在哪里出现随机性？固定输入和参数后，为什么结果仍可能不同？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/49154/where-does-randomness-occur-in-llm-inference-beyond-token-sampling"
+    source_title: "Where does randomness occur in LLM inference beyond token sampling?"
+    language: en
+    paraphrased: true
+    concepts: ["token", "inference"]
+    difficulty: intermediate
+    priority: medium
+    status: answered
+    answer_path: "docs/03-模型原理与训练/18-训练和推理有什么区别.md"
+    cluster: inference-randomness
+
+  - id: q-rag-finetuning-web-001
+    question: "用一组个人文档做问答时，为什么通常先选 RAG，而不是把这些事实微调进模型？微调真的不能学到这些资料吗？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/45701/why-fine-tuning-does-not-work-as-well-as-rag"
+    source_title: "Why fine tuning does not work as well as RAG?"
+    language: en
+    paraphrased: true
+    concepts: ["training", "rag", "knowledge-base"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/11-RAG和微调有什么区别.md"
+    cluster: rag-vs-fine-tuning
+
+  - id: q-chat-correction-memory-web-001
+    question: "同一段对话里，模型被我纠正后能答对，究竟是聊天记录进入了上下文，还是我的输入现场重新训练了模型？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/38694/does-chatgpt-learn-or-remember-from-public-user-input-will-it-fess-up-to-it"
+    source_title: "Does chatGPT learn or remember from (public) user input? Will it 'fess up to it? I could not get it to reveal"
+    language: en
+    paraphrased: true
+    concepts: ["context", "training", "conversation-history"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/12-Memory/01-聊天记录是什么.md"
+    cluster: history-vs-training
