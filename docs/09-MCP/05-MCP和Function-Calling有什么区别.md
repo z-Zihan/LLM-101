@@ -1,95 +1,61 @@
 # MCP 和 Function Calling 有什么区别？
 
-> Level: `Core` · Path: `Main`
+> 所属专题：MCP · 前置：[MCP 和 API 有什么区别](./04-MCP和API有什么区别.md) · 后续：[MCP 和 Agent 有什么区别](./06-MCP和Agent有什么区别.md)
 >
-> 最后核验：2026-08-18
+> 最后核验：2026-08-19
 
-## 先说人话
+Function Calling 解决模型怎样把“我要使用哪个工具、参数是什么”表达成结构化请求；MCP 解决 Host 怎样发现并连接外部 Server 提供的能力。它们位于一条调用链的不同边界，最常见的关系不是二选一，而是组合。
 
-Function Calling 解决“模型怎样结构化表达要调用什么”；MCP 解决“AI 应用怎样发现并连接外部 Server 提供的能力”。
+## 一次调用怎样穿过两个边界
 
-它们处在不同连接边界，可以串在同一条工具调用链中。
-
-## 一条完整链路
+MCP Client 先从 Server 发现 Tool 描述和输入 Schema。Host 把这些信息转换成模型平台支持的工具定义；模型生成调用意图后，Host 再通过 MCP 请求 Server 执行。
 
 ```text
 Model
- ↓ Function Calling：函数名与参数
+  ↓ Function Calling：工具名与参数
 Host Application
- ↓ MCP Client：协议请求
+  ↓ MCP Client：协议请求
 MCP Server
- ↓ 执行 Tool 或调用后端 API
-结果返回
+  ↓ 执行 Tool 或后端 API
+结果逐层返回
 ```
 
-模型不必直接理解 MCP JSON-RPC。Host 可以把 MCP Tool 的描述和 Schema 转成模型支持的工具定义。
+这张图想说明模型不必直接生成 MCP JSON-RPC，也不直接连接 Server。读图时注意 Host 负责映射两侧格式，并在中间实施授权、确认和错误处理。
 
-## 核心区别
+## 两者真正不同在哪里
 
 | 维度 | Function Calling | MCP |
 |---|---|---|
-| 主要边界 | Model ↔ Host | MCP Client ↔ Server |
-| 主要目的 | 生成结构化调用意图 | 发现、连接和调用外部能力 |
-| 是否执行 | 模型只提出请求 | Server 可执行 Tool，但 Host 仍控制授权 |
-| 范围 | 常围绕函数 / 工具选择 | 还包含 Resources、Prompts、生命周期与 Transport |
+| 主要边界 | Model 与 Host | MCP Client 与 Server |
+| 主要目的 | 产生结构化调用意图 | 发现、连接和请求外部能力 |
+| 范围 | 模型侧工具选择与参数 | Tools、Resources、Prompts、生命周期和传输 |
+| 是否完成业务 | 模型没有执行 | Server 可执行，但仍受 Host 与后端授权 |
 
-## 为什么要组合？
+模型原生支持 Function Calling，不等于应用原生支持所有 MCP Server。Host 仍需实现 Client、能力映射、连接生命周期和权限管理。
 
-Function Calling 给不同模型提供结构化输出方式；MCP 给 Host 提供相对统一的外部连接方式。
+反过来，使用 MCP 也不必每次经过模型。用户可以在界面选择 Prompt，应用可以主动读取 Resource；只有需要模型选择 Tool 时，Function Calling 才常进入链路。
 
-```text
-不同 Model 的工具调用格式
-          ↓ Host 适配
-统一连接多个 MCP Server
-```
+## 安全不能被格式与协议替代
 
-更换模型时，MCP Server 不一定需要改变；更换 Server 时，模型也不必学习后端 API 细节。
+结构化参数可能语义错误，协议兼容的 Server 也可能不可信。Host 要检查工具是否允许、参数是否符合业务规则、用户是否确认副作用；Server 与后端 API还要验证凭证和资源权限。
 
-## 只有 MCP 可以调用工具吗？
+Tool Result 可能包含恶意指令或敏感数据，返回模型前要控制范围。日志应区分模型建议、Host 批准、Server 执行与业务确认，不能把“请求已生成”显示为“操作已完成”。
 
-不是。Host 可以直接调用本地函数或普通 API，也可以使用其他协议。MCP 是一种标准化连接选择。
+## 回答常见误区
 
-## 只有 Function Calling 才能使用 MCP 吗？
+**Function Calling 和 MCP 是同一种协议吗？** 不是，前者描述模型侧结构化调用，后者连接 Client 与 Server。
 
-也不是。应用可以让用户通过界面选择 MCP Prompt，或主动读取 Resource；不一定每次都由模型发起 Function Calling。
+**发现 MCP Tool 就已经执行了吗？** 没有，发现只得到能力描述，真实执行还要经过请求与授权。
 
-## 安全检查在哪里？
+**没有 MCP 能使用 Function Calling 吗？** 可以，Host 可直接调用本地函数或 API。
 
-每个边界都要检查：
+**没有 Function Calling 能使用 MCP 吗？** 可以，应用能读取 Resource 或让用户选择 Prompt。
 
-- 模型输出的 Tool 与参数是否合理；
-- Host 是否获得用户授权；
-- MCP Server 是否可信并使用最小权限；
-- 后端 API 是否验证身份与业务权限；
-- Tool Result 是否含恶意或敏感内容。
+## 从这里继续
 
-结构化参数和协议兼容都不等于安全。
-
-## 常见误区
-
-### 误区 1：模型原生支持 Function Calling，就原生支持所有 MCP
-
-Host 仍需 MCP Client、能力映射、连接与权限管理。
-
-### 误区 2：MCP Tool 被发现后就已经执行
-
-发现只获得能力描述；真正调用还要经过模型 / 用户选择、Host 授权和 Server 执行。
-
-### 误区 3：二者只能二选一
-
-最常见的关系恰恰是组合：Function Calling 负责模型侧请求，MCP 负责外部连接。
-
-## 你只需要记住
-
-1. Function Calling 连接 Model 与 Host；MCP 连接 Client 与 Server。
-2. Host 可把 MCP Tool 映射成模型工具，再把调用转发给 Server。
-3. 两者可以组合，但都不代表工具已经安全执行。
-4. MCP 还覆盖 Resources、Prompts、生命周期和 Transport，范围更广。
-
-## 继续学习
-
-- [上一篇：MCP 和 API 有什么区别](./04-MCP和API有什么区别.md)
-- [下一篇：MCP 和 Agent 有什么区别](./06-MCP和Agent有什么区别.md)
+- [MCP 和 Agent 有什么区别](./06-MCP和Agent有什么区别.md)
+- [Function Calling 是什么](../06-工具与Function-Calling/03-Function-Calling是什么.md)
+- 返回：[知识网络](../../知识网络.md) · [真实问题矩阵](../../真实问题矩阵.md)
 
 ## 资料与核验
 
