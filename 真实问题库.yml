@@ -544,7 +544,7 @@ questions:
     concepts: ["tool", "mcp", "skill"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
+    status: answered
     answer_path: "docs/10-Skill/03-Tool和Skill有什么区别.md"
     cluster: skill-vs-tool
 

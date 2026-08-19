@@ -6,7 +6,7 @@
 
 我们从真实小白会问的问题出发，沿着连续追问，一步一步建立完整心智模型。
 
-> 当前正在进行 V3 全量重构。已有 42 篇文章达到当前标准，其余 9 篇旧正文继续按每批最多 3 篇重写。
+> 当前正在进行 V3 全量重构。已有 45 篇文章达到当前标准，其余 6 篇旧正文继续按每批最多 3 篇重写。
 
 ## 你可以怎样使用这个项目？
 
@@ -117,6 +117,9 @@ AI 全景图
 - [MCP 和 API 有什么区别？](./docs/09-MCP/04-MCP和API有什么区别.md)
 - [MCP 和 Function Calling 有什么区别？](./docs/09-MCP/05-MCP和Function-Calling有什么区别.md)
 - [MCP 和 Agent 有什么区别？](./docs/09-MCP/06-MCP和Agent有什么区别.md)
+- [Prompt 和 Skill 有什么区别？](./docs/10-Skill/02-Prompt和Skill有什么区别.md)
+- [Tool 和 Skill 有什么区别？](./docs/10-Skill/03-Tool和Skill有什么区别.md)
+- [MCP 和 Skill 有什么区别？](./docs/10-Skill/04-MCP和Skill有什么区别.md)
 
 后续文章不再设置人工停点，按“研究 → 重写 → 真实问题与知识网络更新 → 15 项审查 → 自动检查 → 提交推送”的批次循环持续推进。
 

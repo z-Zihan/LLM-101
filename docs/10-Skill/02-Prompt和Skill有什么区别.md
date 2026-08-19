@@ -1,84 +1,53 @@
 # Prompt 和 Skill 有什么区别？
 
-> Level: `Core` · Path: `Main`
+> 所属专题：Skill · 前置：[Skill 到底是什么](./01-Skill到底是什么.md) · 后续：[Tool 和 Skill 有什么区别](./03-Tool和Skill有什么区别.md)
 >
-> 最后核验：2026-08-18
+> 最后核验：2026-08-19
 
-## 先说人话
+Prompt 是当前交给模型的输入内容；Skill 是可被发现并按需加载的任务能力包。Skill 会包含提示式说明，却还可以组织脚本、参考资料、模板和验证步骤，因此不能用“更长的 Prompt”概括。
 
-Prompt 是当前提供给模型、用于影响输出的输入内容；Skill 是可被发现并按需加载的任务能力包。
+## 一次请求和长期方法
 
-Skill 会包含提示说明，但还可以携带脚本、参考资料和模板，所以它不只是“更长的 Prompt”。
-
-## 举个例子
+用户写“把这份报告改成简洁周报”，这是当前 Prompt。一个周报 Skill 可以保存适用场景、固定结构、数据核验规则、模板文件和渲染检查脚本，供不同任务重复使用。
 
 ```text
-Prompt：请把这份报告改写成简洁的周报。
+Prompt：当前请求 → 直接进入 Context
 
-Skill：
-- 什么时候使用周报流程
-- 周报固定结构与语气
-- 数据核验步骤
-- 模板文件
-- 渲染和检查脚本
+Skill：先发现 metadata → 任务匹配后加载 SKILL.md
+                       → 需要时读取脚本与资料
 ```
 
-Prompt 表达当前请求；Skill 保存可跨任务复用的方法和材料。
+这张图想说明 Skill 文件长期存在，不等于一直占用上下文。读图时注意，最终相关说明仍会成为模型输入，但加载时机和配套结构不同。
 
-## 生命周期有什么不同？
+Prompt 当然也能保存成模板并复用。分界不只在“是否复用”，还在于 Skill 有可发现 metadata、目录约定、渐进披露和任务级工作流。没有这些结构的一段长文本，通常仍只是 Prompt。
 
-Prompt 通常直接进入当前 Context。Skill 先通过名称和描述被发现，只有与任务相关时才加载正文或其他资源。
+## Skill 为什么仍然需要 Prompt
 
-```text
-当前请求 → Prompt 进入 Context
+Agent 要执行 Skill，必须把相关说明放入当前上下文。Skill 负责选择并组织这部分说明，还能让确定性脚本完成机械步骤，让参考资料提供准确规范。
 
-可用 Skills → 先看 metadata → 选中后加载正文 / 资源
-```
+Skill 不能覆盖 System Prompt、安全规则或工具权限。安装 Skill 也不会训练参数；它改变的是运行时上下文和可调用材料。
 
-Skill 文件长期存在，不代表内容一直占用模型 Context。
+## 什么时候用哪一个
 
-## Prompt 能不能复用？
+一次性、边界清楚的任务直接 Prompt 往往足够。方法需要反复使用、包含多份参考或脚本、希望跨项目分发并统一验收时，Skill 更适合。
 
-可以。Prompt 模板本身也能保存和复用。但 Agent Skills 风格的 Skill 还规定目录与 `SKILL.md` metadata，并允许组织脚本、参考和素材。
+不要为了形式把三行提示包装成复杂 Skill，也不要把几十页规范每次手工粘贴。选择目标是减少遗漏和上下文噪声。
 
-因此“可复用”不是两者的唯一分界，包装结构和加载机制同样重要。
+## 回答常见问题
 
-## Skill 里面为什么仍然需要 Prompt？
+**Skill 只是一个长 Prompt 吗？** 不是，它是带发现和加载机制的任务包，还可包含可执行与参考文件。
 
-Agent 最终仍要把相关说明放进模型 Context。Skill 负责在合适时机提供这些说明，并补充完成任务需要的文件和流程。
+**可复用 Prompt 就是 Skill 吗？** 不自动成立，仍要看是否采用 Skill 的目录、metadata 和工作流约定。
 
-## 最容易搞混的东西
-
-### Skill ≠ System Prompt
-
-System Prompt 是系统提供给模型的高优先级指令；Skill 是可选择的任务能力包，不能覆盖 Host 的安全与系统规则。
-
-### Prompt 写得长 ≠ Skill
-
-没有可发现 metadata、目录结构和按需加载机制时，它仍可能只是一段 Prompt。
-
-### 安装 Skill ≠ 训练模型
-
-Skill 内容在运行时进入 Context，不会因此更新参数。
-
-## 什么时候只用 Prompt？
-
-一次性、简单、上下文明确的任务通常直接 Prompt 就够了。任务方法需要反复使用、包含参考资料或脚本、并希望跨项目分发时，Skill 更适合。
-
-## 你只需要记住
-
-1. Prompt 是当前模型输入；Skill 是可发现、按需加载的任务能力包。
-2. Skill 包含提示说明，也可带脚本、参考资料和素材。
-3. 可复用 Prompt 不自动等于 Skill，长 Prompt 也不自动等于 Skill。
-4. Skill 不能覆盖 System Prompt、权限或安全规则。
+**Skill 会更新模型参数吗？** 不会，它在运行时提供上下文与资源。
 
 ## 继续学习
 
-- [上一篇：Skill 是什么](./01-Skill到底是什么.md)
-- [下一篇：Tool 和 Skill 有什么区别](./03-Tool和Skill有什么区别.md)
+- [Tool 和 Skill 有什么区别](./03-Tool和Skill有什么区别.md)
+- [MCP 和 Skill 有什么区别](./04-MCP和Skill有什么区别.md)
+- 返回：[知识网络](../../知识网络.md) · [真实问题矩阵](../../真实问题矩阵.md)
 
 ## 资料与核验
 
 - [Agent Skills Specification](https://agentskills.io/specification)
 - [Agent Skills Overview](https://agentskills.io/home)
-- [Microsoft Learn: Prompt engineering](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/prompt-engineering)

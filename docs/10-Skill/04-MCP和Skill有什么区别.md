@@ -1,93 +1,52 @@
 # MCP 和 Skill 有什么区别？
 
-> Level: `Core` · Path: `Main`
+> 所属专题：Skill · 前置：[Tool 和 Skill 有什么区别](./03-Tool和Skill有什么区别.md) · 后续：[Agent 和 Skill 有什么区别](./05-Agent和Skill有什么区别.md)
 >
-> 最后核验：2026-08-18
+> 最后核验：2026-08-19
 
-## 先说人话
+MCP 是 Host 连接外部能力的协议；Skill 是保存任务方法、脚本与资料的能力包。MCP 解决“怎样发现并连上”，Skill 解决“怎样把能力用好并完成这类任务”。
 
-MCP 是 AI 应用连接外部能力的协议；Skill 是保存任务方法、脚本和资料的能力包。
+## 项目管理场景怎样组合
 
-MCP 解决“怎样连上”，Skill 解决“怎样完成这类任务”。
-
-## 举个例子
+MCP Server 可以提供查询项目、创建任务和修改状态的 Tools。项目管理 Skill 则规定怎样拆分目标、使用哪些字段、何时先查重、创建后怎样验证。
 
 ```text
-MCP Server：提供查询项目、创建任务的 Tools
-
-项目管理 Skill：
-- 怎样把用户目标拆成任务
-- 使用哪些字段和命名规范
-- 何时先查询避免重复
-- 创建后怎样验证
+Skill：任务方法与验收
+  ↓ 指导 Agent
+MCP Client ↔ MCP Server：发现并调用外部能力
+  ↓
+后端项目管理系统
 ```
 
-Skill 可以指导 Agent 使用 MCP Tools；MCP 不会自动提供这套工作方法。
+这张图想说明 Skill 不负责建立协议连接，MCP 也不自动提供组织工作法。读图时注意两者可以独立存在：Skill 可使用内置 Tool，MCP 应用也可不加载 Skill。
 
-## 核心区别
+## MCP Prompt 为什么仍不是 Skill
 
-| 维度 | MCP | Skill |
-|---|---|---|
-| 类型 | Client / Server 通信协议 | 文件形式的任务能力包 |
-| 主要内容 | 消息、能力、生命周期、Transport | 说明、脚本、参考、素材 |
-| 主要用途 | 发现和调用外部能力 | 按需提供任务知识与流程 |
-| 是否需要 Server | 是，MCP 连接需要 Server | 不一定 |
-| 是否自动执行 | Server 可执行 Tool | 由 Agent / Runtime 读取或执行内容 |
+MCP Prompt 是 Server 暴露的可复用消息模板；Skill 是带 metadata 和完整说明的目录包，还可能包含脚本、参考与素材。Skill 可以引用 MCP Prompt，平台也能编写转换层，但格式、发现方式和生命周期不同。
 
-## 能不能只用其中一个？
+MCP Client/Server 需要处理协议版本和能力协商；Skill 维护者要更新业务规则、脚本和资料。协议兼容不保证 Skill 内容仍正确，Skill 更新也不会自动升级 Server。
 
-可以：
+## 组合时要审查两套边界
 
-- Skill 可指导 Agent 使用内置 Tool，不需要 MCP；
-- MCP 应用可直接调用 Tool，不需要 Skill；
-- 二者组合时，Skill 提供方法，MCP 提供连接。
+检查 Skill 是否要求危险操作、脚本会访问什么；同时检查 Server 来源、凭证权限、Tool 参数和用户确认。标准格式提高互操作性，不建立信任。
 
-## MCP Prompt 是不是 Skill？
+有 Skill 不会自动安装 MCP Server，Server 的 Tool 描述也不等于完整 Skill。两者不是父子关系，只是可以在 Agent 运行时协作的不同层。
 
-不是。MCP Prompt 是 Server 暴露的可复用提示模板；Agent Skill 是包含 metadata、说明和可选资源的目录包。
+## 回答关键问题
 
-一个 Skill 可以引用 MCP Prompt，但二者格式、发现方式与生命周期不同。
+**MCP 和 Skill 哪个负责连接？** MCP。
 
-## 谁负责版本？
+**哪个负责多步任务方法？** Skill。
 
-MCP Client / Server 要处理协议版本和能力协商；Skill 维护者要管理任务说明、脚本与资料版本。协议兼容不保证 Skill 仍符合业务规则，Skill 更新也不自动升级 Server。
+**MCP Prompt 是 Skill 吗？** 不是，它只是协议暴露的一类提示模板。
 
-## 安全边界
-
-组合时要同时审查：
-
-- Skill 是否要求危险或越权操作；
-- MCP Server 来源与权限；
-- Tool 调用参数和用户确认；
-- 脚本、返回内容和凭证处理。
-
-标准格式只能提高互操作性，不能自动建立信任。
-
-## 常见误区
-
-### 误区 1：有 Skill 就会自动安装 MCP Server
-
-除非具体平台明确实现这项行为，否则 Skill 只是文件包，不能自行建立协议连接。
-
-### 误区 2：MCP Server 会告诉 Agent 完整业务流程
-
-Server 的 Tool 描述帮助调用能力，不等于完整组织规范和多步方法。
-
-### 误区 3：MCP 和 Skill 是父子关系
-
-不是。它们位于不同层，可以独立存在或组合。
-
-## 你只需要记住
-
-1. MCP 是连接协议，Skill 是任务能力包。
-2. MCP 负责发现和调用外部能力，Skill 负责提供做事方法与材料。
-3. MCP Prompt 不是 Skill，Tool Description 也不是完整 Skill。
-4. 二者组合不自动可信，Server、脚本、权限和调用都要审查。
+**能只用一个吗？** 可以；是否组合取决于任务和现有工具。
 
 ## 继续学习
 
-- [上一篇：Tool 和 Skill 有什么区别](./03-Tool和Skill有什么区别.md)
-- [下一篇：Agent 和 Skill 有什么区别](./05-Agent和Skill有什么区别.md)
+- [Agent 和 Skill 有什么区别](./05-Agent和Skill有什么区别.md)
+- [MCP 到底是什么](../09-MCP/01-MCP到底是什么.md)
+- 返回：[知识网络](../../知识网络.md) · [真实问题矩阵](../../真实问题矩阵.md)
 
 ## 资料与核验
 
