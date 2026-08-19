@@ -530,8 +530,8 @@ questions:
     concepts: ["api", "tool", "mcp"]
     difficulty: beginner
     priority: high
-    status: needs_rewrite
-    answer_path: "docs/09-MCP/04-MCP和API有什么区别.md"
+    status: answered
+    answer_path: "docs/09-MCP/01-MCP到底是什么.md"
     cluster: mcp-vs-api
 
   - id: q-skill-mcp-github-001
