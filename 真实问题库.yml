@@ -1163,3 +1163,87 @@ questions:
     status: answered
     answer_path: "docs/09-MCP/01-MCP到底是什么.md"
     cluster: mcp-security
+
+  - id: q-quant-model-size-reddit-001
+    question: "显存占用相近时，较大的 4-bit 模型和较小的 8-bit 模型应该怎么取舍？"
+    source_type: public_web
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/16q1i1c/noob_question_is_a_4_bit_higher_parameter_model/"
+    source_title: "Noob question - is a 4 bit higher parameter model or an 8 bit lower parameter model better?"
+    language: en
+    paraphrased: true
+    concepts: ["parameter", "inference"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/06-参数到底是什么.md"
+    cluster: quantization-vs-model-size
+
+  - id: q-quant-quality-reddit-001
+    question: "4-bit、8-bit 量化到底损失多少质量？为什么很难用一个固定百分比回答？"
+    source_type: public_web
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/153lfc2/quantization_how_much_quality_is_lost/"
+    source_title: "Quantization: How Much Quality is Lost?"
+    language: en
+    paraphrased: true
+    concepts: ["parameter", "inference", "verification"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/06-参数到底是什么.md"
+    cluster: quantization-quality
+
+  - id: q-moe-basics-reddit-001
+    question: "MoE 里的“专家”到底是什么？为什么不是一个专家负责写代码、另一个专家负责数学这种简单分工？"
+    source_type: public_web
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1oqttg0/can_someone_explain_what_a_mixtureofexperts_model/"
+    source_title: "Can someone explain what a Mixture-of-Experts model really is?"
+    language: en
+    paraphrased: true
+    concepts: ["parameter", "architecture"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/02-模型架构是什么.md"
+    cluster: moe-basics
+
+  - id: q-moe-routing-reddit-001
+    question: "MoE 到底怎么知道一个 Token 应该交给哪个专家？Router 是固定规则还是训练出来的？"
+    source_type: public_web
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1oqttg0/can_someone_explain_what_a_mixtureofexperts_model/"
+    source_title: "Can someone explain what a Mixture-of-Experts model really is?"
+    language: en
+    paraphrased: true
+    concepts: ["architecture", "training"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/02-模型架构是什么.md"
+    cluster: moe-routing
+
+  - id: q-moe-active-reddit-001
+    question: "MoE 的“总参数”和“激活参数”到底是什么关系？为什么省计算却不一定同比例省显存？"
+    source_type: public_web
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1oqttg0/can_someone_explain_what_a_mixtureofexperts_model/"
+    source_title: "Can someone explain what a Mixture-of-Experts model really is?"
+    language: en
+    paraphrased: true
+    concepts: ["parameter", "architecture", "inference"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/06-参数到底是什么.md"
+    cluster: moe-active-parameters
+
+  - id: q-distill-quant-reddit-001
+    question: "蒸馏和量化到底有什么区别？一个模型能不能既蒸馏又量化？"
+    source_type: public_web
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1iit4jh/can_someone_explain_how_distill_models_work_and/"
+    source_title: "Can someone explain, how Distill Models work and if it's at all related/connected with Quantizing?"
+    language: en
+    paraphrased: true
+    concepts: ["model", "parameter", "training", "inference"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/01-AI与大模型/03-模型到底是什么.md"
+    cluster: distillation-vs-quantization

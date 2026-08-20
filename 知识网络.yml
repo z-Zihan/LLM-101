@@ -90,7 +90,7 @@ concepts:
     summary: 经过训练后，用来把输入转换为预测、分数或生成结果的计算关系。
     prerequisites: ["machine-learning"]
     related: ["parameter", "training", "inference", "llm"]
-    questions: ["q-parameter-data-001", "q-model-origin-001", "q-parameter-form-001", "q-intelligence-origin-001", "q-reproducibility-001", "q-agent-001", "q-model-algorithm-web-001", "q-chatgpt-product-web-001"]
+    questions: ["q-parameter-data-001", "q-model-origin-001", "q-parameter-form-001", "q-intelligence-origin-001", "q-reproducibility-001", "q-agent-001", "q-model-algorithm-web-001", "q-chatgpt-product-web-001", "q-distill-quant-reddit-001"]
 
   - id: language-model
     name: 语言模型
@@ -150,7 +150,7 @@ concepts:
     summary: 训练过程会调整、推理过程会使用的模型内部数值。
     prerequisites: ["model"]
     related: ["training", "training-data", "inference"]
-    questions: ["q-parameter-data-001", "q-parameter-capacity-001", "q-model-origin-001", "q-parameter-form-001", "q-intelligence-origin-001", "q-more-is-better-001", "q-undertraining-001", "q-training-loop-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-neural-soft-database-web-001", "q-lora-qlora-reddit-001", "q-ai-memory-v2ex-001", "q-context-memory-reddit-001"]
+    questions: ["q-parameter-data-001", "q-parameter-capacity-001", "q-model-origin-001", "q-parameter-form-001", "q-intelligence-origin-001", "q-more-is-better-001", "q-undertraining-001", "q-training-loop-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-neural-soft-database-web-001", "q-lora-qlora-reddit-001", "q-ai-memory-v2ex-001", "q-context-memory-reddit-001", "q-quant-model-size-reddit-001", "q-quant-quality-reddit-001", "q-moe-basics-reddit-001", "q-moe-active-reddit-001", "q-distill-quant-reddit-001"]
 
   - id: training-data
     name: 训练数据
@@ -234,7 +234,7 @@ concepts:
     summary: 规定模型由哪些计算组件组成、组件怎样连接以及信息如何流动的结构设计。
     prerequisites: ["model"]
     related: ["model-lifecycle", "transformer", "parameter"]
-    questions: ["q-architecture-code-001", "q-more-is-better-001", "q-gpt-transformer-v2ex-001", "q-transformer-variants-reddit-001"]
+    questions: ["q-architecture-code-001", "q-more-is-better-001", "q-gpt-transformer-v2ex-001", "q-transformer-variants-reddit-001", "q-moe-basics-reddit-001", "q-moe-routing-reddit-001", "q-moe-active-reddit-001"]
 
   - id: transformer
     name: Transformer
@@ -270,7 +270,7 @@ concepts:
     summary: 利用数据和目标函数调整模型参数的过程。
     prerequisites: ["model", "parameter", "training-data"]
     related: ["inference", "model-lifecycle"]
-    questions: ["q-model-origin-001", "q-intelligence-origin-001", "q-undertraining-001", "q-training-loop-001", "q-loss-judgement-001", "q-compute-memory-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001", "q-rag-finetuning-web-001", "q-chat-correction-memory-web-001", "q-finetuning-dataset-v2ex-001", "q-finetuning-evaluation-v2ex-001", "q-lora-qlora-reddit-001", "q-context-length-zhihu-001"]
+    questions: ["q-model-origin-001", "q-intelligence-origin-001", "q-undertraining-001", "q-training-loop-001", "q-loss-judgement-001", "q-compute-memory-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001", "q-rag-finetuning-web-001", "q-chat-correction-memory-web-001", "q-finetuning-dataset-v2ex-001", "q-finetuning-evaluation-v2ex-001", "q-lora-qlora-reddit-001", "q-context-length-zhihu-001", "q-moe-routing-reddit-001", "q-distill-quant-reddit-001"]
 
   - id: inference
     name: 推理
@@ -282,7 +282,7 @@ concepts:
     summary: 使用已经训练好的模型参数，根据当前输入计算输出的过程。
     prerequisites: ["model", "parameter"]
     related: ["training", "context", "token"]
-    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-web-001", "q-inference-randomness-web-001", "q-temperature-v2ex-001", "q-output-context-limit-v2ex-001", "q-context-length-zhihu-001", "q-kv-cache-ai-se-001", "q-speculative-decoding-reddit-001", "q-prefill-decode-ai-se-001", "q-reasoning-think-ai-se-001"]
+    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-web-001", "q-inference-randomness-web-001", "q-temperature-v2ex-001", "q-output-context-limit-v2ex-001", "q-context-length-zhihu-001", "q-kv-cache-ai-se-001", "q-speculative-decoding-reddit-001", "q-prefill-decode-ai-se-001", "q-reasoning-think-ai-se-001", "q-quant-model-size-reddit-001", "q-quant-quality-reddit-001", "q-moe-active-reddit-001", "q-distill-quant-reddit-001"]
 
   - id: generalization
     name: 泛化
@@ -330,7 +330,7 @@ concepts:
     summary: 用适合问题类型的证据检查 AI 输出，而不是只看表达是否自信。
     prerequisites: ["hallucination"]
     related: ["rag", "tool"]
-    questions: ["q-hallucination-001", "q-rag-hallucination-web-001", "q-finetuning-evaluation-v2ex-001", "q-effective-context-reddit-001"]
+    questions: ["q-hallucination-001", "q-rag-hallucination-web-001", "q-finetuning-evaluation-v2ex-001", "q-effective-context-reddit-001", "q-quant-quality-reddit-001"]
 
   - id: database-boundary
     name: LLM 与数据库边界
