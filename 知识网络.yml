@@ -174,7 +174,7 @@ concepts:
     summary: 用户或系统提供给模型、用来表达任务和约束的输入内容。
     prerequisites: ["llm"]
     related: ["context", "token", "inference"]
-    questions: ["q-prompt-001"]
+    questions: ["q-prompt-001", "q-agent-browser-injection-v2ex-001", "q-tool-prompt-injection-reddit-001"]
 
   - id: token
     name: Token
@@ -198,7 +198,7 @@ concepts:
     summary: 当前一次计算中，模型实际可以使用的信息。
     prerequisites: ["prompt", "token"]
     related: ["context-window", "inference", "rag", "conversation-history"]
-    questions: ["q-context-window-001", "q-cache-001", "q-prompt-001", "q-rag-001", "q-context-stateless-web-001", "q-coding-context-github-001", "q-chat-correction-memory-web-001", "q-rag-agent-zhihu-001", "q-ai-memory-v2ex-001", "q-context-memory-reddit-001", "q-coding-agent-memory-reddit-001"]
+    questions: ["q-context-window-001", "q-cache-001", "q-prompt-001", "q-rag-001", "q-context-stateless-web-001", "q-coding-context-github-001", "q-chat-correction-memory-web-001", "q-rag-agent-zhihu-001", "q-ai-memory-v2ex-001", "q-context-memory-reddit-001", "q-coding-agent-memory-reddit-001", "q-long-agent-state-reddit-001"]
 
   - id: context-window
     name: 上下文窗口
@@ -366,7 +366,7 @@ concepts:
     summary: AI 系统可以请求外部程序执行的受控能力。
     prerequisites: ["api"]
     related: ["function-calling", "agent", "mcp", "skill"]
-    questions: ["q-agent-001", "q-function-calling-web-001", "q-mcp-openapi-hn-001", "q-skill-mcp-github-001", "q-agent-roadmap-v2ex-001", "q-agent-loop-v2ex-001"]
+    questions: ["q-agent-001", "q-function-calling-web-001", "q-mcp-openapi-hn-001", "q-skill-mcp-github-001", "q-agent-roadmap-v2ex-001", "q-agent-loop-v2ex-001", "q-platform-mcp-v2ex-001", "q-database-access-v2ex-001", "q-agent-browser-injection-v2ex-001", "q-tool-prompt-injection-reddit-001", "q-mcp-security-hn-001"]
 
   - id: function-calling
     name: 函数调用
@@ -378,7 +378,7 @@ concepts:
     summary: 模型按结构描述要调用的函数和参数，由外部程序验证并执行。
     prerequisites: ["tool"]
     related: ["api", "agent", "mcp"]
-    questions: ["q-function-calling-web-001", "q-agent-concepts-roadmap-v2ex-001", "q-agent-loop-v2ex-001"]
+    questions: ["q-function-calling-web-001", "q-agent-concepts-roadmap-v2ex-001", "q-agent-loop-v2ex-001", "q-database-access-v2ex-001"]
 
   - id: agent
     name: Agent
@@ -390,7 +390,7 @@ concepts:
     summary: 围绕目标反复获取信息、选择行动、使用工具并根据结果继续推进的系统。
     prerequisites: ["model", "tool"]
     related: ["rag", "mcp", "skill", "coding-agent"]
-    questions: ["q-agent-001", "q-agent-definition-web-001", "q-agent-roadmap-v2ex-001", "q-agent-concepts-roadmap-v2ex-001", "q-agent-loop-v2ex-001", "q-rag-agent-zhihu-001"]
+    questions: ["q-agent-001", "q-agent-definition-web-001", "q-agent-roadmap-v2ex-001", "q-agent-concepts-roadmap-v2ex-001", "q-agent-loop-v2ex-001", "q-rag-agent-zhihu-001", "q-platform-mcp-v2ex-001", "q-agent-browser-injection-v2ex-001", "q-long-agent-state-reddit-001", "q-tool-prompt-injection-reddit-001", "q-mcp-security-hn-001"]
 
   - id: rag
     name: RAG
@@ -402,7 +402,7 @@ concepts:
     summary: 在生成前检索外部资料，并把相关内容提供给模型作为上下文的方法。
     prerequisites: ["llm", "context"]
     related: ["embedding", "vector-database", "hallucination"]
-    questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-hallucination-web-001", "q-rag-finetuning-web-001", "q-agent-concepts-roadmap-v2ex-001", "q-rag-agent-zhihu-001", "q-rag-long-context-v2ex-001", "q-rag-document-processing-v2ex-001", "q-rag-chunking-v2ex-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-rerank-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-rerank-limit-v2ex-001", "q-rag-global-context-v2ex-001", "q-vector-database-selection-v2ex-001", "q-rag-pipeline-so-001", "q-ai-memory-v2ex-001", "q-long-context-memory-reddit-001"]
+    questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-hallucination-web-001", "q-rag-finetuning-web-001", "q-agent-concepts-roadmap-v2ex-001", "q-rag-agent-zhihu-001", "q-rag-long-context-v2ex-001", "q-rag-document-processing-v2ex-001", "q-rag-chunking-v2ex-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-rerank-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-rerank-limit-v2ex-001", "q-rag-global-context-v2ex-001", "q-vector-database-selection-v2ex-001", "q-rag-pipeline-so-001", "q-ai-memory-v2ex-001", "q-long-context-memory-reddit-001", "q-database-access-v2ex-001"]
 
   - id: knowledge-base
     name: 知识库
@@ -462,7 +462,7 @@ concepts:
     summary: 让 AI 应用用统一方式发现和连接外部工具、资源与提示的开放协议。
     prerequisites: ["api", "tool"]
     related: ["agent", "skill"]
-    questions: ["q-mcp-openapi-hn-001", "q-skill-mcp-github-001", "q-agent-concepts-roadmap-v2ex-001"]
+    questions: ["q-mcp-openapi-hn-001", "q-skill-mcp-github-001", "q-agent-concepts-roadmap-v2ex-001", "q-platform-mcp-v2ex-001", "q-database-access-v2ex-001", "q-mcp-security-hn-001"]
 
   - id: skill
     name: Skill
@@ -498,7 +498,7 @@ concepts:
     summary: 系统保存的一组历史消息；只有被重新选入上下文时才会影响当前回答。
     prerequisites: ["context"]
     related: ["context-window", "agent"]
-    questions: ["q-context-stateless-web-001", "q-coding-context-github-001", "q-chat-correction-memory-web-001", "q-agent-concepts-roadmap-v2ex-001", "q-ai-memory-v2ex-001", "q-context-memory-reddit-001", "q-coding-agent-memory-reddit-001", "q-long-context-memory-reddit-001"]
+    questions: ["q-context-stateless-web-001", "q-coding-context-github-001", "q-chat-correction-memory-web-001", "q-agent-concepts-roadmap-v2ex-001", "q-ai-memory-v2ex-001", "q-context-memory-reddit-001", "q-coding-agent-memory-reddit-001", "q-long-context-memory-reddit-001", "q-long-agent-state-reddit-001"]
 
 relations:
   - from: machine-learning

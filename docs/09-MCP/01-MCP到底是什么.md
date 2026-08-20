@@ -54,11 +54,17 @@ Function Calling 让模型生成结构化调用请求；MCP 让 Client 与 Serve
 
 普通聊天应用可以连接 MCP Resource，却没有 Agent Loop；Agent 也能直接调用本地工具，完全不使用 MCP。安装一个 MCP Server 更不等于系统获得自主规划。
 
+低代码 Agent 平台与 MCP 也不在同一层。Dify 一类平台负责应用编排、模型配置、工作流、界面和运行管理；MCP 规定 Host 怎样发现并连接外部能力。平台可以内置 MCP Client 或暴露自己的能力，却不会因此变成“另一种 MCP”。一个是产品与运行环境，一个是连接协议。
+
 ## 标准连接不等于自动安全
 
 Server 的代码、工具描述和返回内容都可能不可信。Host 仍需让用户知道连接了什么，限制凭证和数据范围，校验参数，并在发送、删除、付款等操作前获得确认。
 
 远端内容可能包含 Prompt Injection；本地 Server 可能读取超出预期的文件。传输安全、用户授权、工具权限和业务审计是不同层，协议兼容不会自动完成它们。
+
+权限边界应落在能强制执行的层：连接凭证只授予 Server 完成任务所需的仓库、表和操作；Host 再按用户、会话和具体工具决定是否允许调用；底层业务系统继续校验资源归属。模型不直接看到密钥，只能减少密钥泄露的一类风险，不能阻止它借拥有密钥的工具读取私有仓库或修改数据库。
+
+工具名称和描述也不能代替授权。一个标为“搜索”的工具若底层令牌能写入，攻击者仍可能利用实现漏洞或参数边界造成副作用。高风险 Server 应隔离运行、限制网络和文件范围、记录调用，并在权限变化后重新授权。
 
 ## 回答真实问题
 
@@ -69,6 +75,10 @@ Server 的代码、工具描述和返回内容都可能不可信。Host 仍需�
 **MCP Server 是模型服务器吗？** 通常不是，它主要暴露外部能力，未必托管语言模型。
 
 **装了 MCP 就安全、就有 Agent 吗？** 都不是。权限与确认仍由实现负责，Agent 还需要目标、状态和循环。
+
+**Dify 和 MCP 是同一类东西吗？** 不是。Dify 是构建与运行 AI 应用的平台，MCP 是 Host 与外部能力之间的连接协议；平台可以支持 MCP。
+
+**模型看不到密钥，MCP Server 就安全吗？** 不等于安全。模型仍可能通过已授权工具间接使用密钥权限。Server、Host 和底层系统都要实施最小权限、参数校验、确认与审计。
 
 ## 从这里继续
 
@@ -82,3 +92,4 @@ Server 的代码、工具描述和返回内容都可能不可信。Host 仍需�
 - [Model Context Protocol Specification 2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28)
 - [MCP Architecture overview](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)
 - [MCP Specification: Tools](https://modelcontextprotocol.io/specification/2026-07-28/server/tools)
+- [MCP Specification: Security best practices](https://modelcontextprotocol.io/specification/2026-07-28/basic/security_best_practices)

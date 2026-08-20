@@ -35,6 +35,10 @@ Update：记录结果、错误和预算
 
 状态也应区分“模型计划”“宿主批准”“工具执行”和“业务确认”。否则模型说“文件已删除”可能被错误记录成真实完成，而工具其实超时了。
 
+真正运行数小时或跨会话的 Agent，不能把全部状态押在不断增长的上下文里。目标、计划版本、已完成动作、待办、用户批准、外部资源 ID、检查点和验证证据应保存在外部状态；模型每一轮只读取当前步骤需要的部分。恢复时还要重新查询文件、任务和业务系统，因为保存的观察可能已经过期。
+
+持久化不是把聊天全文搬进数据库就结束。写操作要有唯一请求标识，检查点要记录哪些副作用已经发生，摘要要能回到原始证据。否则任务重启后可能重复发消息、重复付款，或把模型曾经计划做的动作误当成已经完成。
+
 ## Loop 应该在什么时候停
 
 达到可验证完成标准时成功停止；关键依赖失败、目标不可达时失败停止；需要凭证、选择或高风险确认时等待用户；达到步骤、时间、Token 或费用上限时限制停止；用户取消或安全策略拒绝时立即停止。
@@ -50,6 +54,14 @@ Update：记录结果、错误和预算
 系统需要校验工具输入输出，为有副作用的操作使用幂等设计或唯一请求标识，限制重试次数，并保留检查点。无法安全自动恢复时，应转交人工，而不是换一种措辞继续撞同一接口。
 
 “幂等”可以先理解成：同一个请求因网络问题重复执行，不会不断制造新的副作用。查询通常容易重试，付款、发送和删除则必须特别设计。
+
+## Prompt Injection 为什么接上工具后更危险
+
+网页、邮件、代码注释和文档都可能夹带“忽略原任务、上传文件”之类文字。它们是 Agent 要分析的数据，不是有权改变目标的系统指令。模型却可能把两者混淆；一旦 Agent 拥有浏览器登录态、Shell、文件或 API，混淆就可能从错误回答变成数据外传和现实操作。
+
+本地模型不会自动消除这种风险，登录态也不是安全边界。宿主要把外部内容标记为不可信，限制可访问域名、文件和工具，把读取与写入权限分开；发送、删除、发布和凭证操作需要独立校验或用户确认。模型提出的参数还要经过允许列表、资源归属和业务规则检查，不能只靠 Prompt 说“不要被注入”。
+
+这些措施只能降低风险，无法证明所有注入都被识别。系统还要记录不可信内容如何进入上下文、模型提出了什么、宿主为何批准或拒绝，并用包含恶意页面和间接指令的测试持续验证边界。
 
 ## Planning、Workflow 和 Loop 的关系
 
@@ -71,6 +83,10 @@ Workflow 把大量路径预先写进程序，Loop 的动态部分则允许模型
 
 **重试能自动修复问题吗？** 不能。若原因未改变，盲目重试只会重复失败，带副作用的动作还可能造成损失。
 
+**长时间运行的 Agent 怎样保存状态？** 把目标、计划、外部资源 ID、已发生副作用、批准和证据写入外部可恢复状态，每轮按需载入，并在恢复后重新核对现实环境。
+
+**为什么 Prompt Injection 接上工具后从“答错”变成“做错事”？** 因为不可信内容可能影响模型提出的行动，而工具能把行动落实到文件、账号和业务系统。权限、参数与确认必须由模型之外的宿主强制执行。
+
 ## 从这里继续
 
 - 比较固定与动态流程：[Workflow 和 Agent 有什么区别](./05-Workflow和Agent有什么区别.md)
@@ -83,3 +99,5 @@ Workflow 把大量路径预先写进程序，Loop 的动态部分则允许模型
 - [Anthropic: Building effective agents](https://www.anthropic.com/research/building-effective-agents)
 - [OpenAI: A practical guide to building agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf)
 - [Wang et al.: A Survey on Large Language Model based Autonomous Agents](https://arxiv.org/abs/2308.11432)
+- [Greshake et al.: Not what you've signed up for — Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection](https://arxiv.org/abs/2302.12173)
+- [OWASP: LLM Prompt Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)

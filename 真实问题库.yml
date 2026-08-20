@@ -1079,3 +1079,87 @@ questions:
     status: answered
     answer_path: "docs/04-模型能力/03-推理能力是什么.md"
     cluster: reasoning-token-generation
+
+  - id: q-platform-mcp-v2ex-001
+    question: "Dify 和 MCP 是不是同一类东西？低代码 Agent 平台和工具连接协议的边界在哪里？"
+    source_type: public_web
+    source_url: "https://global.v2ex.com/t/1140276"
+    source_title: "dify 好用吗，还是直接用 mcp 手撸更靠谱"
+    language: zh
+    paraphrased: true
+    concepts: ["tool", "agent", "mcp"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/09-MCP/01-MCP到底是什么.md"
+    cluster: platform-vs-protocol
+
+  - id: q-database-access-v2ex-001
+    question: "想让大模型准确查数据库，应该用 RAG、Function Calling、MCP，还是 Text-to-SQL？它们分别解决什么问题？"
+    source_type: public_web
+    source_url: "https://hk.v2ex.com/t/1124121"
+    source_title: "大模型在技术上能/怎么实现比较准确的数据库查询吗/呢？"
+    language: zh
+    paraphrased: true
+    concepts: ["tool", "function-calling", "rag", "mcp"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/06-工具与Function-Calling/02-AI工具到底是什么.md"
+    cluster: llm-database-access
+
+  - id: q-agent-browser-injection-v2ex-001
+    question: "Agent 读取带登录态的浏览器页面时，网页里的 Prompt Injection 为什么会变成真正的安全风险？"
+    source_type: public_web
+    source_url: "https://staging.v2ex.com/t/1215754"
+    source_title: "Browser for AI Agent —— 让 AI 通过你的浏览器读取登录态页面"
+    language: zh
+    paraphrased: true
+    concepts: ["prompt", "tool", "agent"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/07-Agent/03-Agent-Loop是什么.md"
+    cluster: agent-prompt-injection
+
+  - id: q-long-agent-state-reddit-001
+    question: "真正长时间运行的 Agent 应该怎样保存状态？为什么不能简单把所有历史一直塞进上下文？"
+    source_type: public_web
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1t5gx4d/are_people_actually_running_longlived_agents_yet/"
+    source_title: "Are people actually running long-lived agents yet?"
+    language: en
+    paraphrased: true
+    concepts: ["context", "agent", "conversation-history"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/07-Agent/03-Agent-Loop是什么.md"
+    cluster: long-running-agent-state
+
+  - id: q-tool-prompt-injection-reddit-001
+    question: "本地模型一旦接上文件、Shell、浏览器和 API，Prompt Injection 的风险为什么会从“答错”升级成“做错事”？"
+    source_type: public_web
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1to25y5/are_local_llm_users_testing_prompt_injection/"
+    source_title: "Are local LLM users testing prompt injection before connecting models to tools?"
+    language: en
+    paraphrased: true
+    concepts: ["prompt", "tool", "agent"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/07-Agent/03-Agent-Loop是什么.md"
+    cluster: agent-prompt-injection
+
+  - id: q-mcp-security-hn-001
+    question: "MCP Server 能访问私有仓库或数据库时，权限边界应该放在哪里？为什么“模型看不到密钥”仍然不等于安全？"
+    source_type: public_web
+    source_url: "https://news.ycombinator.com/item?id=44097390"
+    source_title: "GitHub MCP exploited: Accessing private repositories via MCP"
+    language: en
+    paraphrased: true
+    concepts: ["tool", "agent", "mcp"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/09-MCP/01-MCP到底是什么.md"
+    cluster: mcp-security
