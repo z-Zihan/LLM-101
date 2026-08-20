@@ -258,7 +258,7 @@ concepts:
     summary: 根据当前计算需要，为不同位置的信息分配不同影响权重的机制。
     prerequisites: ["token", "transformer"]
     related: ["context", "llm"]
-    questions: ["q-architecture-code-001", "q-more-is-better-001", "q-token-generation-001", "q-positional-encoding-reddit-001", "q-kv-cache-ai-se-001", "q-prefill-decode-ai-se-001"]
+    questions: ["q-architecture-code-001", "q-more-is-better-001", "q-token-generation-001", "q-positional-encoding-reddit-001", "q-kv-cache-ai-se-001", "q-prefill-decode-ai-se-001", "q-r2-attention-001", "q-r2-attention-002", "q-r2-attention-003", "q-r2-attention-004", "q-r2-attention-005", "q-r2-attention-006", "q-r2-attention-007"]
 
   - id: training
     name: 训练
@@ -500,6 +500,18 @@ concepts:
     related: ["context-window", "agent"]
     questions: ["q-context-stateless-web-001", "q-coding-context-github-001", "q-chat-correction-memory-web-001", "q-agent-concepts-roadmap-v2ex-001", "q-ai-memory-v2ex-001", "q-context-memory-reddit-001", "q-coding-agent-memory-reddit-001", "q-long-context-memory-reddit-001", "q-long-agent-state-reddit-001"]
 
+  - id: scaling-laws
+    name: 规模定律
+    path: docs/03-模型原理与训练/08-规模定律是什么.md
+    aliases: ["Scaling Laws", "规模定律"]
+    level: Advanced
+    path_type: Optional
+    group: 模型训练
+    summary: 用受控实验拟合参数、数据、计算与模型表现随规模变化趋势的经验规律。
+    prerequisites: ["parameter", "training-data", "training"]
+    related: ["inference", "generalization"]
+    questions: ["q-r2-scaling-001", "q-r2-scaling-002", "q-r2-scaling-003", "q-r2-scaling-004", "q-r2-scaling-005"]
+
 relations:
   - from: machine-learning
     relation: 属于
@@ -660,3 +672,12 @@ relations:
   - from: conversation-history
     relation: 可被选入
     to: context
+  - from: scaling-laws
+    relation: 同时研究
+    to: parameter
+  - from: scaling-laws
+    relation: 同时研究
+    to: training-data
+  - from: scaling-laws
+    relation: 受部署成本影响
+    to: inference

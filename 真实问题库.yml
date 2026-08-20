@@ -1261,3 +1261,171 @@ questions:
     status: answered
     answer_path: "docs/05-幻觉与模型局限/04-怎么验证AI的回答.md"
     cluster: benchmark-contamination
+
+  - id: q-r2-attention-001
+    question: "为什么 Attention 要先用 Query 和 Key 算相关性，再用这个结果去加权 Value？为什么不能直接拿 Query 和 Value 比？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/learnmachinelearning/comments/1rj4q3a/question_regarding_attention_mechanism/"
+    source_title: "Question regarding attention mechanism"
+    language: "en"
+    paraphrased: true
+    concepts: ["attention"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/05-Attention到底是什么.md"
+    cluster: attention-qkv-intuition
+
+  - id: q-r2-attention-002
+    question: "Q、K、V 的投影矩阵到底是怎么学出来的？训练时有没有一个专门的目标告诉它“什么应该成为 Query，什么应该成为 Key”？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/MachineLearning/comments/1cr1eom/d_training_attention_qkv_matrices/"
+    source_title: "Training attention QKV matrices"
+    language: "en"
+    paraphrased: true
+    concepts: ["attention"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/05-Attention到底是什么.md"
+    cluster: attention-qkv-training
+
+  - id: q-r2-attention-003
+    question: "为什么 Q·K 的点积可以被解释成“相关性”？这个数学运算为什么能学出词与词之间的关系？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/MachineLearning/comments/1b4v9aw/d_how_does_selfattention_work/"
+    source_title: "How does self-attention work?"
+    language: "en"
+    paraphrased: true
+    concepts: ["attention"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/05-Attention到底是什么.md"
+    cluster: attention-score-intuition
+
+  - id: q-r2-attention-004
+    question: "Scaled Dot-Product Attention 为什么要除以 √d_k？如果不缩放会发生什么？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/353158189463052288"
+    source_title: "深度学习/算法面试中常见 Attention 问题"
+    language: "zh"
+    paraphrased: true
+    concepts: ["attention"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/05-Attention到底是什么.md"
+    cluster: attention-scaling
+
+  - id: q-r2-attention-005
+    question: "训练 Decoder 时明明整句答案都在显存里，为什么还必须做 Causal Mask，不让当前 Token 看未来 Token？"
+    source_type: "public_web"
+    source_url: "https://stackoverflow.com/questions/58127059/how-to-understand-masked-multi-head-attention-in-transformer"
+    source_title: "How to understand masked multi-head attention in Transformer?"
+    language: "en"
+    paraphrased: true
+    concepts: ["attention"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/05-Attention到底是什么.md"
+    cluster: causal-mask
+
+  - id: q-r2-attention-006
+    question: "Multi-Head Attention 为什么需要多个 Head？一个大 Head 和很多小 Head 在表达能力、参数量和计算上有什么差别？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/feed/main/detail/cb5a4d10b89d4df3b84b48fe7c442f28"
+    source_title: "字节大模型算法岗面经：Transformer / Attention / 分布式训练"
+    language: "zh"
+    paraphrased: true
+    concepts: ["attention"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/05-Attention到底是什么.md"
+    cluster: multi-head-attention
+
+  - id: q-r2-attention-007
+    question: "手写 Multi-Head Attention 时，Q/K/V 的 shape 怎么变化？Self-Attention 和 Cross-Attention 在代码层面到底差在哪？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/726799474665488384"
+    source_title: "小米大模型推理框架面经"
+    language: "zh"
+    paraphrased: true
+    concepts: ["attention"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/05-Attention到底是什么.md"
+    cluster: attention-implementation
+
+  - id: q-r2-scaling-001
+    question: "Chinchilla 说训练计算最优时参数量和训练 Token 要按比例扩展，为什么 Llama 3 这类模型会远远超过传统 Chinchilla 的训练 Token 数？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/MachineLearning/comments/1c6w9eo/d_new_llama_scaling_laws/"
+    source_title: "New Llama scaling laws?"
+    language: "en"
+    paraphrased: true
+    concepts: ["scaling-laws"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/08-规模定律是什么.md"
+    cluster: scaling-chinchilla-overtraining
+
+  - id: q-r2-scaling-002
+    question: "Scaling Laws 里通常只写参数、数据和算力，那“数据质量”怎么进入这个关系？高质量数据能不能抵掉一部分规模？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/MachineLearning/comments/1f8v28n/d_what_role_does_data_quality_play_in_scaling_laws/"
+    source_title: "What role does data quality play in scaling laws?"
+    language: "en"
+    paraphrased: true
+    concepts: ["scaling-laws"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/08-规模定律是什么.md"
+    cluster: scaling-data-quality
+
+  - id: q-r2-scaling-003
+    question: "如果不仅考虑训练成本，还考虑模型上线后会被调用很多次的推理成本，最优模型是不是应该更小、训练得更久？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/MachineLearning/comments/1g2fw8b/r_inferenceaware_scaling_laws/"
+    source_title: "Inference-aware scaling laws"
+    language: "en"
+    paraphrased: true
+    concepts: ["scaling-laws"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/08-规模定律是什么.md"
+    cluster: inference-aware-scaling
+
+  - id: q-r2-scaling-004
+    question: "固定训练预算时，到底应该把钱花在“更大的模型”还是“更多训练 Token”上？这个最优点是怎么估出来的？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/MachineLearning/comments/1c6w9eo/d_new_llama_scaling_laws/"
+    source_title: "New Llama scaling laws?"
+    language: "en"
+    paraphrased: true
+    concepts: ["scaling-laws"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/08-规模定律是什么.md"
+    cluster: compute-optimal-scaling
+
+  - id: q-r2-scaling-005
+    question: "面试里让你解释 Scaling Law，你会怎么说明“参数更多不等于一定更强”，以及参数、数据、算力为什么要一起看？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/353158189463052288"
+    source_title: "大模型算法常见面试题：Scaling Law / Transformer / 训练"
+    language: "zh"
+    paraphrased: true
+    concepts: ["scaling-laws"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/08-规模定律是什么.md"
+    cluster: scaling-interview
