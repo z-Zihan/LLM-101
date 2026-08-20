@@ -603,3 +603,59 @@ questions:
     status: answered
     answer_path: "docs/12-Memory/01-聊天记录是什么.md"
     cluster: history-vs-training
+
+  - id: q-agent-roadmap-v2ex-001
+    question: "Agent 零基础应该先学原生大模型 API，还是直接学 Agent 框架？"
+    source_type: public_web
+    source_url: "https://www.v2ex.com/t/1231212"
+    source_title: "从零学习 AI Agent，先学原理还是直接上框架？"
+    language: zh
+    paraphrased: true
+    concepts: ["api", "tool", "agent"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/07-Agent/01-Agent到底是什么.md"
+    cluster: agent-learning-roadmap
+
+  - id: q-agent-concepts-roadmap-v2ex-001
+    question: "Function Calling、MCP、RAG、记忆、工作流这些概念应该按什么顺序学？"
+    source_type: public_web
+    source_url: "https://www.v2ex.com/t/1231212"
+    source_title: "从零学习 AI Agent，先学原理还是直接上框架？"
+    language: zh
+    paraphrased: true
+    concepts: ["function-calling", "agent", "rag", "mcp", "conversation-history"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/07-Agent/01-Agent到底是什么.md"
+    cluster: agent-learning-roadmap
+
+  - id: q-agent-loop-v2ex-001
+    question: "Agent Loop 到底是什么？为什么很多 Agent 最小实现看起来就是不断调用模型、执行工具、再把结果塞回去？"
+    source_type: public_web
+    source_url: "https://www.v2ex.com/t/1231212"
+    source_title: "从零学习 AI Agent，先学原理还是直接上框架？"
+    language: zh
+    paraphrased: true
+    concepts: ["tool", "function-calling", "agent"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/07-Agent/03-Agent-Loop是什么.md"
+    cluster: agent-loop
+
+  - id: q-rag-agent-zhihu-001
+    question: "Agent 一定需要 RAG 吗？没有 RAG 的 Agent 能不能存在？"
+    source_type: public_web
+    source_url: "https://www.zhihu.com/question/2036108796951532733"
+    source_title: "RAG 对于 Agent 来说是不是必须的？"
+    language: zh
+    paraphrased: true
+    concepts: ["context", "agent", "rag"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/01-RAG到底是什么.md"
+    cluster: rag-vs-agent
