@@ -54,6 +54,8 @@ Self-Attention：从其他位置汇总相关信息
 
 如果只把一组 Token 交给没有位置信息的 Self-Attention，“猫追狗”和“狗追猫”会难以区分顺序。Transformer 因此需要某种位置表示，把第几个位置以及位置之间的关系带入计算。
 
+原因在于，普通 Self-Attention 对每个位置使用同样的投影和配对计算。若只交换输入位置、又没有任何位置线索，输出也主要只是跟着交换；计算知道“有哪些表示”，却没有独立信号说明谁在第 1 位、谁在第 2 位。位置编码或相对位置机制把顺序加入表示或注意力分数，模型才有材料学习先后、距离和方向。
+
 原始论文使用正弦、余弦位置编码；后续模型发展出可学习位置嵌入、旋转位置编码和相对位置等多种方案。它们都在解决顺序问题，具体可支持多长序列、能否外推和怎样影响 Attention 则各不相同。
 
 这也说明上下文窗口不是一个与架构无关的产品数字。模型的位置方法、训练长度、Attention 实现和服务配置会一起影响可处理序列长度；把软件界面里的“长对话”能力全部归功于参数量并不准确。
@@ -118,6 +120,12 @@ Transformer 能用 Attention 建立远距离位置关系，训练时又适合在
 
 **Transformer 不等于 GPT。** [GPT](../01-AI与大模型/05-GPT和ChatGPT有什么区别.md) 是采用 Transformer 路线的具体模型家族。
 
+**GPT 是 Transformer 本身吗？** 不是。Transformer 是架构家族；GPT 是采用 Decoder-only Transformer 路线、再由具体配置和训练过程得到的一系列模型。其他模型也能采用 Transformer。
+
+**Attention 为什么还要位置编码？** 不带位置线索的 Self-Attention 没有独立的序列顺序信号。位置机制让模型区分先后与距离，不代表所有模型都使用原论文同一种正弦编码。
+
+**Encoder-only、Encoder–Decoder 和 Decoder-only 怎样区分？** 主要看信息可见方式和输出任务：编码器通常同时读取输入两侧，解码器用因果遮罩逐步生成，编码器—解码器先读完整输入再生成目标序列。
+
 **Transformer 也不代表无限上下文。** 每个模型都有训练和实现所支持的序列边界，窗口更大也不保证每个位置都被可靠使用。
 
 ## 回到最初的问题
@@ -140,3 +148,4 @@ LLM 经常提到它，是因为这套结构适合学习语言序列关系、进�
 - [Harvard NLP: The Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/)
 - [Jurafsky & Martin: Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/)
 - [Fedus, Zoph & Shazeer: Switch Transformers](https://arxiv.org/abs/2101.03961)
+- [Devlin et al.: BERT — Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)

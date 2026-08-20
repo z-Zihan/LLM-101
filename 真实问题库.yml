@@ -869,3 +869,143 @@ questions:
     status: answered
     answer_path: "docs/08-RAG与知识库/11-RAG和微调有什么区别.md"
     cluster: lora-vs-qlora
+
+  - id: q-gpt-transformer-v2ex-001
+    question: "Transformer 和 GPT 到底是什么关系？GPT 是 Transformer 本身，还是基于 Transformer 做出来的一类模型？"
+    source_type: public_web
+    source_url: "https://global.v2ex.com/t/1196222"
+    source_title: "普通开发参与/迈向 AI 时代的方法也许就是转型做 Agent 开发"
+    language: zh
+    paraphrased: true
+    concepts: ["llm", "gpt", "architecture", "transformer"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/03-Transformer到底是什么.md"
+    cluster: gpt-vs-transformer
+
+  - id: q-temperature-v2ex-001
+    question: "为什么 Temperature 会影响模型输出？它是在改变模型知识，还是只改变下一个 Token 的选择方式？"
+    source_type: public_web
+    source_url: "https://global.v2ex.com/t/1196222"
+    source_title: "普通开发参与/迈向 AI 时代的方法也许就是转型做 Agent 开发"
+    language: zh
+    paraphrased: true
+    concepts: ["token", "inference"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/18-训练和推理有什么区别.md"
+    cluster: sampling-temperature
+
+  - id: q-output-context-limit-v2ex-001
+    question: "模型输出 Token 超过限制时到底会发生什么？输出上限和上下文窗口是什么关系？"
+    source_type: public_web
+    source_url: "https://global.v2ex.com/t/1196222"
+    source_title: "普通开发参与/迈向 AI 时代的方法也许就是转型做 Agent 开发"
+    language: zh
+    paraphrased: true
+    concepts: ["token", "context-window", "inference"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/02-聊天Token与上下文/07-上下文和上下文窗口是什么.md"
+    cluster: output-vs-context-limit
+
+  - id: q-context-length-zhihu-001
+    question: "Transformer 模型的 Context Length 到底由什么决定？为什么不能在推理时随便把数字调大？"
+    source_type: public_web
+    source_url: "https://www.zhihu.com/question/1925767833456976257"
+    source_title: "基于 Transformer 的 LLM 的 context length 是由什么决定的？"
+    language: zh
+    paraphrased: true
+    concepts: ["context-window", "transformer", "training", "inference"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/02-聊天Token与上下文/07-上下文和上下文窗口是什么.md"
+    cluster: context-length-mechanism
+
+  - id: q-effective-context-reddit-001
+    question: "模型卡写着 32K、128K、1M 上下文，怎样测出模型真正有效利用的上下文长度？"
+    source_type: public_web
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/15orwir/how_to_measure_effective_context_length/"
+    source_title: "How to measure effective context length?"
+    language: en
+    paraphrased: true
+    concepts: ["context-window", "verification"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/02-聊天Token与上下文/07-上下文和上下文窗口是什么.md"
+    cluster: effective-context-length
+
+  - id: q-positional-encoding-reddit-001
+    question: "Attention 本身为什么不知道 Token 的顺序？为什么 Transformer 需要位置编码？"
+    source_type: public_web
+    source_url: "https://www.reddit.com/r/MachineLearning/comments/14lmvhf/discussion_is_there_a_better_way_than_positional/"
+    source_title: "Is there a better way than positional encodings?"
+    language: en
+    paraphrased: true
+    concepts: ["token", "transformer", "attention"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/03-Transformer到底是什么.md"
+    cluster: positional-encoding
+
+  - id: q-transformer-variants-reddit-001
+    question: "Encoder-only、Encoder-Decoder 和 Decoder-only 到底有什么区别？为什么很多 LLM 是 Decoder-only？"
+    source_type: public_web
+    source_url: "https://www.reddit.com/r/MachineLearning/comments/14y7ajc/dencoder_only_vs_encoderdecoder_vs_decoder_only/"
+    source_title: "Encoder only vs encoder-decoder vs decoder only"
+    language: en
+    paraphrased: true
+    concepts: ["llm", "architecture", "transformer"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/03-Transformer到底是什么.md"
+    cluster: transformer-variants
+
+  - id: q-kv-cache-ai-se-001
+    question: "KV Cache 到底缓存了什么？为什么缓存 K 和 V，却通常不缓存 Q？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/48185/why-not-cache-the-q-query-matrix"
+    source_title: "Why not cache the Q (query) matrix?"
+    language: en
+    paraphrased: true
+    concepts: ["token", "context-window", "attention", "inference"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/02-聊天Token与上下文/07-上下文和上下文窗口是什么.md"
+    cluster: kv-cache-mechanics
+
+  - id: q-speculative-decoding-reddit-001
+    question: "推测解码会不会降低模型“智力”或改变最终输出？为什么它理论上可以只加速而不改变目标分布？"
+    source_type: public_web
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1jahhox/does_speculative_decoding_decrease_intelligence/"
+    source_title: "Does speculative decoding decrease intelligence?"
+    language: en
+    paraphrased: true
+    concepts: ["token", "inference"]
+    difficulty: intermediate
+    priority: medium
+    status: answered
+    answer_path: "docs/03-模型原理与训练/18-训练和推理有什么区别.md"
+    cluster: speculative-decoding-quality
+
+  - id: q-prefill-decode-ai-se-001
+    question: "LLM 推理里的 Prefill 和 Decode 到底是什么？为什么一个更容易并行，另一个必须逐 Token 进行？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/41249/what-is-considered-the-pre-fill-and-what-is-considered-the-decoding-phase-in-th"
+    source_title: "What is considered the pre-fill, and what is considered the decoding phase in transformer inference?"
+    language: en
+    paraphrased: true
+    concepts: ["token", "attention", "inference"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/18-训练和推理有什么区别.md"
+    cluster: prefill-vs-decode

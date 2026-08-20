@@ -114,7 +114,7 @@ concepts:
     summary: 在大量数据和计算资源上训练、能够处理和生成语言的大规模语言模型。
     prerequisites: ["language-model", "deep-learning"]
     related: ["transformer", "prompt", "context", "hallucination"]
-    questions: ["q-hallucination-001", "q-language-model-web-001", "q-llm-foundation-web-001", "q-chatgpt-product-web-001", "q-neural-soft-database-web-001"]
+    questions: ["q-hallucination-001", "q-language-model-web-001", "q-llm-foundation-web-001", "q-chatgpt-product-web-001", "q-neural-soft-database-web-001", "q-gpt-transformer-v2ex-001", "q-transformer-variants-reddit-001"]
 
   - id: gpt
     name: GPT
@@ -126,7 +126,7 @@ concepts:
     summary: OpenAI 使用“生成式预训练 Transformer”路线发展的一组模型家族名称，不等于 ChatGPT 产品。
     prerequisites: ["llm"]
     related: ["chatgpt-product", "model", "api", "transformer"]
-    questions: ["q-chatgpt-product-web-001"]
+    questions: ["q-chatgpt-product-web-001", "q-gpt-transformer-v2ex-001"]
 
   - id: chatgpt-product
     name: ChatGPT 产品
@@ -186,7 +186,7 @@ concepts:
     summary: 模型编码和生成文本时处理的离散单位，不固定等于一个字或一个单词。
     prerequisites: ["llm"]
     related: ["context", "context-window", "inference"]
-    questions: ["q-token-units-001", "q-context-window-001", "q-token-generation-001", "q-cache-001", "q-language-model-web-001", "q-token-length-web-001", "q-next-token-capability-web-001", "q-inference-randomness-web-001"]
+    questions: ["q-token-units-001", "q-context-window-001", "q-token-generation-001", "q-cache-001", "q-language-model-web-001", "q-token-length-web-001", "q-next-token-capability-web-001", "q-inference-randomness-web-001", "q-temperature-v2ex-001", "q-output-context-limit-v2ex-001", "q-positional-encoding-reddit-001", "q-kv-cache-ai-se-001", "q-speculative-decoding-reddit-001", "q-prefill-decode-ai-se-001"]
 
   - id: context
     name: 上下文
@@ -210,7 +210,7 @@ concepts:
     summary: 模型一次处理输入和输出时可容纳内容的容量边界。
     prerequisites: ["context", "token"]
     related: ["inference", "conversation-history"]
-    questions: ["q-context-window-001", "q-context-stateless-web-001", "q-reasoning-consistency-web-001", "q-rag-long-context-v2ex-001"]
+    questions: ["q-context-window-001", "q-context-stateless-web-001", "q-reasoning-consistency-web-001", "q-rag-long-context-v2ex-001", "q-output-context-limit-v2ex-001", "q-context-length-zhihu-001", "q-effective-context-reddit-001", "q-kv-cache-ai-se-001"]
 
   - id: model-lifecycle
     name: 模型生命周期
@@ -234,7 +234,7 @@ concepts:
     summary: 规定模型由哪些计算组件组成、组件怎样连接以及信息如何流动的结构设计。
     prerequisites: ["model"]
     related: ["model-lifecycle", "transformer", "parameter"]
-    questions: ["q-architecture-code-001", "q-more-is-better-001"]
+    questions: ["q-architecture-code-001", "q-more-is-better-001", "q-gpt-transformer-v2ex-001", "q-transformer-variants-reddit-001"]
 
   - id: transformer
     name: Transformer
@@ -246,7 +246,7 @@ concepts:
     summary: 以注意力等模块处理序列信息的一类神经网络架构。
     prerequisites: ["architecture", "deep-learning"]
     related: ["attention", "llm", "token"]
-    questions: ["q-architecture-code-001", "q-more-is-better-001", "q-token-generation-001"]
+    questions: ["q-architecture-code-001", "q-more-is-better-001", "q-token-generation-001", "q-gpt-transformer-v2ex-001", "q-context-length-zhihu-001", "q-positional-encoding-reddit-001", "q-transformer-variants-reddit-001"]
 
   - id: attention
     name: 注意力机制
@@ -258,7 +258,7 @@ concepts:
     summary: 根据当前计算需要，为不同位置的信息分配不同影响权重的机制。
     prerequisites: ["token", "transformer"]
     related: ["context", "llm"]
-    questions: ["q-architecture-code-001", "q-more-is-better-001", "q-token-generation-001"]
+    questions: ["q-architecture-code-001", "q-more-is-better-001", "q-token-generation-001", "q-positional-encoding-reddit-001", "q-kv-cache-ai-se-001", "q-prefill-decode-ai-se-001"]
 
   - id: training
     name: 训练
@@ -270,7 +270,7 @@ concepts:
     summary: 利用数据和目标函数调整模型参数的过程。
     prerequisites: ["model", "parameter", "training-data"]
     related: ["inference", "model-lifecycle"]
-    questions: ["q-model-origin-001", "q-intelligence-origin-001", "q-undertraining-001", "q-training-loop-001", "q-loss-judgement-001", "q-compute-memory-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001", "q-rag-finetuning-web-001", "q-chat-correction-memory-web-001", "q-finetuning-dataset-v2ex-001", "q-finetuning-evaluation-v2ex-001", "q-lora-qlora-reddit-001"]
+    questions: ["q-model-origin-001", "q-intelligence-origin-001", "q-undertraining-001", "q-training-loop-001", "q-loss-judgement-001", "q-compute-memory-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001", "q-rag-finetuning-web-001", "q-chat-correction-memory-web-001", "q-finetuning-dataset-v2ex-001", "q-finetuning-evaluation-v2ex-001", "q-lora-qlora-reddit-001", "q-context-length-zhihu-001"]
 
   - id: inference
     name: 推理
@@ -282,7 +282,7 @@ concepts:
     summary: 使用已经训练好的模型参数，根据当前输入计算输出的过程。
     prerequisites: ["model", "parameter"]
     related: ["training", "context", "token"]
-    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-web-001", "q-inference-randomness-web-001"]
+    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-web-001", "q-inference-randomness-web-001", "q-temperature-v2ex-001", "q-output-context-limit-v2ex-001", "q-context-length-zhihu-001", "q-kv-cache-ai-se-001", "q-speculative-decoding-reddit-001", "q-prefill-decode-ai-se-001"]
 
   - id: generalization
     name: 泛化
@@ -330,7 +330,7 @@ concepts:
     summary: 用适合问题类型的证据检查 AI 输出，而不是只看表达是否自信。
     prerequisites: ["hallucination"]
     related: ["rag", "tool"]
-    questions: ["q-hallucination-001", "q-rag-hallucination-web-001", "q-finetuning-evaluation-v2ex-001"]
+    questions: ["q-hallucination-001", "q-rag-hallucination-web-001", "q-finetuning-evaluation-v2ex-001", "q-effective-context-reddit-001"]
 
   - id: database-boundary
     name: LLM 与数据库边界
