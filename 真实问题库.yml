@@ -2241,3 +2241,115 @@ questions:
     status: answered
     answer_path: "docs/11-Coding-Agent/09-上下文工程是什么.md"
     cluster: subagent-context-inheritance
+
+  - id: q-r2-codingagent-001
+    question: "终端里的 Coding Agent 和 IDE 里的 AI Coding Agent 有什么本质区别？真正影响能力的是模型、工具权限、项目上下文还是交互界面？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1ktsg6d/do_you_use_terminal_coding_agents_or_ide_agents/"
+    source_title: "Do you use terminal coding agents or IDE agents?"
+    language: "en"
+    paraphrased: true
+    concepts: ["coding-agent"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/01-AI-Coding是什么.md"
+    cluster: terminal-vs-ide-agent
+
+  - id: q-r2-codingagent-002
+    question: "Coding Agent 为什么必须频繁运行 grep、find、test、git diff 这些工具，而不能“把整个仓库读完以后一次性改完”？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1q5f2pl/coding_agents_spend_half_their_context_just/"
+    source_title: "Coding agents spend half their context just orienting in the codebase"
+    language: "en"
+    paraphrased: true
+    concepts: ["coding-agent"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: coding-agent-tool-loop
+
+  - id: q-r2-codingagent-003
+    question: "大型 Git 仓库为什么会让 Coding Agent 明显变慢甚至卡住？文件数量、Git 状态、索引、工具输出和上下文分别会造成什么问题？"
+    source_type: "public_web"
+    source_url: "https://github.com/openai/codex/issues/35008"
+    source_title: "High CPU usage caused by repeated Git scans of large untracked directories"
+    language: "en"
+    paraphrased: true
+    concepts: ["coding-agent"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/08-项目上下文是什么.md"
+    cluster: large-repo-agent
+
+  - id: q-r2-codingagent-004
+    question: "Context Compaction 之后 Coding Agent 为什么可能反复重读 AGENTS.md / CLAUDE.md，却忘了自己真正要改什么？"
+    source_type: "public_web"
+    source_url: "https://github.com/openai/codex/issues/5957"
+    source_title: "Auto compaction causes Codex to lose the plot"
+    language: "en"
+    paraphrased: true
+    concepts: ["coding-agent"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/09-上下文工程是什么.md"
+    cluster: coding-agent-compaction-loop
+
+  - id: q-r2-codingagent-005
+    question: "主 Agent 把任务委托给 Subagent 时，怎么保证子 Agent 拿到正确仓库路径、任务约束和必要历史，而不是重新从零探索？"
+    source_type: "public_web"
+    source_url: "https://github.com/anthropics/claude-code/issues/87221"
+    source_title: "Sub-agent fork context inheritance causes excessive token consumption"
+    language: "en"
+    paraphrased: true
+    concepts: ["coding-agent"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/09-上下文工程是什么.md"
+    cluster: coding-subagent-context
+
+  - id: q-r2-codingagent-006
+    question: "面试让你设计一个 Coding Agent，你会怎么做项目级检索、编辑、测试、Git 回滚和权限控制，才能避免“改对一个文件却改坏整个项目”？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/MachineLearningJobs/comments/1l9qjjo/my_recent_ai_engineer_interview_experience/"
+    source_title: "Recent AI engineer interview experience: RAG / agents / system design"
+    language: "en"
+    paraphrased: true
+    concepts: ["coding-agent"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: coding-agent-system-design
+
+  - id: q-r2-codingagent-007
+    question: "如果一个 Agent 可以直接调用模型 API，和把任务委托给另一个完整 Coding Agent 有什么区别？后者多出来的运行时、工具、会话和状态为什么重要？"
+    source_type: "public_web"
+    source_url: "https://github.com/openai/codex/issues/33131"
+    source_title: "Support pluggable external backends for native subagent tools"
+    language: "en"
+    paraphrased: true
+    concepts: ["coding-agent"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: model-call-vs-coding-agent
+
+  - id: q-r2-codingagent-008
+    question: "实际招聘 Coding/LLM Engineer 时，除了会调用模型 API，还会怎么考“模型评估、延迟优化、RAG/Agent 系统设计、Attention 原理和成本定位”？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1o2h7vc/hiring_an_llm_developer_what_would_you_ask/"
+    source_title: "Hiring an LLM developer — what would you ask?"
+    language: "en"
+    paraphrased: true
+    concepts: ["coding-agent"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/01-AI-Coding是什么.md"
+    cluster: llm-engineer-interview

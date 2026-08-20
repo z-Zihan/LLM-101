@@ -486,7 +486,7 @@ concepts:
     summary: 能读取项目、修改文件、运行命令并验证结果的编程任务 Agent。
     prerequisites: ["agent", "tool"]
     related: ["skill", "conversation-history"]
-    questions: ["q-coding-context-github-001", "q-coding-agent-memory-reddit-001"]
+    questions: ["q-coding-context-github-001", "q-coding-agent-memory-reddit-001", "q-r2-codingagent-001", "q-r2-codingagent-002", "q-r2-codingagent-003", "q-r2-codingagent-004", "q-r2-codingagent-005", "q-r2-codingagent-006", "q-r2-codingagent-007", "q-r2-codingagent-008"]
 
   - id: conversation-history
     name: 聊天记录
