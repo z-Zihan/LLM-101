@@ -572,6 +572,30 @@ concepts:
     related: ["verification", "generalization"]
     questions: ["q-r2-rlhf-001", "q-r2-rlhf-002", "q-r2-rlhf-003", "q-r2-rlhf-004", "q-r2-rlhf-005", "q-r2-rlhf-006", "q-r2-rlhf-007", "q-r2-rlhf-008", "q-r2-rlhf-009", "q-r2-rlhf-010"]
 
+  - id: agent-planning
+    name: Agent 规划与恢复
+    path: docs/07-Agent/04-Agent如何规划和恢复.md
+    aliases: ["Agent Planning", "Planning", "ReAct", "Agent 恢复"]
+    level: Core
+    path_type: Optional
+    group: Tool与Agent
+    summary: 把目标拆为可验证行动，并依据工具结果调整、恢复或安全停止的 Agent 控制能力。
+    prerequisites: ["agent", "tool"]
+    related: ["verification", "multi-agent"]
+    questions: ["q-r2-planning-001", "q-r2-planning-002", "q-r2-planning-003", "q-r2-planning-004", "q-r2-planning-005", "q-r2-planning-006", "q-r2-planning-007"]
+
+  - id: multi-agent
+    name: 多 Agent 协作
+    path: docs/07-Agent/06-多Agent协作是什么.md
+    aliases: ["Multi-Agent", "多 Agent", "Agent Orchestration"]
+    level: Advanced
+    path_type: Optional
+    group: Tool与Agent
+    summary: 多个具有独立角色、上下文或权限的 Agent 通过任务依赖、共享状态和仲裁协同完成目标。
+    prerequisites: ["agent", "agent-planning", "context"]
+    related: ["conversation-history", "coding-agent"]
+    questions: ["q-r2-multiagent-001", "q-r2-multiagent-002", "q-r2-multiagent-003", "q-r2-multiagent-004", "q-r2-multiagent-005"]
+
 relations:
   - from: machine-learning
     relation: 属于
@@ -771,3 +795,15 @@ relations:
   - from: preference-alignment
     relation: 需要独立
     to: verification
+  - from: agent-planning
+    relation: 控制
+    to: agent
+  - from: agent-planning
+    relation: 选择和校验
+    to: tool
+  - from: multi-agent
+    relation: 编排多个
+    to: agent
+  - from: multi-agent
+    relation: 需要共享或传递
+    to: context
