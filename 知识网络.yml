@@ -150,7 +150,7 @@ concepts:
     summary: 训练过程会调整、推理过程会使用的模型内部数值。
     prerequisites: ["model"]
     related: ["training", "training-data", "inference"]
-    questions: ["q-parameter-data-001", "q-parameter-capacity-001", "q-model-origin-001", "q-parameter-form-001", "q-intelligence-origin-001", "q-more-is-better-001", "q-undertraining-001", "q-training-loop-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-neural-soft-database-web-001", "q-lora-qlora-reddit-001"]
+    questions: ["q-parameter-data-001", "q-parameter-capacity-001", "q-model-origin-001", "q-parameter-form-001", "q-intelligence-origin-001", "q-more-is-better-001", "q-undertraining-001", "q-training-loop-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-neural-soft-database-web-001", "q-lora-qlora-reddit-001", "q-ai-memory-v2ex-001", "q-context-memory-reddit-001"]
 
   - id: training-data
     name: 训练数据
@@ -186,7 +186,7 @@ concepts:
     summary: 模型编码和生成文本时处理的离散单位，不固定等于一个字或一个单词。
     prerequisites: ["llm"]
     related: ["context", "context-window", "inference"]
-    questions: ["q-token-units-001", "q-context-window-001", "q-token-generation-001", "q-cache-001", "q-language-model-web-001", "q-token-length-web-001", "q-next-token-capability-web-001", "q-inference-randomness-web-001", "q-temperature-v2ex-001", "q-output-context-limit-v2ex-001", "q-positional-encoding-reddit-001", "q-kv-cache-ai-se-001", "q-speculative-decoding-reddit-001", "q-prefill-decode-ai-se-001"]
+    questions: ["q-token-units-001", "q-context-window-001", "q-token-generation-001", "q-cache-001", "q-language-model-web-001", "q-token-length-web-001", "q-next-token-capability-web-001", "q-inference-randomness-web-001", "q-temperature-v2ex-001", "q-output-context-limit-v2ex-001", "q-positional-encoding-reddit-001", "q-kv-cache-ai-se-001", "q-speculative-decoding-reddit-001", "q-prefill-decode-ai-se-001", "q-reasoning-think-ai-se-001"]
 
   - id: context
     name: 上下文
@@ -198,7 +198,7 @@ concepts:
     summary: 当前一次计算中，模型实际可以使用的信息。
     prerequisites: ["prompt", "token"]
     related: ["context-window", "inference", "rag", "conversation-history"]
-    questions: ["q-context-window-001", "q-cache-001", "q-prompt-001", "q-rag-001", "q-context-stateless-web-001", "q-coding-context-github-001", "q-chat-correction-memory-web-001", "q-rag-agent-zhihu-001"]
+    questions: ["q-context-window-001", "q-cache-001", "q-prompt-001", "q-rag-001", "q-context-stateless-web-001", "q-coding-context-github-001", "q-chat-correction-memory-web-001", "q-rag-agent-zhihu-001", "q-ai-memory-v2ex-001", "q-context-memory-reddit-001", "q-coding-agent-memory-reddit-001"]
 
   - id: context-window
     name: 上下文窗口
@@ -210,7 +210,7 @@ concepts:
     summary: 模型一次处理输入和输出时可容纳内容的容量边界。
     prerequisites: ["context", "token"]
     related: ["inference", "conversation-history"]
-    questions: ["q-context-window-001", "q-context-stateless-web-001", "q-reasoning-consistency-web-001", "q-rag-long-context-v2ex-001", "q-output-context-limit-v2ex-001", "q-context-length-zhihu-001", "q-effective-context-reddit-001", "q-kv-cache-ai-se-001"]
+    questions: ["q-context-window-001", "q-context-stateless-web-001", "q-reasoning-consistency-web-001", "q-rag-long-context-v2ex-001", "q-output-context-limit-v2ex-001", "q-context-length-zhihu-001", "q-effective-context-reddit-001", "q-kv-cache-ai-se-001", "q-context-memory-reddit-001", "q-long-context-memory-reddit-001"]
 
   - id: model-lifecycle
     name: 模型生命周期
@@ -282,7 +282,7 @@ concepts:
     summary: 使用已经训练好的模型参数，根据当前输入计算输出的过程。
     prerequisites: ["model", "parameter"]
     related: ["training", "context", "token"]
-    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-web-001", "q-inference-randomness-web-001", "q-temperature-v2ex-001", "q-output-context-limit-v2ex-001", "q-context-length-zhihu-001", "q-kv-cache-ai-se-001", "q-speculative-decoding-reddit-001", "q-prefill-decode-ai-se-001"]
+    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-web-001", "q-inference-randomness-web-001", "q-temperature-v2ex-001", "q-output-context-limit-v2ex-001", "q-context-length-zhihu-001", "q-kv-cache-ai-se-001", "q-speculative-decoding-reddit-001", "q-prefill-decode-ai-se-001", "q-reasoning-think-ai-se-001"]
 
   - id: generalization
     name: 泛化
@@ -306,7 +306,7 @@ concepts:
     summary: 根据给定信息和规则经过中间步骤得到结论的任务能力。
     prerequisites: ["model", "generalization"]
     related: ["inference", "hallucination"]
-    questions: ["q-parameter-capacity-001", "q-intelligence-origin-001", "q-next-token-capability-web-001", "q-reasoning-consistency-web-001"]
+    questions: ["q-parameter-capacity-001", "q-intelligence-origin-001", "q-next-token-capability-web-001", "q-reasoning-consistency-web-001", "q-reasoning-think-ai-se-001"]
 
   - id: hallucination
     name: 幻觉
@@ -402,7 +402,7 @@ concepts:
     summary: 在生成前检索外部资料，并把相关内容提供给模型作为上下文的方法。
     prerequisites: ["llm", "context"]
     related: ["embedding", "vector-database", "hallucination"]
-    questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-hallucination-web-001", "q-rag-finetuning-web-001", "q-agent-concepts-roadmap-v2ex-001", "q-rag-agent-zhihu-001", "q-rag-long-context-v2ex-001", "q-rag-document-processing-v2ex-001", "q-rag-chunking-v2ex-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-rerank-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-rerank-limit-v2ex-001", "q-rag-global-context-v2ex-001", "q-vector-database-selection-v2ex-001", "q-rag-pipeline-so-001"]
+    questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-hallucination-web-001", "q-rag-finetuning-web-001", "q-agent-concepts-roadmap-v2ex-001", "q-rag-agent-zhihu-001", "q-rag-long-context-v2ex-001", "q-rag-document-processing-v2ex-001", "q-rag-chunking-v2ex-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-rerank-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-rerank-limit-v2ex-001", "q-rag-global-context-v2ex-001", "q-vector-database-selection-v2ex-001", "q-rag-pipeline-so-001", "q-ai-memory-v2ex-001", "q-long-context-memory-reddit-001"]
 
   - id: knowledge-base
     name: 知识库
@@ -486,7 +486,7 @@ concepts:
     summary: 能读取项目、修改文件、运行命令并验证结果的编程任务 Agent。
     prerequisites: ["agent", "tool"]
     related: ["skill", "conversation-history"]
-    questions: ["q-coding-context-github-001"]
+    questions: ["q-coding-context-github-001", "q-coding-agent-memory-reddit-001"]
 
   - id: conversation-history
     name: 聊天记录
@@ -498,7 +498,7 @@ concepts:
     summary: 系统保存的一组历史消息；只有被重新选入上下文时才会影响当前回答。
     prerequisites: ["context"]
     related: ["context-window", "agent"]
-    questions: ["q-context-stateless-web-001", "q-coding-context-github-001", "q-chat-correction-memory-web-001", "q-agent-concepts-roadmap-v2ex-001"]
+    questions: ["q-context-stateless-web-001", "q-coding-context-github-001", "q-chat-correction-memory-web-001", "q-agent-concepts-roadmap-v2ex-001", "q-ai-memory-v2ex-001", "q-context-memory-reddit-001", "q-coding-agent-memory-reddit-001", "q-long-context-memory-reddit-001"]
 
 relations:
   - from: machine-learning

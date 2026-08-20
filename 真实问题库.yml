@@ -1009,3 +1009,73 @@ questions:
     status: answered
     answer_path: "docs/03-模型原理与训练/18-训练和推理有什么区别.md"
     cluster: prefill-vs-decode
+
+  - id: q-ai-memory-v2ex-001
+    question: "AI 里的“记忆”到底是什么？它是把内容写进模型参数、上下文、数据库，还是别的东西？"
+    source_type: public_web
+    source_url: "https://www.v2ex.com/t/1187234"
+    source_title: "AI 的记忆是啥"
+    language: zh
+    paraphrased: true
+    concepts: ["parameter", "context", "rag", "conversation-history"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/12-Memory/01-聊天记录是什么.md"
+    cluster: ai-memory-definition
+
+  - id: q-context-memory-reddit-001
+    question: "模型的“记忆”到底来自上下文窗口还是参数？上下文满了以后，前面的信息发生了什么？"
+    source_type: public_web
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1auhsfy/possibly_stupid_question_on_a_models_memory_and/"
+    source_title: "Possibly stupid question on a model's memory and summarization of a chat"
+    language: en
+    paraphrased: true
+    concepts: ["parameter", "context", "context-window", "conversation-history"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/12-Memory/01-聊天记录是什么.md"
+    cluster: context-vs-memory
+
+  - id: q-coding-agent-memory-reddit-001
+    question: "Coding Agent 的上下文被压缩后，架构决策和调试经验会丢失，怎样设计真正的持久记忆？"
+    source_type: public_web
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1r5q7xd/how_are_you_handling_persistent_memory_for_ai/"
+    source_title: "How are you handling persistent memory for AI coding agents?"
+    language: en
+    paraphrased: true
+    concepts: ["context", "coding-agent", "conversation-history"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/09-上下文工程是什么.md"
+    cluster: coding-agent-memory
+
+  - id: q-long-context-memory-reddit-001
+    question: "超长任务超过上下文窗口后，长期信息应该保存原文、摘要、检索结果还是结构化状态？"
+    source_type: public_web
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1jxiz2y/strategies_for_preserving_longterm_context_in_llms/"
+    source_title: "Strategies for Preserving Long-Term Context in LLMs?"
+    language: en
+    paraphrased: true
+    concepts: ["context-window", "rag", "conversation-history"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/12-Memory/01-聊天记录是什么.md"
+    cluster: long-term-context
+
+  - id: q-reasoning-think-ai-se-001
+    question: "推理模型里的 <think> 或“思考过程”究竟是怎么生成的？它和普通 Token 生成是不是同一套机制？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/48107/how-exactly-are-the-think-steps-generated-in-deepseek-r1"
+    source_title: "How exactly are the <think> steps generated in DeepSeek-R1?"
+    language: en
+    paraphrased: true
+    concepts: ["token", "inference", "reasoning"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/03-推理能力是什么.md"
+    cluster: reasoning-token-generation
