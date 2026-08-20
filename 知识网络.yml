@@ -150,7 +150,7 @@ concepts:
     summary: 训练过程会调整、推理过程会使用的模型内部数值。
     prerequisites: ["model"]
     related: ["training", "training-data", "inference"]
-    questions: ["q-parameter-data-001", "q-parameter-capacity-001", "q-model-origin-001", "q-parameter-form-001", "q-intelligence-origin-001", "q-more-is-better-001", "q-undertraining-001", "q-training-loop-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-neural-soft-database-web-001"]
+    questions: ["q-parameter-data-001", "q-parameter-capacity-001", "q-model-origin-001", "q-parameter-form-001", "q-intelligence-origin-001", "q-more-is-better-001", "q-undertraining-001", "q-training-loop-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-neural-soft-database-web-001", "q-lora-qlora-reddit-001"]
 
   - id: training-data
     name: 训练数据
@@ -162,7 +162,7 @@ concepts:
     summary: 训练时用来计算目标和调整模型参数的数据。
     prerequisites: ["machine-learning", "model"]
     related: ["parameter", "training"]
-    questions: ["q-parameter-data-001", "q-undertraining-001", "q-loss-judgement-001", "q-parameter-scale-web-001"]
+    questions: ["q-parameter-data-001", "q-undertraining-001", "q-loss-judgement-001", "q-parameter-scale-web-001", "q-finetuning-dataset-v2ex-001", "q-lora-qlora-reddit-001"]
 
   - id: prompt
     name: 提示
@@ -270,7 +270,7 @@ concepts:
     summary: 利用数据和目标函数调整模型参数的过程。
     prerequisites: ["model", "parameter", "training-data"]
     related: ["inference", "model-lifecycle"]
-    questions: ["q-model-origin-001", "q-intelligence-origin-001", "q-undertraining-001", "q-training-loop-001", "q-loss-judgement-001", "q-compute-memory-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001", "q-rag-finetuning-web-001", "q-chat-correction-memory-web-001"]
+    questions: ["q-model-origin-001", "q-intelligence-origin-001", "q-undertraining-001", "q-training-loop-001", "q-loss-judgement-001", "q-compute-memory-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001", "q-rag-finetuning-web-001", "q-chat-correction-memory-web-001", "q-finetuning-dataset-v2ex-001", "q-finetuning-evaluation-v2ex-001", "q-lora-qlora-reddit-001"]
 
   - id: inference
     name: 推理
@@ -294,7 +294,7 @@ concepts:
     summary: 模型把训练中学到的规律用于未见过但相关情形的能力。
     prerequisites: ["model", "training"]
     related: ["reasoning", "hallucination"]
-    questions: ["q-parameter-capacity-001", "q-intelligence-origin-001", "q-undertraining-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001"]
+    questions: ["q-parameter-capacity-001", "q-intelligence-origin-001", "q-undertraining-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001", "q-finetuning-dataset-v2ex-001", "q-finetuning-evaluation-v2ex-001"]
 
   - id: reasoning
     name: 推理能力
@@ -330,7 +330,7 @@ concepts:
     summary: 用适合问题类型的证据检查 AI 输出，而不是只看表达是否自信。
     prerequisites: ["hallucination"]
     related: ["rag", "tool"]
-    questions: ["q-hallucination-001", "q-rag-hallucination-web-001"]
+    questions: ["q-hallucination-001", "q-rag-hallucination-web-001", "q-finetuning-evaluation-v2ex-001"]
 
   - id: database-boundary
     name: LLM 与数据库边界
@@ -402,7 +402,7 @@ concepts:
     summary: 在生成前检索外部资料，并把相关内容提供给模型作为上下文的方法。
     prerequisites: ["llm", "context"]
     related: ["embedding", "vector-database", "hallucination"]
-    questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-hallucination-web-001", "q-rag-finetuning-web-001", "q-agent-concepts-roadmap-v2ex-001", "q-rag-agent-zhihu-001", "q-rag-long-context-v2ex-001", "q-rag-document-processing-v2ex-001", "q-rag-chunking-v2ex-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-rerank-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-rerank-limit-v2ex-001", "q-rag-global-context-v2ex-001"]
+    questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-hallucination-web-001", "q-rag-finetuning-web-001", "q-agent-concepts-roadmap-v2ex-001", "q-rag-agent-zhihu-001", "q-rag-long-context-v2ex-001", "q-rag-document-processing-v2ex-001", "q-rag-chunking-v2ex-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-rerank-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-rerank-limit-v2ex-001", "q-rag-global-context-v2ex-001", "q-vector-database-selection-v2ex-001", "q-rag-pipeline-so-001"]
 
   - id: knowledge-base
     name: 知识库
@@ -426,7 +426,7 @@ concepts:
     summary: 把对象转换为一组数值，使系统可以计算某些关系或相似性。
     prerequisites: ["model"]
     related: ["vector-database", "rag"]
-    questions: ["q-rag-001", "q-vector-store-web-001", "q-embedding-semantics-web-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-vector-irrelevant-so-001"]
+    questions: ["q-rag-001", "q-vector-store-web-001", "q-embedding-semantics-web-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-vector-irrelevant-so-001", "q-rag-pipeline-so-001"]
 
   - id: vector-database
     name: 向量数据库
@@ -438,7 +438,7 @@ concepts:
     summary: 存储向量并支持按相似性检索的数据系统。
     prerequisites: ["embedding"]
     related: ["rag"]
-    questions: ["q-rag-001", "q-vector-store-web-001", "q-embedding-semantics-web-001", "q-vector-irrelevant-so-001"]
+    questions: ["q-rag-001", "q-vector-store-web-001", "q-embedding-semantics-web-001", "q-vector-irrelevant-so-001", "q-vector-database-selection-v2ex-001"]
 
   - id: retrieval
     name: 检索
@@ -450,7 +450,7 @@ concepts:
     summary: 根据查询从候选资料中召回、过滤并排序可能相关的证据。
     prerequisites: ["knowledge-base"]
     related: ["rag", "embedding", "vector-database"]
-    questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-long-context-v2ex-001", "q-rag-document-processing-v2ex-001", "q-rag-chunking-v2ex-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-rerank-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-rerank-limit-v2ex-001", "q-rag-global-context-v2ex-001", "q-vector-irrelevant-so-001"]
+    questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-long-context-v2ex-001", "q-rag-document-processing-v2ex-001", "q-rag-chunking-v2ex-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-rerank-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-rerank-limit-v2ex-001", "q-rag-global-context-v2ex-001", "q-vector-irrelevant-so-001", "q-rag-pipeline-so-001"]
 
   - id: mcp
     name: MCP

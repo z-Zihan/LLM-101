@@ -799,3 +799,73 @@ questions:
     status: answered
     answer_path: "docs/08-RAG与知识库/08-检索是什么.md"
     cluster: vector-retrieval-failure
+
+  - id: q-vector-database-selection-v2ex-001
+    question: "向量数据库到底怎么选？什么情况下需要 Milvus、Qdrant 这类专用向量库？"
+    source_type: public_web
+    source_url: "https://global.v2ex.com/t/1196222"
+    source_title: "普通开发参与/迈向 AI 时代的方法也许就是转型做 Agent 开发"
+    language: zh
+    paraphrased: true
+    concepts: ["rag", "vector-database"]
+    difficulty: intermediate
+    priority: medium
+    status: answered
+    answer_path: "docs/08-RAG与知识库/05-向量数据库是什么.md"
+    cluster: vector-database-selection
+
+  - id: q-finetuning-dataset-v2ex-001
+    question: "做大模型微调时，数据集应该怎么构造？数据量、数据质量和任务目标哪个更重要？"
+    source_type: public_web
+    source_url: "https://global.v2ex.com/t/1196222"
+    source_title: "普通开发参与/迈向 AI 时代的方法也许就是转型做 Agent 开发"
+    language: zh
+    paraphrased: true
+    concepts: ["training-data", "training", "generalization"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/11-RAG和微调有什么区别.md"
+    cluster: finetuning-dataset
+
+  - id: q-finetuning-evaluation-v2ex-001
+    question: "微调以后怎么判断模型真的变好了？只看训练 Loss 为什么不够？"
+    source_type: public_web
+    source_url: "https://global.v2ex.com/t/1196222"
+    source_title: "普通开发参与/迈向 AI 时代的方法也许就是转型做 Agent 开发"
+    language: zh
+    paraphrased: true
+    concepts: ["training", "generalization", "verification"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/11-RAG和微调有什么区别.md"
+    cluster: finetuning-evaluation
+
+  - id: q-rag-pipeline-so-001
+    question: "一个实用的 RAG 检索管线，除了固定切块、向量 Top-K、把结果塞给 LLM 之外还应该有什么？"
+    source_type: public_web
+    source_url: "https://stackoverflow.com/questions/79992120/how-can-i-improve-a-basic-faiss-rag-pipeline"
+    source_title: "How can I improve a basic FAISS RAG pipeline"
+    language: en
+    paraphrased: true
+    concepts: ["rag", "embedding", "retrieval"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/01-RAG到底是什么.md"
+    cluster: rag-production-pipeline
+
+  - id: q-lora-qlora-reddit-001
+    question: "LoRA 和 QLoRA 分别在节省什么？为什么 QLoRA 不是“另一种完全不同的微调”？"
+    source_type: public_web
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1cmlyoa/are_lora_and_qlora_still_the_goto_finetune_methods/"
+    source_title: "Are LoRA and QLoRA still the go-to fine-tune methods?"
+    language: en
+    paraphrased: true
+    concepts: ["parameter", "training-data", "training"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/11-RAG和微调有什么区别.md"
+    cluster: lora-vs-qlora
