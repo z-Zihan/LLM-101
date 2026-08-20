@@ -1849,3 +1849,143 @@ questions:
     status: answered
     answer_path: "docs/03-模型原理与训练/20-分布式训练是什么.md"
     cluster: cross-node-bottleneck
+
+  - id: q-r2-rlhf-001
+    question: "如果我们已经有人类偏好的好答案，为什么不直接把这些答案拿去做 SFT？RLHF 里的“强化学习”到底额外解决了什么？"
+    source_type: "public_web"
+    source_url: "https://ai.stackexchange.com/questions/41509/what-is-the-difference-betwen-fine-runing-and-rlhf-for-llm"
+    source_title: "What is the difference betwen fine runing and RLHF for LLM?"
+    language: "en"
+    paraphrased: true
+    concepts: ["preference-alignment"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/11-RLHF和DPO是什么.md"
+    cluster: why-rlhf
+
+  - id: q-r2-rlhf-002
+    question: "RLHF 的人类反馈应该用二选一偏好、排序、打分还是点赞/点踩？不同标注形式会怎样影响 Reward Model？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/MachineLearning/comments/10h3mf5/d_rlhf_what_type_of_rewards_to_use/"
+    source_title: "RLHF - What type of rewards to use?"
+    language: "en"
+    paraphrased: true
+    concepts: ["preference-alignment"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/11-RLHF和DPO是什么.md"
+    cluster: rlhf-feedback-format
+
+  - id: q-r2-rlhf-003
+    question: "Reward Model 的结构通常长什么样？它为什么能把“回答 A 比回答 B 更好”变成一个标量 Reward？"
+    source_type: "public_web"
+    source_url: "https://ai.stackexchange.com/questions/41169/whats-the-architecture-and-size-of-neural-network-based-reward-models-as-used-i"
+    source_title: "What is the architecture and size of neural-network-based reward models as used in RLHF?"
+    language: "en"
+    paraphrased: true
+    concepts: ["preference-alignment"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/11-RLHF和DPO是什么.md"
+    cluster: reward-model-architecture
+
+  - id: q-r2-rlhf-004
+    question: "PPO 阶段到底同时有几个模型？Policy、Reference、Reward、Value/Critic 分别干什么，哪些需要训练？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/731107754643222528"
+    source_title: "顺丰大模型算法真实面经：RLHF / PPO / GRPO"
+    language: "zh"
+    paraphrased: true
+    concepts: ["preference-alignment"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/11-RLHF和DPO是什么.md"
+    cluster: ppo-models
+
+  - id: q-r2-rlhf-005
+    question: "PPO 里的 KL 惩罚为什么重要？如果完全不约束新 Policy 离参考模型太远，会发生什么？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/726369510834118656"
+    source_title: "字节大模型算法二面：DPO / KTO / PPO / GRPO"
+    language: "zh"
+    paraphrased: true
+    concepts: ["preference-alignment"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/11-RLHF和DPO是什么.md"
+    cluster: ppo-kl
+
+  - id: q-r2-rlhf-006
+    question: "DPO 不显式训练 Reward Model、也不跑 PPO，为什么仍然能从偏好对里学到“更喜欢哪个回答”？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/728376955796021248"
+    source_title: "美团大模型算法真实面经：RLHF / Reward Model / DPO"
+    language: "zh"
+    paraphrased: true
+    concepts: ["preference-alignment"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/11-RLHF和DPO是什么.md"
+    cluster: dpo-vs-rlhf
+
+  - id: q-r2-rlhf-007
+    question: "做 DPO 的 rejected answer 时，应该选“非常差的答案”还是“看起来很像但关键处错的答案”？哪种偏好对更有训练价值？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1bvr5xy/dpo_training_strategy_rejected_examples/"
+    source_title: "DPO training strategy: rejected examples"
+    language: "en"
+    paraphrased: true
+    concepts: ["preference-alignment"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/11-RLHF和DPO是什么.md"
+    cluster: dpo-rejected-samples
+
+  - id: q-r2-rlhf-008
+    question: "Reward Model 自己就会犯错，怎么评估它是否可靠？如果 RM 学偏了，后面的 PPO 会不会把偏差放大？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/728376955796021248"
+    source_title: "美团大模型算法真实面经：RLHF / Reward Model / DPO"
+    language: "zh"
+    paraphrased: true
+    concepts: ["preference-alignment"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/11-RLHF和DPO是什么.md"
+    cluster: reward-model-evaluation
+
+  - id: q-r2-rlhf-009
+    question: "一个业务同时关心正确性、格式、安全、长度等多个目标时，Reward 应该怎么设计？多个 Reward 直接加权会有什么坑？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/728376955796021248"
+    source_title: "美团大模型算法真实面经：RLHF / Reward Model / DPO"
+    language: "zh"
+    paraphrased: true
+    concepts: ["preference-alignment"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/11-RLHF和DPO是什么.md"
+    cluster: multi-reward
+
+  - id: q-r2-rlhf-010
+    question: "Reward Hacking 是怎么发生的？模型为什么可能学会“钻评分器的空子”，而不是学会真正完成任务？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/729667658049159168"
+    source_title: "阿里国际大模型算法面经：RL / Reward Hacking / 推理优化"
+    language: "zh"
+    paraphrased: true
+    concepts: ["preference-alignment"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/11-RLHF和DPO是什么.md"
+    cluster: reward-hacking

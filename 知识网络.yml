@@ -560,6 +560,18 @@ concepts:
     related: ["model-lifecycle"]
     questions: ["q-r2-dist-001", "q-r2-dist-002", "q-r2-dist-003", "q-r2-dist-004", "q-r2-dist-005", "q-r2-dist-006", "q-r2-dist-007", "q-r2-dist-008", "q-r2-dist-009"]
 
+  - id: preference-alignment
+    name: RLHF 与偏好优化
+    path: docs/03-模型原理与训练/11-RLHF和DPO是什么.md
+    aliases: ["RLHF", "DPO", "Preference Optimization", "偏好优化", "Reward Model"]
+    level: Core
+    path_type: Optional
+    group: 模型训练
+    summary: 用人类或规则产生的相对偏好信号调整模型行为，并管理奖励代理偏差的方法体系。
+    prerequisites: ["training", "model-lifecycle"]
+    related: ["verification", "generalization"]
+    questions: ["q-r2-rlhf-001", "q-r2-rlhf-002", "q-r2-rlhf-003", "q-r2-rlhf-004", "q-r2-rlhf-005", "q-r2-rlhf-006", "q-r2-rlhf-007", "q-r2-rlhf-008", "q-r2-rlhf-009", "q-r2-rlhf-010"]
+
 relations:
   - from: machine-learning
     relation: 属于
@@ -753,3 +765,9 @@ relations:
   - from: distributed-training
     relation: 依赖
     to: gpu-compute
+  - from: preference-alignment
+    relation: 属于
+    to: training
+  - from: preference-alignment
+    relation: 需要独立
+    to: verification
