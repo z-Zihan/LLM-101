@@ -6,7 +6,7 @@
 
 我们从真实小白会问的问题出发，沿着连续追问，一步一步建立完整心智模型。
 
-> V3 全量重构与候选补充终审已完成：51 / 51 篇现有文章达到当前标准，90 个真实问题全部有答案；52 条候选均有可审计结论。
+> V3 全量重构与两轮候选补充已完成：59 篇已发布文章达到当前标准，168 个真实问题全部有答案；第二轮 78 条候选均有逐题审计结论。
 
 ## 你可以怎样使用这个项目？
 
@@ -28,6 +28,10 @@
 - 数据是喂给模型的，那模型在被喂之前从哪来？
 - Agent 和模型到底差在哪？
 - Skill、Tool、MCP、Agent 是什么关系？
+- 为什么 Attention 要分 Q、K、V？
+- 多 Agent、RLHF 和分布式训练什么时候真的有用？
+
+候选处理过程可查阅[第一轮审计](./候选问题审计-2026-08-19.md)与[第二轮 78 条审计](./候选问题审计-2026-08-20-第二轮.md)；来源受限或被补正的情况会明确标记。
 
 ### 我想系统学一个专题
 
@@ -102,11 +106,19 @@ RAG → MCP → Skill → Coding Agent
 已经完成的扩展节点：
 
 - [Attention 到底是什么？](./docs/03-模型原理与训练/05-Attention到底是什么.md)
+- [规模定律是什么？](./docs/03-模型原理与训练/08-规模定律是什么.md)
+- [RLHF 和 DPO 是什么？](./docs/03-模型原理与训练/11-RLHF和DPO是什么.md)
+- [GPU、显存和推理瓶颈](./docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md)
+- [分布式训练是什么？](./docs/03-模型原理与训练/20-分布式训练是什么.md)
 - [参数量和训练数据有什么区别？](./docs/03-模型原理与训练/07-参数量和训练数据有什么区别.md)
+- [涌现能力是什么？](./docs/04-模型能力/04-涌现能力是什么.md)
+- [多模态模型是什么？](./docs/04-模型能力/05-多模态模型是什么.md)
 - [Function Calling 是什么？](./docs/06-工具与Function-Calling/03-Function-Calling是什么.md)
 - [模型和 Agent 有什么区别？](./docs/07-Agent/02-模型和Agent有什么区别.md)
 - [Agent Loop 是什么？](./docs/07-Agent/03-Agent-Loop是什么.md)
+- [Agent 如何规划和恢复？](./docs/07-Agent/04-Agent如何规划和恢复.md)
 - [Workflow 和 Agent 有什么区别？](./docs/07-Agent/05-Workflow和Agent有什么区别.md)
+- [多 Agent 协作是什么？](./docs/07-Agent/06-多Agent协作是什么.md)
 - [Embedding 是什么？](./docs/08-RAG与知识库/03-Embedding是什么.md)
 - [向量数据库是什么？](./docs/08-RAG与知识库/05-向量数据库是什么.md)
 - [检索是什么？](./docs/08-RAG与知识库/08-检索是什么.md)
@@ -131,11 +143,11 @@ RAG → MCP → Skill → Coding Agent
 
 扩展路线负责解释主线中可以先略过、但系统学习时值得深入的内容，例如：
 
-- Tokenizer、上下文窗口、Attention；
-- Loss、Gradient、SFT、RLHF、DPO；
+- Tokenizer、上下文窗口、Attention、多模态；
+- 规模定律、RLHF、DPO、GPU 与分布式训练；
 - Embedding、向量数据库、Rerank；
 - MCP 客户端/服务端、Resource、Prompt；
-- Agent Loop、Project Context、Prompt 与 Skill 的区别。
+- Agent 规划、多 Agent、Project Context、Prompt 与 Skill 的区别。
 
 完整规划见 [内容地图](./内容地图.md)。
 
