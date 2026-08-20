@@ -536,6 +536,30 @@ concepts:
     related: ["generalization", "hallucination", "llm"]
     questions: ["q-r2-multimodal-001", "q-r2-multimodal-002", "q-r2-multimodal-003", "q-r2-multimodal-004", "q-r2-multimodal-005", "q-r2-multimodal-006", "q-r2-multimodal-007", "q-r2-multimodal-008"]
 
+  - id: gpu-compute
+    name: GPU 与显存瓶颈
+    path: docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md
+    aliases: ["GPU", "HBM", "VRAM", "显存", "GPU 性能"]
+    level: Advanced
+    path_type: Optional
+    group: 模型训练
+    summary: GPU 计算、显存容量与带宽、缓存和设备互联共同形成的训练及推理性能边界。
+    prerequisites: ["inference", "attention", "parameter"]
+    related: ["distributed-training", "context-window"]
+    questions: ["q-r2-gpu-001", "q-r2-gpu-002", "q-r2-gpu-003", "q-r2-gpu-004", "q-r2-gpu-005", "q-r2-gpu-006", "q-r2-gpu-007", "q-r2-gpu-008"]
+
+  - id: distributed-training
+    name: 分布式训练
+    path: docs/03-模型原理与训练/20-分布式训练是什么.md
+    aliases: ["Distributed Training", "DDP", "FSDP", "ZeRO", "分布式训练"]
+    level: Advanced
+    path_type: Optional
+    group: 模型训练
+    summary: 把数据、模型计算或训练状态切分到多个设备，并通过通信保持训练语义的方法体系。
+    prerequisites: ["training", "parameter", "gpu-compute"]
+    related: ["model-lifecycle"]
+    questions: ["q-r2-dist-001", "q-r2-dist-002", "q-r2-dist-003", "q-r2-dist-004", "q-r2-dist-005", "q-r2-dist-006", "q-r2-dist-007", "q-r2-dist-008", "q-r2-dist-009"]
+
 relations:
   - from: machine-learning
     relation: 属于
@@ -717,3 +741,15 @@ relations:
   - from: multimodal
     relation: 可能产生
     to: hallucination
+  - from: gpu-compute
+    relation: 限制实际
+    to: inference
+  - from: gpu-compute
+    relation: 加速并承载
+    to: attention
+  - from: distributed-training
+    relation: 扩展
+    to: training
+  - from: distributed-training
+    relation: 依赖
+    to: gpu-compute

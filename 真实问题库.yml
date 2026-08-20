@@ -1611,3 +1611,241 @@ questions:
     status: answered
     answer_path: "docs/04-模型能力/05-多模态模型是什么.md"
     cluster: multimodal-unseen-object
+
+  - id: q-r2-gpu-001
+    question: "LLM 推理什么时候是算力瓶颈，什么时候是显存带宽瓶颈？为什么 Prefill 和 Decode 的瓶颈可能完全不同？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1i9q0q7/when_is_gpu_compute_the_bottleneck_and_memory/"
+    source_title: "When is GPU compute the bottleneck and memory bandwidth isn't?"
+    language: "en"
+    paraphrased: true
+    concepts: ["gpu-compute"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: compute-vs-bandwidth
+
+  - id: q-r2-gpu-002
+    question: "如果给一张消费级 GPU 无限大的 VRAM，它就能高效运行超大模型吗？除了“装不装得下”，GPU 计算能力和带宽还会卡在哪里？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1k7fnk6/is_vram_the_only_bottleneck_or_is_processing_power/"
+    source_title: "Is VRAM the only bottleneck or is processing power also insufficient?"
+    language: "en"
+    paraphrased: true
+    concepts: ["gpu-compute"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: vram-vs-compute
+
+  - id: q-r2-gpu-003
+    question: "为什么两张 GPU 跑一个模型通常不会让生成速度直接翻倍？多卡推理里 PCIe、NVLink 和同步开销到底吃掉了什么？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1h4wux5/why_doesnt_multigpu_actually_speed_up_llm/"
+    source_title: "Why doesn't multi-GPU actually speed up LLM inference?"
+    language: "en"
+    paraphrased: true
+    concepts: ["gpu-compute"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: multi-gpu-speed
+
+  - id: q-r2-gpu-004
+    question: "Tokens/s 应该怎么测？Prompt Prefill 的速度和逐 Token Decode 的速度为什么不能混成一个数字比较？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1fq0o2e/tokens_per_second/"
+    source_title: "Tokens per second"
+    language: "en"
+    paraphrased: true
+    concepts: ["gpu-compute"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: tokens-per-second
+
+  - id: q-r2-gpu-005
+    question: "给定模型层数、Head 数、Head Dimension、上下文长度和数据精度，怎么估算 KV Cache 会吃掉多少显存？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/726799474665488384"
+    source_title: "小米大模型推理框架面经"
+    language: "zh"
+    paraphrased: true
+    concepts: ["gpu-compute"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: kv-cache-memory-calc
+
+  - id: q-r2-gpu-006
+    question: "面试里怎么解释 GPU 的 HBM、SRAM/Shared Memory、Tensor Core、Warp 这些层级？数据为什么不能一直放 HBM 里算？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/728972373089779712"
+    source_title: "AI Infra / 大模型推理真实面经"
+    language: "zh"
+    paraphrased: true
+    concepts: ["gpu-compute"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: gpu-memory-hierarchy
+
+  - id: q-r2-gpu-007
+    question: "FlashAttention 为什么能在数学结果基本不变的情况下明显加速 Attention？它主要省的是 FLOPs 还是 HBM 读写？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/feed/main/detail/cb5a4d10b89d4df3b84b48fe7c442f28"
+    source_title: "字节大模型算法岗面经：FlashAttention / 分布式训练"
+    language: "zh"
+    paraphrased: true
+    concepts: ["gpu-compute"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: flashattention-hbm
+
+  - id: q-r2-gpu-008
+    question: "线上 LLM 推理突然很慢，你会怎么判断是算力、HBM 带宽、KV Cache、Batch、通信还是调度出了问题？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/729667658049159168"
+    source_title: "阿里国际大模型算法面经：推理优化 / Attention / RAG"
+    language: "zh"
+    paraphrased: true
+    concepts: ["gpu-compute"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: inference-troubleshooting
+
+  - id: q-r2-dist-001
+    question: "PyTorch DDP 的核心是不是“每张卡各算一份梯度，然后做 All-Reduce”？这个同步到底发生在什么时候？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/learnmachinelearning/comments/1h6kqgz/is_raw_ddp_just_gradient_allreduce_after_backward/"
+    source_title: "Is raw DDP just gradient all-reduce after backward?"
+    language: "en"
+    paraphrased: true
+    concepts: ["distributed-training"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/20-分布式训练是什么.md"
+    cluster: ddp-allreduce
+
+  - id: q-r2-dist-002
+    question: "FSDP 和 Pipeline Parallel 到底有什么区别？FSDP “把模型切开”为什么不等于流水线并行？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/MachineLearning/comments/17z7k0m/d_pytorch_fsdp_is_pipeline_parallelism_right/"
+    source_title: "PyTorch FSDP is pipeline parallelism, right?"
+    language: "en"
+    paraphrased: true
+    concepts: ["distributed-training"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/20-分布式训练是什么.md"
+    cluster: fsdp-vs-pipeline
+
+  - id: q-r2-dist-003
+    question: "TP、PP、DP、EP 分别切的是什么？它们各自最主要的通信发生在哪里？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/728972373089779712"
+    source_title: "AI Infra / 大模型推理真实面经"
+    language: "zh"
+    paraphrased: true
+    concepts: ["distributed-training"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/20-分布式训练是什么.md"
+    cluster: parallelism-taxonomy
+
+  - id: q-r2-dist-004
+    question: "FSDP 和 DeepSpeed ZeRO 是什么关系？ZeRO-1、2、3 分别切分优化器状态、梯度和参数后，显存与通信怎么变化？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/726369510834118656"
+    source_title: "字节大模型算法二面：FSDP / ZeRO / NCCL / RL"
+    language: "zh"
+    paraphrased: true
+    concepts: ["distributed-training"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/20-分布式训练是什么.md"
+    cluster: fsdp-zero
+
+  - id: q-r2-dist-005
+    question: "一个 70B 模型单卡放不下时，ZeRO-3 为什么能训练？一次前向/反向过程中参数什么时候被 Gather，什么时候又被释放？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/726369510834118656"
+    source_title: "字节大模型算法二面：FSDP / ZeRO / NCCL / RL"
+    language: "zh"
+    paraphrased: true
+    concepts: ["distributed-training"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/20-分布式训练是什么.md"
+    cluster: zero3-lifecycle
+
+  - id: q-r2-dist-006
+    question: "NCCL 里的 All-Reduce、All-Gather、Reduce-Scatter 分别解决什么问题？为什么不同并行策略依赖不同 Collective？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/726369510834118656"
+    source_title: "字节大模型算法二面：FSDP / ZeRO / NCCL / RL"
+    language: "zh"
+    paraphrased: true
+    concepts: ["distributed-training"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/20-分布式训练是什么.md"
+    cluster: collectives
+
+  - id: q-r2-dist-007
+    question: "分布式训练从 Epoch 中间断点恢复时，除了模型和优化器，还要保存 DataLoader / Sampler 的什么状态，才能不重复或漏数据？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/725509865780211712"
+    source_title: "星海图大模型后训练面经：ZeRO / DDP / 断点恢复 / Sampler"
+    language: "zh"
+    paraphrased: true
+    concepts: ["distributed-training"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/20-分布式训练是什么.md"
+    cluster: distributed-resume
+
+  - id: q-r2-dist-008
+    question: "DistributedSampler 不需要每一步互相通信，为什么不同 Rank 还能拿到不重复的数据切片？Shuffle 的随机种子由谁控制？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/725509865780211712"
+    source_title: "星海图大模型后训练面经：ZeRO / DDP / 断点恢复 / Sampler"
+    language: "zh"
+    paraphrased: true
+    concepts: ["distributed-training"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/20-分布式训练是什么.md"
+    cluster: distributed-sampler
+
+  - id: q-r2-dist-009
+    question: "两台服务器各有多张 GPU，单机训练很快，一跨机器就明显变慢，怎么判断是不是网络带宽、拓扑或 Collective 通信成了瓶颈？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/MachineLearning/comments/1ez9ly1/d_distributed_training_slow_across_two_servers/"
+    source_title: "Distributed training slow across two servers"
+    language: "en"
+    paraphrased: true
+    concepts: ["distributed-training"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/20-分布式训练是什么.md"
+    cluster: cross-node-bottleneck
