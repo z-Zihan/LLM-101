@@ -42,7 +42,7 @@ def main() -> int:
             errors.append(f"公开问题 {qid} 缺少 HTTPS 来源")
         if item["language"] == "en" and not item["paraphrased"]:
             errors.append(f"英文来源问题 {qid} 的中文问法必须标记 paraphrased")
-        if item["difficulty"] not in {"beginner", "intermediate"}:
+        if item["difficulty"] not in {"beginner", "intermediate", "advanced"}:
             errors.append(f"问题 {qid} 的 difficulty 无效：{item['difficulty']}")
         if item["priority"] not in {"high", "medium", "low"}:
             errors.append(f"问题 {qid} 的 priority 无效：{item['priority']}")

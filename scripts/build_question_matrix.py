@@ -38,6 +38,7 @@ def main() -> None:
     labels = {
         "beginner": "入门",
         "intermediate": "进阶",
+        "advanced": "高阶",
         "high": "高",
         "medium": "中",
         "low": "低",

@@ -210,7 +210,7 @@ concepts:
     summary: 模型一次处理输入和输出时可容纳内容的容量边界。
     prerequisites: ["context", "token"]
     related: ["inference", "conversation-history"]
-    questions: ["q-context-window-001", "q-context-stateless-web-001", "q-reasoning-consistency-web-001"]
+    questions: ["q-context-window-001", "q-context-stateless-web-001", "q-reasoning-consistency-web-001", "q-rag-long-context-v2ex-001"]
 
   - id: model-lifecycle
     name: 模型生命周期
@@ -402,7 +402,7 @@ concepts:
     summary: 在生成前检索外部资料，并把相关内容提供给模型作为上下文的方法。
     prerequisites: ["llm", "context"]
     related: ["embedding", "vector-database", "hallucination"]
-    questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-hallucination-web-001", "q-rag-finetuning-web-001", "q-agent-concepts-roadmap-v2ex-001", "q-rag-agent-zhihu-001"]
+    questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-hallucination-web-001", "q-rag-finetuning-web-001", "q-agent-concepts-roadmap-v2ex-001", "q-rag-agent-zhihu-001", "q-rag-long-context-v2ex-001", "q-rag-document-processing-v2ex-001", "q-rag-chunking-v2ex-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-rerank-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-rerank-limit-v2ex-001", "q-rag-global-context-v2ex-001"]
 
   - id: knowledge-base
     name: 知识库
@@ -414,7 +414,7 @@ concepts:
     summary: 为查询和任务组织、治理的一组原文、记录、元数据、权限、版本与检索入口。
     prerequisites: ["database-boundary"]
     related: ["rag", "embedding", "vector-database"]
-    questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-finetuning-web-001"]
+    questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-finetuning-web-001", "q-rag-document-processing-v2ex-001", "q-rag-global-context-v2ex-001"]
 
   - id: embedding
     name: 向量表示
@@ -426,7 +426,7 @@ concepts:
     summary: 把对象转换为一组数值，使系统可以计算某些关系或相似性。
     prerequisites: ["model"]
     related: ["vector-database", "rag"]
-    questions: ["q-rag-001", "q-vector-store-web-001", "q-embedding-semantics-web-001"]
+    questions: ["q-rag-001", "q-vector-store-web-001", "q-embedding-semantics-web-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-vector-irrelevant-so-001"]
 
   - id: vector-database
     name: 向量数据库
@@ -438,7 +438,7 @@ concepts:
     summary: 存储向量并支持按相似性检索的数据系统。
     prerequisites: ["embedding"]
     related: ["rag"]
-    questions: ["q-rag-001", "q-vector-store-web-001", "q-embedding-semantics-web-001"]
+    questions: ["q-rag-001", "q-vector-store-web-001", "q-embedding-semantics-web-001", "q-vector-irrelevant-so-001"]
 
   - id: retrieval
     name: 检索
@@ -450,7 +450,7 @@ concepts:
     summary: 根据查询从候选资料中召回、过滤并排序可能相关的证据。
     prerequisites: ["knowledge-base"]
     related: ["rag", "embedding", "vector-database"]
-    questions: ["q-rag-001", "q-vector-store-web-001"]
+    questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-long-context-v2ex-001", "q-rag-document-processing-v2ex-001", "q-rag-chunking-v2ex-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-rerank-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-rerank-limit-v2ex-001", "q-rag-global-context-v2ex-001", "q-vector-irrelevant-so-001"]
 
   - id: mcp
     name: MCP

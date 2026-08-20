@@ -659,3 +659,143 @@ questions:
     status: answered
     answer_path: "docs/08-RAG与知识库/01-RAG到底是什么.md"
     cluster: rag-vs-agent
+
+  - id: q-rag-long-context-v2ex-001
+    question: "模型上下文越来越长以后，传统 RAG 还有必要吗？什么时候直接把资料放进上下文反而更合适？"
+    source_type: public_web
+    source_url: "https://www.v2ex.com/t/1214405"
+    source_title: "很好奇 RAG 真的是现代 AI Agent 所需要的吗，还有 LangChain"
+    language: zh
+    paraphrased: true
+    concepts: ["context-window", "rag", "retrieval"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/12-RAG有哪些局限.md"
+    cluster: rag-vs-long-context
+
+  - id: q-rag-document-processing-v2ex-001
+    question: "RAG 里直接把原始文档分段效果很差，入库前的数据清洗和结构化到底该怎么做？"
+    source_type: public_web
+    source_url: "https://hk.v2ex.com/t/1063490"
+    source_title: "请教一个 RAG 相关的问题，求解惑"
+    language: zh
+    paraphrased: true
+    concepts: ["rag", "knowledge-base", "retrieval"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/02-知识库是什么.md"
+    cluster: rag-document-processing
+
+  - id: q-rag-chunking-v2ex-001
+    question: "Chunk 应该怎么切？为什么不同切分方式会直接影响召回质量？"
+    source_type: public_web
+    source_url: "https://www.v2ex.com/t/1155193"
+    source_title: "批了100万预算让我负责搭建行业知识库大模型，但是目前还没有..."
+    language: zh
+    paraphrased: true
+    concepts: ["rag", "retrieval"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/08-检索是什么.md"
+    cluster: rag-chunking
+
+  - id: q-rag-retrieval-quality-v2ex-001
+    question: "RAG 的召回率怎么优化？只是换 Embedding 模型够不够？"
+    source_type: public_web
+    source_url: "https://global.v2ex.com/t/1196222"
+    source_title: "普通开发参与/迈向 AI 时代的方法也许就是转型做 Agent 开发"
+    language: zh
+    paraphrased: true
+    concepts: ["rag", "embedding", "retrieval"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/08-检索是什么.md"
+    cluster: rag-retrieval-quality
+
+  - id: q-rag-rerank-v2ex-001
+    question: "RAG 为什么还要加 Rerank？它解决的是召回问题还是排序问题？"
+    source_type: public_web
+    source_url: "https://global.v2ex.com/t/1196222"
+    source_title: "普通开发参与/迈向 AI 时代的方法也许就是转型做 Agent 开发"
+    language: zh
+    paraphrased: true
+    concepts: ["rag", "retrieval"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/08-检索是什么.md"
+    cluster: rag-rerank
+
+  - id: q-rag-hybrid-search-v2ex-001
+    question: "稀疏向量和稠密向量到底有什么区别？为什么 RAG 经常把关键词检索和向量检索混合起来？"
+    source_type: public_web
+    source_url: "https://global.v2ex.com/t/1196222"
+    source_title: "普通开发参与/迈向 AI 时代的方法也许就是转型做 Agent 开发"
+    language: zh
+    paraphrased: true
+    concepts: ["rag", "embedding", "retrieval"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/08-检索是什么.md"
+    cluster: hybrid-search
+
+  - id: q-rag-exact-terms-v2ex-001
+    question: "向量语义搜索为什么经常找不好专业缩写、型号和精确术语？为什么这时要加 BM25 或混合检索？"
+    source_type: public_web
+    source_url: "https://www.v2ex.com/t/1198028"
+    source_title: "为什么放弃了 RAG？RAG 的六大难题"
+    language: zh
+    paraphrased: true
+    concepts: ["rag", "embedding", "retrieval"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/08-检索是什么.md"
+    cluster: hybrid-search
+
+  - id: q-rerank-limit-v2ex-001
+    question: "Rerank 只能重新排序已经召回的候选，那一开始没召回的文档怎么办？"
+    source_type: public_web
+    source_url: "https://www.v2ex.com/t/1198028"
+    source_title: "为什么放弃了 RAG？RAG 的六大难题"
+    language: zh
+    paraphrased: true
+    concepts: ["rag", "retrieval"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/08-检索是什么.md"
+    cluster: rerank-limitations
+
+  - id: q-rag-global-context-v2ex-001
+    question: "RAG 切成 Chunk 后，怎么回答需要理解整篇文档结构或跨章节关系的问题？"
+    source_type: public_web
+    source_url: "https://hk.v2ex.com/t/1206512"
+    source_title: "RAG 难以让人满意啊"
+    language: zh
+    paraphrased: true
+    concepts: ["rag", "knowledge-base", "retrieval"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/12-RAG有哪些局限.md"
+    cluster: rag-global-context
+
+  - id: q-vector-irrelevant-so-001
+    question: "向量数据库为什么会返回语义看起来不相关的结果？问题可能出在 Embedding、Chunk 还是相似度度量？"
+    source_type: public_web
+    source_url: "https://stackoverflow.com/questions/77058068/why-is-my-vector-database-retrieving-irrelevant-results"
+    source_title: "Why is my vector database retrieving irrelevant results?"
+    language: en
+    paraphrased: true
+    concepts: ["embedding", "vector-database", "retrieval"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/08-检索是什么.md"
+    cluster: vector-retrieval-failure
