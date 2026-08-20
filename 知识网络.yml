@@ -162,7 +162,7 @@ concepts:
     summary: 训练时用来计算目标和调整模型参数的数据。
     prerequisites: ["machine-learning", "model"]
     related: ["parameter", "training"]
-    questions: ["q-parameter-data-001", "q-undertraining-001", "q-loss-judgement-001", "q-parameter-scale-web-001", "q-finetuning-dataset-v2ex-001", "q-lora-qlora-reddit-001"]
+    questions: ["q-parameter-data-001", "q-undertraining-001", "q-loss-judgement-001", "q-parameter-scale-web-001", "q-finetuning-dataset-v2ex-001", "q-lora-qlora-reddit-001", "q-benchmark-contamination-reddit-001"]
 
   - id: prompt
     name: 提示
@@ -294,7 +294,7 @@ concepts:
     summary: 模型把训练中学到的规律用于未见过但相关情形的能力。
     prerequisites: ["model", "training"]
     related: ["reasoning", "hallucination"]
-    questions: ["q-parameter-capacity-001", "q-intelligence-origin-001", "q-undertraining-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001", "q-finetuning-dataset-v2ex-001", "q-finetuning-evaluation-v2ex-001"]
+    questions: ["q-parameter-capacity-001", "q-intelligence-origin-001", "q-undertraining-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001", "q-finetuning-dataset-v2ex-001", "q-finetuning-evaluation-v2ex-001", "q-benchmark-contamination-reddit-001"]
 
   - id: reasoning
     name: 推理能力
@@ -330,7 +330,7 @@ concepts:
     summary: 用适合问题类型的证据检查 AI 输出，而不是只看表达是否自信。
     prerequisites: ["hallucination"]
     related: ["rag", "tool"]
-    questions: ["q-hallucination-001", "q-rag-hallucination-web-001", "q-finetuning-evaluation-v2ex-001", "q-effective-context-reddit-001", "q-quant-quality-reddit-001"]
+    questions: ["q-hallucination-001", "q-rag-hallucination-web-001", "q-finetuning-evaluation-v2ex-001", "q-effective-context-reddit-001", "q-quant-quality-reddit-001", "q-benchmark-contamination-reddit-001"]
 
   - id: database-boundary
     name: LLM 与数据库边界
