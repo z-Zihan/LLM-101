@@ -596,6 +596,18 @@ concepts:
     related: ["conversation-history", "coding-agent"]
     questions: ["q-r2-multiagent-001", "q-r2-multiagent-002", "q-r2-multiagent-003", "q-r2-multiagent-004", "q-r2-multiagent-005"]
 
+  - id: context-engineering
+    name: 上下文工程
+    path: docs/11-Coding-Agent/09-上下文工程是什么.md
+    aliases: ["Context Engineering", "上下文工程", "Context Compression"]
+    level: Core
+    path_type: Main
+    group: Coding Agent
+    summary: 按任务阶段选择、组织、压缩和更新模型运行时信息，并保留权威性与可追溯边界的工程方法。
+    prerequisites: ["context", "context-window", "coding-agent"]
+    related: ["conversation-history", "rag", "multi-agent"]
+    questions: ["q-r2-contexteng-001", "q-r2-contexteng-002", "q-r2-contexteng-003", "q-r2-contexteng-004", "q-r2-contexteng-005", "q-r2-contexteng-006"]
+
 relations:
   - from: machine-learning
     relation: 属于
@@ -807,3 +819,12 @@ relations:
   - from: multi-agent
     relation: 需要共享或传递
     to: context
+  - from: context-engineering
+    relation: 选择和组织
+    to: context
+  - from: context-engineering
+    relation: 支撑
+    to: coding-agent
+  - from: context-engineering
+    relation: 可以使用
+    to: rag
