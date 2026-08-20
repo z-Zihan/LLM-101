@@ -1429,3 +1429,185 @@ questions:
     status: answered
     answer_path: "docs/03-模型原理与训练/08-规模定律是什么.md"
     cluster: scaling-interview
+
+  - id: q-r2-emergence-001
+    question: "所谓“涌现能力”是真的突然出现，还是因为 Benchmark 的评分方式把平滑增长看成了跳变？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/MachineLearning/comments/13drcv5/r_are_emergent_abilities_of_large_language_models/"
+    source_title: "Are emergent abilities of large language models a mirage?"
+    language: "en"
+    paraphrased: true
+    concepts: ["emergence"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/04-涌现能力是什么.md"
+    cluster: emergence-metric-artifact
+
+  - id: q-r2-emergence-002
+    question: "如果涌现真的存在，我们能不能提前预测“什么能力会在什么规模出现”？为什么这件事这么难？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/MachineLearning/comments/13drcv5/r_are_emergent_abilities_of_large_language_models/"
+    source_title: "Are emergent abilities of large language models a mirage?"
+    language: "en"
+    paraphrased: true
+    concepts: ["emergence"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/04-涌现能力是什么.md"
+    cluster: emergence-predictability
+
+  - id: q-r2-emergence-003
+    question: "很多“能力突然变强”的结果是在指令微调或后训练之后测出来的，那我们看到的到底是规模涌现，还是后训练带来的能力解锁？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1io1x1m/emergent_abilities_and_posttraining/"
+    source_title: "Emergent abilities and post-training"
+    language: "en"
+    paraphrased: true
+    concepts: ["emergence"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/04-涌现能力是什么.md"
+    cluster: emergence-posttraining-confound
+
+  - id: q-r2-emergence-004
+    question: "有些论文把涌现解释成 In-Context Learning 的结果，这两者到底是什么关系？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/MachineLearning/comments/1crrwmk/r_are_emergent_abilities_in_large_language_models/"
+    source_title: "Are emergent abilities in large language models just in-context learning?"
+    language: "en"
+    paraphrased: true
+    concepts: ["emergence"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/04-涌现能力是什么.md"
+    cluster: emergence-icl
+
+  - id: q-r2-emergence-005
+    question: "“能力随着规模增加而突然跨过一个阈值”这句话到底有多严格？什么样的现象才配叫 Emergence？"
+    source_type: "public_web"
+    source_url: "https://news.ycombinator.com/item?id=35768824"
+    source_title: "Are emergent abilities of large language models a mirage?"
+    language: "en"
+    paraphrased: true
+    concepts: ["emergence"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/04-涌现能力是什么.md"
+    cluster: emergence-definition
+
+  - id: q-r2-multimodal-001
+    question: "多模态模型看一张图片时到底“看见”了什么？图片是一直保留在模型里，还是先被变成一串视觉 Token？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1j6c7j0/how_vision_llm_works_what_model_actually_see/"
+    source_title: "How vision LLM works? What model actually see?"
+    language: "en"
+    paraphrased: true
+    concepts: ["multimodal"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/05-多模态模型是什么.md"
+    cluster: vlm-what-sees
+
+  - id: q-r2-multimodal-002
+    question: "图片切成 Visual Token 以后，这些 Token 和文字 Token 是同一种东西吗？它们怎么进入同一个语言模型？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1pmw8tz/vision_language_vlm_tokens/"
+    source_title: "Vision = Language / VLM Tokens"
+    language: "en"
+    paraphrased: true
+    concepts: ["multimodal"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/05-多模态模型是什么.md"
+    cluster: visual-vs-text-token
+
+  - id: q-r2-multimodal-003
+    question: "视觉模型明明能识别物体，为什么在“左边、右边、遮挡、数量、空间关系”这类问题上仍然经常出错？"
+    source_type: "public_web"
+    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1j6c7j0/how_vision_llm_works_what_model_actually_see/"
+    source_title: "How vision LLM works? What model actually see?"
+    language: "en"
+    paraphrased: true
+    concepts: ["multimodal"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/05-多模态模型是什么.md"
+    cluster: vlm-spatial-reasoning
+
+  - id: q-r2-multimodal-004
+    question: "CLIP 在一个 Batch 里把其他图片都当负样本时，如果里面其实有语义相近的“假负样本”怎么办？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/feed/main/detail/d4f2cc53e4d0417f9aa7187a0e4c54d4"
+    source_title: "快手多模态算法面经：CLIP / BLIP2 / Q-Former"
+    language: "zh"
+    paraphrased: true
+    concepts: ["multimodal"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/05-多模态模型是什么.md"
+    cluster: clip-false-negative
+
+  - id: q-r2-multimodal-005
+    question: "CLIP 式对比学习和“把视觉特征直接接给 LLM 做生成”有什么本质区别？分别更适合什么任务？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/feed/main/detail/d4f2cc53e4d0417f9aa7187a0e4c54d4"
+    source_title: "快手多模态算法面经：CLIP / BLIP2 / Q-Former"
+    language: "zh"
+    paraphrased: true
+    concepts: ["multimodal"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/05-多模态模型是什么.md"
+    cluster: contrastive-vs-generative-alignment
+
+  - id: q-r2-multimodal-006
+    question: "Q-Former 是干什么的？为什么有些多模态架构后来直接用 MLP/Projection Connector，也能把视觉信息接到 LLM？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/feed/main/detail/d4f2cc53e4d0417f9aa7187a0e4c54d4"
+    source_title: "快手多模态算法面经：CLIP / BLIP2 / Q-Former"
+    language: "zh"
+    paraphrased: true
+    concepts: ["multimodal"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/05-多模态模型是什么.md"
+    cluster: qformer-vs-mlp
+
+  - id: q-r2-multimodal-007
+    question: "多模态大模型的幻觉主要从哪里来？是视觉编码器没看清、模态对齐出错，还是语言模型自己补全？怎么分别缓解？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/730022624538812416"
+    source_title: "阿里多模态大模型算法面经"
+    language: "zh"
+    paraphrased: true
+    concepts: ["multimodal"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/05-多模态模型是什么.md"
+    cluster: multimodal-hallucination
+
+  - id: q-r2-multimodal-008
+    question: "遇到训练数据里没见过的新商品或新物体，多模态模型怎么描述？它是在识别类别、做检索，还是依赖视觉特征和语言知识泛化？"
+    source_type: "public_web"
+    source_url: "https://www.nowcoder.com/discuss/730022624538812416"
+    source_title: "阿里多模态大模型算法面经"
+    language: "zh"
+    paraphrased: true
+    concepts: ["multimodal"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/05-多模态模型是什么.md"
+    cluster: multimodal-unseen-object

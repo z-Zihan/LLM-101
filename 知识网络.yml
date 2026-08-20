@@ -512,6 +512,30 @@ concepts:
     related: ["inference", "generalization"]
     questions: ["q-r2-scaling-001", "q-r2-scaling-002", "q-r2-scaling-003", "q-r2-scaling-004", "q-r2-scaling-005"]
 
+  - id: emergence
+    name: 涌现能力
+    path: docs/04-模型能力/04-涌现能力是什么.md
+    aliases: ["Emergence", "Emergent Ability", "涌现能力"]
+    level: Core
+    path_type: Optional
+    group: AI与模型
+    summary: 模型能力随规模变化时出现明显非线性提升的观测现象，其结论依赖指标与控制条件。
+    prerequisites: ["generalization", "scaling-laws", "verification"]
+    related: ["reasoning", "training"]
+    questions: ["q-r2-emergence-001", "q-r2-emergence-002", "q-r2-emergence-003", "q-r2-emergence-004", "q-r2-emergence-005"]
+
+  - id: multimodal
+    name: 多模态模型
+    path: docs/04-模型能力/05-多模态模型是什么.md
+    aliases: ["Multimodal Model", "VLM", "多模态模型", "视觉语言模型"]
+    level: Core
+    path_type: Optional
+    group: AI与模型
+    summary: 把文本、图像、音频或其他模态编码并连接起来完成理解或生成任务的模型系统。
+    prerequisites: ["model", "token"]
+    related: ["generalization", "hallucination", "llm"]
+    questions: ["q-r2-multimodal-001", "q-r2-multimodal-002", "q-r2-multimodal-003", "q-r2-multimodal-004", "q-r2-multimodal-005", "q-r2-multimodal-006", "q-r2-multimodal-007", "q-r2-multimodal-008"]
+
 relations:
   - from: machine-learning
     relation: 属于
@@ -681,3 +705,15 @@ relations:
   - from: scaling-laws
     relation: 受部署成本影响
     to: inference
+  - from: emergence
+    relation: 需要用不同指标验证
+    to: verification
+  - from: emergence
+    relation: 可能随规模呈现
+    to: scaling-laws
+  - from: multimodal
+    relation: 可以组合
+    to: llm
+  - from: multimodal
+    relation: 可能产生
+    to: hallucination
