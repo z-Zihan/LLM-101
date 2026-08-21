@@ -50,6 +50,64 @@ Loss → 梯度 → 参数更新
 
 这张图把[训练](./18-训练和推理有什么区别.md)中的反馈回路缩到一个位置。读图时最重要的是，模型不是收到一句人类评语后整体“想通了”，而是在海量位置上积累许多很小的参数更新。
 
+## 从 Logits 到 NLL：Loss 具体怎样算出来
+
+模型最后一层先为词表中每个候选 Token 产生一个原始分数，常叫 Logit。Logit 不是概率，可以为负，也不要求加起来等于 1。Softmax 会把整组 Logits 转换成总和为 1 的概率分布；某个候选分数相对其他候选越高，它得到的概率通常越大。
+
+训练目标如果是“中国”，系统只需从分布中取出“中国”的概率 `p`。负对数似然（Negative Log-Likelihood，NLL）把这个概率变成损失：
+
+```text
+该位置的 NLL = -log(p)
+
+p = 0.90  → Loss 很小
+p = 0.10  → Loss 较大
+p = 0.001 → Loss 非常大
+```
+
+为什么不直接用 `1 - p`？负对数会对非常自信却猜错的情况给出更大惩罚；连乘的序列概率取对数后还能变成求和，更容易计算和优化。这里的“似然”指模型为训练数据中实际出现的目标分配的概率，不是对一句话是否符合事实的通用评分。
+
+在多分类的下一个 Token 任务里，目标可以看成一个只有正确 Token 位置为 1、其他位置为 0 的 one-hot 分布。用这个目标计算交叉熵（Cross Entropy）时，结果就是正确 Token 的负对数概率。因此工程文档常在这个场景中把 NLL 与 Cross Entropy 连在一起说；如果目标是软标签、做了 Label Smoothing，或采用其他归约方式，细节会有所不同。
+
+```text
+Hidden Representation
+  ↓ 输出投影
+整个词表的 Logits
+  ↓ Softmax
+整个词表的概率分布
+  ↓ 读取真实下一个 Token 的概率
+NLL / Cross Entropy
+```
+
+这张图解决“Loss 从哪里来”。Loss 不是模型额外生成的一句评价，而是训练程序用预测分布和已知目标按确定公式计算出的数。
+
+## 一条序列为什么能同时产生很多训练位置
+
+一串 Token `x₁, x₂, …, xₜ` 的概率可以按条件概率拆成：每一步在已有前缀下预测当前 Token 的概率相乘。直接连乘许多小数容易数值下溢，训练通常改为把每个位置的负对数概率相加，再按有效 Token 数求平均。
+
+```text
+整条序列概率
+= p(x₁) × p(x₂|x₁) × ... × p(xₜ|x₁...xₜ₋₁)
+
+整条序列 NLL
+= -log p(x₁) - log p(x₂|x₁) - ... - log p(xₜ|x₁...xₜ₋₁)
+```
+
+训练时整条真实序列已经存在。程序把它错开一位：前缀作为输入，后一个真实 Token 作为每个位置的目标。这种使用真实前缀计算各位置目标的做法常称为 Teacher Forcing。因果遮罩保证某个位置不能偷看未来答案，但同一批已知序列的许多位置仍可以在 GPU 上并行计算。
+
+“提高整条序列概率”因此有严格含义：降低各个有效位置 NLL 的总和或平均值，等价于提高训练数据在模型条件概率分解下的对数似然。它不表示训练系统把整句话作为一个不可拆的标签，也不保证概率提高后的句子一定真实、有益或安全。
+
+Loss 得到后，反向传播用链式法则计算它对参数的梯度；优化器再结合学习率和内部状态更新参数。梯度描述参数在当前位置附近怎样变化会影响 Loss，不是给某个神经元分配“犯错责任”。从文本目标到参数变化的闭环是：
+
+```text
+真实下一个 Token
+  ↓ NLL / Cross Entropy
+Loss
+  ↓ Backpropagation
+Gradient
+  ↓ Optimizer
+Parameter Update
+```
+
 ## 窄目标为什么会逼出广泛规律
 
 如果数据只有“早上好”重复一亿次，预测目标再明确也学不到编程。真正关键的是，大规模文本里同时存在叙事、解释、问答、证明、代码、表格、翻译和对话。要在这些上下文里持续预测得更准，模型只记几个高频搭配远远不够。
@@ -98,6 +156,10 @@ Transformer 借助[注意力机制](./05-Attention到底是什么.md)让当前�
 
 **错误程度怎么判断，怎么知道对错？** 预训练时，真实文本的后续 Token 提供目标；Loss 根据模型分给这个目标的概率计算错误程度。它判断的是预测任务，不是对整段回答做事实审判。
 
+**NLL 和 Cross Entropy 是什么关系？** 对 one-hot 的下一个 Token 目标，交叉熵等于正确 Token 概率的负对数，也就是该位置的 NLL。序列训练再对多个有效位置求和或平均。
+
+**一句话只训练最后一个 Token 吗？** 通常不是。真实序列错开一位后，许多位置都能提供“前缀 → 下一个 Token”训练对；因果遮罩防止偷看未来，已知位置仍可并行计算。
+
 **只预测下一个 Token，为什么能回答、翻译和写代码？** 因为要在包含这些任务的大量文本中预测准确，模型会学到可复用的语言、结构和任务模式；Prompt 能让某些模式在当前上下文中发挥作用。后训练又进一步把续写能力塑造成指令响应。
 
 **这足以解释所有复杂能力吗？** 不能这样下结论。下一 Token 目标是核心训练机制，但能力还受数据、Transformer 架构、参数规模、训练计算、优化过程、后训练、采样和工具影响；某项表现究竟来自记忆、泛化还是系统辅助，需要专门实验。
@@ -116,3 +178,5 @@ Transformer 借助[注意力机制](./05-Attention到底是什么.md)让当前�
 - [Bengio et al.: A Neural Probabilistic Language Model](https://www.jmlr.org/papers/v3/bengio03a.html)
 - [Radford et al.: Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
 - [Brown et al.: Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)
+- [PyTorch: CrossEntropyLoss](https://docs.pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html)
+- [Goodfellow, Bengio & Courville: Deep Learning — Maximum Likelihood Estimation](https://www.deeplearningbook.org/contents/ml.html)

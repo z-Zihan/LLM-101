@@ -6,7 +6,7 @@
 
 我们从真实小白会问的问题出发，沿着连续追问，一步一步建立完整心智模型。
 
-> 当前发布范围已经闭环：86 篇已发布文章与图谱资产达到当前标准，194 个已入库真实问题全部有答案；长期路线图 B1～B9 的内容交付已完成，正在执行最终全项目审查。
+> 当前发布范围与长期内容地图均已闭环：86 篇已发布文章与图谱资产达到当前标准，194 个已入库真实问题全部有答案；长期路线图 B1～B9 与最终全项目审查均已完成。
 
 ## 当前完成度与边界
 
@@ -20,9 +20,8 @@
 
 这里的“完成”指**当前发布范围闭环**，不是以后再也没有内容可写。`Done` 也不等于每个子概念都单独成文：只要某个问题已经在通过审查的主页面中完整回答，就不再为了凑数量拆一篇短文。
 
-仍需继续处理的工作主要有两类：
+仍有一项明确记录的长期证据债务：
 
-- 对 B1～B9、全部入口和生成资产执行新的 Final Project Review；
 - 两轮 130 条公开候选中，20 条达到 A 级正文核验，110 条受 Reddit、牛客等访问限制而保留为 B 级。B 级证明链已记录，但不宣称完成了实时正文复核；技术答案仍使用论文、官方文档或权威资料独立核验。
 
 完整状态见[项目进度](./项目进度.md)，逐项范围见[内容地图](./内容地图.md)，分批顺序、依赖与验收门槛见[长期内容路线图](./长期内容路线图.md)。
@@ -121,6 +120,24 @@ RAG → MCP → Skill → Coding Agent
 26. [Skill 到底是什么？](./docs/10-Skill/01-Skill到底是什么.md)
 27. [Coding Agent 是什么？](./docs/11-Coding-Agent/04-Coding-Agent是什么.md)
 28. [聊天记录是什么？](./docs/12-Memory/01-聊天记录是什么.md)
+
+## LLM 最小原理闭环
+
+如果你不想先记完整概念地图，只想弄清“一段文本怎样进入模型、模型怎样学习、回答怎样逐 Token 生成”，按下面 5 个节点阅读：
+
+1. [Token 到底是什么](./docs/02-聊天Token与上下文/04-Token到底是什么.md)：Text → Tokenizer → Token → Token ID → Embedding；
+2. [Transformer 到底是什么](./docs/03-模型原理与训练/03-Transformer到底是什么.md)：Embedding → Attention / FFN → Hidden Representation；
+3. [为什么预测下一个 Token 能学到能力](./docs/03-模型原理与训练/10-为什么预测下一个Token能学到能力.md)：Logits → Softmax → NLL / Cross Entropy → Loss；
+4. [训练和推理有什么区别](./docs/03-模型原理与训练/18-训练和推理有什么区别.md)：Loss → Gradient → Optimizer → Parameter Update，以及 Prefill → Decode；
+5. [Attention 到底是什么](./docs/03-模型原理与训练/05-Attention到底是什么.md)：用 Query、Key、Value 进一步拆开 Token 之间的信息读取。
+
+```text
+文字 → Token ID → Embedding → Transformer → Logits → Probability
+                                         ├─ 训练：Loss → Gradient → 参数更新
+                                         └─ 推理：选 Token → 接回上下文 → 继续 Decode
+```
+
+这条链解释的是主流自回归大语言模型的核心机制，不是所有 AI 模型的统一流程；RAG、工具、Agent 和聊天产品是在它外面继续增加的系统层。
 
 已经完成的扩展节点：
 
@@ -282,6 +299,7 @@ flowchart LR
 - [文章模板](./文章模板.md)
 - [目录结构](./目录结构.md)
 - [小白问题库](./FAQ/小白问题库.md)
+- [全项目终审](./全项目终审-2026-08-21.md)
 
 ## 自动检查
 
@@ -294,7 +312,7 @@ python3 scripts/check_questions.py
 git diff --check
 ```
 
-只有自动检查和 15 项 Review 全部通过后，文章才能标记为 `Done`。项目终审还会使用 `python3 scripts/check_questions.py --strict`，确保所有高价值问题都已回答。
+只有自动检查和 15 项 Review 全部通过后，文章才能标记为 `Done`。项目终审另外执行 End-to-End Mechanism 与 Data & Release Integrity Review，并使用 `python3 scripts/check_questions.py --strict` 确保所有高价值问题都已回答。
 
 ---
 
