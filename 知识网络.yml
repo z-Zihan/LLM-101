@@ -188,6 +188,18 @@ concepts:
     related: ["inference", "gpu-compute"]
     questions: ["q-parameter-form-001", "q-model-format-conversion-so-001"]
 
+  - id: model-compression
+    name: 模型压缩
+    path: docs/03-模型原理与训练/13-剪枝量化和蒸馏有什么区别.md
+    aliases: ["Model Compression", "Pruning", "Quantization", "Knowledge Distillation", "模型压缩", "剪枝", "量化", "知识蒸馏"]
+    level: Advanced
+    path_type: Optional
+    group: 模型训练
+    summary: 通过改变结构、数值表示或训练较小学生模型，降低部署所需存储、内存或计算的技术集合。
+    prerequisites: ["parameter", "training", "inference"]
+    related: ["model-file-format", "gpu-compute", "verification"]
+    questions: ["q-distill-quant-reddit-001", "q-compression-methods-ai-se-001"]
+
   - id: prompt
     name: 提示
     path: docs/02-聊天Token与上下文/01-Prompt到底是什么.md
@@ -343,6 +355,18 @@ concepts:
     prerequisites: ["model", "generalization"]
     related: ["inference", "hallucination"]
     questions: ["q-parameter-capacity-001", "q-intelligence-origin-001", "q-next-token-capability-web-001", "q-reasoning-consistency-web-001", "q-reasoning-think-ai-se-001"]
+
+  - id: reasoning-strategies
+    name: 推理时策略
+    path: docs/04-模型能力/06-思维树思维链和ReAct有什么区别.md
+    aliases: ["Chain of Thought", "CoT", "Tree of Thoughts", "ToT", "Self-Consistency", "ReAct", "思维链", "思维树", "自洽性"]
+    level: Advanced
+    path_type: Optional
+    group: AI与模型
+    summary: 在推理时组织单条轨迹、多路径搜索、评估回退或环境观察的系统编排方法。
+    prerequisites: ["reasoning"]
+    related: ["agent-planning", "verification", "tool"]
+    questions: ["q-r2-planning-003", "q-tot-cot-github-001"]
 
   - id: hallucination
     name: 幻觉
@@ -861,6 +885,24 @@ concepts:
     questions: ["q-knowledge-graph-vector-hn-001"]
 
 relations:
+  - from: model-compression
+    relation: 改变结构或数值表示作用于
+    to: parameter
+  - from: model-compression
+    relation: 以降低部署成本优化
+    to: inference
+  - from: model-compression
+    relation: 可能通过重新训练实现
+    to: training
+  - from: reasoning-strategies
+    relation: 编排可观察的
+    to: reasoning
+  - from: reasoning-strategies
+    relation: 可以用于
+    to: agent-planning
+  - from: reasoning-strategies
+    relation: 依赖评估器和外部检查
+    to: verification
   - from: symmetry-breaking
     relation: 通过可区分初值作用于
     to: parameter

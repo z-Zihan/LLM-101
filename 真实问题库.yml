@@ -1241,11 +1241,11 @@ questions:
     source_title: "Can someone explain, how Distill Models work and if it's at all related/connected with Quantizing?"
     language: en
     paraphrased: true
-    concepts: ["model", "parameter", "training", "inference"]
+    concepts: ["model", "parameter", "training", "inference", "model-compression"]
     difficulty: beginner
     priority: high
     status: answered
-    answer_path: "docs/01-AI与大模型/03-模型到底是什么.md"
+    answer_path: "docs/03-模型原理与训练/13-剪枝量化和蒸馏有什么区别.md"
     cluster: distillation-vs-quantization
 
   - id: q-benchmark-contamination-reddit-001
@@ -2025,11 +2025,11 @@ questions:
     source_title: "Agent 算法面试题：任务分解 / ReAct / Tool Selection"
     language: "zh"
     paraphrased: true
-    concepts: ["agent-planning"]
+    concepts: ["agent-planning", "reasoning-strategies"]
     difficulty: intermediate
     priority: high
     status: answered
-    answer_path: "docs/07-Agent/04-Agent如何规划和恢复.md"
+    answer_path: "docs/04-模型能力/06-思维树思维链和ReAct有什么区别.md"
     cluster: react-tradeoffs
 
   - id: q-r2-planning-004
@@ -2647,3 +2647,31 @@ questions:
     status: answered
     answer_path: "docs/04-模型能力/02-记忆训练数据和泛化有什么区别.md"
     cluster: memorization-vs-generalization
+
+  - id: q-tot-cot-github-001
+    question: "已经有思维链，为什么还需要思维树？什么时候多路径搜索真的比单条推理更有价值？"
+    source_type: public_web
+    source_url: "https://github.com/submarat/spar-2024-web-evals/issues/6"
+    source_title: "Integrate Tree-of-Thoughts as decision strategy"
+    language: en
+    paraphrased: true
+    concepts: ["reasoning-strategies"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/06-思维树思维链和ReAct有什么区别.md"
+    cluster: tree-of-thoughts-vs-chain-of-thought
+
+  - id: q-compression-methods-ai-se-001
+    question: "为了优化模型速度，剪枝、量化和蒸馏分别应该什么时候使用？为什么压缩率不等于真实加速？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/43054/when-to-use-pruning-quantization-distillation-and-others-when-optimizing-spee"
+    source_title: "When to use Pruning, Quantization, Distillation and others when optimizing speed"
+    language: en
+    paraphrased: true
+    concepts: ["model-compression"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/13-剪枝量化和蒸馏有什么区别.md"
+    cluster: model-compression-method-selection
