@@ -402,7 +402,7 @@ concepts:
     summary: 在生成前检索外部资料，并把相关内容提供给模型作为上下文的方法。
     prerequisites: ["llm", "context"]
     related: ["embedding", "vector-database", "hallucination"]
-    questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-hallucination-web-001", "q-rag-finetuning-web-001", "q-agent-concepts-roadmap-v2ex-001", "q-rag-agent-zhihu-001", "q-rag-long-context-v2ex-001", "q-rag-document-processing-v2ex-001", "q-rag-chunking-v2ex-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-rerank-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-rerank-limit-v2ex-001", "q-rag-global-context-v2ex-001", "q-vector-database-selection-v2ex-001", "q-rag-pipeline-so-001", "q-ai-memory-v2ex-001", "q-long-context-memory-reddit-001", "q-database-access-v2ex-001"]
+    questions: ["q-rag-001", "q-vector-store-web-001", "q-rag-hallucination-web-001", "q-rag-finetuning-web-001", "q-agent-concepts-roadmap-v2ex-001", "q-rag-agent-zhihu-001", "q-rag-long-context-v2ex-001", "q-rag-document-processing-v2ex-001", "q-rag-chunking-v2ex-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-rerank-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-rerank-limit-v2ex-001", "q-rag-global-context-v2ex-001", "q-vector-database-selection-v2ex-001", "q-rag-pipeline-so-001", "q-ai-memory-v2ex-001", "q-long-context-memory-reddit-001", "q-database-access-v2ex-001", "q-knowledge-graph-vector-hn-001"]
 
   - id: knowledge-base
     name: 知识库
@@ -438,7 +438,7 @@ concepts:
     summary: 存储向量并支持按相似性检索的数据系统。
     prerequisites: ["embedding"]
     related: ["rag"]
-    questions: ["q-rag-001", "q-vector-store-web-001", "q-embedding-semantics-web-001", "q-vector-irrelevant-so-001", "q-vector-database-selection-v2ex-001"]
+    questions: ["q-rag-001", "q-vector-store-web-001", "q-embedding-semantics-web-001", "q-vector-irrelevant-so-001", "q-vector-database-selection-v2ex-001", "q-knowledge-graph-vector-hn-001"]
 
   - id: retrieval
     name: 检索
@@ -812,7 +812,28 @@ concepts:
     related: ["context-window", "retrieval", "knowledge-base"]
     questions: ["q-rag-long-context-v2ex-001"]
 
+  - id: knowledge-graph
+    name: 知识图谱
+    path: docs/08-RAG与知识库/06-知识图谱和向量数据库有什么区别.md
+    aliases: ["Knowledge Graph", "知识图谱", "GraphRAG"]
+    level: Advanced
+    path_type: Optional
+    group: RAG与知识
+    summary: 用实体、带类型的关系和属性组织可查询事实，并保留来源、时间和业务语义的知识表示。
+    prerequisites: ["knowledge-base"]
+    related: ["vector-database", "rag", "retrieval"]
+    questions: ["q-knowledge-graph-vector-hn-001"]
+
 relations:
+  - from: knowledge-graph
+    relation: 显式保存实体与关系以支持
+    to: retrieval
+  - from: rag
+    relation: 可以结合
+    to: knowledge-graph
+  - from: knowledge-graph
+    relation: 可以与相似性检索组合
+    to: vector-database
   - from: copilot
     relation: 使用
     to: model

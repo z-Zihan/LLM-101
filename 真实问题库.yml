@@ -2591,3 +2591,17 @@ questions:
     status: answered
     answer_path: "docs/11-Coding-Agent/02-Shell和Command是什么.md"
     cluster: shell-terminal-command
+
+  - id: q-knowledge-graph-vector-hn-001
+    question: "知识图谱和向量数据库谁更适合缓解 LLM 幻觉？两者为什么经常需要组合？"
+    source_type: public_web
+    source_url: "https://news.ycombinator.com/item?id=37300922"
+    source_title: "Knowledge Graph VS Vector Database which is better cure for LLM Hallucination"
+    language: en
+    paraphrased: true
+    concepts: ["knowledge-graph", "vector-database", "rag"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/08-RAG与知识库/06-知识图谱和向量数据库有什么区别.md"
+    cluster: knowledge-graph-vs-vector-database
