@@ -1,5 +1,5 @@
 version: 3
-updated: "2026-08-19"
+updated: "2026-08-21"
 
 main_path:
   - ai
@@ -53,8 +53,8 @@ concepts:
     group: AI与模型
     summary: 研究和构建围绕目标处理输入，并产生预测、内容、建议、决策或行动的机器系统的广泛领域。
     prerequisites: []
-    related: ["machine-learning", "model", "agent"]
-    questions: ["q-ai-ml-dl-web-001", "q-model-algorithm-web-001"]
+    related: ["machine-learning", "model", "agent", "narrow-ai", "generative-ai", "nlp", "computer-vision"]
+    questions: ["q-ai-ml-dl-web-001", "q-model-algorithm-web-001", "q-ai-strong-weak-web-001", "q-cv-ai-web-001"]
 
   - id: machine-learning
     name: 机器学习
@@ -114,7 +114,7 @@ concepts:
     summary: 在大量数据和计算资源上训练、能够处理和生成语言的大规模语言模型。
     prerequisites: ["language-model", "deep-learning"]
     related: ["transformer", "prompt", "context", "hallucination"]
-    questions: ["q-hallucination-001", "q-language-model-web-001", "q-llm-foundation-web-001", "q-chatgpt-product-web-001", "q-neural-soft-database-web-001", "q-gpt-transformer-v2ex-001", "q-transformer-variants-reddit-001"]
+    questions: ["q-hallucination-001", "q-language-model-web-001", "q-llm-foundation-web-001", "q-chatgpt-product-web-001", "q-neural-soft-database-web-001", "q-gpt-transformer-v2ex-001", "q-transformer-variants-reddit-001", "q-generative-model-web-001"]
 
   - id: gpt
     name: GPT
@@ -173,8 +173,8 @@ concepts:
     group: 推理与Token
     summary: 用户或系统提供给模型、用来表达任务和约束的输入内容。
     prerequisites: ["llm"]
-    related: ["context", "token", "inference"]
-    questions: ["q-prompt-001", "q-agent-browser-injection-v2ex-001", "q-tool-prompt-injection-reddit-001"]
+    related: ["context", "token", "inference", "system-prompt"]
+    questions: ["q-prompt-001", "q-agent-browser-injection-v2ex-001", "q-tool-prompt-injection-reddit-001", "q-system-prompt-web-001", "q-system-prompt-finetune-web-001"]
 
   - id: token
     name: Token
@@ -270,7 +270,7 @@ concepts:
     summary: 利用数据和目标函数调整模型参数的过程。
     prerequisites: ["model", "parameter", "training-data"]
     related: ["inference", "model-lifecycle"]
-    questions: ["q-model-origin-001", "q-intelligence-origin-001", "q-undertraining-001", "q-training-loop-001", "q-loss-judgement-001", "q-compute-memory-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001", "q-rag-finetuning-web-001", "q-chat-correction-memory-web-001", "q-finetuning-dataset-v2ex-001", "q-finetuning-evaluation-v2ex-001", "q-lora-qlora-reddit-001", "q-context-length-zhihu-001", "q-moe-routing-reddit-001", "q-distill-quant-reddit-001"]
+    questions: ["q-model-origin-001", "q-intelligence-origin-001", "q-undertraining-001", "q-training-loop-001", "q-loss-judgement-001", "q-compute-memory-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001", "q-rag-finetuning-web-001", "q-chat-correction-memory-web-001", "q-finetuning-dataset-v2ex-001", "q-finetuning-evaluation-v2ex-001", "q-lora-qlora-reddit-001", "q-context-length-zhihu-001", "q-moe-routing-reddit-001", "q-distill-quant-reddit-001", "q-system-prompt-finetune-web-001"]
 
   - id: inference
     name: 推理
@@ -534,7 +534,7 @@ concepts:
     summary: 把文本、图像、音频或其他模态编码并连接起来完成理解或生成任务的模型系统。
     prerequisites: ["model", "token"]
     related: ["generalization", "hallucination", "llm"]
-    questions: ["q-r2-multimodal-001", "q-r2-multimodal-002", "q-r2-multimodal-003", "q-r2-multimodal-004", "q-r2-multimodal-005", "q-r2-multimodal-006", "q-r2-multimodal-007", "q-r2-multimodal-008"]
+    questions: ["q-r2-multimodal-001", "q-r2-multimodal-002", "q-r2-multimodal-003", "q-r2-multimodal-004", "q-r2-multimodal-005", "q-r2-multimodal-006", "q-r2-multimodal-007", "q-r2-multimodal-008", "q-nlp-cv-web-001"]
 
   - id: gpu-compute
     name: GPU 与显存瓶颈
@@ -608,7 +608,106 @@ concepts:
     related: ["conversation-history", "rag", "multi-agent"]
     questions: ["q-r2-contexteng-001", "q-r2-contexteng-002", "q-r2-contexteng-003", "q-r2-contexteng-004", "q-r2-contexteng-005", "q-r2-contexteng-006"]
 
+  - id: narrow-ai
+    name: 窄域 AI
+    path: docs/01-AI与大模型/06-弱AI生成式AI和AIGC有什么区别.md
+    aliases: ["Narrow AI", "Weak AI", "弱 AI", "窄域人工智能"]
+    level: Core
+    path_type: Optional
+    group: AI与模型
+    summary: 面向限定任务或任务范围设计和评估、不能由单项高性能直接外推为广泛通用能力的 AI 系统类别。
+    prerequisites: ["ai"]
+    related: ["generative-ai", "model"]
+    questions: ["q-ai-strong-weak-web-001"]
+
+  - id: generative-ai
+    name: 生成式人工智能
+    path: docs/01-AI与大模型/06-弱AI生成式AI和AIGC有什么区别.md
+    aliases: ["Generative AI", "GenAI", "生成式 AI", "生成式人工智能"]
+    level: Core
+    path_type: Optional
+    group: AI与模型
+    summary: 根据输入生成文本、图像、音频、视频、代码等内容的模型及相关技术。
+    prerequisites: ["ai", "model"]
+    related: ["aigc", "llm", "multimodal"]
+    questions: ["q-generative-model-web-001"]
+
+  - id: aigc
+    name: AI 生成内容
+    path: docs/01-AI与大模型/06-弱AI生成式AI和AIGC有什么区别.md
+    aliases: ["AIGC", "AI-Generated Content", "人工智能生成内容", "AI 生成内容"]
+    level: Core
+    path_type: Optional
+    group: AI与模型
+    summary: 由 AI 生成或深度参与生成的内容及相关生产应用，不等于生成模型本身。
+    prerequisites: ["generative-ai"]
+    related: ["llm", "multimodal"]
+    questions: ["q-generative-model-web-001"]
+
+  - id: nlp
+    name: 自然语言处理
+    path: docs/01-AI与大模型/07-NLP和Computer-Vision是什么关系.md
+    aliases: ["Natural Language Processing", "NLP", "自然语言处理"]
+    level: Core
+    path_type: Optional
+    group: AI与模型
+    summary: 研究和构建处理、分析或生成人类语言的计算方法与系统的任务领域。
+    prerequisites: ["ai"]
+    related: ["language-model", "computer-vision", "multimodal"]
+    questions: ["q-nlp-cv-web-001"]
+
+  - id: computer-vision
+    name: 计算机视觉
+    path: docs/01-AI与大模型/07-NLP和Computer-Vision是什么关系.md
+    aliases: ["Computer Vision", "CV", "计算机视觉"]
+    level: Core
+    path_type: Optional
+    group: AI与模型
+    summary: 从图像、视频和其他视觉信号中提取、组织或生成有用信息的任务领域。
+    prerequisites: ["ai"]
+    related: ["nlp", "multimodal", "deep-learning"]
+    questions: ["q-cv-ai-web-001", "q-nlp-cv-web-001"]
+
+  - id: system-prompt
+    name: System Prompt
+    path: docs/02-聊天Token与上下文/02-System-Prompt是什么.md
+    aliases: ["System Prompt", "System Message", "系统提示", "系统指令"]
+    level: Core
+    path_type: Optional
+    group: 推理与Token
+    summary: 平台或应用在运行时提供、用于说明任务、行为和边界的一类高优先级输入，具体角色与优先规则由平台定义。
+    prerequisites: ["prompt", "context"]
+    related: ["training", "tool", "agent"]
+    questions: ["q-system-prompt-web-001", "q-system-prompt-finetune-web-001"]
+
 relations:
+  - from: narrow-ai
+    relation: 描述限定范围的
+    to: ai
+  - from: generative-ai
+    relation: 属于
+    to: ai
+  - from: generative-ai
+    relation: 生成
+    to: aigc
+  - from: llm
+    relation: 通常属于
+    to: generative-ai
+  - from: nlp
+    relation: 处理
+    to: language-model
+  - from: computer-vision
+    relation: 可以与语言组成
+    to: multimodal
+  - from: nlp
+    relation: 可以与视觉组成
+    to: multimodal
+  - from: system-prompt
+    relation: 属于
+    to: prompt
+  - from: system-prompt
+    relation: 进入
+    to: context
   - from: machine-learning
     relation: 属于
     to: ai

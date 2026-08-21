@@ -2353,3 +2353,87 @@ questions:
     status: answered
     answer_path: "docs/11-Coding-Agent/01-AI-Coding是什么.md"
     cluster: llm-engineer-interview
+
+  - id: q-ai-strong-weak-web-001
+    question: "强 AI 和弱 AI 有公认定义吗？所谓“弱”是能力差，还是任务范围受限？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/74/what-is-the-difference-between-strong-ai-and-weak-ai"
+    source_title: "What is the difference between strong-AI and weak-AI?"
+    language: en
+    paraphrased: true
+    concepts: ["ai", "narrow-ai"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/01-AI与大模型/06-弱AI生成式AI和AIGC有什么区别.md"
+    cluster: strong-vs-weak-ai
+
+  - id: q-generative-model-web-001
+    question: "ChatGPT 为什么叫生成式模型？只是因为它会生成文字，还是因为它学习了数据分布？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/39012/what-makes-chatgpt-a-generative-model"
+    source_title: "What makes ChatGPT a generative model?"
+    language: en
+    paraphrased: true
+    concepts: ["generative-ai", "aigc", "llm"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/01-AI与大模型/06-弱AI生成式AI和AIGC有什么区别.md"
+    cluster: generative-ai-meaning
+
+  - id: q-cv-ai-web-001
+    question: "计算机视觉和数字图像处理都算人工智能吗？是不是只要处理图片就是 AI？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/8846/are-computer-vision-and-digital-image-processing-part-of-artificial-intelligence"
+    source_title: "Are Computer Vision and Digital Image Processing part of Artificial Intelligence?"
+    language: en
+    paraphrased: true
+    concepts: ["ai", "computer-vision"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/01-AI与大模型/07-NLP和Computer-Vision是什么关系.md"
+    cluster: computer-vision-vs-ai
+
+  - id: q-nlp-cv-web-001
+    question: "NLP 和 Computer Vision 是两个独立系统吗？语言、表情和动作怎样在一个多模态任务里结合？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/35878/current-state-of-the-art-and-datasets-for-combining-nlp-and-cv"
+    source_title: "Current state of the art and datasets for combining NLP and CV?"
+    language: en
+    paraphrased: true
+    concepts: ["nlp", "computer-vision", "multimodal"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/01-AI与大模型/07-NLP和Computer-Vision是什么关系.md"
+    cluster: nlp-cv-multimodal
+
+  - id: q-system-prompt-web-001
+    question: "有没有一份可靠、可以直接复用到应用里的通用 System Prompt？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/50385/system-prompts-llm"
+    source_title: "System Prompts & LLM"
+    language: en
+    paraphrased: true
+    concepts: ["prompt", "system-prompt"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/02-聊天Token与上下文/02-System-Prompt是什么.md"
+    cluster: system-prompt-reuse
+
+  - id: q-system-prompt-finetune-web-001
+    question: "为什么不把很长的 System Prompt 直接微调进模型，省掉每次输入的成本？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/50263/why-dont-we-bake-system-prompts-with-fine-tuning"
+    source_title: "Why don't we bake system prompts with fine-tuning?"
+    language: en
+    paraphrased: true
+    concepts: ["system-prompt", "training", "prompt"]
+    difficulty: intermediate
+    priority: medium
+    status: answered
+    answer_path: "docs/02-聊天Token与上下文/02-System-Prompt是什么.md"
+    cluster: system-prompt-vs-finetuning
