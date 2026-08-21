@@ -26,6 +26,7 @@ main_path:
   - loss
   - training
   - inference
+  - decode
   - generalization
   - reasoning
   - hallucination
@@ -57,6 +58,15 @@ extended_path:
   - backpropagation
   - gradient
   - optimizer
+  - prefill
+  - sampling
+  - temperature
+  - top-k
+  - top-p
+  - eos
+  - kv-cache
+  - latency
+  - throughput
   - function-calling
   - embedding
   - vector-database
@@ -457,7 +467,7 @@ concepts:
     summary: Attention 中分别承担发出匹配需求、提供可匹配特征和携带待汇总内容的三组可训练投影表示。
     prerequisites: ["attention"]
     related: ["self-attention", "multi-head-attention"]
-    questions: ["q-r2-attention-001", "q-r2-attention-002", "q-r2-attention-003", "q-r2-attention-007"]
+    questions: ["q-r2-attention-001", "q-r2-attention-002", "q-r2-attention-003", "q-r2-attention-007", "q-kv-cache-ai-se-001"]
 
   - id: causal-mask
     name: 因果遮罩
@@ -600,8 +610,128 @@ concepts:
     group: 推理与Token
     summary: 使用已经训练好的模型参数，根据当前输入计算输出的过程。
     prerequisites: ["model", "parameter"]
-    related: ["training", "context", "token"]
+    related: ["training", "context", "token", "prefill", "decode", "sampling", "kv-cache"]
     questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-web-001", "q-inference-randomness-web-001", "q-temperature-v2ex-001", "q-output-context-limit-v2ex-001", "q-context-length-zhihu-001", "q-kv-cache-ai-se-001", "q-speculative-decoding-reddit-001", "q-prefill-decode-ai-se-001", "q-reasoning-think-ai-se-001", "q-quant-model-size-reddit-001", "q-quant-quality-reddit-001", "q-moe-active-reddit-001", "q-distill-quant-reddit-001", "q-model-format-conversion-so-001"]
+
+  - id: prefill
+    name: Prefill
+    path: docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md
+    aliases: ["Prefill", "Prompt Prefill", "输入预填充"]
+    level: Core
+    path_type: Extended
+    group: 推理与Token
+    summary: 推理开始时并行处理已知 Prompt 位置、产生首个输出位置 Logits 并建立各层 KV Cache 的阶段。
+    prerequisites: ["inference", "tokenizer", "transformer"]
+    related: ["decode", "kv-cache", "gpu-compute"]
+    questions: ["q-token-generation-001", "q-prefill-decode-ai-se-001", "q-r2-gpu-001", "q-r2-gpu-004"]
+
+  - id: decode
+    name: 逐 Token 解码
+    path: docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md
+    aliases: ["Decode", "Decoding", "Autoregressive Decoding", "逐 Token 解码"]
+    level: Core
+    path_type: Main
+    group: 推理与Token
+    summary: 依据当前前缀反复产生 Logits、选择新 Token、追加 Context 并更新 KV Cache 的自回归生成阶段。
+    prerequisites: ["inference", "next-token-prediction"]
+    related: ["prefill", "sampling", "eos", "kv-cache", "context"]
+    questions: ["q-token-generation-001", "q-output-context-limit-v2ex-001", "q-speculative-decoding-reddit-001", "q-prefill-decode-ai-se-001", "q-r2-gpu-001", "q-r2-gpu-004"]
+
+  - id: sampling
+    name: Token 采样
+    path: docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md
+    aliases: ["Sampling", "Token Sampling", "采样", "生成策略"]
+    level: Core
+    path_type: Extended
+    group: 推理与Token
+    summary: 从经过温度与候选过滤处理的 Token 概率分布中选择下一项的生成策略。
+    prerequisites: ["probability", "inference"]
+    related: ["temperature", "top-k", "top-p", "decode"]
+    questions: ["q-token-generation-001", "q-inference-randomness-web-001", "q-temperature-v2ex-001", "q-speculative-decoding-reddit-001"]
+
+  - id: temperature
+    name: Temperature
+    path: docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md
+    aliases: ["Temperature", "温度", "采样温度"]
+    level: Core
+    path_type: Extended
+    group: 推理与Token
+    summary: 在采样前缩放候选 Logits、调节概率分布集中程度的生成参数，不修改模型知识或权重。
+    prerequisites: ["logits", "sampling"]
+    related: ["softmax", "top-k", "top-p"]
+    questions: ["q-temperature-v2ex-001"]
+
+  - id: top-k
+    name: Top-k Sampling
+    path: docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md
+    aliases: ["Top-k", "Top-k Sampling", "Top-k 采样"]
+    level: Core
+    path_type: Extended
+    group: 推理与Token
+    summary: 只保留分数最高的固定 k 个候选，再在该集合中归一化和采样的过滤方法。
+    prerequisites: ["sampling"]
+    related: ["top-p", "temperature"]
+    questions: ["q-temperature-v2ex-001"]
+
+  - id: top-p
+    name: Top-p Sampling
+    path: docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md
+    aliases: ["Top-p", "Nucleus Sampling", "Top-p 采样", "核采样"]
+    level: Core
+    path_type: Extended
+    group: 推理与Token
+    summary: 按概率从高到低保留累计概率达到阈值 p 的最小动态候选集合，再进行采样。
+    prerequisites: ["sampling", "probability"]
+    related: ["top-k", "temperature"]
+    questions: ["q-temperature-v2ex-001"]
+
+  - id: eos
+    name: EOS 结束 Token
+    path: docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md
+    aliases: ["EOS", "End of Sequence", "结束 Token"]
+    level: Core
+    path_type: Extended
+    group: 推理与Token
+    summary: 表示序列结束的特殊 Token，是 Decode 停止条件之一，但不是服务中止生成的唯一方式。
+    prerequisites: ["token", "decode"]
+    related: ["context-window"]
+    questions: ["q-output-context-limit-v2ex-001"]
+
+  - id: kv-cache
+    name: KV Cache
+    path: docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md
+    aliases: ["KV Cache", "Key Value Cache", "键值缓存"]
+    level: Core
+    path_type: Extended
+    group: 推理与Token
+    summary: 保存当前请求中各层历史位置的 Attention K/V 状态，避免每个 Decode 步骤重复计算整段前缀。
+    prerequisites: ["attention", "qkv", "inference"]
+    related: ["prefill", "decode", "context-window", "gpu-compute"]
+    questions: ["q-token-generation-001", "q-kv-cache-ai-se-001", "q-prefill-decode-ai-se-001", "q-r2-gpu-005"]
+
+  - id: latency
+    name: 推理延迟
+    path: docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md
+    aliases: ["Latency", "TTFT", "Inter-Token Latency", "推理延迟", "首 Token 延迟"]
+    level: Advanced
+    path_type: Extended
+    group: 硬件
+    summary: 请求从到达到首 Token、相邻输出 Token 或最终完成所经历的时间，必须按阶段和统计口径报告。
+    prerequisites: ["inference", "prefill", "decode"]
+    related: ["throughput", "gpu-compute"]
+    questions: ["q-r2-gpu-004"]
+
+  - id: throughput
+    name: 推理吞吐
+    path: docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md
+    aliases: ["Throughput", "Tokens per Second", "Tokens/s", "推理吞吐"]
+    level: Advanced
+    path_type: Extended
+    group: 硬件
+    summary: 单位时间处理的输入 Token、输出 Token 或请求数量，需同时说明 Batch、并发和负载条件。
+    prerequisites: ["inference", "prefill", "decode"]
+    related: ["latency", "gpu-compute"]
+    questions: ["q-r2-gpu-004"]
 
   - id: generalization
     name: 泛化
@@ -1279,6 +1409,57 @@ relations:
   - from: training
     relation: 以降低 Loss 为目标优化
     to: parameter
+  - from: inference
+    relation: 包含输入处理阶段
+    to: prefill
+  - from: inference
+    relation: 包含逐 Token 生成阶段
+    to: decode
+  - from: prefill
+    relation: 建立前缀状态
+    to: kv-cache
+  - from: prefill
+    relation: 为首个输出位置产生
+    to: logits
+  - from: decode
+    relation: 逐步生成
+    to: token
+  - from: decode
+    relation: 读取并追加
+    to: kv-cache
+  - from: decode
+    relation: 把生成 Token 追加到
+    to: context
+  - from: sampling
+    relation: 从概率分布选择
+    to: token
+  - from: temperature
+    relation: 在采样前缩放
+    to: logits
+  - from: top-k
+    relation: 以固定候选数约束
+    to: sampling
+  - from: top-p
+    relation: 以累计概率阈值约束
+    to: sampling
+  - from: eos
+    relation: 可以停止
+    to: decode
+  - from: kv-cache
+    relation: 缓存 Attention 的 Key / Value
+    to: qkv
+  - from: prefill
+    relation: 影响首 Token
+    to: latency
+  - from: decode
+    relation: 影响逐 Token
+    to: latency
+  - from: prefill
+    relation: 可按输入 Token 衡量
+    to: throughput
+  - from: decode
+    relation: 可按输出 Token 衡量
+    to: throughput
   - from: codex-product
     relation: 是产品化实例
     to: coding-agent

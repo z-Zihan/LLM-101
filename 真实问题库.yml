@@ -163,11 +163,11 @@ questions:
     source_title: "用户提供的原始聊天记录（2026-08-13）"
     language: zh
     paraphrased: false
-    concepts: ["tokenizer", "token", "token-id", "embedding", "transformer", "attention", "next-token-prediction", "logits", "softmax", "inference"]
+    concepts: ["tokenizer", "token", "token-id", "embedding", "transformer", "attention", "next-token-prediction", "logits", "softmax", "inference", "prefill", "decode", "sampling", "kv-cache"]
     difficulty: beginner
     priority: high
     status: answered
-    answer_path: "docs/03-模型原理与训练/18-训练和推理有什么区别.md"
+    answer_path: "docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md"
     cluster: token-generation
 
   - id: q-undertraining-001
@@ -569,7 +569,7 @@ questions:
     source_title: "Where does randomness occur in LLM inference beyond token sampling?"
     language: en
     paraphrased: true
-    concepts: ["token", "inference"]
+    concepts: ["token", "inference", "sampling"]
     difficulty: intermediate
     priority: medium
     status: answered
@@ -891,11 +891,11 @@ questions:
     source_title: "普通开发参与/迈向 AI 时代的方法也许就是转型做 Agent 开发"
     language: zh
     paraphrased: true
-    concepts: ["token", "logits", "softmax", "probability", "inference"]
+    concepts: ["token", "logits", "softmax", "probability", "inference", "sampling", "temperature", "top-k", "top-p"]
     difficulty: beginner
     priority: high
     status: answered
-    answer_path: "docs/03-模型原理与训练/18-训练和推理有什么区别.md"
+    answer_path: "docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md"
     cluster: sampling-temperature
 
   - id: q-output-context-limit-v2ex-001
@@ -905,11 +905,11 @@ questions:
     source_title: "普通开发参与/迈向 AI 时代的方法也许就是转型做 Agent 开发"
     language: zh
     paraphrased: true
-    concepts: ["token", "context-window", "inference"]
+    concepts: ["token", "context-window", "inference", "decode", "eos"]
     difficulty: beginner
     priority: high
     status: answered
-    answer_path: "docs/02-聊天Token与上下文/07-上下文和上下文窗口是什么.md"
+    answer_path: "docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md"
     cluster: output-vs-context-limit
 
   - id: q-context-length-zhihu-001
@@ -975,11 +975,11 @@ questions:
     source_title: "Why not cache the Q (query) matrix?"
     language: en
     paraphrased: true
-    concepts: ["token", "context-window", "attention", "inference"]
+    concepts: ["token", "context-window", "attention", "qkv", "inference", "kv-cache"]
     difficulty: advanced
     priority: high
     status: answered
-    answer_path: "docs/02-聊天Token与上下文/07-上下文和上下文窗口是什么.md"
+    answer_path: "docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md"
     cluster: kv-cache-mechanics
 
   - id: q-speculative-decoding-reddit-001
@@ -989,7 +989,7 @@ questions:
     source_title: "Does speculative decoding decrease intelligence?"
     language: en
     paraphrased: true
-    concepts: ["token", "inference"]
+    concepts: ["token", "inference", "decode", "sampling"]
     difficulty: intermediate
     priority: medium
     status: answered
@@ -1003,11 +1003,11 @@ questions:
     source_title: "What is considered the pre-fill, and what is considered the decoding phase in transformer inference?"
     language: en
     paraphrased: true
-    concepts: ["token", "attention", "inference"]
+    concepts: ["token", "attention", "inference", "prefill", "decode", "kv-cache"]
     difficulty: intermediate
     priority: high
     status: answered
-    answer_path: "docs/03-模型原理与训练/18-训练和推理有什么区别.md"
+    answer_path: "docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md"
     cluster: prefill-vs-decode
 
   - id: q-ai-memory-v2ex-001
@@ -1625,7 +1625,7 @@ questions:
     source_title: "When is GPU compute the bottleneck and memory bandwidth isn't?"
     language: "en"
     paraphrased: true
-    concepts: ["gpu-compute"]
+    concepts: ["gpu-compute", "prefill", "decode"]
     difficulty: intermediate
     priority: high
     status: answered
@@ -1667,7 +1667,7 @@ questions:
     source_title: "Tokens per second"
     language: "en"
     paraphrased: true
-    concepts: ["gpu-compute"]
+    concepts: ["gpu-compute", "prefill", "decode", "latency", "throughput"]
     difficulty: beginner
     priority: high
     status: answered
@@ -1679,9 +1679,11 @@ questions:
     source_type: "public_web"
     source_url: "https://www.nowcoder.com/discuss/726799474665488384"
     source_title: "小米大模型推理框架面经"
+    source_kind: interview_experience
+    interview_question: true
     language: "zh"
     paraphrased: true
-    concepts: ["gpu-compute"]
+    concepts: ["gpu-compute", "kv-cache"]
     difficulty: advanced
     priority: high
     status: answered
@@ -1693,6 +1695,8 @@ questions:
     source_type: "public_web"
     source_url: "https://www.nowcoder.com/discuss/728972373089779712"
     source_title: "AI Infra / 大模型推理真实面经"
+    source_kind: interview_experience
+    interview_question: true
     language: "zh"
     paraphrased: true
     concepts: ["gpu-compute"]
@@ -1707,6 +1711,8 @@ questions:
     source_type: "public_web"
     source_url: "https://www.nowcoder.com/feed/main/detail/cb5a4d10b89d4df3b84b48fe7c442f28"
     source_title: "字节大模型算法岗面经：FlashAttention / 分布式训练"
+    source_kind: interview_experience
+    interview_question: true
     language: "zh"
     paraphrased: true
     concepts: ["gpu-compute"]
@@ -1721,6 +1727,8 @@ questions:
     source_type: "public_web"
     source_url: "https://www.nowcoder.com/discuss/729667658049159168"
     source_title: "阿里国际大模型算法面经：推理优化 / Attention / RAG"
+    source_kind: interview_experience
+    interview_question: true
     language: "zh"
     paraphrased: true
     concepts: ["gpu-compute"]
