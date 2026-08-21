@@ -79,7 +79,7 @@ questions:
     source_title: "用户提供的原始聊天记录（2026-08-13）"
     language: zh
     paraphrased: true
-    concepts: ["model-lifecycle", "architecture", "transformer", "attention"]
+    concepts: ["model-lifecycle", "architecture", "transformer", "attention", "mlp"]
     difficulty: beginner
     priority: high
     status: answered
@@ -121,7 +121,7 @@ questions:
     source_title: "用户提供的原始聊天记录（2026-08-13）"
     language: zh
     paraphrased: true
-    concepts: ["parameter", "architecture", "transformer", "attention"]
+    concepts: ["parameter", "architecture", "transformer", "attention", "mlp"]
     difficulty: beginner
     priority: high
     status: answered
@@ -191,7 +191,7 @@ questions:
     source_title: "用户提供的原始聊天记录（2026-08-13）"
     language: zh
     paraphrased: true
-    concepts: ["parameter", "model-lifecycle", "training"]
+    concepts: ["parameter", "model-lifecycle", "training", "loss", "backpropagation", "gradient", "optimizer"]
     difficulty: beginner
     priority: high
     status: answered
@@ -205,11 +205,11 @@ questions:
     source_title: "用户提供的原始聊天记录（2026-08-13）"
     language: zh
     paraphrased: true
-    concepts: ["training-data", "training", "next-token-prediction", "softmax", "probability"]
+    concepts: ["training-data", "training", "next-token-prediction", "softmax", "probability", "nll", "cross-entropy", "teacher-forcing", "loss", "backpropagation", "gradient", "optimizer"]
     difficulty: beginner
     priority: high
     status: answered
-    answer_path: "docs/03-模型原理与训练/10-为什么预测下一个Token能学到能力.md"
+    answer_path: "docs/03-模型原理与训练/12-没人给大模型批作业它怎么知道预测错了.md"
     cluster: training-objective
 
   - id: q-next-token-capability-web-001
@@ -1269,7 +1269,7 @@ questions:
     source_title: "Question regarding attention mechanism"
     language: "en"
     paraphrased: true
-    concepts: ["attention"]
+    concepts: ["attention", "qkv"]
     difficulty: beginner
     priority: high
     status: answered
@@ -1283,7 +1283,7 @@ questions:
     source_title: "Training attention QKV matrices"
     language: "en"
     paraphrased: true
-    concepts: ["attention"]
+    concepts: ["attention", "qkv"]
     difficulty: intermediate
     priority: high
     status: answered
@@ -1297,7 +1297,7 @@ questions:
     source_title: "How does self-attention work?"
     language: "en"
     paraphrased: true
-    concepts: ["attention"]
+    concepts: ["attention", "self-attention", "qkv"]
     difficulty: intermediate
     priority: high
     status: answered
@@ -1309,6 +1309,8 @@ questions:
     source_type: "public_web"
     source_url: "https://www.nowcoder.com/discuss/353158189463052288"
     source_title: "深度学习/算法面试中常见 Attention 问题"
+    source_kind: interview_experience
+    interview_question: true
     language: "zh"
     paraphrased: true
     concepts: ["attention"]
@@ -1325,7 +1327,7 @@ questions:
     source_title: "How to understand masked multi-head attention in Transformer?"
     language: "en"
     paraphrased: true
-    concepts: ["attention"]
+    concepts: ["attention", "self-attention", "causal-mask", "teacher-forcing"]
     difficulty: beginner
     priority: high
     status: answered
@@ -1337,9 +1339,11 @@ questions:
     source_type: "public_web"
     source_url: "https://www.nowcoder.com/feed/main/detail/cb5a4d10b89d4df3b84b48fe7c442f28"
     source_title: "字节大模型算法岗面经：Transformer / Attention / 分布式训练"
+    source_kind: interview_experience
+    interview_question: true
     language: "zh"
     paraphrased: true
-    concepts: ["attention"]
+    concepts: ["attention", "multi-head-attention"]
     difficulty: intermediate
     priority: high
     status: answered
@@ -1351,9 +1355,11 @@ questions:
     source_type: "public_web"
     source_url: "https://www.nowcoder.com/discuss/726799474665488384"
     source_title: "小米大模型推理框架面经"
+    source_kind: interview_experience
+    interview_question: true
     language: "zh"
     paraphrased: true
-    concepts: ["attention"]
+    concepts: ["attention", "self-attention", "qkv", "multi-head-attention"]
     difficulty: advanced
     priority: high
     status: answered

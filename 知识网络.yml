@@ -22,6 +22,8 @@ main_path:
   - model-lifecycle
   - architecture
   - transformer
+  - attention
+  - loss
   - training
   - inference
   - generalization
@@ -44,7 +46,17 @@ extended_path:
   - bpe
   - vocabulary
   - context-window
-  - attention
+  - self-attention
+  - qkv
+  - causal-mask
+  - multi-head-attention
+  - mlp
+  - nll
+  - cross-entropy
+  - teacher-forcing
+  - backpropagation
+  - gradient
+  - optimizer
   - function-calling
   - embedding
   - vector-database
@@ -416,12 +428,156 @@ concepts:
     path: docs/03-模型原理与训练/05-Attention到底是什么.md
     aliases: ["Attention", "注意力", "注意力机制"]
     level: Core
-    path_type: Extended
+    path_type: Main
     group: 模型训练
-    summary: 根据当前计算需要，为不同位置的信息分配不同影响权重的机制。
+    summary: 让 Token 依据当前需要读取并汇总其他允许位置的信息，是 Transformer 中的位置间消息传递机制。
     prerequisites: ["token", "transformer"]
     related: ["context", "llm"]
     questions: ["q-architecture-code-001", "q-more-is-better-001", "q-token-generation-001", "q-positional-encoding-reddit-001", "q-kv-cache-ai-se-001", "q-prefill-decode-ai-se-001", "q-r2-attention-001", "q-r2-attention-002", "q-r2-attention-003", "q-r2-attention-004", "q-r2-attention-005", "q-r2-attention-006", "q-r2-attention-007"]
+
+  - id: self-attention
+    name: 自注意力
+    path: docs/03-模型原理与训练/05-Attention到底是什么.md
+    aliases: ["Self-Attention", "Self Attention", "自注意力"]
+    level: Core
+    path_type: Extended
+    group: 模型训练
+    summary: Query、Key 与 Value 来自同一组序列表示，让序列内部各位置按规则交换信息的一类 Attention。
+    prerequisites: ["attention", "token"]
+    related: ["qkv", "causal-mask", "multi-head-attention"]
+    questions: ["q-r2-attention-003", "q-r2-attention-005", "q-r2-attention-007"]
+
+  - id: qkv
+    name: Query / Key / Value
+    path: docs/03-模型原理与训练/05-Attention到底是什么.md
+    aliases: ["QKV", "Query Key Value", "查询键值"]
+    level: Core
+    path_type: Extended
+    group: 模型训练
+    summary: Attention 中分别承担发出匹配需求、提供可匹配特征和携带待汇总内容的三组可训练投影表示。
+    prerequisites: ["attention"]
+    related: ["self-attention", "multi-head-attention"]
+    questions: ["q-r2-attention-001", "q-r2-attention-002", "q-r2-attention-003", "q-r2-attention-007"]
+
+  - id: causal-mask
+    name: 因果遮罩
+    path: docs/03-模型原理与训练/05-Attention到底是什么.md
+    aliases: ["Causal Mask", "Causal Attention Mask", "因果掩码", "因果遮罩"]
+    level: Core
+    path_type: Extended
+    group: 模型训练
+    summary: 在自回归 Attention 中排除未来位置，防止训练时泄露尚未生成的正确答案。
+    prerequisites: ["self-attention", "autoregressive-language-model"]
+    related: ["teacher-forcing", "next-token-prediction"]
+    questions: ["q-r2-attention-005"]
+
+  - id: multi-head-attention
+    name: 多头注意力
+    path: docs/03-模型原理与训练/05-Attention到底是什么.md
+    aliases: ["Multi-Head Attention", "MHA", "多头注意力"]
+    level: Core
+    path_type: Extended
+    group: 模型训练
+    summary: 在多组 Q/K/V 投影子空间中并行执行 Attention，再合并各头结果的参数化结构。
+    prerequisites: ["attention", "qkv"]
+    related: ["self-attention", "transformer"]
+    questions: ["q-r2-attention-006", "q-r2-attention-007"]
+
+  - id: mlp
+    name: MLP / FFN
+    path: docs/03-模型原理与训练/05-Attention到底是什么.md
+    aliases: ["MLP", "FFN", "Feed-Forward Network", "前馈网络"]
+    level: Core
+    path_type: Extended
+    group: 模型训练
+    summary: Transformer 层中在每个 Token 位置独立加工表示的前馈子网络，与 Attention 的位置间信息交换分工不同。
+    prerequisites: ["transformer"]
+    related: ["attention", "parameter"]
+    questions: ["q-architecture-code-001", "q-more-is-better-001"]
+
+  - id: nll
+    name: 负对数似然
+    path: docs/03-模型原理与训练/12-没人给大模型批作业它怎么知道预测错了.md
+    aliases: ["NLL", "Negative Log-Likelihood", "负对数似然"]
+    level: Core
+    path_type: Extended
+    group: 模型训练
+    summary: 用正确 Token 条件概率的负对数衡量预测错误；正确项概率越低，损失越大。
+    prerequisites: ["probability", "next-token-prediction"]
+    related: ["cross-entropy", "loss"]
+    questions: ["q-loss-judgement-001"]
+
+  - id: cross-entropy
+    name: 交叉熵
+    path: docs/03-模型原理与训练/12-没人给大模型批作业它怎么知道预测错了.md
+    aliases: ["Cross Entropy", "Cross-Entropy Loss", "交叉熵"]
+    level: Core
+    path_type: Extended
+    group: 模型训练
+    summary: 比较目标分布与预测分布的损失；one-hot 下一 Token 目标下化简为正确 Token 的 NLL。
+    prerequisites: ["probability", "nll"]
+    related: ["loss", "softmax"]
+    questions: ["q-loss-judgement-001"]
+
+  - id: teacher-forcing
+    name: Teacher Forcing
+    path: docs/03-模型原理与训练/12-没人给大模型批作业它怎么知道预测错了.md
+    aliases: ["Teacher Forcing", "真实前缀训练"]
+    level: Core
+    path_type: Extended
+    group: 模型训练
+    summary: 训练时把数据中真实的历史 Token 作为各位置前缀，使一条已知序列能产生多个训练目标。
+    prerequisites: ["next-token-prediction", "training-data"]
+    related: ["causal-mask", "loss"]
+    questions: ["q-loss-judgement-001", "q-r2-attention-005"]
+
+  - id: loss
+    name: 训练损失
+    path: docs/03-模型原理与训练/12-没人给大模型批作业它怎么知道预测错了.md
+    aliases: ["Loss", "Training Loss", "损失函数", "训练损失"]
+    level: Core
+    path_type: Main
+    group: 模型训练
+    summary: 把模型预测与训练目标的差异汇总成可优化的数值，是目标概率与参数更新之间的接口。
+    prerequisites: ["next-token-prediction", "nll"]
+    related: ["cross-entropy", "backpropagation", "training"]
+    questions: ["q-loss-judgement-001", "q-training-loop-001"]
+
+  - id: backpropagation
+    name: 反向传播
+    path: docs/03-模型原理与训练/12-没人给大模型批作业它怎么知道预测错了.md
+    aliases: ["Backpropagation", "Backprop", "反向传播"]
+    level: Core
+    path_type: Extended
+    group: 模型训练
+    summary: 沿计算图反向应用链式法则，计算 Loss 对各可训练参数梯度的过程。
+    prerequisites: ["loss", "parameter"]
+    related: ["gradient", "optimizer"]
+    questions: ["q-training-loop-001", "q-loss-judgement-001"]
+
+  - id: gradient
+    name: 梯度
+    path: docs/03-模型原理与训练/12-没人给大模型批作业它怎么知道预测错了.md
+    aliases: ["Gradient", "梯度"]
+    level: Core
+    path_type: Extended
+    group: 模型训练
+    summary: Loss 对参数的局部变化率，描述在当前位置怎样改变参数会影响 Loss。
+    prerequisites: ["backpropagation", "parameter"]
+    related: ["optimizer", "training"]
+    questions: ["q-training-loop-001", "q-loss-judgement-001"]
+
+  - id: optimizer
+    name: 优化器
+    path: docs/03-模型原理与训练/12-没人给大模型批作业它怎么知道预测错了.md
+    aliases: ["Optimizer", "优化器", "AdamW"]
+    level: Core
+    path_type: Extended
+    group: 模型训练
+    summary: 结合梯度、学习率及内部状态决定参数实际更新量的训练算法。
+    prerequisites: ["gradient", "parameter"]
+    related: ["training", "loss"]
+    questions: ["q-training-loop-001", "q-loss-judgement-001"]
 
   - id: training
     name: 训练
@@ -432,7 +588,7 @@ concepts:
     group: 模型训练
     summary: 利用数据和目标函数调整模型参数的过程。
     prerequisites: ["model", "parameter", "training-data"]
-    related: ["inference", "model-lifecycle"]
+    related: ["loss", "backpropagation", "gradient", "optimizer", "inference", "model-lifecycle"]
     questions: ["q-model-origin-001", "q-intelligence-origin-001", "q-undertraining-001", "q-training-loop-001", "q-loss-judgement-001", "q-compute-memory-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001", "q-rag-finetuning-web-001", "q-chat-correction-memory-web-001", "q-finetuning-dataset-v2ex-001", "q-finetuning-evaluation-v2ex-001", "q-lora-qlora-reddit-001", "q-context-length-zhihu-001", "q-moe-routing-reddit-001", "q-distill-quant-reddit-001", "q-system-prompt-finetune-web-001", "q-symmetry-same-value-stats-001"]
 
   - id: inference
@@ -1081,6 +1237,48 @@ relations:
   - from: logits
     relation: 经由函数归一化
     to: softmax
+  - from: transformer
+    relation: 包含位置间信息交换模块
+    to: attention
+  - from: transformer
+    relation: 包含逐位置加工模块
+    to: mlp
+  - from: self-attention
+    relation: 是一种
+    to: attention
+  - from: qkv
+    relation: 参数化匹配与信息汇总
+    to: attention
+  - from: causal-mask
+    relation: 限制未来位置进入
+    to: self-attention
+  - from: multi-head-attention
+    relation: 在多个投影子空间并行执行
+    to: attention
+  - from: attention
+    relation: 让 Token 交换信息形成
+    to: context
+  - from: nll
+    relation: 衡量真实下一 Token 的
+    to: probability
+  - from: cross-entropy
+    relation: 对 one-hot 目标化简为
+    to: nll
+  - from: teacher-forcing
+    relation: 提供真实前缀用于
+    to: next-token-prediction
+  - from: loss
+    relation: 通过
+    to: backpropagation
+  - from: backpropagation
+    relation: 计算
+    to: gradient
+  - from: optimizer
+    relation: 使用 Gradient 更新
+    to: parameter
+  - from: training
+    relation: 以降低 Loss 为目标优化
+    to: parameter
   - from: codex-product
     relation: 是产品化实例
     to: coding-agent
@@ -1276,9 +1474,6 @@ relations:
   - from: training-data
     relation: 用于
     to: training
-  - from: training
-    relation: 更新
-    to: parameter
   - from: inference
     relation: 使用
     to: parameter
@@ -1303,9 +1498,6 @@ relations:
   - from: chatgpt-product
     relation: 通过产品层调用
     to: model
-  - from: transformer
-    relation: 使用
-    to: attention
   - from: language-model
     relation: 建模并生成
     to: token
@@ -1323,9 +1515,6 @@ relations:
     to: context
   - from: inference
     relation: 逐步生成
-    to: token
-  - from: attention
-    relation: 处理上下文中的
     to: token
   - from: model
     relation: 可能表现出

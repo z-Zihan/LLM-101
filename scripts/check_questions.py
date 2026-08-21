@@ -40,6 +40,13 @@ def main() -> int:
             errors.append(f"问题 {qid} 的 source_type 无效：{item['source_type']}")
         if item["source_type"] == "public_web" and not str(item["source_url"]).startswith("https://"):
             errors.append(f"公开问题 {qid} 缺少 HTTPS 来源")
+        if item.get("interview_question") is True:
+            if item["source_type"] != "public_web":
+                errors.append(f"真实面试题 {qid} 必须来自公开问题记录")
+            if not str(item["source_url"]).startswith("https://"):
+                errors.append(f"真实面试题 {qid} 缺少公开 HTTPS 来源")
+            if not item.get("source_kind"):
+                errors.append(f"真实面试题 {qid} 缺少 source_kind")
         if item["language"] == "en" and not item["paraphrased"]:
             errors.append(f"英文来源问题 {qid} 的中文问法必须标记 paraphrased")
         if item["difficulty"] not in {"beginner", "intermediate", "advanced"}:
