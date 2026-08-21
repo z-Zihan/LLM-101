@@ -548,6 +548,42 @@ concepts:
     related: ["skill", "conversation-history"]
     questions: ["q-coding-context-github-001", "q-coding-agent-memory-reddit-001", "q-r2-codingagent-001", "q-r2-codingagent-002", "q-r2-codingagent-003", "q-r2-codingagent-004", "q-r2-codingagent-005", "q-r2-codingagent-006", "q-r2-codingagent-007", "q-r2-codingagent-008", "q-copilot-agent-mode-so-001", "q-copilot-env-github-001", "q-shell-terminal-su-001"]
 
+  - id: codex-product
+    name: Codex 产品案例
+    path: docs/11-Coding-Agent/10-Codex产品案例.md
+    aliases: ["OpenAI Codex", "Codex CLI", "Codex App", "Codex Cloud"]
+    level: Advanced
+    path_type: Optional
+    group: Coding Agent
+    summary: 用 OpenAI Codex 的 CLI、IDE、Desktop 与 Web / Cloud 表面理解 Coding Agent 的上下文、工具、权限和验证边界。
+    prerequisites: ["coding-agent", "context-engineering"]
+    related: ["claude-code-product", "cursor-product", "code-execution"]
+    questions: ["q-codex-remote-approval-github-001"]
+
+  - id: claude-code-product
+    name: Claude Code 产品案例
+    path: docs/11-Coding-Agent/11-Claude-Code产品案例.md
+    aliases: ["Claude Code", "Claude Code CLI"]
+    level: Advanced
+    path_type: Optional
+    group: Coding Agent
+    summary: 用 Claude Code 的终端、IDE 与非交互入口理解项目规则、工具循环、权限模式和结果验收。
+    prerequisites: ["coding-agent", "shell", "context-engineering"]
+    related: ["codex-product", "cursor-product", "code-execution"]
+    questions: ["q-claude-code-permission-deadlock-github-001"]
+
+  - id: cursor-product
+    name: Cursor 产品案例
+    path: docs/11-Coding-Agent/12-Cursor产品案例.md
+    aliases: ["Cursor", "Cursor Agent", "Cursor IDE"]
+    level: Advanced
+    path_type: Optional
+    group: Coding Agent
+    summary: 用 Cursor 的编辑器、Agent、Rules、终端与 Worktree 理解可见上下文和强制权限边界的区别。
+    prerequisites: ["coding-agent", "context-engineering"]
+    related: ["codex-product", "claude-code-product", "copilot", "code-execution"]
+    questions: ["q-cursor-workspace-boundary-forum-001"]
+
   - id: conversation-history
     name: 聊天记录
     path: docs/12-Memory/01-聊天记录是什么.md
@@ -885,6 +921,33 @@ concepts:
     questions: ["q-knowledge-graph-vector-hn-001"]
 
 relations:
+  - from: codex-product
+    relation: 是产品化实例
+    to: coding-agent
+  - from: codex-product
+    relation: 选择并维护
+    to: context-engineering
+  - from: codex-product
+    relation: 经批准请求
+    to: code-execution
+  - from: claude-code-product
+    relation: 是产品化实例
+    to: coding-agent
+  - from: claude-code-product
+    relation: 在终端中使用
+    to: shell
+  - from: claude-code-product
+    relation: 经权限模式约束
+    to: code-execution
+  - from: cursor-product
+    relation: 是产品化实例
+    to: coding-agent
+  - from: cursor-product
+    relation: 用规则和检索组织
+    to: context-engineering
+  - from: cursor-product
+    relation: 经运行模式约束
+    to: code-execution
   - from: model-compression
     relation: 改变结构或数值表示作用于
     to: parameter

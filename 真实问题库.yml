@@ -2675,3 +2675,45 @@ questions:
     status: answered
     answer_path: "docs/03-模型原理与训练/13-剪枝量化和蒸馏有什么区别.md"
     cluster: model-compression-method-selection
+
+  - id: q-codex-remote-approval-github-001
+    question: "Codex 任务在远端只显示“等待批准”却没有可操作批准卡时，为什么不能把聊天里的“我同意”当作授权？应该怎样安全恢复？"
+    source_type: public_web
+    source_url: "https://github.com/openai/codex/issues/39346"
+    source_title: "[Desktop/Remote] Mobile shows approval waiting banner but no actionable approval card"
+    language: en
+    paraphrased: true
+    concepts: ["codex-product"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/10-Codex产品案例.md"
+    cluster: codex-cross-surface-approval
+
+  - id: q-claude-code-permission-deadlock-github-001
+    question: "Claude Code 的非交互任务既拒绝命令、又没有可用的授权入口时，为什么在消息里反复说“允许”仍不能解锁？"
+    source_type: public_web
+    source_url: "https://github.com/anthropics/claude-code/issues/87809"
+    source_title: "[BUG] Permission classifier blocks the actions that would grant permission — no escape hatch in non-interactive sessions"
+    language: en
+    paraphrased: true
+    concepts: ["claude-code-product"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/11-Claude-Code产品案例.md"
+    cluster: claude-code-permission-deadlock
+
+  - id: q-cursor-workspace-boundary-forum-001
+    question: "已经在 Cursor Rule 里要求 Agent 只能访问当前仓库，为什么仍不能把它当成强制安全边界？怎样确认和处理越界访问？"
+    source_type: public_web
+    source_url: "https://forum.cursor.com/t/cursor-breaks-boundaries-such-as-searching-the-disk-or-a-different-repository/167851"
+    source_title: "Cursor breaks boundaries such as searching the disk or a different repository"
+    language: en
+    paraphrased: true
+    concepts: ["cursor-product"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/12-Cursor产品案例.md"
+    cluster: cursor-workspace-boundary
