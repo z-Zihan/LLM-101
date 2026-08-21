@@ -2,7 +2,7 @@
 
 > 你现在的位置：[MCP](../09-MCP/01-MCP到底是什么.md) → **Skill** → [Coding Agent](../11-Coding-Agent/04-Coding-Agent是什么.md)
 >
-> 课程导航：[上一篇：MCP 到底是什么](../09-MCP/01-MCP到底是什么.md) · 第 26 / 28 篇 · [下一篇：Coding Agent 是什么](../11-Coding-Agent/04-Coding-Agent是什么.md)
+> 课程导航：[上一篇：MCP 到底是什么](../09-MCP/01-MCP到底是什么.md) · 第 30 / 32 篇 · [下一篇：Coding Agent 是什么](../11-Coding-Agent/04-Coding-Agent是什么.md)
 >
 > 最后核验：2026-08-19
 

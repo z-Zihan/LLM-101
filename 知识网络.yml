@@ -12,17 +12,18 @@ main_path:
   - chatgpt-product
   - parameter
   - prompt
-  - token
+  - text
   - tokenizer
+  - token
   - token-id
   - embedding
-  - autoregressive-language-model
-  - next-token-prediction
   - context
   - model-lifecycle
   - architecture
   - transformer
   - attention
+  - autoregressive-language-model
+  - next-token-prediction
   - loss
   - training
   - inference
@@ -68,7 +69,6 @@ extended_path:
   - latency
   - throughput
   - function-calling
-  - embedding
   - vector-database
   - retrieval
 
