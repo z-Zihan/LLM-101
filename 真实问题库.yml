@@ -667,11 +667,11 @@ questions:
     source_title: "很好奇 RAG 真的是现代 AI Agent 所需要的吗，还有 LangChain"
     language: zh
     paraphrased: true
-    concepts: ["context-window", "rag", "retrieval"]
+    concepts: ["context-window", "rag", "retrieval", "rag-prompt-context"]
     difficulty: intermediate
     priority: high
     status: answered
-    answer_path: "docs/08-RAG与知识库/12-RAG有哪些局限.md"
+    answer_path: "docs/08-RAG与知识库/04-RAG和直接把资料放进Prompt有什么区别.md"
     cluster: rag-vs-long-context
 
   - id: q-rag-document-processing-v2ex-001
@@ -2549,3 +2549,45 @@ questions:
     status: answered
     answer_path: "docs/06-工具与Function-Calling/05-代码执行和Computer-Use有什么风险.md"
     cluster: tool-chain-data-exfiltration
+
+  - id: q-copilot-agent-mode-so-001
+    question: "IDE 里的 Agent Mode 默认绑定 Copilot 时，能不能换成另一个模型或 Agent？Copilot、模型和 Agent Mode 各是哪一层？"
+    source_type: public_web
+    source_url: "https://stackoverflow.com/questions/79979630/how-to-use-a-different-ai-agent-not-github-copilot-in-visual-studios-agent-mo"
+    source_title: "How to use a different AI agent (not GitHub Copilot) in Visual Studio's Agent Mode?"
+    language: en
+    paraphrased: true
+    concepts: ["copilot", "agent", "coding-agent"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/07-Agent/07-从AI-Embedded和Copilot到Agent.md"
+    cluster: copilot-model-agent-mode
+
+  - id: q-copilot-env-github-001
+    question: "Coding Copilot 为什么不应该随意读取或修改 `.env`？这种边界应靠 Prompt 还是文件权限强制？"
+    source_type: public_web
+    source_url: "https://github.com/microsoft/vscode-copilot-release/issues/7643"
+    source_title: "Never let copilot edit .env files"
+    language: en
+    paraphrased: true
+    concepts: ["copilot", "coding-agent", "file-tool"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/07-Agent/07-从AI-Embedded和Copilot到Agent.md"
+    cluster: copilot-sensitive-file-boundary
+
+  - id: q-shell-terminal-su-001
+    question: "Shell、Terminal、Console 和 Command Line 到底有什么区别？在终端输入一条命令后是谁真正执行？"
+    source_type: public_web
+    source_url: "https://superuser.com/questions/795950/what-is-the-differences-of-these-conceptsshell-terminal-console-and-command-l"
+    source_title: "What is the differences of these concepts(Shell, Terminal, Console and Command-line) in Linux?"
+    language: en
+    paraphrased: true
+    concepts: ["shell", "code-execution", "coding-agent"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/02-Shell和Command是什么.md"
+    cluster: shell-terminal-command

@@ -6,23 +6,23 @@
 
 我们从真实小白会问的问题出发，沿着连续追问，一步一步建立完整心智模型。
 
-> 当前发布范围已经闭环：65 篇已发布文章达到当前标准，182 个已入库真实问题全部有答案；长期路线图 B1、B2 已完成，仍有 Deferred / Verify 项，详见下方边界说明。
+> 当前发布范围已经闭环：68 篇已发布文章达到当前标准，185 个已入库真实问题全部有答案；长期路线图 B1～B3 已完成，仍有 Deferred / Verify 项，详见下方边界说明。
 
 ## 当前完成度与边界
 
 | 维度 | 当前状态 |
 |---|---|
-| 已发布正文 | 65 篇；其中 51 篇原有正文完成 V3 重写，新增 14 篇扩展正文 |
-| 真实问题 | 182 条已入库，182 条 `answered`，High 未回答为 0 |
-| 知识网络 | 61 个节点、98 条语义关系 |
-| 内容地图 | 149 个覆盖项 `Done`，30 个长期选题 `Deferred`，3 个易变产品项 `Verify` |
+| 已发布正文 | 68 篇；其中 51 篇原有正文完成 V3 重写，新增 17 篇扩展正文 |
+| 真实问题 | 185 条已入库，185 条 `answered`，High 未回答为 0 |
+| 知识网络 | 64 个节点、105 条语义关系 |
+| 内容地图 | 154 个覆盖项 `Done`，25 个长期选题 `Deferred`，3 个易变产品项 `Verify` |
 | 自动检查 | 链接、概念、问题严格检查、生成确定性与 Python 语法均通过 |
 
 这里的“完成”指**当前发布范围闭环**，不是以后再也没有内容可写。`Done` 也不等于每个子概念都单独成文：只要某个问题已经在通过审查的主页面中完整回答，就不再为了凑数量拆一篇短文。
 
 仍需继续处理的工作主要有三类：
 
-- 11 个尚缺专项解释的内容选题，例如模型文件格式、Copilot 与 Agent、知识图谱对比和 RAG 与直接上下文；
+- 6 个尚缺专项解释的内容选题：5 个模型训练细节，以及知识图谱与向量数据库的比较；
 - 19 个可视化与历史附录选题，以及 Codex、Claude Code、Cursor 3 个必须重新联网核验的易变产品案例；
 - 两轮 130 条公开候选中，20 条达到 A 级正文核验，110 条受 Reddit、牛客等访问限制而保留为 B 级。B 级证明链已记录，但不宣称完成了实时正文复核；技术答案仍使用论文、官方文档或权威资料独立核验。
 
@@ -140,6 +140,7 @@ RAG → MCP → Skill → Coding Agent
 - [Function Calling 是什么？](./docs/06-工具与Function-Calling/03-Function-Calling是什么.md)
 - [AI 怎样搜索、读文件和查数据库？](./docs/06-工具与Function-Calling/04-AI怎样搜索读文件和查数据库.md)
 - [代码执行和 Computer Use 有什么风险？](./docs/06-工具与Function-Calling/05-代码执行和Computer-Use有什么风险.md)
+- [从 AI Embedded、Copilot 到 Agent](./docs/07-Agent/07-从AI-Embedded和Copilot到Agent.md)
 - [模型和 Agent 有什么区别？](./docs/07-Agent/02-模型和Agent有什么区别.md)
 - [Agent Loop 是什么？](./docs/07-Agent/03-Agent-Loop是什么.md)
 - [Agent 如何规划和恢复？](./docs/07-Agent/04-Agent如何规划和恢复.md)
@@ -150,6 +151,7 @@ RAG → MCP → Skill → Coding Agent
 - [检索是什么？](./docs/08-RAG与知识库/08-检索是什么.md)
 - [RAG 和微调有什么区别？](./docs/08-RAG与知识库/11-RAG和微调有什么区别.md)
 - [RAG 有哪些局限？](./docs/08-RAG与知识库/12-RAG有哪些局限.md)
+- [RAG 和直接把资料放进 Prompt 有什么区别？](./docs/08-RAG与知识库/04-RAG和直接把资料放进Prompt有什么区别.md)
 - [MCP 客户端和服务端是什么？](./docs/09-MCP/02-MCP客户端和服务端是什么.md)
 - [MCP 工具、资源和提示是什么？](./docs/09-MCP/03-MCP工具资源和提示是什么.md)
 - [MCP 和 API 有什么区别？](./docs/09-MCP/04-MCP和API有什么区别.md)
@@ -162,8 +164,9 @@ RAG → MCP → Skill → Coding Agent
 - [AI Coding 是什么？](./docs/11-Coding-Agent/01-AI-Coding是什么.md)
 - [项目上下文是什么？](./docs/11-Coding-Agent/08-项目上下文是什么.md)
 - [上下文工程是什么？](./docs/11-Coding-Agent/09-上下文工程是什么.md)
+- [Shell 和 Command 是什么？](./docs/11-Coding-Agent/02-Shell和Command是什么.md)
 
-Deferred 与 Verify 已整理成[长期内容路线图](./长期内容路线图.md)：规划为 Now / Next / Later 共 9 个批次、约 27 个实际交付物；B1、B2 共 6 篇已完成，剩余约 21 个计划交付物。每批仍按“研究 → 重写 → 真实问题与知识网络更新 → 15 项审查 → 自动检查 → 提交推送”的合同推进。
+Deferred 与 Verify 已整理成[长期内容路线图](./长期内容路线图.md)：规划为 Now / Next / Later 共 9 个批次、约 27 个实际交付物；B1～B3 共 9 个交付物已完成，剩余约 18 个。每批仍按“研究 → 重写 → 真实问题与知识网络更新 → 15 项审查 → 自动检查 → 提交推送”的合同推进。
 
 ## 扩展学习路线
 

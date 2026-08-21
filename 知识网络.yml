@@ -390,7 +390,7 @@ concepts:
     summary: 围绕目标反复获取信息、选择行动、使用工具并根据结果继续推进的系统。
     prerequisites: ["model", "tool"]
     related: ["rag", "mcp", "skill", "coding-agent"]
-    questions: ["q-agent-001", "q-agent-definition-web-001", "q-agent-roadmap-v2ex-001", "q-agent-concepts-roadmap-v2ex-001", "q-agent-loop-v2ex-001", "q-rag-agent-zhihu-001", "q-platform-mcp-v2ex-001", "q-agent-browser-injection-v2ex-001", "q-long-agent-state-reddit-001", "q-tool-prompt-injection-reddit-001", "q-mcp-security-hn-001"]
+    questions: ["q-agent-001", "q-agent-definition-web-001", "q-agent-roadmap-v2ex-001", "q-agent-concepts-roadmap-v2ex-001", "q-agent-loop-v2ex-001", "q-rag-agent-zhihu-001", "q-platform-mcp-v2ex-001", "q-agent-browser-injection-v2ex-001", "q-long-agent-state-reddit-001", "q-tool-prompt-injection-reddit-001", "q-mcp-security-hn-001", "q-copilot-agent-mode-so-001"]
 
   - id: rag
     name: RAG
@@ -486,7 +486,7 @@ concepts:
     summary: 能读取项目、修改文件、运行命令并验证结果的编程任务 Agent。
     prerequisites: ["agent", "tool"]
     related: ["skill", "conversation-history"]
-    questions: ["q-coding-context-github-001", "q-coding-agent-memory-reddit-001", "q-r2-codingagent-001", "q-r2-codingagent-002", "q-r2-codingagent-003", "q-r2-codingagent-004", "q-r2-codingagent-005", "q-r2-codingagent-006", "q-r2-codingagent-007", "q-r2-codingagent-008"]
+    questions: ["q-coding-context-github-001", "q-coding-agent-memory-reddit-001", "q-r2-codingagent-001", "q-r2-codingagent-002", "q-r2-codingagent-003", "q-r2-codingagent-004", "q-r2-codingagent-005", "q-r2-codingagent-006", "q-r2-codingagent-007", "q-r2-codingagent-008", "q-copilot-agent-mode-so-001", "q-copilot-env-github-001", "q-shell-terminal-su-001"]
 
   - id: conversation-history
     name: 聊天记录
@@ -726,7 +726,7 @@ concepts:
     summary: 由宿主在受控路径与权限内读取、解析或写入文件，并把内容或结果交给模型的工具能力。
     prerequisites: ["tool"]
     related: ["ocr", "code-execution", "computer-use"]
-    questions: ["q-file-access-so-001", "q-tool-prompt-injection-reddit-001", "q-tool-chain-exfiltration-hn-001"]
+    questions: ["q-file-access-so-001", "q-tool-prompt-injection-reddit-001", "q-tool-chain-exfiltration-hn-001", "q-copilot-env-github-001"]
 
   - id: database-tool
     name: 数据库工具
@@ -762,7 +762,7 @@ concepts:
     summary: 在受控运行环境中真正启动代码和进程、访问获准资源并返回输出或产物的工具能力。
     prerequisites: ["tool"]
     related: ["file-tool", "computer-use", "coding-agent"]
-    questions: ["q-code-interpreter-dependency-so-001", "q-tool-prompt-injection-reddit-001"]
+    questions: ["q-code-interpreter-dependency-so-001", "q-tool-prompt-injection-reddit-001", "q-shell-terminal-su-001"]
 
   - id: computer-use
     name: Computer Use
@@ -776,7 +776,64 @@ concepts:
     related: ["code-execution", "file-tool", "agent"]
     questions: ["q-browser-audit-so-001", "q-agent-browser-injection-v2ex-001", "q-tool-prompt-injection-reddit-001", "q-tool-chain-exfiltration-hn-001"]
 
+  - id: copilot
+    name: Copilot
+    path: docs/07-Agent/07-从AI-Embedded和Copilot到Agent.md
+    aliases: ["Copilot", "AI Copilot", "AI Embedded", "副驾驶式 AI"]
+    level: Core
+    path_type: Optional
+    group: Tool与Agent
+    summary: 强调用户持续掌舵、由 AI 提供上下文相关建议或局部行动的产品协作定位，某些模式也可具备完整 Agent 结构。
+    prerequisites: ["model", "tool"]
+    related: ["agent", "coding-agent"]
+    questions: ["q-copilot-agent-mode-so-001", "q-copilot-env-github-001"]
+
+  - id: shell
+    name: Shell 与命令
+    path: docs/11-Coding-Agent/02-Shell和Command是什么.md
+    aliases: ["Shell", "Command", "CLI", "命令行", "命令解释器"]
+    level: Advanced
+    path_type: Optional
+    group: Coding Agent
+    summary: Shell 解析命令语言并组织程序、管道和重定向，命令经宿主授权后才由操作系统中的进程真正执行。
+    prerequisites: ["code-execution"]
+    related: ["coding-agent", "tool", "file-tool"]
+    questions: ["q-shell-terminal-su-001"]
+
+  - id: rag-prompt-context
+    name: RAG 与直接上下文
+    path: docs/08-RAG与知识库/04-RAG和直接把资料放进Prompt有什么区别.md
+    aliases: ["RAG vs Prompt Context", "RAG vs Long Context", "RAG 与直接输入资料"]
+    level: Core
+    path_type: Optional
+    group: RAG与知识
+    summary: 比较直接把明确资料整体放入上下文，与先从大集合检索再放入相关片段的两种输入策略。
+    prerequisites: ["context", "rag"]
+    related: ["context-window", "retrieval", "knowledge-base"]
+    questions: ["q-rag-long-context-v2ex-001"]
+
 relations:
+  - from: copilot
+    relation: 使用
+    to: model
+  - from: copilot
+    relation: 某些模式具备完整
+    to: agent
+  - from: coding-agent
+    relation: 可以采用协作定位
+    to: copilot
+  - from: code-execution
+    relation: 常通过命令解释器使用
+    to: shell
+  - from: coding-agent
+    relation: 使用
+    to: shell
+  - from: rag-prompt-context
+    relation: 比较检索后输入
+    to: rag
+  - from: rag-prompt-context
+    relation: 比较直接输入
+    to: context
   - from: jailbreak
     relation: 常通过改写
     to: prompt
