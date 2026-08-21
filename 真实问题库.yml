@@ -1,5 +1,5 @@
 version: 3
-updated: "2026-08-19"
+updated: "2026-08-21"
 
 questions:
   - id: q-token-units-001
@@ -93,11 +93,11 @@ questions:
     source_title: "用户提供的原始聊天记录（2026-08-13）"
     language: zh
     paraphrased: false
-    concepts: ["model", "parameter"]
+    concepts: ["model", "parameter", "model-file-format"]
     difficulty: beginner
     priority: high
     status: answered
-    answer_path: "docs/03-模型原理与训练/06-参数到底是什么.md"
+    answer_path: "docs/03-模型原理与训练/09-safetensors和GGUF是什么.md"
     cluster: parameter-form
 
   - id: q-intelligence-origin-001
@@ -1255,11 +1255,11 @@ questions:
     source_title: "The current state of LLM benchmarks is so polluted"
     language: en
     paraphrased: true
-    concepts: ["training-data", "generalization", "verification"]
+    concepts: ["training-data", "generalization", "memorization", "verification"]
     difficulty: intermediate
     priority: high
     status: answered
-    answer_path: "docs/05-幻觉与模型局限/04-怎么验证AI的回答.md"
+    answer_path: "docs/04-模型能力/02-记忆训练数据和泛化有什么区别.md"
     cluster: benchmark-contamination
 
   - id: q-r2-attention-001
@@ -2605,3 +2605,45 @@ questions:
     status: answered
     answer_path: "docs/08-RAG与知识库/06-知识图谱和向量数据库有什么区别.md"
     cluster: knowledge-graph-vs-vector-database
+
+  - id: q-symmetry-same-value-stats-001
+    question: "神经网络的权重为什么不能全部初始化成同一个值？只要不是 0 就可以吗？"
+    source_type: public_web
+    source_url: "https://stats.stackexchange.com/questions/578293/initialize-weights-with-the-same-value"
+    source_title: "Initialize weights with the same value"
+    language: en
+    paraphrased: true
+    concepts: ["parameter", "training", "symmetry-breaking"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/04-为什么参数不能全部初始化成一样.md"
+    cluster: symmetry-breaking-initialization
+
+  - id: q-model-format-conversion-so-001
+    question: "safetensors 模型能不能直接转成 GGUF？转换和量化是不是同一件事？"
+    source_type: public_web
+    source_url: "https://stackoverflow.com/questions/78763327/convert-safetensors-model-formatllava-model-into-gguf-format"
+    source_title: "Convert safetensors model format (LLaVA model) into GGUF format"
+    language: en
+    paraphrased: true
+    concepts: ["parameter", "model-file-format", "inference"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/09-safetensors和GGUF是什么.md"
+    cluster: safetensors-gguf-conversion
+
+  - id: q-memorization-verbatim-ai-se-001
+    question: "参考资料也出现在原训练数据里时，语言模型能不能逐字生成相同内容？这算记忆还是泛化？"
+    source_type: public_web
+    source_url: "https://ai.stackexchange.com/questions/48410/can-the-output-of-a-language-model-be-identical-to-its-training-data-if-finetun"
+    source_title: "Can the output of a language model be identical to its training data?"
+    language: en
+    paraphrased: true
+    concepts: ["training-data", "memorization", "generalization"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/02-记忆训练数据和泛化有什么区别.md"
+    cluster: memorization-vs-generalization

@@ -150,7 +150,7 @@ concepts:
     summary: 训练过程会调整、推理过程会使用的模型内部数值。
     prerequisites: ["model"]
     related: ["training", "training-data", "inference"]
-    questions: ["q-parameter-data-001", "q-parameter-capacity-001", "q-model-origin-001", "q-parameter-form-001", "q-intelligence-origin-001", "q-more-is-better-001", "q-undertraining-001", "q-training-loop-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-neural-soft-database-web-001", "q-lora-qlora-reddit-001", "q-ai-memory-v2ex-001", "q-context-memory-reddit-001", "q-quant-model-size-reddit-001", "q-quant-quality-reddit-001", "q-moe-basics-reddit-001", "q-moe-active-reddit-001", "q-distill-quant-reddit-001"]
+    questions: ["q-parameter-data-001", "q-parameter-capacity-001", "q-model-origin-001", "q-parameter-form-001", "q-intelligence-origin-001", "q-more-is-better-001", "q-undertraining-001", "q-training-loop-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-neural-soft-database-web-001", "q-lora-qlora-reddit-001", "q-ai-memory-v2ex-001", "q-context-memory-reddit-001", "q-quant-model-size-reddit-001", "q-quant-quality-reddit-001", "q-moe-basics-reddit-001", "q-moe-active-reddit-001", "q-distill-quant-reddit-001", "q-symmetry-same-value-stats-001", "q-model-format-conversion-so-001"]
 
   - id: training-data
     name: 训练数据
@@ -162,7 +162,31 @@ concepts:
     summary: 训练时用来计算目标和调整模型参数的数据。
     prerequisites: ["machine-learning", "model"]
     related: ["parameter", "training"]
-    questions: ["q-parameter-data-001", "q-undertraining-001", "q-loss-judgement-001", "q-parameter-scale-web-001", "q-finetuning-dataset-v2ex-001", "q-lora-qlora-reddit-001", "q-benchmark-contamination-reddit-001"]
+    questions: ["q-parameter-data-001", "q-undertraining-001", "q-loss-judgement-001", "q-parameter-scale-web-001", "q-finetuning-dataset-v2ex-001", "q-lora-qlora-reddit-001", "q-benchmark-contamination-reddit-001", "q-memorization-verbatim-ai-se-001"]
+
+  - id: symmetry-breaking
+    name: 参数初始化与对称性打破
+    path: docs/03-模型原理与训练/04-为什么参数不能全部初始化成一样.md
+    aliases: ["Symmetry Breaking", "Weight Initialization", "对称性打破", "参数初始化"]
+    level: Advanced
+    path_type: Optional
+    group: 模型训练
+    summary: 让本应分工的计算单元从可区分的数值状态开始，并控制深层网络中的信号与梯度尺度。
+    prerequisites: ["parameter", "architecture", "training"]
+    related: ["model-lifecycle", "generalization"]
+    questions: ["q-symmetry-same-value-stats-001"]
+
+  - id: model-file-format
+    name: 模型文件格式
+    path: docs/03-模型原理与训练/09-safetensors和GGUF是什么.md
+    aliases: ["Model File Format", "safetensors", "GGUF", "权重文件格式"]
+    level: Advanced
+    path_type: Optional
+    group: 模型训练
+    summary: 规定张量、形状、数据类型和元数据怎样写入文件，并与架构、量化和运行时保持兼容。
+    prerequisites: ["parameter", "architecture"]
+    related: ["inference", "gpu-compute"]
+    questions: ["q-parameter-form-001", "q-model-format-conversion-so-001"]
 
   - id: prompt
     name: 提示
@@ -270,7 +294,7 @@ concepts:
     summary: 利用数据和目标函数调整模型参数的过程。
     prerequisites: ["model", "parameter", "training-data"]
     related: ["inference", "model-lifecycle"]
-    questions: ["q-model-origin-001", "q-intelligence-origin-001", "q-undertraining-001", "q-training-loop-001", "q-loss-judgement-001", "q-compute-memory-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001", "q-rag-finetuning-web-001", "q-chat-correction-memory-web-001", "q-finetuning-dataset-v2ex-001", "q-finetuning-evaluation-v2ex-001", "q-lora-qlora-reddit-001", "q-context-length-zhihu-001", "q-moe-routing-reddit-001", "q-distill-quant-reddit-001", "q-system-prompt-finetune-web-001"]
+    questions: ["q-model-origin-001", "q-intelligence-origin-001", "q-undertraining-001", "q-training-loop-001", "q-loss-judgement-001", "q-compute-memory-001", "q-reproducibility-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001", "q-rag-finetuning-web-001", "q-chat-correction-memory-web-001", "q-finetuning-dataset-v2ex-001", "q-finetuning-evaluation-v2ex-001", "q-lora-qlora-reddit-001", "q-context-length-zhihu-001", "q-moe-routing-reddit-001", "q-distill-quant-reddit-001", "q-system-prompt-finetune-web-001", "q-symmetry-same-value-stats-001"]
 
   - id: inference
     name: 推理
@@ -282,7 +306,7 @@ concepts:
     summary: 使用已经训练好的模型参数，根据当前输入计算输出的过程。
     prerequisites: ["model", "parameter"]
     related: ["training", "context", "token"]
-    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-web-001", "q-inference-randomness-web-001", "q-temperature-v2ex-001", "q-output-context-limit-v2ex-001", "q-context-length-zhihu-001", "q-kv-cache-ai-se-001", "q-speculative-decoding-reddit-001", "q-prefill-decode-ai-se-001", "q-reasoning-think-ai-se-001", "q-quant-model-size-reddit-001", "q-quant-quality-reddit-001", "q-moe-active-reddit-001", "q-distill-quant-reddit-001"]
+    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-web-001", "q-inference-randomness-web-001", "q-temperature-v2ex-001", "q-output-context-limit-v2ex-001", "q-context-length-zhihu-001", "q-kv-cache-ai-se-001", "q-speculative-decoding-reddit-001", "q-prefill-decode-ai-se-001", "q-reasoning-think-ai-se-001", "q-quant-model-size-reddit-001", "q-quant-quality-reddit-001", "q-moe-active-reddit-001", "q-distill-quant-reddit-001", "q-model-format-conversion-so-001"]
 
   - id: generalization
     name: 泛化
@@ -293,8 +317,20 @@ concepts:
     group: AI与模型
     summary: 模型把训练中学到的规律用于未见过但相关情形的能力。
     prerequisites: ["model", "training"]
-    related: ["reasoning", "hallucination"]
-    questions: ["q-parameter-capacity-001", "q-intelligence-origin-001", "q-undertraining-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001", "q-finetuning-dataset-v2ex-001", "q-finetuning-evaluation-v2ex-001", "q-benchmark-contamination-reddit-001"]
+    related: ["reasoning", "hallucination", "memorization"]
+    questions: ["q-parameter-capacity-001", "q-intelligence-origin-001", "q-undertraining-001", "q-parameter-scale-web-001", "q-next-token-capability-web-001", "q-finetuning-dataset-v2ex-001", "q-finetuning-evaluation-v2ex-001", "q-benchmark-contamination-reddit-001", "q-memorization-verbatim-ai-se-001"]
+
+  - id: memorization
+    name: 训练数据记忆
+    path: docs/04-模型能力/02-记忆训练数据和泛化有什么区别.md
+    aliases: ["Memorization", "Training Data Memorization", "训练数据记忆", "逐字记忆"]
+    level: Advanced
+    path_type: Optional
+    group: AI与模型
+    summary: 模型对训练样本中的具体片段表现出异常高可预测性，某些情况下还能逐字复现或被外部提取。
+    prerequisites: ["training-data", "training"]
+    related: ["generalization", "verification", "database-boundary"]
+    questions: ["q-benchmark-contamination-reddit-001", "q-memorization-verbatim-ai-se-001"]
 
   - id: reasoning
     name: 推理能力
@@ -825,6 +861,27 @@ concepts:
     questions: ["q-knowledge-graph-vector-hn-001"]
 
 relations:
+  - from: symmetry-breaking
+    relation: 通过可区分初值作用于
+    to: parameter
+  - from: symmetry-breaking
+    relation: 为优化过程提供数值起点
+    to: training
+  - from: model-file-format
+    relation: 保存并描述
+    to: parameter
+  - from: inference
+    relation: 从兼容文件加载
+    to: model-file-format
+  - from: memorization
+    relation: 可能保留具体片段来自
+    to: training-data
+  - from: memorization
+    relation: 不等同于
+    to: generalization
+  - from: memorization
+    relation: 需要提取与污染检查支持
+    to: verification
   - from: knowledge-graph
     relation: 显式保存实体与关系以支持
     to: retrieval
