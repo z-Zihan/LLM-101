@@ -1101,11 +1101,11 @@ questions:
     source_title: "大模型在技术上能/怎么实现比较准确的数据库查询吗/呢？"
     language: zh
     paraphrased: true
-    concepts: ["tool", "function-calling", "rag", "mcp"]
+    concepts: ["tool", "function-calling", "rag", "mcp", "database-tool"]
     difficulty: intermediate
     priority: high
     status: answered
-    answer_path: "docs/06-工具与Function-Calling/02-AI工具到底是什么.md"
+    answer_path: "docs/06-工具与Function-Calling/04-AI怎样搜索读文件和查数据库.md"
     cluster: llm-database-access
 
   - id: q-agent-browser-injection-v2ex-001
@@ -1115,11 +1115,11 @@ questions:
     source_title: "Browser for AI Agent —— 让 AI 通过你的浏览器读取登录态页面"
     language: zh
     paraphrased: true
-    concepts: ["prompt", "tool", "agent"]
+    concepts: ["prompt", "tool", "agent", "computer-use"]
     difficulty: intermediate
     priority: high
     status: answered
-    answer_path: "docs/07-Agent/03-Agent-Loop是什么.md"
+    answer_path: "docs/06-工具与Function-Calling/05-代码执行和Computer-Use有什么风险.md"
     cluster: agent-prompt-injection
 
   - id: q-long-agent-state-reddit-001
@@ -1143,11 +1143,11 @@ questions:
     source_title: "Are local LLM users testing prompt injection before connecting models to tools?"
     language: en
     paraphrased: true
-    concepts: ["prompt", "tool", "agent"]
+    concepts: ["prompt", "tool", "agent", "file-tool", "code-execution", "computer-use"]
     difficulty: intermediate
     priority: high
     status: answered
-    answer_path: "docs/07-Agent/03-Agent-Loop是什么.md"
+    answer_path: "docs/06-工具与Function-Calling/05-代码执行和Computer-Use有什么风险.md"
     cluster: agent-prompt-injection
 
   - id: q-mcp-security-hn-001
@@ -2437,3 +2437,115 @@ questions:
     status: answered
     answer_path: "docs/02-聊天Token与上下文/02-System-Prompt是什么.md"
     cluster: system-prompt-vs-finetuning
+
+  - id: q-jailbreak-encoding-se-001
+    question: "把恶意要求改成十六进制或其他编码，为什么有时能绕过 LLM 防护？这属于 Prompt Injection 还是 Jailbreak？"
+    source_type: public_web
+    source_url: "https://security.stackexchange.com/questions/279331/how-does-hex-encoded-prompt-injection-work-to-bypass-protections-in-llms-i-e-c"
+    source_title: "How does hex-encoded prompt injection work to bypass protections in LLMs (i.e. ChatGPT)?"
+    language: en
+    paraphrased: true
+    concepts: ["jailbreak", "prompt"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/05-幻觉与模型局限/03-Jailbreak和Red-Team是什么.md"
+    cluster: jailbreak-vs-prompt-injection
+
+  - id: q-red-team-pentest-so-001
+    question: "Red Team 和渗透测试有什么区别？谁的范围更大、权限更高？"
+    source_type: public_web
+    source_url: "https://stackoverflow.com/questions/32265615/difference-between-red-team-penetration-testing-and-blue-team"
+    source_title: "Difference between Red Team, Penetration Testing and Blue Team"
+    language: en
+    paraphrased: true
+    concepts: ["red-team"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/05-幻觉与模型局限/03-Jailbreak和Red-Team是什么.md"
+    cluster: red-team-vs-pentest
+
+  - id: q-web-search-provenance-so-001
+    question: "给聊天机器人接上 Web Search 后，怎样追踪回答到底使用了哪个 URL、哪段文字和哪些元数据？"
+    source_type: public_web
+    source_url: "https://stackoverflow.com/questions/78334865/how-to-trace-source-data-in-an-openai-based-chatbot-using-langchain-and-third-pa"
+    source_title: "How to Trace Source Data in an OpenAI-based Chatbot Using Langchain and Third-Party Custom Tools like Tavily API"
+    language: en
+    paraphrased: true
+    concepts: ["web-search", "tool"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/06-工具与Function-Calling/04-AI怎样搜索读文件和查数据库.md"
+    cluster: web-search-provenance
+
+  - id: q-file-access-so-001
+    question: "聊天模型能直接读取和写入我电脑上的文件夹吗？要怎样把本地文件能力安全地接给它？"
+    source_type: public_web
+    source_url: "https://stackoverflow.com/questions/76222270/how-to-read-and-write-to-a-folder-on-my-computer-using-chatgpt"
+    source_title: "how to read and write to a folder on my computer using chatgpt"
+    language: en
+    paraphrased: true
+    concepts: ["file-tool", "tool"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/06-工具与Function-Calling/04-AI怎样搜索读文件和查数据库.md"
+    cluster: local-file-access
+
+  - id: q-ocr-confidence-so-001
+    question: "OCR 怎样给出单词或字符的置信度？为什么有置信度仍不能保证关键文字识别正确？"
+    source_type: public_web
+    source_url: "https://stackoverflow.com/questions/62682707/ocr-confidence-score-from-google-vision-api"
+    source_title: "OCR confidence score from Google Vision API"
+    language: en
+    paraphrased: true
+    concepts: ["ocr"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/06-工具与Function-Calling/04-AI怎样搜索读文件和查数据库.md"
+    cluster: ocr-confidence
+
+  - id: q-code-interpreter-dependency-so-001
+    question: "Code Interpreter 不能联网时怎样安装新的 Python 库？代码到底运行在什么环境里？"
+    source_type: public_web
+    source_url: "https://stackoverflow.com/questions/76667874/how-can-i-install-python-library-in-chatgpt-code-interpreter"
+    source_title: "How can I install Python library in ChatGPT Code Interpreter"
+    language: en
+    paraphrased: true
+    concepts: ["code-execution"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/06-工具与Function-Calling/05-代码执行和Computer-Use有什么风险.md"
+    cluster: code-execution-environment
+
+  - id: q-browser-audit-so-001
+    question: "浏览器 Agent 怎样保存每一步截图和整段会话录像，才能复盘它看见了什么、做过什么？"
+    source_type: public_web
+    source_url: "https://stackoverflow.com/questions/79648080/how-to-use-browser-use-to-make-screenshots-for-each-step-and-video-recording-for"
+    source_title: "How to use browser-use to make screenshots for each step and video recording for the whole session?"
+    language: en
+    paraphrased: true
+    concepts: ["computer-use"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/06-工具与Function-Calling/05-代码执行和Computer-Use有什么风险.md"
+    cluster: computer-use-audit
+
+  - id: q-tool-chain-exfiltration-hn-001
+    question: "读取文件和发送邮件单独看都很正常，为什么串在一起就可能变成数据外泄？"
+    source_type: public_web
+    source_url: "https://news.ycombinator.com/item?id=46732440"
+    source_title: "Discussion: We got an AI agent to read a config file and email it to an external address"
+    language: en
+    paraphrased: true
+    concepts: ["file-tool", "computer-use", "tool"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/06-工具与Function-Calling/05-代码执行和Computer-Use有什么风险.md"
+    cluster: tool-chain-data-exfiltration

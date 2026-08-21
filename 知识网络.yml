@@ -174,7 +174,7 @@ concepts:
     summary: 用户或系统提供给模型、用来表达任务和约束的输入内容。
     prerequisites: ["llm"]
     related: ["context", "token", "inference", "system-prompt"]
-    questions: ["q-prompt-001", "q-agent-browser-injection-v2ex-001", "q-tool-prompt-injection-reddit-001", "q-system-prompt-web-001", "q-system-prompt-finetune-web-001"]
+    questions: ["q-prompt-001", "q-agent-browser-injection-v2ex-001", "q-tool-prompt-injection-reddit-001", "q-system-prompt-web-001", "q-system-prompt-finetune-web-001", "q-jailbreak-encoding-se-001"]
 
   - id: token
     name: Token
@@ -366,7 +366,7 @@ concepts:
     summary: AI 系统可以请求外部程序执行的受控能力。
     prerequisites: ["api"]
     related: ["function-calling", "agent", "mcp", "skill"]
-    questions: ["q-agent-001", "q-function-calling-web-001", "q-mcp-openapi-hn-001", "q-skill-mcp-github-001", "q-agent-roadmap-v2ex-001", "q-agent-loop-v2ex-001", "q-platform-mcp-v2ex-001", "q-database-access-v2ex-001", "q-agent-browser-injection-v2ex-001", "q-tool-prompt-injection-reddit-001", "q-mcp-security-hn-001"]
+    questions: ["q-agent-001", "q-function-calling-web-001", "q-mcp-openapi-hn-001", "q-skill-mcp-github-001", "q-agent-roadmap-v2ex-001", "q-agent-loop-v2ex-001", "q-platform-mcp-v2ex-001", "q-database-access-v2ex-001", "q-agent-browser-injection-v2ex-001", "q-tool-prompt-injection-reddit-001", "q-mcp-security-hn-001", "q-web-search-provenance-so-001", "q-file-access-so-001", "q-tool-chain-exfiltration-hn-001"]
 
   - id: function-calling
     name: 函数调用
@@ -680,7 +680,151 @@ concepts:
     related: ["training", "tool", "agent"]
     questions: ["q-system-prompt-web-001", "q-system-prompt-finetune-web-001"]
 
+  - id: jailbreak
+    name: Jailbreak
+    path: docs/05-幻觉与模型局限/03-Jailbreak和Red-Team是什么.md
+    aliases: ["Jailbreak", "越狱", "模型越狱"]
+    level: Advanced
+    path_type: Optional
+    group: 模型局限
+    summary: 通过改写角色、情境、表示或交互方式，尝试绕过模型或产品行为限制的攻击目标与方法集合。
+    prerequisites: ["prompt", "system-prompt"]
+    related: ["red-team", "tool", "agent"]
+    questions: ["q-jailbreak-encoding-se-001"]
+
+  - id: red-team
+    name: 红队测试
+    path: docs/05-幻觉与模型局限/03-Jailbreak和Red-Team是什么.md
+    aliases: ["Red Team", "Red Teaming", "红队", "红队测试"]
+    level: Advanced
+    path_type: Optional
+    group: 模型局限
+    summary: 在明确授权和范围内模拟对手，主动发现模型、应用、工具与运行流程失效方式的安全评估活动。
+    prerequisites: ["model", "tool"]
+    related: ["jailbreak", "verification", "agent"]
+    questions: ["q-red-team-pentest-so-001"]
+
+  - id: web-search
+    name: Web Search
+    path: docs/06-工具与Function-Calling/04-AI怎样搜索读文件和查数据库.md
+    aliases: ["Web Search", "网页搜索", "联网搜索"]
+    level: Core
+    path_type: Optional
+    group: Tool与Agent
+    summary: 由外部搜索服务查找公开网页候选来源，并把网址、摘要或抓取内容提供给 AI 系统的工具能力。
+    prerequisites: ["tool"]
+    related: ["rag", "verification", "computer-use"]
+    questions: ["q-web-search-provenance-so-001"]
+
+  - id: file-tool
+    name: 文件工具
+    path: docs/06-工具与Function-Calling/04-AI怎样搜索读文件和查数据库.md
+    aliases: ["File Tool", "File Access", "文件访问工具"]
+    level: Core
+    path_type: Optional
+    group: Tool与Agent
+    summary: 由宿主在受控路径与权限内读取、解析或写入文件，并把内容或结果交给模型的工具能力。
+    prerequisites: ["tool"]
+    related: ["ocr", "code-execution", "computer-use"]
+    questions: ["q-file-access-so-001", "q-tool-prompt-injection-reddit-001", "q-tool-chain-exfiltration-hn-001"]
+
+  - id: database-tool
+    name: 数据库工具
+    path: docs/06-工具与Function-Calling/04-AI怎样搜索读文件和查数据库.md
+    aliases: ["Database Tool", "数据库查询工具", "Text-to-SQL"]
+    level: Advanced
+    path_type: Optional
+    group: Tool与Agent
+    summary: 通过参数化接口或受限查询访问结构化记录，并由数据库和业务系统继续强制权限与资源边界的工具能力。
+    prerequisites: ["tool", "database-boundary"]
+    related: ["rag", "function-calling", "mcp"]
+    questions: ["q-database-access-v2ex-001"]
+
+  - id: ocr
+    name: 光学字符识别
+    path: docs/06-工具与Function-Calling/04-AI怎样搜索读文件和查数据库.md
+    aliases: ["OCR", "Optical Character Recognition", "光学字符识别"]
+    level: Advanced
+    path_type: Optional
+    group: Tool与Agent
+    summary: 从扫描件、截图或照片的像素中识别候选字符及位置，为后续检索和理解提供文本输入。
+    prerequisites: ["computer-vision"]
+    related: ["file-tool", "multimodal", "verification"]
+    questions: ["q-ocr-confidence-so-001"]
+
+  - id: code-execution
+    name: 代码执行
+    path: docs/06-工具与Function-Calling/05-代码执行和Computer-Use有什么风险.md
+    aliases: ["Code Execution", "Code Interpreter", "代码执行工具"]
+    level: Core
+    path_type: Optional
+    group: Tool与Agent
+    summary: 在受控运行环境中真正启动代码和进程、访问获准资源并返回输出或产物的工具能力。
+    prerequisites: ["tool"]
+    related: ["file-tool", "computer-use", "coding-agent"]
+    questions: ["q-code-interpreter-dependency-so-001", "q-tool-prompt-injection-reddit-001"]
+
+  - id: computer-use
+    name: Computer Use
+    path: docs/06-工具与Function-Calling/05-代码执行和Computer-Use有什么风险.md
+    aliases: ["Computer Use", "Browser Use", "浏览器操作", "电脑操作"]
+    level: Advanced
+    path_type: Optional
+    group: Tool与Agent
+    summary: 通过浏览器结构、截图、鼠标和键盘等接口操作网页或桌面环境的工具能力。
+    prerequisites: ["tool", "multimodal"]
+    related: ["code-execution", "file-tool", "agent"]
+    questions: ["q-browser-audit-so-001", "q-agent-browser-injection-v2ex-001", "q-tool-prompt-injection-reddit-001", "q-tool-chain-exfiltration-hn-001"]
+
 relations:
+  - from: jailbreak
+    relation: 常通过改写
+    to: prompt
+  - from: red-team
+    relation: 测试包括
+    to: jailbreak
+  - from: red-team
+    relation: 验证工具权限边界
+    to: tool
+  - from: web-search
+    relation: 是一种
+    to: tool
+  - from: web-search
+    relation: 把公开信息加入
+    to: context
+  - from: file-tool
+    relation: 是一种
+    to: tool
+  - from: file-tool
+    relation: 把文件内容加入
+    to: context
+  - from: database-tool
+    relation: 是一种
+    to: tool
+  - from: database-tool
+    relation: 通过受控接口补充
+    to: verification
+  - from: multimodal
+    relation: 可以辅助校验
+    to: ocr
+  - from: ocr
+    relation: 可以为文件解析提供文字
+    to: file-tool
+  - from: code-execution
+    relation: 是一种
+    to: tool
+  - from: function-calling
+    relation: 可以请求
+    to: code-execution
+  - from: computer-use
+    relation: 是一种
+    to: tool
+  - from: agent
+    relation: 可以通过界面操作使用
+    to: computer-use
+  - from: computer-use
+    relation: 需要独立校验
+    to: verification
   - from: narrow-ai
     relation: 描述限定范围的
     to: ai
