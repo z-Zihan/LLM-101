@@ -82,6 +82,7 @@ OpenAPI 可以描述一个 HTTP API 的路径和 Schema，MCP 可以让宿主发
 - 主路线下一站：[Agent 到底是什么](../07-Agent/01-Agent到底是什么.md)
 - 回看能力包装：[AI 工具到底是什么](./02-AI工具到底是什么.md)
 - 理解软件边界：[API 到底是什么](./01-API到底是什么.md)
+- 回看历史位置：[从 RAG、工具调用到 Coding Agent](../../history/03-从RAG工具调用到Coding-Agent.md)
 - 返回全局：[知识网络](../../知识网络.md) · [真实问题矩阵](../../真实问题矩阵.md)
 
 ## 资料与核验
