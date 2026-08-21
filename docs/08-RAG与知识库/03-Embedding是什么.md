@@ -1,10 +1,30 @@
-# Embedding 是什么？
+# Token ID 怎样变成向量，Embedding 又为什么能用于检索？
 
 > 所属专题：RAG 与知识库 · 前置：[知识库是什么](./02-知识库是什么.md) · 后续：[向量数据库是什么](./05-向量数据库是什么.md)
 
 “退款要多久到账”和“退货后什么时候返钱”没有多少相同词，人却能看出它们在问相近的事。Embedding（嵌入表示）让程序获得一种可计算的表示：模型把文字、图片或其他对象转换成一组数字，使某些相关关系能够通过向量运算比较。
 
 它不是把“意思”完整装进数字，也不是一张天然存在的语义地图。向量里的关系由特定模型、训练数据和训练目标塑造，只在相应任务和使用方式下有意义。
+
+## 先分清两类常被叫作 Embedding 的东西
+
+输入 Embedding 是生成模型内部的一张可训练参数表。Tokenizer 产生 Token ID 后，Embedding Lookup 用 ID 选择对应行，得到固定宽度的起始向量，再交给 Transformer。ID 只是离散索引，真正参与神经网络乘加的是向量。
+
+```text
+Token → Token ID → Embedding Lookup → 初始向量 → Transformer
+```
+
+这张表通常与模型一起训练。它让每个词表项拥有可调整的起点，但不意味着单独一行已经包含该 Token 在所有句子里的完整意义。经过 Attention、前馈网络和多层变换后，同一 Token 才会因上下文形成不同的 Hidden Representation。
+
+检索 Embedding 则通常把一段查询、句子或文档压成固定长度向量，用于相似性搜索。二者都把离散对象变成数值向量，输出粒度、训练目标与使用位置却不同：
+
+| 类型 | 输入与输出 | 主要用途 |
+|---|---|---|
+| Token Embedding | 一个 Token ID → 一个起始向量 | 送入生成模型内部继续计算 |
+| Contextual Representation | 某位置经过多层后的向量 | 表示当前上下文中的该位置 |
+| Retrieval Embedding | 一段查询或文档 → 一个固定长度向量 | 比较相似度并检索候选 |
+
+本页后半主要讨论检索 Embedding；文本如何切成 ID 见[模型不认识文字，那“你好”怎样变成数字](../02-聊天Token与上下文/04-Token到底是什么.md)。
 
 ## 一串数字怎样参与检索
 
@@ -78,3 +98,4 @@ Embedding 不是可无损解压的压缩包。知识库必须保留原文、来�
 - [Mikolov et al.: Efficient Estimation of Word Representations in Vector Space](https://arxiv.org/abs/1301.3781)
 - [Reimers & Gurevych: Sentence-BERT](https://arxiv.org/abs/1908.10084)
 - [Karpukhin et al.: Dense Passage Retrieval](https://arxiv.org/abs/2004.04906)
+- [PyTorch: Embedding](https://docs.pytorch.org/docs/stable/generated/torch.nn.Embedding.html)

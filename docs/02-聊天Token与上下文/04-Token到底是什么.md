@@ -1,12 +1,32 @@
-# Token 到底是什么？
+# 模型不认识文字，那“你好”到底是怎么变成数字的？
 
-> 你现在的位置：[Prompt](./01-Prompt到底是什么.md) → **Token** → [上下文与上下文窗口](./07-上下文和上下文窗口是什么.md)
+> 你现在的位置：[Prompt](./01-Prompt到底是什么.md) → **文本、Tokenizer、Token ID 与 Embedding** → [上下文与上下文窗口](./07-上下文和上下文窗口是什么.md)
 >
 > 课程导航：[上一篇：Prompt 到底是什么](./01-Prompt到底是什么.md) · 第 8 / 28 篇 · [下一篇：上下文和上下文窗口是什么](./07-上下文和上下文窗口是什么.md)
 
 原始聊天从一个看似简单的换算开始：“1k 是多少 Token？1m 呢？m 和 t 中间是不是还有？1.5b 是什么意思？”几轮之后，问题已经不只是单位换算了：`1.5B` 可能在数模型参数，也可能在数训练数据中的 Token；如果连计数对象都没分清，再精确的换算也会答错。
 
 公开社区还有一个很好的反例。有人看到“一个 Token 平均约四个字符”的经验说法，于是追问：[最长的 Token 到底能包含多长文本？](https://ai.stackexchange.com/questions/48988/what-is-the-longest-text-that-is-represented-in-one-token) 这个问题提醒我们，平均值不是定义，某个 Tokenizer 的词表也不是所有模型的通用词表。
+
+## 电脑能保存文字，为什么模型还不能直接“看字”
+
+电脑当然能保存“你好”。文件和程序通常先按 Unicode 等字符标准确定文字身份，再用 UTF-8 等编码把它写成字节。这解决的是**怎样无歧义地存取文字**，没有规定神经网络应把哪段文字当作一个计算单位，也没有给出这些单位之间的可学习关系。
+
+神经网络的层主要接收固定形状的数值张量。若直接把 Unicode 编号当大小使用，编号接近不代表意思接近，编号更大也不代表文字更重要；若每次输入长度都不同，批量计算也需要额外约定。因此语言模型先用 Tokenizer 把文本按一套固定词表和规则编码，再用 Token ID 查到可训练向量。
+
+```text
+人类文本“你好世界”
+  ↓ 字符编码只负责存取
+计算机中的字节
+  ↓ Tokenizer 按自己的词表与规则切分
+Token
+  ↓ 查 Vocabulary
+Token ID
+  ↓ Embedding Lookup
+模型能计算的向量
+```
+
+这两层编码不能混为一谈。UTF-8 让不同程序知道哪些字节代表“你”；Tokenizer 决定目标模型把“你好”整体处理，还是拆成“你”“好”或更细的字节片段。
 
 ## Token 是模型词表中的一个离散单元
 
@@ -38,7 +58,44 @@ unbelievable → un | believ | able
 
 另一 Tokenizer 完全可能切成 `unbelievable` 一个 Token，或切成更多片段。中文词组、英文前导空格、代码缩进、Emoji 和生僻字符也会因词表与编码方案不同而产生不同结果。准确计数必须使用目标模型配套的 Tokenizer，而不是凭肉眼猜。
 
-BPE（Byte Pair Encoding）和 SentencePiece 是常见的子词建模路线，但“使用子词”不代表所有实现细节相同。词表大小、训练语料、预处理、Unicode 处理和字节回退策略都会改变切分结果。模型训练时使用哪套编码，部署时就要保持兼容，否则同一串 Token ID 会失去原来的意义。
+## BPE 怎样从小单位逐步得到常见片段
+
+BPE（Byte Pair Encoding）最初是一种数据压缩方法，后来被用于构建子词词表。训练 Tokenizer 时，可以先把训练语料表示成较小单位，再反复统计相邻单位中最常出现的组合，把高频组合合并成新符号。
+
+下面只是为了展示过程的小语料：
+
+```text
+初始：l o w   l o w e r   n e w e r
+发现 l + o 很常见       → 合并为 lo
+发现 lo + w 很常见      → 合并为 low
+继续统计并合并，直到达到词表预算或停止条件
+```
+
+训练结束后会留下 Vocabulary（词表）和合并规则。真正编码新文本时，Tokenizer 使用这套固定结果切分，不会每收到一句话就重新训练 BPE。高频组合有机会成为一个 Token，低频或新词仍可由更小单位拼出，这就是它在“巨大整词词表”和“序列过长”之间的折中。
+
+词表大小不是越大越好。词表大可以缩短部分序列，却会扩大输入 Embedding 和输出词表投影，稀有 Token 也可能缺少足够训练样本；词表小更容易覆盖新组合，却让序列更长。语料语言、代码比例、特殊 Token、字节回退和模型预算都会影响最终选择。
+
+## BPE、Unigram 和 SentencePiece 不是三个同层概念
+
+BPE 很常见，但**并非所有现代 LLM 都严格使用同一种 BPE 实现**。Unigram Language Model 是另一种子词算法：它通常从较大的候选词表出发，逐步移除贡献较小的片段，选择能较好解释语料的切分。
+
+SentencePiece 则更像一个可直接在原始文本上训练和编码的工具包，支持 BPE、Unigram 等模型。把“用了 SentencePiece”直接等同于“用了 BPE”并不准确。WordPiece、字节级 BPE、纯字节或字符方案也有各自实现。
+
+因此，不同模型即使都写着“子词 Tokenizer”，也可能因为算法、训练语料、词表大小、Unicode 规范化、空格处理和特殊 Token 不同而得到完全不同的切分。模型训练与部署必须使用兼容的 Tokenizer；否则同一个 ID 会指向错误词表项。
+
+## Token、Token ID 和 Embedding 到底差在哪
+
+Vocabulary 是 Token 与整数编号之间的固定映射表。Token ID 只是查表索引：编号 `420` 与 `421` 相邻，不说明两个 Token 意思相近。
+
+模型内部还有一张可训练的 Embedding 表。输入 ID 后，Embedding Lookup 取出对应的一行向量。例如词表有 50,000 项、隐藏宽度为 4,096，输入 Embedding 可以理解为一张 `[50000, 4096]` 的参数表；某个 Token ID 选择其中一行。训练会更新这些数值，让它们成为后续 Transformer 可使用的起始表示。
+
+```text
+Token       “北京”这样的词表单元
+Token ID    它在 Vocabulary 中的整数索引
+Embedding   用这个 ID 查到的可训练向量
+```
+
+初始 Token Embedding 还没有完整上下文含义。同一个 Token 出现在“苹果公司”和“吃苹果”中，查表得到的起始向量相同或相近，但经过多层 Transformer 与其他位置交换信息后，会形成不同的上下文化表示。用于 RAG 检索的句子 [Embedding](../08-RAG与知识库/03-Embedding是什么.md) 又是另一种输出和训练用途，不能把三者混成一种向量。
 
 ## 一段文字怎样走进模型，又怎样出来
 
@@ -120,6 +177,10 @@ Token 数也不等于语义信息量。两种语言表达同一意思，可能�
 
 **一个 Token 固定约四个字符吗？** 不是。那只是特定语言和数据上的粗略平均经验，不能用于精确计数，更不能推出全局最长 Token。
 
+**BPE 是所有模型统一使用的分词方法吗？** 不是。BPE 是常见的子词词表构建方法；Unigram、WordPiece、字节或字符方案也存在，SentencePiece 还可以承载不同算法。
+
+**Token ID 和 Embedding 有什么区别？** ID 是词表索引，本身没有距离语义；Embedding Lookup 用 ID 选择一行可训练参数，得到神经网络可以继续计算的向量。
+
 **怎样知道一段文本的准确 Token 数？** 选择实际要调用的模型，使用它配套或官方兼容的 Tokenizer 编码并计数。模型或 Tokenizer 版本变化后，应重新测量。
 
 ## 从这里继续
@@ -135,4 +196,7 @@ Token 数也不等于语义信息量。两种语言表达同一意思，可能�
 - [OpenAI: tiktoken](https://github.com/openai/tiktoken)
 - [Sennrich, Haddow & Birch: Neural Machine Translation of Rare Words with Subword Units](https://arxiv.org/abs/1508.07909)
 - [Kudo & Richardson: SentencePiece](https://arxiv.org/abs/1808.06226)
+- [Google: SentencePiece 官方仓库](https://github.com/google/sentencepiece)
+- [Hugging Face Tokenizers 官方文档](https://huggingface.co/docs/tokenizers/index)
+- [PyTorch: Embedding](https://docs.pytorch.org/docs/stable/generated/torch.nn.Embedding.html)
 - [Jurafsky & Martin: Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/)

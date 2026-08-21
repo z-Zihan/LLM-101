@@ -163,7 +163,7 @@ questions:
     source_title: "用户提供的原始聊天记录（2026-08-13）"
     language: zh
     paraphrased: false
-    concepts: ["token", "transformer", "attention", "inference"]
+    concepts: ["tokenizer", "token", "token-id", "embedding", "transformer", "attention", "next-token-prediction", "logits", "softmax", "inference"]
     difficulty: beginner
     priority: high
     status: answered
@@ -205,7 +205,7 @@ questions:
     source_title: "用户提供的原始聊天记录（2026-08-13）"
     language: zh
     paraphrased: true
-    concepts: ["training-data", "training"]
+    concepts: ["training-data", "training", "next-token-prediction", "softmax", "probability"]
     difficulty: beginner
     priority: high
     status: answered
@@ -219,7 +219,7 @@ questions:
     source_title: "Is next-token prediction sufficient to explain emergent capabilities like complex code generation in LLMs?"
     language: en
     paraphrased: true
-    concepts: ["token", "training", "generalization", "reasoning"]
+    concepts: ["token", "vocabulary", "autoregressive-language-model", "next-token-prediction", "logits", "probability", "training", "generalization", "reasoning"]
     difficulty: beginner
     priority: high
     status: answered
@@ -415,7 +415,7 @@ questions:
     source_title: "What is the longest text that is represented in one token?"
     language: en
     paraphrased: true
-    concepts: ["token"]
+    concepts: ["text", "tokenizer", "bpe", "vocabulary", "token"]
     difficulty: beginner
     priority: high
     status: answered
@@ -891,7 +891,7 @@ questions:
     source_title: "普通开发参与/迈向 AI 时代的方法也许就是转型做 Agent 开发"
     language: zh
     paraphrased: true
-    concepts: ["token", "inference"]
+    concepts: ["token", "logits", "softmax", "probability", "inference"]
     difficulty: beginner
     priority: high
     status: answered

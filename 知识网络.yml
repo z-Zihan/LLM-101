@@ -13,6 +13,11 @@ main_path:
   - parameter
   - prompt
   - token
+  - tokenizer
+  - token-id
+  - embedding
+  - autoregressive-language-model
+  - next-token-prediction
   - context
   - model-lifecycle
   - architecture
@@ -36,6 +41,8 @@ main_path:
 
 extended_path:
   - training-data
+  - bpe
+  - vocabulary
   - context-window
   - attention
   - function-calling
@@ -221,8 +228,128 @@ concepts:
     group: 推理与Token
     summary: 模型编码和生成文本时处理的离散单位，不固定等于一个字或一个单词。
     prerequisites: ["llm"]
-    related: ["context", "context-window", "inference"]
+    related: ["text", "tokenizer", "vocabulary", "token-id", "embedding", "context", "context-window", "inference"]
     questions: ["q-token-units-001", "q-context-window-001", "q-token-generation-001", "q-cache-001", "q-language-model-web-001", "q-token-length-web-001", "q-next-token-capability-web-001", "q-inference-randomness-web-001", "q-temperature-v2ex-001", "q-output-context-limit-v2ex-001", "q-positional-encoding-reddit-001", "q-kv-cache-ai-se-001", "q-speculative-decoding-reddit-001", "q-prefill-decode-ai-se-001", "q-reasoning-think-ai-se-001"]
+
+  - id: text
+    name: 原始文本
+    path: docs/02-聊天Token与上下文/04-Token到底是什么.md
+    aliases: ["Text", "Raw Text", "原始文本", "人类文本"]
+    level: Core
+    path_type: Extended
+    group: 推理与Token
+    summary: 人类书写的字符序列；计算机可以编码存储它，但神经网络仍需把它转换成数值张量。
+    prerequisites: []
+    related: ["tokenizer", "token"]
+    questions: ["q-token-length-web-001"]
+
+  - id: tokenizer
+    name: Tokenizer
+    path: docs/02-聊天Token与上下文/04-Token到底是什么.md
+    aliases: ["Tokenizer", "分词器", "编码器"]
+    level: Core
+    path_type: Main
+    group: 推理与Token
+    summary: 按固定词表、预处理和切分规则，在文本与 Token ID 序列之间进行编码和解码的组件。
+    prerequisites: ["text"]
+    related: ["bpe", "vocabulary", "token", "token-id"]
+    questions: ["q-token-length-web-001", "q-token-generation-001"]
+
+  - id: bpe
+    name: BPE 子词构造
+    path: docs/02-聊天Token与上下文/04-Token到底是什么.md
+    aliases: ["BPE", "Byte Pair Encoding", "字节对编码", "子词合并"]
+    level: Advanced
+    path_type: Extended
+    group: 推理与Token
+    summary: 反复合并训练语料中高频相邻单位，用于构建子词词表的一类常见方法，不是所有模型的统一 Tokenizer。
+    prerequisites: ["text"]
+    related: ["tokenizer", "vocabulary", "token"]
+    questions: ["q-token-length-web-001"]
+
+  - id: vocabulary
+    name: 词表
+    path: docs/02-聊天Token与上下文/04-Token到底是什么.md
+    aliases: ["Vocabulary", "Vocab", "词表"]
+    level: Core
+    path_type: Extended
+    group: 推理与Token
+    summary: Token 与整数 ID 之间的固定映射集合；大小和内容由 Tokenizer 训练与模型设计共同决定。
+    prerequisites: ["tokenizer"]
+    related: ["token", "token-id", "logits"]
+    questions: ["q-token-length-web-001", "q-next-token-capability-web-001"]
+
+  - id: token-id
+    name: Token ID
+    path: docs/02-聊天Token与上下文/04-Token到底是什么.md
+    aliases: ["Token ID", "词元编号", "Token 编号"]
+    level: Core
+    path_type: Main
+    group: 推理与Token
+    summary: Token 在特定 Vocabulary 中的整数索引；编号大小没有语义顺序，需要查 Embedding 表才能进入神经网络。
+    prerequisites: ["token", "vocabulary"]
+    related: ["embedding", "tokenizer"]
+    questions: ["q-token-generation-001"]
+
+  - id: autoregressive-language-model
+    name: 自回归语言模型
+    path: docs/03-模型原理与训练/10-为什么预测下一个Token能学到能力.md
+    aliases: ["Autoregressive Language Model", "Autoregressive LM", "自回归语言模型"]
+    level: Core
+    path_type: Main
+    group: 推理与Token
+    summary: 把序列概率分解为一连串基于已有前缀的条件概率，并在生成时把新 Token 接回输入的语言模型。
+    prerequisites: ["language-model", "token"]
+    related: ["next-token-prediction", "context", "inference"]
+    questions: ["q-next-token-capability-web-001"]
+
+  - id: next-token-prediction
+    name: 下一个 Token 预测
+    path: docs/03-模型原理与训练/10-为什么预测下一个Token能学到能力.md
+    aliases: ["Next-token Prediction", "Next Token Prediction", "下一个 Token 预测"]
+    level: Core
+    path_type: Main
+    group: 模型训练
+    summary: 根据已有 Token 序列为词表中的下一项计算分数；可用于自回归预训练，也可用于逐步生成。
+    prerequisites: ["token", "autoregressive-language-model"]
+    related: ["logits", "probability", "training", "inference"]
+    questions: ["q-token-generation-001", "q-next-token-capability-web-001", "q-loss-judgement-001"]
+
+  - id: logits
+    name: Logits
+    path: docs/03-模型原理与训练/10-为什么预测下一个Token能学到能力.md
+    aliases: ["Logits", "原始分数", "词表分数"]
+    level: Core
+    path_type: Extended
+    group: 推理与Token
+    summary: 模型为词表候选产生的未归一化分数；它们不是概率，需结合整组候选解释。
+    prerequisites: ["next-token-prediction", "vocabulary"]
+    related: ["softmax", "probability"]
+    questions: ["q-token-generation-001", "q-next-token-capability-web-001", "q-temperature-v2ex-001"]
+
+  - id: softmax
+    name: Softmax
+    path: docs/03-模型原理与训练/10-为什么预测下一个Token能学到能力.md
+    aliases: ["Softmax", "Softmax 函数"]
+    level: Advanced
+    path_type: Extended
+    group: 推理与Token
+    summary: 把一组相对分数转换成总和为 1 的概率分布，并保留候选之间的相对大小关系。
+    prerequisites: ["logits"]
+    related: ["probability"]
+    questions: ["q-token-generation-001", "q-loss-judgement-001", "q-temperature-v2ex-001"]
+
+  - id: probability
+    name: Token 概率
+    path: docs/03-模型原理与训练/10-为什么预测下一个Token能学到能力.md
+    aliases: ["Probability", "Token Probability", "概率分布"]
+    level: Core
+    path_type: Extended
+    group: 推理与Token
+    summary: 在给定当前前缀和模型参数时，各候选 Token 作为下一项的条件概率分布。
+    prerequisites: ["softmax", "next-token-prediction"]
+    related: ["logits", "training", "inference"]
+    questions: ["q-loss-judgement-001", "q-next-token-capability-web-001", "q-temperature-v2ex-001"]
 
   - id: context
     name: 上下文
@@ -481,12 +608,12 @@ concepts:
     path: docs/08-RAG与知识库/03-Embedding是什么.md
     aliases: ["Embedding", "嵌入", "向量表示"]
     level: Core
-    path_type: Extended
+    path_type: Main
     group: RAG与知识
     summary: 把对象转换为一组数值，使系统可以计算某些关系或相似性。
-    prerequisites: ["model"]
-    related: ["vector-database", "rag"]
-    questions: ["q-rag-001", "q-vector-store-web-001", "q-embedding-semantics-web-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-vector-irrelevant-so-001", "q-rag-pipeline-so-001"]
+    prerequisites: ["model", "token-id"]
+    related: ["transformer", "vector-database", "rag"]
+    questions: ["q-token-generation-001", "q-rag-001", "q-vector-store-web-001", "q-embedding-semantics-web-001", "q-rag-retrieval-quality-v2ex-001", "q-rag-hybrid-search-v2ex-001", "q-rag-exact-terms-v2ex-001", "q-vector-irrelevant-so-001", "q-rag-pipeline-so-001"]
 
   - id: vector-database
     name: 向量数据库
@@ -921,6 +1048,39 @@ concepts:
     questions: ["q-knowledge-graph-vector-hn-001"]
 
 relations:
+  - from: tokenizer
+    relation: 编码处理
+    to: text
+  - from: tokenizer
+    relation: 产生序列
+    to: token
+  - from: bpe
+    relation: 构建子词集合用于
+    to: vocabulary
+  - from: tokenizer
+    relation: 使用
+    to: vocabulary
+  - from: token
+    relation: 在词表中映射为
+    to: token-id
+  - from: token-id
+    relation: 查参数表得到
+    to: embedding
+  - from: embedding
+    relation: 作为数值输入送入
+    to: transformer
+  - from: autoregressive-language-model
+    relation: 核心计算包括
+    to: next-token-prediction
+  - from: next-token-prediction
+    relation: 为整个词表产生
+    to: logits
+  - from: softmax
+    relation: 把原始分数转换为
+    to: probability
+  - from: logits
+    relation: 经由函数归一化
+    to: softmax
   - from: codex-product
     relation: 是产品化实例
     to: coding-agent
