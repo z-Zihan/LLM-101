@@ -4,7 +4,7 @@
 >
 > 所属专题：RAG 与知识库 · 本文是 Optional 扩展阅读
 
-长上下文模型能一次放入越来越多文字以后，公开社区里出现了一个很实际的问题：传统 RAG 还有必要吗？如果资料能直接贴进 Prompt，为什么还要切片、索引和检索？
+长上下文模型能一次放入越来越多文字以后，一个很实际的问题出现了：传统 RAG 还有必要吗？如果资料能直接贴进 Prompt，为什么还要切片、索引和检索？
 
 两种方式最后都要把资料放进模型当前上下文。差别发生在前面：直接上下文由用户或应用把选定资料整体送入；检索增强生成（RAG）先从更大的候选集合中查找，再只送入相关片段。一个省掉检索，一个省掉重复输入与无关内容。
 
@@ -93,4 +93,3 @@ RAG 把资料处理分成离线与在线两部分。离线阶段解析文档、�
 - [Liu et al.：Lost in the Middle — How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172)
 - [Anthropic：Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval)
 - [NIST AI 600-1：Generative AI Profile](https://doi.org/10.6028/NIST.AI.600-1)
-- 真实问题来源：[V2EX：长上下文以后 RAG 还有必要吗](https://www.v2ex.com/t/1214405)

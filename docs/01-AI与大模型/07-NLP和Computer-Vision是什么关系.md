@@ -2,7 +2,7 @@
 
 > 所属专题：AI 与大模型 · 前置：[AI 到底是什么](./01-AI到底是什么.md) · 相关：[多模态模型是什么](../04-模型能力/05-多模态模型是什么.md)
 
-有人在公开社区问：[计算机视觉和数字图像处理算不算人工智能的一部分？](https://ai.stackexchange.com/questions/8846/are-computer-vision-and-digital-image-processing-part-of-artificial-intelligence) 还有人想把人的语言、表情和动作一起交给系统，于是追问：[NLP 和 CV 到底怎样组合？](https://ai.stackexchange.com/questions/35878/current-state-of-the-art-and-datasets-for-combining-nlp-and-cv) 这两条中文问题是对原帖的转述。
+计算机视觉和数字图像处理算不算人工智能的一部分？如果把人的语言、表情和动作一起交给系统，NLP 和 CV 又怎样组合？这两个问题能帮助我们看清任务、数据和模型能力之间的关系。
 
 它们背后有同一个认知卡点：NLP、CV、模型、算法和数据类型经常被当成同一层。实际上，NLP 与 CV 更像两片会交叉的任务领域；它们可以使用相同的机器学习方法，也可以被一个多模态系统连接起来。
 
@@ -121,5 +121,3 @@ CV 也不是“一个会看图的模型”。一个交通系统可能用相机�
 - [Stanford CS231n: Deep Learning for Computer Vision](https://cs231n.stanford.edu/)
 - [Dosovitskiy et al.: An Image is Worth 16x16 Words](https://arxiv.org/abs/2010.11929)
 - [Radford et al.: Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020)
-- 真实问题来源：[AI Stack Exchange：CV 与图像处理是否属于 AI](https://ai.stackexchange.com/questions/8846/are-computer-vision-and-digital-image-processing-part-of-artificial-intelligence)
-- 真实问题来源：[AI Stack Exchange：怎样组合 NLP 与 CV](https://ai.stackexchange.com/questions/35878/current-state-of-the-art-and-datasets-for-combining-nlp-and-cv)

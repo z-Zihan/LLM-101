@@ -2,7 +2,7 @@
 
 > 所属专题：AI 与大模型 · 前置：[AI 到底是什么](./01-AI到底是什么.md) · 相关：[大语言模型是什么](./04-什么是大语言模型.md)
 
-公开社区里有两个很典型的问题。有人问：[强 AI 和弱 AI 有没有公认定义，还是带有主观判断？](https://ai.stackexchange.com/questions/74/what-is-the-difference-between-strong-ai-and-weak-ai) 另一个人追问：[ChatGPT 为什么算生成式模型——因为它会生成文字，还是因为它学习了数据分布？](https://ai.stackexchange.com/questions/39012/what-makes-chatgpt-a-generative-model) 下面采用的是中文转述，不是原帖逐字翻译。
+两个问题很适合用来划清边界：强 AI 和弱 AI 有没有公认定义，还是带有主观判断？ChatGPT 为什么算生成式模型——因为它会生成文字，还是因为它学习了数据分布？
 
 这些问题难在：弱 AI、生成式 AI、AIGC 并不在同一条分类轴上。一个词在谈能力范围，一个词在谈系统能产生什么，另一个词常在谈内容和应用。如果把它们排成“弱 AI → 生成式 AI → AIGC”的升级路线，后面会越学越乱。
 
@@ -54,7 +54,7 @@
 - 不保证事实正确；能生成流畅文字与拥有权威事实来源是两回事；
 - 不保证拥有意图或意识；“生成”描述计算结果，不证明主观体验。
 
-公开问题里提到的两种定义并非完全冲突。在概率建模语境中，“生成模型”有较严格的统计含义，常讨论模型怎样刻画数据或联合分布；在当代产品语境里，“生成式 AI”更宽泛地指能生成内容的一组模型与系统。二者有技术关系，但不能把所有历史上的生成模型直接等同于今天的 GenAI 产品。
+这里的两种定义并非完全冲突。在概率建模语境中，“生成模型”有较严格的统计含义，常讨论模型怎样刻画数据或联合分布；在当代产品语境里，“生成式 AI”更宽泛地指能生成内容的一组模型与系统。二者有技术关系，但不能把所有历史上的生成模型直接等同于今天的 GenAI 产品。
 
 ## AIGC 更常指内容和内容生产方式
 
@@ -112,5 +112,3 @@ AIGC：这些能力生成或参与生产的内容，以及相关应用场景
 - [国家互联网信息办公室：生成式人工智能服务管理暂行办法](https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm)
 - [OECD：更新后的 AI System 定义说明](https://www.oecd.org/en/publications/explanatory-memorandum-on-the-updated-oecd-definition-of-an-ai-system_623da898-en.html)
 - [Stanford Encyclopedia of Philosophy: Artificial Intelligence](https://plato.stanford.edu/entries/artificial-intelligence/)
-- 真实问题来源：[AI Stack Exchange：强 AI 与弱 AI 的区别](https://ai.stackexchange.com/questions/74/what-is-the-difference-between-strong-ai-and-weak-ai)
-- 真实问题来源：[AI Stack Exchange：ChatGPT 为什么是生成式模型](https://ai.stackexchange.com/questions/39012/what-makes-chatgpt-a-generative-model)

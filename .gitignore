@@ -1,2 +1,5 @@
 # Temporary per-article research notes
 .tmp/
+
+# Local research provenance; never publish reader/question identities
+.research/

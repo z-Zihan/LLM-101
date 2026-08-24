@@ -71,4 +71,3 @@ CLI 对跳过权限选项的说明明确建议只在没有互联网的外部沙�
 - [Anthropic：Claude Code 官方仓库](https://github.com/anthropics/claude-code)
 - [Anthropic：Claude Code Security](https://code.claude.com/docs/en/security)
 - [Anthropic：Claude Code Settings](https://code.claude.com/docs/en/settings)
-- [真实问题来源：Permission classifier blocks the actions that would grant permission](https://github.com/anthropics/claude-code/issues/87809)

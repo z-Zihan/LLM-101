@@ -2,7 +2,7 @@
 
 > 历史专题 3 / 3：**RAG** → **Tool Calling 与 Agent** → **MCP** → **Coding Agent / Computer Use**
 >
-> 本页解释技术节点怎样组合，不把论文原型等同于成熟产品。概念主页面：[Agent 到底是什么](../docs/07-agent/01-Agent到底是什么.md)
+> 本页解释技术节点怎样组合，不把论文原型等同于成熟产品。概念主页面：[Agent 到底是什么](../docs/07-Agent/01-Agent到底是什么.md)
 
 大语言模型会生成文字，但它的参数不是实时数据库，也不能仅凭一段文本真的搜索网页、提交表单或修改仓库。今天的 Agent 产品看起来能连续工作，是因为模型外面逐步加入了检索、结构化工具调用、循环控制、权限、协议和验证环境。
 
@@ -62,7 +62,7 @@ ReAct 论文于 2022 年 10 月提交，研究让语言模型交错生成 reason
 模型继续，直到满足停止条件
 ```
 
-关键不在模型文字里出现了“Action”，而在宿主系统真的识别动作、执行工具并把结果送回来。模型只负责产生候选调用或下一步建议；权限、超时、重试、预算和停止规则必须由[Agent 系统](../docs/07-agent/03-Agent-Loop是什么.md)控制。
+关键不在模型文字里出现了“Action”，而在宿主系统真的识别动作、执行工具并把结果送回来。模型只负责产生候选调用或下一步建议；权限、超时、重试、预算和停止规则必须由[Agent 系统](../docs/07-Agent/03-Agent-Loop是什么.md)控制。
 
 Agent 也不是 2022 年才出现的概念。软件 Agent、机器人与多智能体研究早已有自己的定义和历史。ReAct 是现代 LLM Agent 设计中可核验的代表性节点，不是“世界第一个 Agent”。
 
@@ -85,11 +85,11 @@ Function Calling 不会替开发者执行函数。模型返回结构化意图后
 
 ## 2024：Coding Agent 把循环放进真实软件环境
 
-SWE-agent 论文在 2024 年 5 月公开，研究让语言模型在定制的 Agent–Computer Interface 中使用命令、查看与编辑代码，以解决真实 GitHub issue。它强调了一个经常被聊天演示忽略的事实：即使底层模型相同，Agent 能看到什么命令、输出怎样呈现、编辑动作怎样设计，也会显著影响结果。
+SWE-agent 论文在 2024 年 5 月公开，研究让语言模型在定制的 Agent–Computer Interface 中使用命令、查看与编辑代码，以解决真实软件仓库问题。它强调了一个经常被聊天演示忽略的事实：即使底层模型相同，Agent 能看到什么命令、输出怎样呈现、编辑动作怎样设计，也会显著影响结果。
 
 一个 Coding Agent 通常要组合：
 
-- 仓库、规则文件和任务描述形成的[项目上下文](../docs/11-coding-agent/08-项目上下文是什么.md)；
+- 仓库、规则文件和任务描述形成的[项目上下文](../docs/11-Coding-Agent/08-项目上下文是什么.md)；
 - 搜索、读写文件、终端和 Git 等工具；
 - 探索、修改、运行测试、读取失败、继续修复的循环；
 - 沙箱、人工确认与操作系统权限；
@@ -111,7 +111,7 @@ Anthropic 于 2024 年 11 月发布 Model Context Protocol（MCP），将其描�
 
 它解决的是连接层碎片化：如果每个 AI 应用都为每个数据源写一套专用集成，组合数量会快速增长。协议让客户端与服务端围绕共同消息和能力模型协作。
 
-但 [MCP 不等于 Agent](../docs/09-mcp/06-MCP和Agent有什么区别.md)。MCP Server 暴露一个工具，不表示模型知道何时该用；一次协议调用成功，也不表示任务已经完成。目标分解、循环、权限、确认、记忆和验收仍由 Agent 应用负责。
+但 [MCP 不等于 Agent](../docs/09-MCP/06-MCP和Agent有什么区别.md)。MCP Server 暴露一个工具，不表示模型知道何时该用；一次协议调用成功，也不表示任务已经完成。目标分解、循环、权限、确认、记忆和验收仍由 Agent 应用负责。
 
 同样，MCP 不是 API 的替代品。Server 内部可能调用既有 API、数据库或本地程序；MCP 统一的是 AI 应用如何发现和使用这些能力的外层接口。
 
@@ -159,9 +159,9 @@ OpenAI 于 2025 年 5 月发布 Codex 云端软件工程 Agent 研究预览，�
 - 回看模型演进：[从 Transformer 到 Chat 模型](./02-从Transformer到Chat模型.md)
 - 拆开系统：[Agent 架构图](../docs/13-AI全景图/06-Agent架构图.md)
 - 理解检索：[RAG 到底是什么](../docs/08-RAG与知识库/01-RAG到底是什么.md)
-- 理解连接：[MCP 到底是什么](../docs/09-mcp/01-MCP到底是什么.md)
-- 理解开发场景：[Coding Agent 是什么](../docs/11-coding-agent/04-Coding-Agent是什么.md)
-- 看经核验的产品案例：[Codex](../docs/11-coding-agent/10-Codex产品案例.md) · [Claude Code](../docs/11-coding-agent/11-Claude-Code产品案例.md) · [Cursor](../docs/11-coding-agent/12-Cursor产品案例.md)
+- 理解连接：[MCP 到底是什么](../docs/09-MCP/01-MCP到底是什么.md)
+- 理解开发场景：[Coding Agent 是什么](../docs/11-Coding-Agent/04-Coding-Agent是什么.md)
+- 看经核验的产品案例：[Codex](../docs/11-Coding-Agent/10-Codex产品案例.md) · [Claude Code](../docs/11-Coding-Agent/11-Claude-Code产品案例.md) · [Cursor](../docs/11-Coding-Agent/12-Cursor产品案例.md)
 
 ## 原始资料与核验边界
 

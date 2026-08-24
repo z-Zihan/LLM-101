@@ -41,7 +41,7 @@ def main() -> None:
         "> 本页由 [`知识网络.yml`](./知识网络.yml) 自动生成，请勿手工编辑。",
         "> 重新生成：`python3 scripts/build_knowledge_graph.py`",
         "",
-        f"当前收录 **{len(concepts)}** 个概念节点、**{len(graph['relations'])}** 条语义关系。",
+        "这里适合已经知道自己想学什么的读者。第一次接触 AI，请先从 README 的默认学习路线开始。",
         "",
         "## 主学习路线",
         "",
@@ -55,9 +55,9 @@ def main() -> None:
         "",
         " → ".join(link(by_id[item]) for item in graph["extended_path"]),
         "",
-        "## 知识网络矩阵",
+        "## 按概念找下一步",
         "",
-        "| 概念 | 一句话 | 前置 | 语义关系 | 相关真实问题 | 主文章 |",
+        "| 概念 | 一句话 | 如果没懂先看 | 接下来会遇到 | 你可能会问 | 进入文章 |",
         "|---|---|---|---|---|---|",
     ]
     for node in concepts:
@@ -95,13 +95,13 @@ def main() -> None:
         "Memory",
         "硬件",
     ]
-    lines.extend(["", "## 子网络", ""])
+    lines.extend(["", "## 按专题探索", ""])
     for index, group in enumerate(group_order, 1):
         member_ids = groups.get(group, [])
         if not member_ids:
             lines.extend(
                 [
-                    f"### {index:02d} {group}网络",
+                    f"### {index:02d} {group}",
                     "",
                     "本专题暂不进入当前 V3 发布范围；新增节点需要真实问题与主页面支撑。",
                     "",
@@ -109,7 +109,7 @@ def main() -> None:
             )
             continue
         member_set = set(member_ids)
-        lines.extend([f"### {index:02d} {group}网络", "", "```mermaid", "flowchart LR"])
+        lines.extend([f"### {index:02d} {group}", "", "```mermaid", "flowchart LR"])
         for cid in member_ids:
             node = by_id[cid]
             lines.append(f'    {mermaid_id(cid)}["{node["name"]}"]')
@@ -129,7 +129,7 @@ def main() -> None:
             lines.append(
                 f'    {mermaid_id(relation["from"])} -->|"{relation["relation"]}"| {mermaid_id(relation["to"])}'
             )
-    lines.extend(["```", "", "## 如何自由探索", "", "- 从任意概念进入正文。", "- 正文第一次重要出现的概念会链接到唯一主页面。", "- V3 正文通过课程导航和知识网络出口连接前置、后续、相关概念与真实问题。", ""])
+    lines.extend(["```", "", "## 如何自由探索", "", "- 从任意概念进入正文。", "- 如果前置概念不熟，先沿“如果没懂先看”补一篇。", "- 读完正文后，优先选择文章给出的下一步；不必理解图谱的数据结构。", ""])
 
     content = "\n".join(lines)
     OUTPUT_PATH.write_text(content, encoding="utf-8")

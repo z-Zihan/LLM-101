@@ -4,7 +4,7 @@
 >
 > 扩展路线：本篇比较三种推理时编排方式，不把它们当成模型架构或可靠性认证。
 
-一个公开项目已经有思维链机制，开发者仍提出：它不足以比较多条候选路径，希望加入思维树。另一条真实问题则问，ReAct 的“思考 → 行动 → 观察”为什么比一次性计划更适合某些任务，又会带来什么代价？
+一个系统已经有思维链机制，开发者仍可能发现：它不足以比较多条候选路径，希望加入思维树。另一个问题是，ReAct 的“思考 → 行动 → 观察”为什么比一次性计划更适合某些任务，又会带来什么代价？
 
 这几种方法看起来都在“让模型多想一会儿”，实际解决的卡点不同：思维链给一条路径更多中间位置，思维树显式保留并筛选多条路径，ReAct 让路径在执行过程中读取外部环境。名字里都有 Thought，不表示它们展示了模型内部计算的真实录像。
 
@@ -116,7 +116,6 @@ Agent 真正需要保存的是目标、候选状态、工具输入输出、评�
 
 ## 资料与核验
 
-- [真实问题来源：Integrate Tree-of-Thoughts as decision strategy](https://github.com/submarat/spar-2024-web-evals/issues/6)
 - [Wei et al.：Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/abs/2201.11903)
 - [Wang et al.：Self-Consistency Improves Chain of Thought Reasoning](https://arxiv.org/abs/2203.11171)
 - [Yao et al.：Tree of Thoughts](https://arxiv.org/abs/2305.10601)

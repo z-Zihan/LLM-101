@@ -113,7 +113,3 @@ API 的参数和返回值通常有 Schema，页面坐标却没有稳定语义。
 - [OpenAI：Computer use tool](https://developers.openai.com/api/docs/guides/tools-computer-use)
 - [Anthropic：Computer use tool](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/computer-use-tool)
 - [Model Context Protocol Specification：Security Best Practices](https://modelcontextprotocol.io/specification/2025-06-18/basic/security_best_practices)
-- 真实问题来源：[Stack Overflow：怎样在 Code Interpreter 中安装 Python 库](https://stackoverflow.com/questions/76667874/how-can-i-install-python-library-in-chatgpt-code-interpreter)
-- 真实问题来源：[Stack Overflow：怎样记录浏览器 Agent 的每一步截图和整段视频](https://stackoverflow.com/questions/79648080/how-to-use-browser-use-to-make-screenshots-for-each-step-and-video-recording-for)
-- 真实问题来源：[V2EX：带登录态浏览器中的 Prompt Injection 风险](https://staging.v2ex.com/t/1215754)
-- 真实问题来源：[Hacker News：读取配置文件与发送邮件怎样组合成数据外泄](https://news.ycombinator.com/item?id=46732440)

@@ -2,7 +2,7 @@
 
 > 所属专题：Prompt 与上下文 · 前置：[Prompt 到底是什么](./01-Prompt到底是什么.md) · 相关：[上下文和上下文窗口是什么](./07-上下文和上下文窗口是什么.md)
 
-公开社区有人寻找“可靠、可以直接复用的 System Prompt”，希望把它接进自己的应用；也有人看到 Coding Agent 带着很长的系统说明，于是问：[为什么不把 System Prompt 直接微调进模型，省掉每次重复输入？](https://ai.stackexchange.com/questions/50263/why-dont-we-bake-system-prompts-with-fine-tuning) 这两种困惑一头连着 Prompt 工程，一头连着模型训练和产品控制。
+有人想找一份“可靠、可以直接复用的 System Prompt”接进自己的应用，也有人会问：为什么不把 System Prompt 直接微调进模型，省掉每次重复输入？这两种困惑一头连着 Prompt 工程，一头连着模型训练和产品控制。
 
 System Prompt 常译为系统提示或系统指令。在许多对话模型接口中，它是由平台或应用提供、用于说明模型角色、任务边界、输出规则和行为要求的一类高优先级输入。具体名称和优先规则由平台定义，因此它不是所有模型内部都天然存在的一块固定区域。
 
@@ -91,7 +91,7 @@ System Prompt 常译为系统提示或系统指令。在许多对话模型接口
 
 网上的模板可以作为检查清单，却不能直接证明在你的系统里可靠。更稳妥的过程是：准备正常样本、边界样本、冲突指令、恶意资料和工具失败场景，观察模型是否遵守关键要求；再把必须强制的规则下沉到代码、权限和人工审批中。
 
-这也回答了公开社区里“哪里能找到可靠 System Prompt”的问题。来源是否知名不是最终验收，真实任务上的可重复测试才是。模板必须与模型版本、工具接口和应用风险一起维护。
+这也回答了“哪里能找到可靠 System Prompt”的问题。出处是否知名不是最终验收，真实任务上的可重复测试才是。模板必须与模型版本、工具接口和应用风险一起维护。
 
 ## 为什么不全部微调进模型
 
@@ -140,5 +140,3 @@ Jailbreak、Prompt Injection 和受控安全测试的边界，见：[Jailbreak �
 - [OpenAI Developer Docs: Prompt engineering](https://developers.openai.com/api/docs/guides/prompt-engineering)
 - [Anthropic Docs: Giving Claude a role with a system prompt](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts)
 - [OWASP: LLM Prompt Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)
-- 真实问题来源：[AI Stack Exchange：System Prompt 与 LLM](https://ai.stackexchange.com/questions/50385/system-prompts-llm)
-- 真实问题来源：[AI Stack Exchange：为什么不把 System Prompt 微调进模型](https://ai.stackexchange.com/questions/50263/why-dont-we-bake-system-prompts-with-fine-tuning)

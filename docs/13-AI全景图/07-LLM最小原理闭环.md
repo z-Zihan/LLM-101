@@ -1,6 +1,8 @@
 # LLM 最小原理闭环
 
-> 如果你只读一个专题，就沿这 5 个真实问题走完：一段文字怎样进入模型，参数怎样学会预测，回答又怎样逐 Token 出现。
+> 如果你只读一个专题，就沿同一句“中国的首都是北京”走完 5 章：一段文字怎样进入模型，参数怎样学会预测，回答又怎样逐 Token 出现。
+
+看完以后，你应该能不看术语表，自己复述“文字 → Token → Transformer → 预测 → Loss / Training → Decode”这条链，并说清训练和推理从哪里分开。
 
 这张图讨论的是现代主流自回归大语言模型的共同主干，不代表所有语言模型、图像模型和产品系统都完全相同。RAG、Tool、Agent、Memory 与聊天界面是在这条模型机制外继续增加的系统层。
 
@@ -40,35 +42,35 @@ flowchart TD
 
 ## 五个问题，按依赖顺序读
 
-### 1. 模型不认识文字，那“你好”到底是怎么变成数字的？
+### 1. 从一句“中国的首都是北京”，看文字怎么进入模型
 
-先读：[模型不认识文字，那“你好”到底是怎么变成数字的](../02-聊天Token与上下文/04-Token到底是什么.md)
+先读：[从一句“中国的首都是北京”，看文字怎么进入模型](../02-聊天Token与上下文/04-Token到底是什么.md)
 
-这一步解决 Text、Tokenizer、BPE / Unigram、Vocabulary、Token、Token ID 与 Embedding 的边界。读完应能解释：电脑能保存 Unicode 文字，为什么模型仍需要自己的 Tokenizer；Token ID 为什么不是有语义大小关系的数字；神经网络又怎样通过 Embedding Lookup 得到向量。
+这一步把“中国的首都是北京”从人类文字变成 Token、Token ID 与 Embedding。读完应能解释：电脑能保存 Unicode 文字，为什么模型仍需要自己的 Tokenizer；Token ID 为什么不是有语义大小关系的数字；神经网络又怎样通过 Embedding Lookup 得到向量。
 
 ### 2. ChatGPT 看起来什么都会，底层只是在预测下一个 Token 吗？
 
 再读：[ChatGPT 看起来什么都会，底层只是在预测下一个 Token 吗](../03-模型原理与训练/10-为什么预测下一个Token能学到能力.md)
 
-这一步解决 Autoregressive、Next-token Prediction、Vocabulary、Logits、Softmax 与 Probability。读完应能解释：模型为什么不是一次生成整句；训练与聊天都计算下一 Token 分数，却为什么一个更新参数、一个继续生成；“预测下一个 Token”又为什么不能扩大成所有语言模型的唯一本质。
+上一章得到表示，这一章遮住“北京”，只让模型看到“中国的首都是”。读完应能解释：模型为什么不是一次生成整句；训练与聊天都计算下一 Token 分数，却为什么一个更新参数、一个继续生成；“预测下一个 Token”又为什么不能扩大成所有语言模型的唯一本质。
 
 ### 3. 一句话里的词，模型是怎么互相“看见”的？
 
 接着读：[一句话里的词，模型是怎么互相“看见”的](../03-模型原理与训练/05-Attention到底是什么.md)
 
-这一步解决 Query、Key、Value、Self-Attention、Causal Mask、Multi-Head Attention 与 MLP。读完应能解释：Attention 为什么像 Token 之间的信息读取；Q/K/V 怎样由训练学到；为什么 Transformer 不等于 Attention，以及多层怎样不断改变每个位置的表示。
+这一步继续看“中国”“首都”“北京”等位置怎样互相读取信息，并解决 Query、Key、Value、Self-Attention、Causal Mask、Multi-Head Attention 与 MLP 的边界。读完应能解释：为什么 Transformer 不等于 Attention，以及多层怎样不断改变每个位置的表示。
 
 ### 4. 没人给大模型批作业，它怎么知道自己预测错了？
 
 然后读：[没人给大模型批作业，它怎么知道自己预测错了](../03-模型原理与训练/12-没人给大模型批作业它怎么知道预测错了.md)
 
-这一步解决正确 Token 的来源、NLL、Cross Entropy、Teacher Forcing、Loss、Backpropagation、Gradient 与 Optimizer。读完应能解释：原始文本怎样自动提供训练目标；一句话为什么产生许多训练位置；Loss 又怎样最终变成参数张量的一次小更新。
+如果模型只给正确答案“北京”8% 概率，这一步说明 NLL、Cross Entropy、Teacher Forcing、Loss、Backpropagation、Gradient 与 Optimizer 怎样接力。读完应能解释：文本怎样自动提供训练目标，Loss 又怎样最终变成参数张量的一次小更新。
 
 ### 5. 为什么 ChatGPT 的字是一个一个蹦出来的？
 
 最后读：[为什么 ChatGPT 的字是一个一个蹦出来的](../03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md)
 
-这一步解决 Prompt、Prefill、KV Cache、Decode、Temperature、Top-k、Top-p、EOS 与性能指标。读完应能解释：为什么已知输入能并行 Prefill，未知输出必须逐 Token Decode；采样设置为什么不改变模型知识；KV Cache 保存什么，以及输出怎样知道何时停止。
+训练结束后，用户真的输入“中国的首都是”，模型选出“北京”并继续生成。这一步解决 Prompt、Prefill、KV Cache、Decode、Temperature、Top-k、Top-p、EOS 与性能指标。读完应能解释：为什么已知输入能并行 Prefill，未知输出必须逐 Token Decode。
 
 ## 用“中国的首都是”做一次复述
 
@@ -92,7 +94,7 @@ Token IDs
 
 ## 读完后做 16 个自测
 
-1. “你好”为什么还要 Tokenize？
+1. “中国的首都是北京”为什么还要 Tokenize？
 2. Token 为什么要映射成 Token ID？
 3. Token ID 怎样进入神经网络？
 4. Transformer 怎样让不同 Token 交换信息？
@@ -111,4 +113,4 @@ Token IDs
 
 有一项说不清，就回到对应问题页，而不是继续背更多术语。能从文字一路复述到参数更新和最终答案，才算第一次把 LLM 的最小机制真正连起来。
 
-继续探索：[训练与推理对照图](./05-训练与推理对照图.md) · [知识网络](../../知识网络.md) · [真实问题矩阵](../../真实问题矩阵.md)
+接下来可以回到[主学习路线](../../README.md#主学习路线)，或选择[训练与推理对照图](./05-训练与推理对照图.md)继续深入。若这五章里有任何一步说不清，就回到对应章节，不必先进入完整知识网络。

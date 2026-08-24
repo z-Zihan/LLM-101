@@ -75,4 +75,3 @@ Cloud 或并行任务还应检查基线是否过期、环境差异是否影响�
 - [OpenAI Codex 官方仓库与入口说明](https://github.com/openai/codex)
 - [OpenAI Codex IDE](https://developers.openai.com/codex/ide)
 - [OpenAI Codex 安全说明](https://developers.openai.com/codex/security)
-- [真实问题来源：Mobile shows approval waiting banner but no actionable approval card](https://github.com/openai/codex/issues/39346)

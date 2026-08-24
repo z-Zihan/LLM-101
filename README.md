@@ -1,326 +1,151 @@
 # LLM-101
 
-完全不懂 AI？从这里开始。
+完全不懂 AI？先读这一篇：
 
-`LLM-101` 是一套面向中文零基础读者的 AI / 大语言模型教程。它不要求数学或编程背景，也不把一百多个名词扔给你自己拼。
+## → [从一句话开始，带你看懂整个大模型世界](./docs/00-从一句话开始，带你看懂整个大模型世界.md)
 
-我们从真实小白会问的问题出发，沿着连续追问，一步一步建立完整心智模型。
+想直接开始系统学习：
 
-> 当前发布范围与长期内容地图均已闭环：89 篇已发布文章与图谱资产达到当前标准，194 个已入库真实问题全部有答案；LLM 最小原理闭环与长期路线图 B1～B9 均已完成。
+## → [从主学习路线第一篇开始](./docs/01-AI与大模型/01-AI到底是什么.md)
 
-## 当前完成度与边界
+只想真正理解 LLM 内部怎么工作：
 
-| 维度 | 当前状态 |
-|---|---|
-| 已发布正文与图谱资产 | 89 篇；其中 51 篇原有正文完成 V3 重写，新增 38 篇扩展正文与图谱资产 |
-| 真实问题 | 194 条已入库，194 条 `answered`，High 未回答为 0 |
-| 知识网络 | 105 个节点、169 条语义关系 |
-| 内容地图 | 182 个覆盖项 `Done`，`Deferred` 与 `Verify` 均已清零 |
-| 自动检查 | 链接、概念、问题严格检查、生成确定性与 Python 语法均通过 |
+## → [走完 LLM 最小原理闭环](./docs/13-AI全景图/07-LLM最小原理闭环.md)
 
-这里的“完成”指**当前发布范围闭环**，不是以后再也没有内容可写。`Done` 也不等于每个子概念都单独成文：只要某个问题已经在通过审查的主页面中完整回答，就不再为了凑数量拆一篇短文。
+---
 
-仍有一项明确记录的长期证据债务：
+`LLM-101` 是一套给中文零基础读者的 AI 与大语言模型教程。你不需要先会编程、数学，也不需要先理解这个项目怎样组织内容；选上面的一个入口开始，文章会告诉你下一步去哪。
 
-- 两轮 130 条公开候选中，20 条达到 A 级正文核验，110 条受 Reddit、牛客等访问限制而保留为 B 级。B 级证明链已记录，但不宣称完成了实时正文复核；技术答案仍使用论文、官方文档或权威资料独立核验。
+## 主学习路线
 
-完整状态见[项目进度](./项目进度.md)，逐项范围见[内容地图](./内容地图.md)，最终验收证据见[全项目终审](./全项目终审-2026-08-21.md)。
+这是唯一默认学习顺序。如果暂时没有明确问题，就沿这条路线读：
 
-## 你可以怎样使用这个项目？
+```text
+AI 与模型
+  ↓
+文字怎样变成 Token
+  ↓
+Transformer 怎样处理上下文
+  ↓
+模型怎样训练、怎样生成回答
+  ↓
+幻觉与验证
+  ↓
+API、Tool 与 RAG
+  ↓
+Agent、MCP、Skill 与 Memory
+  ↓
+Coding Agent
+```
 
-### 我是完全小白
+从[第一篇：AI 到底是什么？](./docs/01-AI与大模型/01-AI到底是什么.md)开始即可。每篇文章顶部会说明你在哪里，结尾会给出自然的下一步。
 
-按主学习路线开始。第一站：[AI 到底是什么？](./docs/01-AI与大模型/01-AI到底是什么.md)
+## 我现在就有一个问题
 
-主路线只保留“跳过后会明显影响后续理解”的概念，目标控制在 25～35 篇。
+直接搜索[真实问题矩阵](./真实问题矩阵.md)，例如：
 
-### 我已经知道几个概念
+- [参数量就是训练数据吗？](./docs/03-模型原理与训练/07-参数量和训练数据有什么区别.md)
+- [上下文窗口是什么意思？](./docs/02-聊天Token与上下文/07-上下文和上下文窗口是什么.md)
+- [Agent 和模型到底差在哪？](./docs/07-Agent/02-模型和Agent有什么区别.md)
+- [RAG 和 Agent 是什么关系？](./docs/08-RAG与知识库/01-RAG到底是什么.md)
+- [Skill、Tool、MCP、Agent 是什么关系？](./docs/10-Skill/05-Agent和Skill有什么区别.md)
 
-打开 [知识网络](./知识网络.md)，从“模型”“Token”“Agent”或“RAG”等任意节点开始探索。
+问题库只展示问题、难度、相关概念和答案，不展示提问者或来源身份。
 
-### 我脑子里刚好有一个问题
+## 我想按兴趣选一条路线
 
-打开 [真实问题矩阵](./真实问题矩阵.md)。这里的问题来自用户原始聊天或可追溯的公开讨论，并与概念和答案页面双向连接。例如：
+### 真正弄懂 LLM 内部原理
 
-- 参数量就是训练数据吗？
-- 数据是喂给模型的，那模型在被喂之前从哪来？
-- Agent 和模型到底差在哪？
-- Skill、Tool、MCP、Agent 是什么关系？
-- 为什么 Attention 要分 Q、K、V？
-- 多 Agent、RLHF 和分布式训练什么时候真的有用？
+[文本与 Token](./docs/02-聊天Token与上下文/04-Token到底是什么.md)
+→ [预测下一个 Token](./docs/03-模型原理与训练/10-为什么预测下一个Token能学到能力.md)
+→ [Attention](./docs/03-模型原理与训练/05-Attention到底是什么.md)
+→ [Loss 与参数更新](./docs/03-模型原理与训练/12-没人给大模型批作业它怎么知道预测错了.md)
+→ [一次回答怎样生成](./docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md)
 
-候选处理过程统一记录在[真实问题来源审计](./真实问题来源审计.md)中；来源受限、合并、未入库或被补正的情况都会明确标记。
+### 理解 RAG 与知识库
 
-### 我想系统学一个专题
+[RAG](./docs/08-RAG与知识库/01-RAG到底是什么.md)
+→ [Embedding](./docs/08-RAG与知识库/03-Embedding是什么.md)
+→ [检索](./docs/08-RAG与知识库/08-检索是什么.md)
+→ [向量数据库](./docs/08-RAG与知识库/05-向量数据库是什么.md)
+→ [RAG 的局限](./docs/08-RAG与知识库/12-RAG有哪些局限.md)
+
+### 理解 Agent 与 AI 应用
+
+[API](./docs/06-工具与Function-Calling/01-API到底是什么.md)
+→ [Tool](./docs/06-工具与Function-Calling/02-AI工具到底是什么.md)
+→ [Function Calling](./docs/06-工具与Function-Calling/03-Function-Calling是什么.md)
+→ [Agent](./docs/07-Agent/01-Agent到底是什么.md)
+→ [MCP](./docs/09-MCP/01-MCP到底是什么.md)
+→ [Skill](./docs/10-Skill/01-Skill到底是什么.md)
+→ [Memory](./docs/12-Memory/01-聊天记录是什么.md)
+
+### 理解 Codex、Claude Code 这类 Coding Agent
+
+[AI Coding](./docs/11-Coding-Agent/01-AI-Coding是什么.md)
+→ [Coding Agent](./docs/11-Coding-Agent/04-Coding-Agent是什么.md)
+→ [项目上下文](./docs/11-Coding-Agent/08-项目上下文是什么.md)
+→ [上下文工程](./docs/11-Coding-Agent/09-上下文工程是什么.md)
+
+### 理解模型怎样被训练出来
+
+[模型怎样诞生](./docs/03-模型原理与训练/01-一个大模型到底是怎么诞生的.md)
+→ [参数](./docs/03-模型原理与训练/06-参数到底是什么.md)
+→ [训练数据](./docs/03-模型原理与训练/07-参数量和训练数据有什么区别.md)
+→ [Loss](./docs/03-模型原理与训练/12-没人给大模型批作业它怎么知道预测错了.md)
+→ [训练与推理](./docs/03-模型原理与训练/18-训练和推理有什么区别.md)
+
+### 理解 GPU 与大模型工程
+
+[GPU、显存和推理瓶颈](./docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md)
+→ [分布式训练](./docs/03-模型原理与训练/20-分布式训练是什么.md)
+
+### 准备大模型岗位面试
+
+从[问题矩阵](./真实问题矩阵.md)里的“进阶”和“高阶”问题开始，再按答案页的下一步继续。
+
+## 已经懂一些，想自由探索
+
+[知识网络](./知识网络.md)保留完整概念关系，但它是自由探索工具，不是新读者必须先学会的项目说明书。打开某个概念后，重点是：如果没懂先补什么，下一步最值得读什么，它容易和什么混淆，以及以后会在哪里再次出现。
+
+也可以直接进入专题：
 
 - [AI 与大模型](./docs/01-AI与大模型/)
-- [Token 与上下文](./docs/02-聊天Token与上下文/)
+- [聊天、Token 与上下文](./docs/02-聊天Token与上下文/)
 - [模型原理与训练](./docs/03-模型原理与训练/)
 - [模型能力](./docs/04-模型能力/)
 - [幻觉与模型局限](./docs/05-幻觉与模型局限/)
-- [工具与函数调用](./docs/06-工具与Function-Calling/)
+- [工具与 Function Calling](./docs/06-工具与Function-Calling/)
 - [Agent](./docs/07-Agent/)
 - [RAG 与知识库](./docs/08-RAG与知识库/)
 - [MCP](./docs/09-MCP/)
 - [Skill](./docs/10-Skill/)
 - [Coding Agent](./docs/11-Coding-Agent/)
 - [Memory](./docs/12-Memory/)
+- [AI 全景图](./docs/13-AI全景图/)
 
-## 主学习路线
+## 这套教程怎样控制质量
 
-主学习路线是阅读顺序，不是写作顺序。V3 当前规划如下：
+每篇文章不追求塞进所有相关知识，而要让读者完成一个清晰的认知任务。关键事实由原始论文、官方规范、官方文档或权威教材支撑；具体问题只用来发现读者会卡在哪里。
 
-```text
-AI
- ↓
-机器学习与深度学习
- ↓
-模型 → 语言模型 → 大语言模型 → GPT → ChatGPT 产品
- ↓
-参数 → Prompt → Text → Tokenizer → Token → Token ID → Embedding → 上下文
- ↓
-模型生命周期 → 模型架构 → Transformer → Attention
- ↓
-下一个 Token 预测 → Loss → 训练 → 推理 → Decode
- ↓
-泛化 → 推理能力 → 幻觉与验证
- ↓
-API → Tool → Agent
- ↓
-RAG → MCP → Skill → Coding Agent
- ↓
-聊天记录
-```
+发布前会检查准确性、零基础可读性、内容减法、问题覆盖、术语、排版、链接、叙事连续性、下一步路由和问题隐私。真实读者测试的方法与尚待完成的实测记录见[读者测试记录](./读者测试记录.md)。
 
-已经按当前质量基线完成；40 个主路线概念映射到 32 篇唯一主页面：
-
-1. [AI 到底是什么？](./docs/01-AI与大模型/01-AI到底是什么.md)
-2. [AI、机器学习和深度学习是什么关系？](./docs/01-AI与大模型/02-AI机器学习和深度学习是什么关系.md)
-3. [模型到底是什么？](./docs/01-AI与大模型/03-模型到底是什么.md)
-4. [大语言模型到底是什么？](./docs/01-AI与大模型/04-什么是大语言模型.md)
-5. [GPT 和 ChatGPT 有什么区别？](./docs/01-AI与大模型/05-GPT和ChatGPT有什么区别.md)
-6. [参数到底是什么？](./docs/03-模型原理与训练/06-参数到底是什么.md)
-7. [Prompt 到底是什么？](./docs/02-聊天Token与上下文/01-Prompt到底是什么.md)
-8. [模型不认识文字，那“你好”到底是怎么变成数字的？](./docs/02-聊天Token与上下文/04-Token到底是什么.md)
-9. [Token ID 怎样变成向量，Embedding 又为什么能用于检索？](./docs/08-RAG与知识库/03-Embedding是什么.md)
-10. [上下文和上下文窗口是什么？](./docs/02-聊天Token与上下文/07-上下文和上下文窗口是什么.md)
-11. [一个大模型到底是怎么诞生的？](./docs/03-模型原理与训练/01-一个大模型到底是怎么诞生的.md)
-12. [模型架构是什么？](./docs/03-模型原理与训练/02-模型架构是什么.md)
-13. [Transformer 到底是什么？](./docs/03-模型原理与训练/03-Transformer到底是什么.md)
-14. [一句话里的词，模型是怎么互相“看见”的？](./docs/03-模型原理与训练/05-Attention到底是什么.md)
-15. [ChatGPT 看起来什么都会，底层只是在预测下一个 Token 吗？](./docs/03-模型原理与训练/10-为什么预测下一个Token能学到能力.md)
-16. [没人给大模型批作业，它怎么知道自己预测错了？](./docs/03-模型原理与训练/12-没人给大模型批作业它怎么知道预测错了.md)
-17. [训练和推理有什么区别？](./docs/03-模型原理与训练/18-训练和推理有什么区别.md)
-18. [为什么 ChatGPT 的字是一个一个蹦出来的？](./docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md)
-19. [泛化是什么？](./docs/04-模型能力/01-泛化是什么.md)
-20. [推理能力是什么？](./docs/04-模型能力/03-推理能力是什么.md)
-21. [幻觉是什么？](./docs/05-幻觉与模型局限/01-幻觉是什么.md)
-22. [为什么 LLM 不是数据库？](./docs/05-幻觉与模型局限/02-为什么LLM不是数据库.md)
-23. [怎么验证 AI 的回答？](./docs/05-幻觉与模型局限/04-怎么验证AI的回答.md)
-24. [API 到底是什么？](./docs/06-工具与Function-Calling/01-API到底是什么.md)
-25. [AI 工具到底是什么？](./docs/06-工具与Function-Calling/02-AI工具到底是什么.md)
-26. [Agent 到底是什么？](./docs/07-Agent/01-Agent到底是什么.md)
-27. [RAG 到底是什么？](./docs/08-RAG与知识库/01-RAG到底是什么.md)
-28. [知识库是什么？](./docs/08-RAG与知识库/02-知识库是什么.md)
-29. [MCP 到底是什么？](./docs/09-MCP/01-MCP到底是什么.md)
-30. [Skill 到底是什么？](./docs/10-Skill/01-Skill到底是什么.md)
-31. [Coding Agent 是什么？](./docs/11-Coding-Agent/04-Coding-Agent是什么.md)
-32. [聊天记录是什么？](./docs/12-Memory/01-聊天记录是什么.md)
-
-## 只想真正搞懂一次“大模型到底怎么工作”？
-
-不必先背一百个名词。按 5 个小白会真的问的问题阅读：
-
-1. [模型不认识文字，那“你好”到底是怎么变成数字的？](./docs/02-聊天Token与上下文/04-Token到底是什么.md)
-2. [ChatGPT 看起来什么都会，底层只是在预测下一个 Token 吗？](./docs/03-模型原理与训练/10-为什么预测下一个Token能学到能力.md)
-3. [一句话里的词，模型是怎么互相“看见”的？](./docs/03-模型原理与训练/05-Attention到底是什么.md)
-4. [没人给大模型批作业，它怎么知道自己预测错了？](./docs/03-模型原理与训练/12-没人给大模型批作业它怎么知道预测错了.md)
-5. [为什么 ChatGPT 的字是一个一个蹦出来的？](./docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md)
-
-先看总图：[LLM 最小原理闭环](./docs/13-AI全景图/07-LLM最小原理闭环.md)。
-
-```text
-文字 → Token ID → Embedding → Transformer → Logits → Probability
-                                         ├─ 训练：Loss → Gradient → 参数更新
-                                         └─ 推理：选 Token → 接回上下文 → 继续 Decode
-```
-
-这条链解释的是主流自回归大语言模型的核心机制，不是所有 AI 模型的统一流程；RAG、工具、Agent 和聊天产品是在它外面继续增加的系统层。
-
-已经完成的扩展节点：
-
-- [弱 AI、生成式 AI 和 AIGC 有什么区别？](./docs/01-AI与大模型/06-弱AI生成式AI和AIGC有什么区别.md)
-- [NLP 和 Computer Vision 是什么关系？](./docs/01-AI与大模型/07-NLP和Computer-Vision是什么关系.md)
-- [System Prompt 是什么？](./docs/02-聊天Token与上下文/02-System-Prompt是什么.md)
-- [Jailbreak 和 Red Team 是什么？](./docs/05-幻觉与模型局限/03-Jailbreak和Red-Team是什么.md)
-- [规模定律是什么？](./docs/03-模型原理与训练/08-规模定律是什么.md)
-- [RLHF 和 DPO 是什么？](./docs/03-模型原理与训练/11-RLHF和DPO是什么.md)
-- [GPU、显存和推理瓶颈](./docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md)
-- [分布式训练是什么？](./docs/03-模型原理与训练/20-分布式训练是什么.md)
-- [参数量和训练数据有什么区别？](./docs/03-模型原理与训练/07-参数量和训练数据有什么区别.md)
-- [为什么参数不能全部初始化成一样？](./docs/03-模型原理与训练/04-为什么参数不能全部初始化成一样.md)
-- [safetensors 和 GGUF 是什么？](./docs/03-模型原理与训练/09-safetensors和GGUF是什么.md)
-- [记忆训练数据和泛化有什么区别？](./docs/04-模型能力/02-记忆训练数据和泛化有什么区别.md)
-- [涌现能力是什么？](./docs/04-模型能力/04-涌现能力是什么.md)
-- [多模态模型是什么？](./docs/04-模型能力/05-多模态模型是什么.md)
-- [Function Calling 是什么？](./docs/06-工具与Function-Calling/03-Function-Calling是什么.md)
-- [AI 怎样搜索、读文件和查数据库？](./docs/06-工具与Function-Calling/04-AI怎样搜索读文件和查数据库.md)
-- [代码执行和 Computer Use 有什么风险？](./docs/06-工具与Function-Calling/05-代码执行和Computer-Use有什么风险.md)
-- [从 AI Embedded、Copilot 到 Agent](./docs/07-Agent/07-从AI-Embedded和Copilot到Agent.md)
-- [模型和 Agent 有什么区别？](./docs/07-Agent/02-模型和Agent有什么区别.md)
-- [Agent Loop 是什么？](./docs/07-Agent/03-Agent-Loop是什么.md)
-- [Agent 如何规划和恢复？](./docs/07-Agent/04-Agent如何规划和恢复.md)
-- [Workflow 和 Agent 有什么区别？](./docs/07-Agent/05-Workflow和Agent有什么区别.md)
-- [多 Agent 协作是什么？](./docs/07-Agent/06-多Agent协作是什么.md)
-- [Embedding 是什么？](./docs/08-RAG与知识库/03-Embedding是什么.md)
-- [向量数据库是什么？](./docs/08-RAG与知识库/05-向量数据库是什么.md)
-- [检索是什么？](./docs/08-RAG与知识库/08-检索是什么.md)
-- [RAG 和微调有什么区别？](./docs/08-RAG与知识库/11-RAG和微调有什么区别.md)
-- [RAG 有哪些局限？](./docs/08-RAG与知识库/12-RAG有哪些局限.md)
-- [RAG 和直接把资料放进 Prompt 有什么区别？](./docs/08-RAG与知识库/04-RAG和直接把资料放进Prompt有什么区别.md)
-- [知识图谱和向量数据库有什么区别？](./docs/08-RAG与知识库/06-知识图谱和向量数据库有什么区别.md)
-- [MCP 客户端和服务端是什么？](./docs/09-MCP/02-MCP客户端和服务端是什么.md)
-- [MCP 工具、资源和提示是什么？](./docs/09-MCP/03-MCP工具资源和提示是什么.md)
-- [MCP 和 API 有什么区别？](./docs/09-MCP/04-MCP和API有什么区别.md)
-- [MCP 和 Function Calling 有什么区别？](./docs/09-MCP/05-MCP和Function-Calling有什么区别.md)
-- [MCP 和 Agent 有什么区别？](./docs/09-MCP/06-MCP和Agent有什么区别.md)
-- [Prompt 和 Skill 有什么区别？](./docs/10-Skill/02-Prompt和Skill有什么区别.md)
-- [Tool 和 Skill 有什么区别？](./docs/10-Skill/03-Tool和Skill有什么区别.md)
-- [MCP 和 Skill 有什么区别？](./docs/10-Skill/04-MCP和Skill有什么区别.md)
-- [Agent 和 Skill 有什么区别？](./docs/10-Skill/05-Agent和Skill有什么区别.md)
-- [AI Coding 是什么？](./docs/11-Coding-Agent/01-AI-Coding是什么.md)
-- [项目上下文是什么？](./docs/11-Coding-Agent/08-项目上下文是什么.md)
-- [上下文工程是什么？](./docs/11-Coding-Agent/09-上下文工程是什么.md)
-- [Shell 和 Command 是什么？](./docs/11-Coding-Agent/02-Shell和Command是什么.md)
-- 产品案例：[Codex](./docs/11-Coding-Agent/10-Codex产品案例.md) · [Claude Code](./docs/11-Coding-Agent/11-Claude-Code产品案例.md) · [Cursor](./docs/11-Coding-Agent/12-Cursor产品案例.md)
-- [AI 概念全景图](./docs/13-AI全景图/01-AI概念全景图.md) · [AI 应用栈](./docs/13-AI全景图/02-AI应用栈.md) · [AI 概念速查表](./docs/13-AI全景图/03-AI概念速查表.md) · [LLM 最小原理闭环](./docs/13-AI全景图/07-LLM最小原理闭环.md)
-- 流程图：[模型生命周期](./docs/13-AI全景图/04-模型生命周期图.md) · [训练与推理](./docs/13-AI全景图/05-训练与推理对照图.md) · [Agent 架构](./docs/13-AI全景图/06-Agent架构图.md)
-
-Deferred 与 Verify 已通过 9 个批次、27 个实际交付物完成处理，全部状态行均有可审计结论。最终结果已汇总到[全项目终审](./全项目终审-2026-08-21.md)。
-
-三篇可选历史专题把概念放回原始论文与官方发布记录中，不改变 32 篇主路线：[从规则系统到深度学习](./history/01-从规则系统到深度学习.md) · [从 Transformer 到 Chat 模型](./history/02-从Transformer到Chat模型.md) · [从 RAG、工具调用到 Coding Agent](./history/03-从RAG工具调用到Coding-Agent.md)。
-
-## 扩展学习路线
-
-扩展路线负责解释主线中可以先略过、但系统学习时值得深入的内容，例如：
-
-- Tokenizer、上下文窗口、Attention、多模态；
-- 规模定律、RLHF、DPO、GPU 与分布式训练；
-- Embedding、向量数据库、Rerank；
-- MCP 客户端/服务端、Resource、Prompt；
-- Agent 规划、多 Agent、Project Context、Prompt 与 Skill 的区别。
-
-完整规划见 [内容地图](./内容地图.md)。
-
-## 先看懂四张关系图
-
-一棵树不能准确表达所有 AI 概念。下面四张图分别回答四个问题。
-
-### 1. AI、机器学习、模型和 LLM 是什么关系？
-
-```mermaid
-flowchart TD
-    AI["人工智能 AI"] --> ML["机器学习"]
-    ML --> DL["深度学习"]
-    ML --> Model["训练得到模型"]
-    DL --> Transformer["可使用 Transformer 等架构"]
-    Transformer --> LM["语言模型"]
-    LM --> LLM["大语言模型 LLM"]
-```
-
-机器学习是实现 AI 的一种重要路线，但不是唯一路线。不是所有机器学习都属于深度学习，也不是所有模型都是语言模型。
-
-### 2. 一个典型 Agent 应用由什么组成？
-
-```mermaid
-flowchart TD
-    Goal["用户目标"] --> Agent["Agent 系统"]
-    Agent --> Model["模型"]
-    Agent --> Context["上下文"]
-    Agent --> Tool["工具"]
-    Agent -.可选.-> Memory["Memory"]
-    Agent -.可选.-> Skill["Skill"]
-    Tool --> API["API"]
-    Tool -.可通过.-> MCP["MCP"]
-```
-
-Agent 不是一种模型。它是围绕目标组织模型、上下文、工具和状态的系统。
-
-### 3. RAG 回答问题时发生了什么？
-
-```mermaid
-flowchart LR
-    Q["用户问题"] --> Retrieve["检索资料"]
-    Source["知识库或其他来源"] --> Retrieve
-    Retrieve --> Context["把相关资料加入上下文"]
-    Context --> LLM["模型生成回答"]
-    LLM --> Verify["引用与验证"]
-```
-
-RAG 不会把知识永久写进模型参数，也不能自动保证答案正确。
-
-### 4. 知识网络怎样连接正文？
-
-```mermaid
-flowchart LR
-    Data["知识网络.yml"] --> Matrix["概念矩阵"]
-    Data --> Routes["Main / Extended Path"]
-    Data --> Graphs["子网络与全景图"]
-    Matrix --> Article["唯一概念主页面"]
-    Article --> Related["前置、后续、易混、使用者"]
-```
-
-关系数据与文章正文分开维护，文件改名也不会改变概念 ID。
-
-## 这个项目怎样保证质量？
-
-每篇 V3 文章都要经过：
-
-- Accuracy Review
-- Beginner Review
-- Beginner Depth Review
-- Chinese Language Review
-- Real Question Review
-- Question Coverage Review
-- Knowledge Graph Review
-- Cross-link Review
-- Layout Review
-- AI Writing Smell Review
-- Architecture Review
-- Terminology Review
-- Duplication Review
-- Source Review
-- Link Review
-- End-to-End Mechanism Review
-
-关键事实优先使用原始论文、官方规范、官方文档和权威教材。聊天记录只提供小白问题与追问顺序，不作为事实来源。
-
-## 项目管理入口
-
-- [项目进度](./项目进度.md)
-- [内容地图](./内容地图.md)
-- [知识网络](./知识网络.md)
-- [真实问题矩阵](./真实问题矩阵.md)
-- [真实问题库](./真实问题库.yml)
-- [排版规范](./排版规范.md)
-- [术语表](./术语表.md)
-- [文章模板](./文章模板.md)
-- [小白问题库](./FAQ/小白问题库.md)
-- [全项目终审](./全项目终审-2026-08-21.md)
-
-## 自动检查
+维护者可以运行：
 
 ```bash
 python3 scripts/build_knowledge_graph.py
+python3 scripts/build_question_matrix.py
 python3 scripts/check_links.py
 python3 scripts/check_concepts.py
-python3 scripts/build_question_matrix.py
-python3 scripts/check_questions.py
+python3 scripts/check_questions.py --strict
+python3 scripts/check_question_privacy.py
+python3 scripts/check_reader_experience.py
+python3 -m py_compile scripts/*.py
 git diff --check
 ```
 
-只有自动检查和 16 项 Review 全部通过后，文章才能标记为 `Done`。项目终审另外执行 Data & Release Integrity Review，并使用 `python3 scripts/check_questions.py --strict` 确保所有高价值问题都已回答。
+项目范围、编辑规则与维护状态放在二级入口：[项目进度](./项目进度.md) · [本轮验收](./读者体验重构验收-2026-08-24.md) · [内容地图](./内容地图.md) · [文章模板](./文章模板.md) · [排版规范](./排版规范.md) · [术语表](./术语表.md)。
 
 ---
 
-`LLM-101` 的目标不是让你背会术语，而是让你能把这些概念用自己的话讲清楚，并知道它们为什么会连接在一起。
+这套教程不要求你一次记住所有名词。先跟着一个问题走，等你真的需要某个概念时，再顺着链接把它展开。

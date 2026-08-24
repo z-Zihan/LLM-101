@@ -72,4 +72,3 @@ Cursor 的 Run Mode 决定哪些工具请求自动运行、哪些需要批准；
 - [Cursor Agent Security](https://cursor.com/docs/agent/security)
 - [Cursor Run Modes](https://cursor.com/docs/agent/security/run-modes)
 - [Cursor Worktrees](https://cursor.com/docs/configuration/worktrees)
-- [真实问题来源：Cursor breaks boundaries such as searching the disk or a different repository](https://forum.cursor.com/t/cursor-breaks-boundaries-such-as-searching-the-disk-or-a-different-repository/167851)

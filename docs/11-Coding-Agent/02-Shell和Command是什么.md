@@ -97,4 +97,3 @@ Shell 本身不会让 Agent 自动变成管理员。进程继承执行身份及�
 - [GNU Bash Reference Manual](https://www.gnu.org/software/bash/manual/bash.html)
 - [The Open Group：Shell and Utilities](https://pubs.opengroup.org/onlinepubs/9799919799/idx/shell.html)
 - [OWASP：OS Command Injection Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
-- 真实问题来源：[Super User：Shell、Terminal、Console 和 Command Line 有什么区别](https://superuser.com/questions/795950/what-is-the-differences-of-these-conceptsshell-terminal-console-and-command-l)

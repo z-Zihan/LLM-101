@@ -32,7 +32,7 @@ Agent 请求执行脚本后，Host 仍要检查来源、参数和副作用。一
 
 平台可以编写适配层，把某个 Skill 的入口包装成 MCP Tool，或把部分模板暴露为 MCP Prompt。但职责不会因此相同：MCP Tool 是可调用操作，MCP Prompt 是消息模板，完整 Skill 还包含触发条件、流程、材料和验证。
 
-公开项目里出现“把 Skills 作为 MCP Tools 与 Prompts 暴露”的需求，正说明这需要显式转换，不是三个概念天然等价。
+“把 Skills 作为 MCP Tools 与 Prompts 暴露”这类需求，正说明它需要显式转换，不是三个概念天然等价。
 
 ## 两层安全要分别审查
 

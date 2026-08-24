@@ -113,4 +113,3 @@ QLoRA 沿用 LoRA 适配器，同时把**冻结的基础模型**以低比特形�
 - [Microsoft Learn: RAG solution design and evaluation](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide)
 - [Hu et al.: LoRA — Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685)
 - [Dettmers et al.: QLoRA — Efficient Finetuning of Quantized LLMs](https://arxiv.org/abs/2305.14314)
-- 真实问题来源：[AI Stack Exchange：为什么个人文档问答更常用 RAG 而不是微调](https://ai.stackexchange.com/questions/45701/why-fine-tuning-does-not-work-as-well-as-rag)

@@ -28,12 +28,12 @@ def main() -> None:
         "",
         f"当前收录 **{len(questions)}** 个真实问题；已回答 {status_counts['answered']} 个，等待按 V3 重写 {status_counts['needs_rewrite']} 个，规划中 {status_counts['planned']} 个。",
         "",
-        "公开问题只证明困惑真实存在，技术答案仍需用论文、官方文档或权威资料核验。英文来源的问题会转述成自然中文，并明确标记。",
+        "这些问题用来帮助你从自己的困惑直接找到答案。技术结论仍由正文所列论文、官方文档或权威资料支撑。",
         "",
         "## 问题总表",
         "",
-        "| 真实问题 | 来源 | 涉及概念 | 难度 | 优先级 | 状态 | 答案页面 |",
-        "|---|---|---|---|---|---|---|",
+        "| 真实问题 | 涉及概念 | 难度 | 优先级 | 状态 | 答案页面 |",
+        "|---|---|---|---|---|---|",
     ]
     labels = {
         "beginner": "入门",
@@ -47,12 +47,6 @@ def main() -> None:
         "planned": "已规划",
     }
     for item in questions:
-        if item["source_url"]:
-            source = f"[{item['source_title']}]({item['source_url']})"
-            if item["paraphrased"]:
-                source += "（转述）"
-        else:
-            source = item["source_title"]
         concepts = "、".join(
             f"[{by_concept[cid]['name']}](./{by_concept[cid]['path']})" for cid in item["concepts"]
         )
@@ -60,7 +54,7 @@ def main() -> None:
         if item["answer_path"]:
             answer = f"[查看回答](./{item['answer_path']})"
         lines.append(
-            f"| {item['question']} | {source} | {concepts} | {labels[item['difficulty']]} | "
+            f"| {item['question']} | {concepts} | {labels[item['difficulty']]} | "
             f"{labels[item['priority']]} | {labels[item['status']]} | {answer} |"
         )
 
@@ -70,8 +64,7 @@ def main() -> None:
             "## 怎样使用这张表",
             "",
             "- 有具体困惑：直接从问题进入答案页面。",
-            "- 想系统学习：进入任一概念主页面，再沿知识网络继续阅读。",
-            "- 想核对来源：打开公开链接；原始聊天问题来自用户提供的聊天记录，不公开身份信息。",
+            "- 想系统学习：进入任一概念主页面，再沿文章底部的自然导航继续阅读。",
             "",
         ]
     )

@@ -118,5 +118,3 @@ Prompt Injection ── 可能造成 ──→ 越权回答或 Jailbreak
 - [MITRE ATLAS](https://atlas.mitre.org/)
 - [Perez et al.：Red Teaming Language Models with Language Models](https://arxiv.org/abs/2202.03286)
 - [Greshake et al.：Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection](https://arxiv.org/abs/2302.12173)
-- 真实问题来源：[Security Stack Exchange：编码后的 Prompt Injection 怎样绕过防护](https://security.stackexchange.com/questions/279331/how-does-hex-encoded-prompt-injection-work-to-bypass-protections-in-llms-i-e-c)
-- 真实问题来源：[Stack Overflow：Red Team、渗透测试和 Blue Team 有什么区别](https://stackoverflow.com/questions/32265615/difference-between-red-team-penetration-testing-and-blue-team)

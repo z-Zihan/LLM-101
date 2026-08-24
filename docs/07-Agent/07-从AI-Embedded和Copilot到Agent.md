@@ -106,5 +106,3 @@ Agent 不是默认终点。它会增加工具选择错误、上下文成本、�
 - [OpenAI：A practical guide to building agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf)
 - [GitHub Docs：Asking GitHub Copilot questions in your IDE](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide)
 - [GitHub Docs：About GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent)
-- 真实问题来源：[Stack Overflow：Visual Studio Agent Mode 能否换用非 Copilot Agent](https://stackoverflow.com/questions/79979630/how-to-use-a-different-ai-agent-not-github-copilot-in-visual-studios-agent-mo)
-- 真实问题来源：[GitHub Issue：不应允许 Copilot 读写 `.env`](https://github.com/microsoft/vscode-copilot-release/issues/7643)
