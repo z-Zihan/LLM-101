@@ -50,6 +50,8 @@ Coding Agent
 - [RAG 和 Agent 是什么关系？](./docs/08-RAG与知识库/01-RAG到底是什么.md)
 - [Skill、Tool、MCP、Agent 是什么关系？](./docs/10-Skill/05-Agent和Skill有什么区别.md)
 
+想按主题浏览全部问题，进入[真实小白问题池](./FAQ/小白问题库.md)。
+
 问题库只展示问题、难度、相关概念和答案，不展示提问者或来源身份。
 
 ## 我想按兴趣选一条路线
@@ -108,6 +110,8 @@ Coding Agent
 
 [知识网络](./知识网络.md)保留完整概念关系，但它是自由探索工具，不是新读者必须先学会的项目说明书。打开某个概念后，重点是：如果没懂先补什么，下一步最值得读什么，它容易和什么混淆，以及以后会在哪里再次出现。
 
+只想快速确认一个词的边界时，用 [AI 概念速查表](./docs/13-AI全景图/03-AI概念速查表.md)把它放回正确层次，再进入唯一主页面。
+
 也可以直接进入专题：
 
 - [AI 与大模型](./docs/01-AI与大模型/)
@@ -130,18 +134,10 @@ Coding Agent
 
 发布前会检查准确性、零基础可读性、内容减法、问题覆盖、术语、排版、链接、叙事连续性、下一步路由和问题隐私。真实读者测试的方法与尚待完成的实测记录见[读者测试记录](./读者测试记录.md)。
 
-维护者可以运行：
+维护者可以运行一条命令执行全部检查（生成知识网络与问题矩阵、校验链接与概念一致性、问题字段与脱敏、读者入口与内容可达性，以及 Python 语法与空白差异）：
 
 ```bash
-python3 scripts/build_knowledge_graph.py
-python3 scripts/build_question_matrix.py
-python3 scripts/check_links.py
-python3 scripts/check_concepts.py
-python3 scripts/check_questions.py --strict
-python3 scripts/check_question_privacy.py
-python3 scripts/check_reader_experience.py
-python3 -m py_compile scripts/*.py
-git diff --check
+bash scripts/check_all.sh
 ```
 
 项目范围、编辑规则与维护状态放在二级入口：[项目进度](./项目进度.md) · [本轮验收](./读者体验重构验收-2026-08-24.md) · [内容地图](./内容地图.md) · [文章模板](./文章模板.md) · [排版规范](./排版规范.md) · [术语表](./术语表.md)。
