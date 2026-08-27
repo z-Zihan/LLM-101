@@ -111,6 +111,8 @@ HBM 容量大、带宽高，但访问仍比寄存器和片上 SRAM 慢。GPU 会
 
 ## 资料与核验
 
+本篇分析机制层面的瓶颈来源；具体显存占用随模型架构、精度和并行方式变化，估算时请结合所用模型与推理引擎的实际参数。
+
 - [Williams, Waterman & Patterson: Roofline](https://doi.org/10.1145/1498765.1498785)
 - [Dao et al.: FlashAttention](https://arxiv.org/abs/2205.14135)
 - [Kwon et al.: Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180)
