@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 EXCLUDED_PARTS = {".git", ".tmp", ".research"}
-CONTENT_DIRS = ("docs", "history", "FAQ")
+CONTENT_DIRS = ("docs", "history")
 REFERRER_SUFFIXES = (".md", ".yml")
 
 
