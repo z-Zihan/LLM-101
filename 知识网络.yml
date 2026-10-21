@@ -1,5 +1,5 @@
 version: 3
-updated: "2026-10-21"
+updated: "2026-10-22"
 
 main_path:
   - ai
@@ -323,8 +323,19 @@ concepts:
     summary: 把序列概率分解为一连串基于已有前缀的条件概率，并在生成时把新 Token 接回输入的语言模型。
     prerequisites: ["language-model", "token"]
     related: ["next-token-prediction", "context", "inference"]
-    questions: ["q-next-token-capability-001"]
+    questions: ["q-next-token-capability-001", "q-nar-generation-001"]
 
+  - id: coarse-to-fine-generation
+    name: 粗到细生成
+    path: docs/03-模型原理与训练/15-一个Token一个Token地生成是唯一的办法吗.md
+    aliases: ["Coarse-to-Fine Generation", "Next-Concept Modeling", "NCM", "非自回归生成"]
+    level: Advanced
+    path_type: Optional
+    group: 模型训练
+    summary: 把文本表示成由粗到细的离散码层级，生成时逐层并行预测码、逐步细化，最后还原为 Token 的非自回归生成范式；代表工作为 2026 年 10 月的 Next-Concept Modeling（NCM）。
+    prerequisites: ["autoregressive-language-model", "transformer", "tokenizer"]
+    related: ["decode", "inference", "kv-cache"]
+    questions: ["q-nar-generation-001", "q-ncm-speed-001", "q-diffusion-lm-001"]
   - id: next-token-prediction
     name: 下一个 Token 预测
     path: docs/03-模型原理与训练/10-为什么预测下一个Token能学到能力.md
@@ -611,7 +622,7 @@ concepts:
     summary: 使用已经训练好的模型参数，根据当前输入计算输出的过程。
     prerequisites: ["model", "parameter"]
     related: ["training", "context", "token", "prefill", "decode", "sampling", "kv-cache"]
-    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-001", "q-inference-randomness-001", "q-temperature-001", "q-output-context-limit-001", "q-context-length-001", "q-kv-cache-001", "q-speculative-decoding-001", "q-prefill-decode-001", "q-reasoning-think-001", "q-quant-model-size-001", "q-quant-quality-001", "q-moe-active-001", "q-distill-quant-001", "q-model-format-conversion-001"]
+    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-001", "q-inference-randomness-001", "q-temperature-001", "q-output-context-limit-001", "q-context-length-001", "q-kv-cache-001", "q-speculative-decoding-001", "q-prefill-decode-001", "q-reasoning-think-001", "q-quant-model-size-001", "q-quant-quality-001", "q-moe-active-001", "q-distill-quant-001", "q-model-format-conversion-001", "q-ncm-speed-001"]
 
   - id: prefill
     name: Prefill
@@ -635,7 +646,7 @@ concepts:
     summary: 依据当前前缀反复产生 Logits、选择新 Token、追加 Context 并更新 KV Cache 的自回归生成阶段。
     prerequisites: ["inference", "next-token-prediction"]
     related: ["prefill", "sampling", "eos", "kv-cache", "context"]
-    questions: ["q-token-generation-001", "q-output-context-limit-001", "q-speculative-decoding-001", "q-prefill-decode-001", "q-r2-gpu-001", "q-r2-gpu-004"]
+    questions: ["q-token-generation-001", "q-output-context-limit-001", "q-speculative-decoding-001", "q-prefill-decode-001", "q-r2-gpu-001", "q-r2-gpu-004", "q-diffusion-lm-001"]
 
   - id: sampling
     name: Token 采样
@@ -1862,3 +1873,16 @@ relations:
   - from: context-compaction
     relation: 容易混淆
     to: kv-cache
+
+  - from: coarse-to-fine-generation
+    relation: 挑战逐步生成范式
+    to: autoregressive-language-model
+  - from: coarse-to-fine-generation
+    relation: 以 Transformer 为生成器
+    to: transformer
+  - from: coarse-to-fine-generation
+    relation: 依赖多尺度码本压缩
+    to: tokenizer
+  - from: coarse-to-fine-generation
+    relation: 容易混淆
+    to: decode

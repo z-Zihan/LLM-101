@@ -1,5 +1,5 @@
 version: 4
-updated: "2026-10-21"
+updated: "2026-10-22"
 
 questions:
   - id: q-compaction-loss-001
@@ -1765,3 +1765,31 @@ questions:
     status: answered
     answer_path: "docs/11-Coding-Agent/12-Cursor产品案例.md"
     cluster: cursor-workspace-boundary
+
+
+  - id: q-nar-generation-001
+    question: "ChatGPT 的字必须一个一个蹦出来吗？有没有模型能一次生成一整段文字？"
+    concepts: ["autoregressive-language-model", "coarse-to-fine-generation"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/15-一个Token一个Token地生成是唯一的办法吗.md"
+    cluster: non-autoregressive-generation
+
+  - id: q-ncm-speed-001
+    question: "斯坦福的 Next-Concept Modeling 宣称文本生成快 10 到 30 倍，它怎样绕开逐 Token 生成？付出了什么代价？"
+    concepts: ["coarse-to-fine-generation", "inference"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/15-一个Token一个Token地生成是唯一的办法吗.md"
+    cluster: non-autoregressive-generation
+
+  - id: q-diffusion-lm-001
+    question: "扩散模型也能写文字吗？它和普通大模型逐字生成的本质区别在哪里？"
+    concepts: ["coarse-to-fine-generation", "decode"]
+    difficulty: intermediate
+    priority: medium
+    status: answered
+    answer_path: "docs/03-模型原理与训练/15-一个Token一个Token地生成是唯一的办法吗.md"
+    cluster: non-autoregressive-generation
