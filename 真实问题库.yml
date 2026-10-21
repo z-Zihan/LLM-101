@@ -1,7 +1,25 @@
 version: 4
-updated: "2026-08-24"
+updated: "2026-10-21"
 
 questions:
+  - id: q-compaction-loss-001
+    question: "Coding Agent 的上下文被自动压缩后，为什么总是先忘掉约束和架构决策，而不是忘记任务剧情？压缩摘要应该怎样保留前提类信息？"
+    concepts: ["context-compaction"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/13-上下文压缩Compaction是什么.md"
+    cluster: compaction-information-loss
+
+  - id: q-compaction-window-001
+    question: "上下文窗口已经到百万 Token 了，会话压缩还有必要吗？窗口变大和压缩是什么关系？"
+    concepts: ["context-compaction", "context-window"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/13-上下文压缩Compaction是什么.md"
+    cluster: compaction-vs-long-context
+
   - id: q-token-units-001
     question: "1k、1m、1b、1t 分别是多少 Token？1.5b 又是什么意思？"
     concepts: ["token"]
@@ -1417,7 +1435,7 @@ questions:
 
   - id: q-r2-contexteng-004
     question: "自动 Context Compaction 为什么会把关键架构决策、当前目录或约束压没？一个好的压缩摘要应该保留什么？"
-    concepts: ["context-engineering"]
+    concepts: ["context-engineering", "context-compaction"]
     difficulty: intermediate
     priority: high
     status: answered

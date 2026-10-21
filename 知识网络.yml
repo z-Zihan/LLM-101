@@ -1,5 +1,5 @@
 version: 3
-updated: "2026-08-21"
+updated: "2026-10-21"
 
 main_path:
   - ai
@@ -395,7 +395,7 @@ concepts:
     summary: 模型一次处理输入和输出时可容纳内容的容量边界。
     prerequisites: ["context", "token"]
     related: ["inference", "conversation-history"]
-    questions: ["q-context-window-001", "q-context-stateless-001", "q-reasoning-consistency-001", "q-rag-long-context-001", "q-output-context-limit-001", "q-context-length-001", "q-effective-context-001", "q-kv-cache-001", "q-context-memory-001", "q-long-context-memory-001"]
+    questions: ["q-context-window-001", "q-context-stateless-001", "q-reasoning-consistency-001", "q-rag-long-context-001", "q-output-context-limit-001", "q-context-length-001", "q-effective-context-001", "q-kv-cache-001", "q-context-memory-001", "q-long-context-memory-001", "q-compaction-window-001"]
 
   - id: model-lifecycle
     name: 模型生命周期
@@ -1114,8 +1114,20 @@ concepts:
     group: Coding Agent
     summary: 按任务阶段选择、组织、压缩和更新模型运行时信息，并保留权威性与可追溯边界的工程方法。
     prerequisites: ["context", "context-window", "coding-agent"]
-    related: ["conversation-history", "rag", "multi-agent"]
+    related: ["conversation-history", "rag", "multi-agent", "context-compaction"]
     questions: ["q-r2-contexteng-001", "q-r2-contexteng-002", "q-r2-contexteng-003", "q-r2-contexteng-004", "q-r2-contexteng-005", "q-r2-contexteng-006"]
+
+  - id: context-compaction
+    name: 上下文压缩
+    path: docs/11-Coding-Agent/13-上下文压缩Compaction是什么.md
+    aliases: ["Compaction", "Context Compaction", "上下文压缩", "自动压缩"]
+    level: Advanced
+    path_type: Extended
+    group: Coding Agent
+    summary: 在应用层用模型生成的摘要替换较长历史，并显式保留约束、结构化状态与证据指针的上下文管理机制。
+    prerequisites: ["context-engineering", "context-window"]
+    related: ["conversation-history", "kv-cache", "coding-agent"]
+    questions: ["q-r2-contexteng-004", "q-compaction-loss-001", "q-compaction-window-001"]
 
   - id: narrow-ai
     name: 窄域 AI
@@ -1841,3 +1853,12 @@ relations:
   - from: context-engineering
     relation: 可以使用
     to: rag
+  - from: context-compaction
+    relation: 是一种
+    to: context-engineering
+  - from: context-compaction
+    relation: 压缩并保留
+    to: conversation-history
+  - from: context-compaction
+    relation: 容易混淆
+    to: kv-cache
