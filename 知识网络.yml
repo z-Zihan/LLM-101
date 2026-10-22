@@ -1,5 +1,5 @@
 version: 3
-updated: "2026-10-22"
+updated: "2026-10-23"
 
 main_path:
   - ai
@@ -406,7 +406,7 @@ concepts:
     summary: 模型一次处理输入和输出时可容纳内容的容量边界。
     prerequisites: ["context", "token"]
     related: ["inference", "conversation-history"]
-    questions: ["q-context-window-001", "q-context-stateless-001", "q-reasoning-consistency-001", "q-rag-long-context-001", "q-output-context-limit-001", "q-context-length-001", "q-effective-context-001", "q-kv-cache-001", "q-context-memory-001", "q-long-context-memory-001", "q-compaction-window-001"]
+    questions: ["q-context-window-001", "q-context-stateless-001", "q-reasoning-consistency-001", "q-rag-long-context-001", "q-output-context-limit-001", "q-context-length-001", "q-effective-context-001", "q-kv-cache-001", "q-context-memory-001", "q-long-context-memory-001", "q-compaction-window-001", "q-memory-native-vs-external-001"]
 
   - id: model-lifecycle
     name: 模型生命周期
@@ -718,7 +718,7 @@ concepts:
     summary: 保存当前请求中各层历史位置的 Attention K/V 状态，避免每个 Decode 步骤重复计算整段前缀。
     prerequisites: ["attention", "qkv", "inference"]
     related: ["prefill", "decode", "context-window", "gpu-compute"]
-    questions: ["q-token-generation-001", "q-kv-cache-001", "q-prefill-decode-001", "q-r2-gpu-005"]
+    questions: ["q-token-generation-001", "q-kv-cache-001", "q-prefill-decode-001", "q-r2-gpu-005", "q-memory-native-vs-external-001"]
 
   - id: latency
     name: 推理延迟
@@ -886,7 +886,7 @@ concepts:
     summary: 在生成前检索外部资料，并把相关内容提供给模型作为上下文的方法。
     prerequisites: ["llm", "context"]
     related: ["embedding", "vector-database", "hallucination"]
-    questions: ["q-rag-001", "q-vector-store-001", "q-rag-hallucination-001", "q-rag-finetuning-001", "q-agent-concepts-roadmap-001", "q-rag-agent-001", "q-rag-long-context-001", "q-rag-document-processing-001", "q-rag-chunking-001", "q-rag-retrieval-quality-001", "q-rag-rerank-001", "q-rag-hybrid-search-001", "q-rag-exact-terms-001", "q-rerank-limit-001", "q-rag-global-context-001", "q-vector-database-selection-001", "q-rag-pipeline-001", "q-ai-memory-001", "q-long-context-memory-001", "q-database-access-001", "q-knowledge-graph-vector-001"]
+    questions: ["q-rag-001", "q-vector-store-001", "q-rag-hallucination-001", "q-rag-finetuning-001", "q-agent-concepts-roadmap-001", "q-rag-agent-001", "q-rag-long-context-001", "q-rag-document-processing-001", "q-rag-chunking-001", "q-rag-retrieval-quality-001", "q-rag-rerank-001", "q-rag-hybrid-search-001", "q-rag-exact-terms-001", "q-rerank-limit-001", "q-rag-global-context-001", "q-vector-database-selection-001", "q-rag-pipeline-001", "q-ai-memory-001", "q-long-context-memory-001", "q-database-access-001", "q-knowledge-graph-vector-001", "q-memory-vs-rag-001"]
 
   - id: knowledge-base
     name: 知识库
@@ -934,7 +934,7 @@ concepts:
     summary: 根据查询从候选资料中召回、过滤并排序可能相关的证据。
     prerequisites: ["knowledge-base"]
     related: ["rag", "embedding", "vector-database"]
-    questions: ["q-rag-001", "q-vector-store-001", "q-rag-long-context-001", "q-rag-document-processing-001", "q-rag-chunking-001", "q-rag-retrieval-quality-001", "q-rag-rerank-001", "q-rag-hybrid-search-001", "q-rag-exact-terms-001", "q-rerank-limit-001", "q-rag-global-context-001", "q-vector-irrelevant-001", "q-rag-pipeline-001"]
+    questions: ["q-rag-001", "q-vector-store-001", "q-rag-long-context-001", "q-rag-document-processing-001", "q-rag-chunking-001", "q-rag-retrieval-quality-001", "q-rag-rerank-001", "q-rag-hybrid-search-001", "q-rag-exact-terms-001", "q-rerank-limit-001", "q-rag-global-context-001", "q-vector-irrelevant-001", "q-rag-pipeline-001", "q-memory-vs-rag-001"]
 
   - id: mcp
     name: MCP
@@ -1018,7 +1018,18 @@ concepts:
     summary: 系统保存的一组历史消息；只有被重新选入上下文时才会影响当前回答。
     prerequisites: ["context"]
     related: ["context-window", "agent"]
-    questions: ["q-context-stateless-001", "q-coding-context-001", "q-chat-correction-memory-001", "q-agent-concepts-roadmap-001", "q-ai-memory-001", "q-context-memory-001", "q-coding-agent-memory-001", "q-long-context-memory-001", "q-long-agent-state-001"]
+    questions: ["q-context-stateless-001", "q-coding-context-001", "q-chat-correction-memory-001", "q-agent-concepts-roadmap-001", "q-ai-memory-001", "q-context-memory-001", "q-coding-agent-memory-001", "q-long-context-memory-001", "q-long-agent-state-001", "q-memory-write-policy-001"]
+  - id: agent-memory-system
+    name: Agent 记忆系统
+    path: docs/12-Memory/02-Agent的长期记忆是怎样实现的.md
+    aliases: ["Agent Memory", "Agent Memory System", "长期记忆", "记忆系统", "Long-term Memory"]
+    level: Advanced
+    path_type: Optional
+    group: Memory
+    summary: 通过写入、存储、检索、使用四个环节，把跨会话信息保存在模型之外或架构之内，并在合适时机取回注入上下文的系统机制。
+    prerequisites: ["conversation-history", "context-window", "rag"]
+    related: ["context-compaction", "context-engineering", "agent", "retrieval", "kv-cache"]
+    questions: ["q-memory-write-policy-001", "q-memory-vs-rag-001", "q-memory-native-vs-external-001", "q-coding-agent-memory-001"]
 
   - id: scaling-laws
     name: 规模定律
@@ -1804,6 +1815,21 @@ relations:
   - from: conversation-history
     relation: 可被选入
     to: context
+  - from: conversation-history
+    relation: 沉淀为
+    to: agent-memory-system
+  - from: agent-memory-system
+    relation: 是一种
+    to: context-engineering
+  - from: agent-memory-system
+    relation: 检索注入
+    to: context
+  - from: agent-memory-system
+    relation: 容易混淆
+    to: rag
+  - from: agent-memory-system
+    relation: 容易混淆
+    to: kv-cache
   - from: scaling-laws
     relation: 同时研究
     to: parameter

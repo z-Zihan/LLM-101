@@ -1,5 +1,5 @@
 version: 4
-updated: "2026-10-22"
+updated: "2026-10-23"
 
 questions:
   - id: q-compaction-loss-001
@@ -688,7 +688,7 @@ questions:
 
   - id: q-coding-agent-memory-001
     question: "Coding Agent 的上下文被压缩后，架构决策和调试经验会丢失，怎样设计真正的持久记忆？"
-    concepts: ["context", "coding-agent", "conversation-history"]
+    concepts: ["context", "coding-agent", "conversation-history", "agent-memory-system"]
     difficulty: intermediate
     priority: high
     status: answered
@@ -1793,3 +1793,30 @@ questions:
     status: answered
     answer_path: "docs/03-模型原理与训练/15-一个Token一个Token地生成是唯一的办法吗.md"
     cluster: non-autoregressive-generation
+
+  - id: q-memory-write-policy-001
+    question: "Agent 的记忆系统应该记什么、忘什么？把所有对话都存下来当记忆，为什么反而有害？"
+    concepts: ["agent-memory-system", "conversation-history"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/12-Memory/02-Agent的长期记忆是怎样实现的.md"
+    cluster: memory-write-policy
+
+  - id: q-memory-vs-rag-001
+    question: "记忆系统和 RAG 都是检索后注入上下文，它们的本质区别是什么？什么时候该用记忆、什么时候该用 RAG？"
+    concepts: ["agent-memory-system", "rag", "retrieval"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/12-Memory/02-Agent的长期记忆是怎样实现的.md"
+    cluster: memory-vs-rag
+
+  - id: q-memory-native-vs-external-001
+    question: "把记忆直接做进模型架构（如 MemT-1.0）和用外部存储实现记忆，各自的优势和代价是什么？架构内记忆会取代外挂数据库吗？"
+    concepts: ["agent-memory-system", "kv-cache", "context-window"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/12-Memory/02-Agent的长期记忆是怎样实现的.md"
+    cluster: memory-native-vs-external
