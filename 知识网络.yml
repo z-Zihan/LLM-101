@@ -1148,8 +1148,8 @@ concepts:
     group: Coding Agent
     summary: 在应用层用模型生成的摘要替换较长历史，并显式保留约束、结构化状态与证据指针的上下文管理机制。
     prerequisites: ["context-engineering", "context-window"]
-    related: ["conversation-history", "kv-cache", "coding-agent"]
-    questions: ["q-r2-contexteng-004", "q-compaction-loss-001", "q-compaction-window-001"]
+    related: ["conversation-history", "kv-cache", "coding-agent", "system-prompt"]
+    questions: ["q-r2-contexteng-004", "q-compaction-loss-001", "q-compaction-window-001", "q-governance-decay-001", "q-governance-decay-002"]
 
   - id: narrow-ai
     name: 窄域 AI
@@ -1221,7 +1221,7 @@ concepts:
     summary: 平台或应用在运行时提供、用于说明任务、行为和边界的一类高优先级输入，具体角色与优先规则由平台定义。
     prerequisites: ["prompt", "context"]
     related: ["training", "tool", "agent"]
-    questions: ["q-system-prompt-001", "q-system-prompt-finetune-001"]
+    questions: ["q-system-prompt-001", "q-system-prompt-finetune-001", "q-governance-decay-001", "q-governance-decay-002"]
 
   - id: jailbreak
     name: Jailbreak
@@ -1899,6 +1899,10 @@ relations:
   - from: context-compaction
     relation: 容易混淆
     to: kv-cache
+
+  - from: context-compaction
+    relation: 可能静默删除
+    to: system-prompt
 
   - from: coarse-to-fine-generation
     relation: 挑战逐步生成范式
