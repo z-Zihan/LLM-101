@@ -1,7 +1,25 @@
 version: 4
-updated: "2026-10-23"
+updated: "2026-10-24"
 
 questions:
+  - id: q-governance-decay-001
+    question: "Agent 会话早期明确接受的规则（比如禁止外发邮件），跑了几百轮被压缩之后为什么就开始违反了？是模型变了吗？"
+    concepts: ["context-compaction", "system-prompt"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/13-上下文压缩Compaction是什么.md"
+    cluster: governance-decay
+
+  - id: q-governance-decay-002
+    question: "怎么做才能让 Agent 的安全约束在多轮上下文压缩之后仍然有效？把规则写进系统提示就够了吗？"
+    concepts: ["context-compaction", "system-prompt"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/13-上下文压缩Compaction是什么.md"
+    cluster: governance-decay
+
   - id: q-compaction-loss-001
     question: "Coding Agent 的上下文被自动压缩后，为什么总是先忘掉约束和架构决策，而不是忘记任务剧情？压缩摘要应该怎样保留前提类信息？"
     concepts: ["context-compaction"]
