@@ -1,5 +1,5 @@
 version: 3
-updated: "2026-10-23"
+updated: 2026-10-25
 
 main_path:
   - ai
@@ -622,7 +622,7 @@ concepts:
     summary: 使用已经训练好的模型参数，根据当前输入计算输出的过程。
     prerequisites: ["model", "parameter"]
     related: ["training", "context", "token", "prefill", "decode", "sampling", "kv-cache"]
-    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-001", "q-inference-randomness-001", "q-temperature-001", "q-output-context-limit-001", "q-context-length-001", "q-kv-cache-001", "q-speculative-decoding-001", "q-prefill-decode-001", "q-reasoning-think-001", "q-quant-model-size-001", "q-quant-quality-001", "q-moe-active-001", "q-distill-quant-001", "q-model-format-conversion-001", "q-ncm-speed-001"]
+    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-001", "q-inference-randomness-001", "q-temperature-001", "q-output-context-limit-001", "q-context-length-001", "q-kv-cache-001", "q-speculative-decoding-001", "q-prefill-decode-001", "q-reasoning-think-001", "q-adaptive-thinking-001", "q-quant-model-size-001", "q-quant-quality-001", "q-moe-active-001", "q-distill-quant-001", "q-model-format-conversion-001", "q-ncm-speed-001"]
 
   - id: prefill
     name: Prefill
@@ -777,8 +777,20 @@ concepts:
     group: AI与模型
     summary: 根据给定信息和规则经过中间步骤得到结论的任务能力。
     prerequisites: ["model", "generalization"]
-    related: ["inference", "hallucination"]
-    questions: ["q-parameter-capacity-001", "q-intelligence-origin-001", "q-next-token-capability-001", "q-reasoning-consistency-001", "q-reasoning-think-001"]
+    related: ["inference", "hallucination", "adaptive-thinking"]
+    questions: ["q-parameter-capacity-001", "q-intelligence-origin-001", "q-next-token-capability-001", "q-reasoning-consistency-001", "q-reasoning-think-001", "q-adaptive-thinking-001", "q-adaptive-thinking-002"]
+
+  - id: adaptive-thinking
+    name: 自适应思考
+    path: docs/04-模型能力/03-推理能力是什么.md
+    aliases: ["Adaptive Thinking", "自适应推理", "置信度门控", "confidence-gated reasoning", "推理预算控制"]
+    level: Advanced
+    path_type: Optional
+    group: AI与模型
+    summary: 模型按置信度决定哪些问题直接作答、哪些问题触发显式推理，在准确率与推理开销之间做权衡。
+    prerequisites: ["reasoning"]
+    related: ["inference", "reasoning-strategies", "decode"]
+    questions: ["q-adaptive-thinking-001", "q-adaptive-thinking-002"]
 
   - id: reasoning-strategies
     name: 推理时策略
@@ -1916,3 +1928,12 @@ relations:
   - from: coarse-to-fine-generation
     relation: 容易混淆
     to: decode
+  - from: adaptive-thinking
+    relation: 按需触发
+    to: reasoning
+  - from: adaptive-thinking
+    relation: 用更少计算达成相近
+    to: inference
+  - from: adaptive-thinking
+    relation: 替代部分手动编排的
+    to: reasoning-strategies
