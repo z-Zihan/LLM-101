@@ -731,6 +731,24 @@ questions:
     answer_path: "docs/04-模型能力/03-推理能力是什么.md"
     cluster: reasoning-token-generation
 
+  - id: q-adaptive-thinking-001
+    question: "推理模型为什么简单题也要想很久？能不能只在没把握的时候才展开思考？"
+    concepts: ["adaptive-thinking", "reasoning", "inference"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/04-模型能力/03-推理能力是什么.md"
+    cluster: reasoning-token-generation
+
+  - id: q-adaptive-thinking-002
+    question: "用强化学习惩罚过长的思考过程，为什么不会把模型训成不思考？关键约束是什么？"
+    concepts: ["adaptive-thinking", "reasoning"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/04-模型能力/03-推理能力是什么.md"
+    cluster: reasoning-token-generation
+
   - id: q-platform-mcp-001
     question: "Dify 和 MCP 是不是同一类东西？低代码 Agent 平台和工具连接协议的边界在哪里？"
     concepts: ["tool", "agent", "mcp"]
