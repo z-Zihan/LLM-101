@@ -804,6 +804,18 @@ concepts:
     related: ["agent-planning", "verification", "tool"]
     questions: ["q-r2-planning-003", "q-tot-cot-001"]
 
+  - id: harness-self-evolution
+    name: Harness 自进化
+    path: docs/11-Coding-Agent/04-Coding-Agent是什么.md
+    aliases: ["Harness Self-Evolution", "Harness Evolution", "Recursive Agent Harnessing", "递归 Harness 改进", "自进化脚手架"]
+    level: Advanced
+    path_type: Optional
+    group: Coding Agent
+    summary: 让 Agent 在任务执行中自动修改自身 Harness 并沉淀改进经验的方法，用行为对比代替真值验证，区分任务级与改进机制级两层递归。
+    prerequisites: ["coding-agent", "agent"]
+    related: ["context-compaction", "context-engineering", "agent-memory-system", "system-prompt"]
+    questions: ["q-harness-self-evolution-001", "q-harness-self-evolution-002"]
+
   - id: hallucination
     name: 幻觉
     path: docs/05-幻觉与模型局限/01-幻觉是什么.md
@@ -982,7 +994,7 @@ concepts:
     summary: 能读取项目、修改文件、运行命令并验证结果的编程任务 Agent。
     prerequisites: ["agent", "tool"]
     related: ["skill", "conversation-history"]
-    questions: ["q-coding-context-001", "q-coding-agent-memory-001", "q-r2-codingagent-001", "q-r2-codingagent-002", "q-r2-codingagent-003", "q-r2-codingagent-004", "q-r2-codingagent-005", "q-r2-codingagent-006", "q-r2-codingagent-007", "q-r2-codingagent-008", "q-copilot-agent-mode-001", "q-copilot-env-001", "q-shell-terminal-001"]
+    questions: ["q-coding-context-001", "q-coding-agent-memory-001", "q-r2-codingagent-001", "q-r2-codingagent-002", "q-r2-codingagent-003", "q-r2-codingagent-004", "q-r2-codingagent-005", "q-r2-codingagent-006", "q-r2-codingagent-007", "q-r2-codingagent-008", "q-copilot-agent-mode-001", "q-copilot-env-001", "q-shell-terminal-001", "q-harness-self-evolution-001", "q-harness-self-evolution-002"]
 
   - id: codex-product
     name: Codex 产品案例
@@ -1937,3 +1949,13 @@ relations:
   - from: adaptive-thinking
     relation: 替代部分手动编排的
     to: reasoning-strategies
+
+  - from: harness-self-evolution
+    relation: 自动修改
+    to: coding-agent
+  - from: context-compaction
+    relation: 构成自进化 Harness 的治理面
+    to: harness-self-evolution
+  - from: agent-memory-system
+    relation: 为改进库提供存储形态参考
+    to: harness-self-evolution
