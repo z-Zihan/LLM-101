@@ -1856,3 +1856,21 @@ questions:
     status: answered
     answer_path: "docs/12-Memory/02-Agent的长期记忆是怎样实现的.md"
     cluster: memory-native-vs-external
+
+  - id: q-harness-self-evolution-001
+    question: "Agent 的 Harness（系统提示、工具、流程编排）能不能不用人工调优、自己越用越好？开放任务没有标准答案时，怎么判断一次修改算变好了？"
+    concepts: ["harness-self-evolution", "coding-agent"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: harness-self-evolution
+
+  - id: q-harness-self-evolution-002
+    question: "让 Agent 自己改进 Harness 和直接微调模型相比各有什么优劣？为什么说两者交替进行比只改一边更好？"
+    concepts: ["harness-self-evolution", "coding-agent"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: harness-self-evolution
