@@ -1,5 +1,5 @@
 version: 3
-updated: 2026-10-25
+updated: 2026-10-27
 
 main_path:
   - ai
@@ -897,7 +897,7 @@ concepts:
     group: Tool与Agent
     summary: 围绕目标反复获取信息、选择行动、使用工具并根据结果继续推进的系统。
     prerequisites: ["model", "tool"]
-    related: ["rag", "mcp", "skill", "coding-agent"]
+    related: ["rag", "mcp", "skill", "coding-agent", "agent-loop"]
     questions: ["q-agent-001", "q-agent-definition-001", "q-agent-roadmap-001", "q-agent-concepts-roadmap-001", "q-agent-loop-001", "q-rag-agent-001", "q-platform-mcp-001", "q-agent-browser-injection-001", "q-long-agent-state-001", "q-tool-prompt-injection-001", "q-mcp-security-001", "q-copilot-agent-mode-001"]
 
   - id: rag
@@ -1138,6 +1138,18 @@ concepts:
     prerequisites: ["agent", "tool"]
     related: ["verification", "multi-agent"]
     questions: ["q-r2-planning-001", "q-r2-planning-002", "q-r2-planning-003", "q-r2-planning-004", "q-r2-planning-005", "q-r2-planning-006", "q-r2-planning-007"]
+
+  - id: agent-loop
+    name: Agent 循环
+    path: docs/07-Agent/03-Agent-Loop是什么.md
+    aliases: ["Agent Loop", "Agent 循环", "观察-决定-行动循环"]
+    level: Core
+    path_type: Extended
+    group: Tool与Agent
+    summary: Agent 反复执行观察、决定、行动、更新的运行方式，把真实执行结果带回下一轮判断。
+    prerequisites: ["agent", "tool"]
+    related: ["function-calling", "agent-planning"]
+    questions: ["q-agent-loop-001"]
 
   - id: multi-agent
     name: 多 Agent 协作
@@ -1959,3 +1971,12 @@ relations:
   - from: agent-memory-system
     relation: 为改进库提供存储形态参考
     to: harness-self-evolution
+  - from: agent
+    relation: 通过循环持续运行
+    to: agent-loop
+  - from: agent-loop
+    relation: 逐轮请求工具调用
+    to: function-calling
+  - from: agent-planning
+    relation: 规划并约束
+    to: agent-loop
