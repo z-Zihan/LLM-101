@@ -445,7 +445,7 @@ questions:
 
   - id: q-agent-loop-001
     question: "Agent Loop 到底是什么？为什么很多 Agent 最小实现看起来就是不断调用模型、执行工具、再把结果塞回去？"
-    concepts: ["tool", "function-calling", "agent"]
+    concepts: ["tool", "function-calling", "agent", "agent-loop"]
     difficulty: beginner
     priority: high
     status: answered
