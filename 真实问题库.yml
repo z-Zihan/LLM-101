@@ -1,5 +1,5 @@
 version: 4
-updated: "2026-10-24"
+updated: "2026-10-28"
 
 questions:
   - id: q-governance-decay-001
@@ -1874,3 +1874,21 @@ questions:
     status: answered
     answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
     cluster: harness-self-evolution
+
+  - id: q-harness-reliability-001
+    question: "任务成功率能不能衡量 Agent Harness 的好坏？为什么实验里会有任务成功、但 Harness 违反可靠性标准的运行？"
+    concepts: ["harness-reliability", "coding-agent"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: harness-reliability
+
+  - id: q-harness-reliability-002
+    question: "同一个 Skill 对强模型有效、对弱模型有害时，应该改模型还是改 Skill？怎么系统性地把 Skill 适配到执行者能力？"
+    concepts: ["harness-reliability", "harness-self-evolution", "coding-agent"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: harness-reliability

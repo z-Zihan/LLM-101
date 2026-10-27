@@ -1,5 +1,5 @@
 version: 3
-updated: 2026-10-27
+updated: 2026-10-28
 
 main_path:
   - ai
@@ -813,8 +813,20 @@ concepts:
     group: Coding Agent
     summary: 让 Agent 在任务执行中自动修改自身 Harness 并沉淀改进经验的方法，用行为对比代替真值验证，区分任务级与改进机制级两层递归。
     prerequisites: ["coding-agent", "agent"]
-    related: ["context-compaction", "context-engineering", "agent-memory-system", "system-prompt"]
-    questions: ["q-harness-self-evolution-001", "q-harness-self-evolution-002"]
+    related: ["context-compaction", "context-engineering", "agent-memory-system", "system-prompt", "harness-reliability"]
+    questions: ["q-harness-self-evolution-001", "q-harness-self-evolution-002", "q-harness-reliability-002"]
+
+  - id: harness-reliability
+    name: Harness 可靠性
+    path: docs/11-Coding-Agent/04-Coding-Agent是什么.md
+    aliases: ["Harness Reliability", "TraceTrial-Bench", "Harness 评测", "Harness 可靠性基准"]
+    level: Advanced
+    path_type: Optional
+    group: Coding Agent
+    summary: 把 Harness 的过程质量（上下文、执行、治理、生命周期、可观测性、工具、验证七个维度）从任务成功率里拆出来单独度量的评测方向；任务成功不等于过程可靠，Skill 类改进还具有能力条件性。
+    prerequisites: ["coding-agent", "agent"]
+    related: ["harness-self-evolution", "context-compaction", "verification"]
+    questions: ["q-harness-reliability-001", "q-harness-reliability-002"]
 
   - id: hallucination
     name: 幻觉
@@ -994,7 +1006,7 @@ concepts:
     summary: 能读取项目、修改文件、运行命令并验证结果的编程任务 Agent。
     prerequisites: ["agent", "tool"]
     related: ["skill", "conversation-history"]
-    questions: ["q-coding-context-001", "q-coding-agent-memory-001", "q-r2-codingagent-001", "q-r2-codingagent-002", "q-r2-codingagent-003", "q-r2-codingagent-004", "q-r2-codingagent-005", "q-r2-codingagent-006", "q-r2-codingagent-007", "q-r2-codingagent-008", "q-copilot-agent-mode-001", "q-copilot-env-001", "q-shell-terminal-001", "q-harness-self-evolution-001", "q-harness-self-evolution-002"]
+    questions: ["q-coding-context-001", "q-coding-agent-memory-001", "q-r2-codingagent-001", "q-r2-codingagent-002", "q-r2-codingagent-003", "q-r2-codingagent-004", "q-r2-codingagent-005", "q-r2-codingagent-006", "q-r2-codingagent-007", "q-r2-codingagent-008", "q-copilot-agent-mode-001", "q-copilot-env-001", "q-shell-terminal-001", "q-harness-self-evolution-001", "q-harness-self-evolution-002", "q-harness-reliability-001", "q-harness-reliability-002"]
 
   - id: codex-product
     name: Codex 产品案例
@@ -1980,3 +1992,12 @@ relations:
   - from: agent-planning
     relation: 规划并约束
     to: agent-loop
+  - from: coding-agent
+    relation: 过程质量需独立于成功率度量
+    to: harness-reliability
+  - from: harness-reliability
+    relation: 为自进化指明改进位置
+    to: harness-self-evolution
+  - from: harness-reliability
+    relation: 把验证从结果扩展到过程
+    to: verification
