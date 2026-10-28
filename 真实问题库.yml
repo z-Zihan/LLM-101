@@ -1,5 +1,5 @@
 version: 4
-updated: "2026-10-28"
+updated: "2026-10-29"
 
 questions:
   - id: q-governance-decay-001
@@ -1892,3 +1892,21 @@ questions:
     status: answered
     answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
     cluster: harness-reliability
+
+  - id: q-proactive-agent-001
+    question: "为什么 AI 开始主动来找我、帮我盯收件箱和日历了？它凭什么判断一件事值不值得打断我？"
+    concepts: ["proactive-agent", "agent"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/07-Agent/08-主动式智能体是什么.md"
+    cluster: proactive-agent
+
+  - id: q-proactive-agent-002
+    question: "Agent 发现信息不足时，什么时候该问用户、什么时候该自己查环境？频繁打断和沉默不报哪个更糟？"
+    concepts: ["proactive-agent", "agent-memory-system", "agent-loop"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/07-Agent/08-主动式智能体是什么.md"
+    cluster: proactive-agent

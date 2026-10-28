@@ -910,7 +910,7 @@ concepts:
     summary: 围绕目标反复获取信息、选择行动、使用工具并根据结果继续推进的系统。
     prerequisites: ["model", "tool"]
     related: ["rag", "mcp", "skill", "coding-agent", "agent-loop"]
-    questions: ["q-agent-001", "q-agent-definition-001", "q-agent-roadmap-001", "q-agent-concepts-roadmap-001", "q-agent-loop-001", "q-rag-agent-001", "q-platform-mcp-001", "q-agent-browser-injection-001", "q-long-agent-state-001", "q-tool-prompt-injection-001", "q-mcp-security-001", "q-copilot-agent-mode-001"]
+    questions: ["q-agent-001", "q-agent-definition-001", "q-agent-roadmap-001", "q-agent-concepts-roadmap-001", "q-agent-loop-001", "q-rag-agent-001", "q-platform-mcp-001", "q-agent-browser-injection-001", "q-long-agent-state-001", "q-tool-prompt-injection-001", "q-mcp-security-001", "q-copilot-agent-mode-001", "q-proactive-agent-001"]
 
   - id: rag
     name: RAG
@@ -1064,8 +1064,20 @@ concepts:
     group: Memory
     summary: 通过写入、存储、检索、使用四个环节，把跨会话信息保存在模型之外或架构之内，并在合适时机取回注入上下文的系统机制。
     prerequisites: ["conversation-history", "context-window", "rag"]
-    related: ["context-compaction", "context-engineering", "agent", "retrieval", "kv-cache"]
-    questions: ["q-memory-write-policy-001", "q-memory-vs-rag-001", "q-memory-native-vs-external-001", "q-coding-agent-memory-001"]
+    related: ["context-compaction", "context-engineering", "agent", "retrieval", "kv-cache", "proactive-agent"]
+    questions: ["q-memory-write-policy-001", "q-memory-vs-rag-001", "q-memory-native-vs-external-001", "q-coding-agent-memory-001", "q-proactive-agent-002"]
+
+  - id: proactive-agent
+    name: 主动式智能体
+    path: docs/07-Agent/08-主动式智能体是什么.md
+    aliases: ["Proactive Agent", "主动式 Agent", "主动性", "Proactivity"]
+    level: Advanced
+    path_type: Optional
+    group: Tool与Agent
+    summary: 触发器可以来自事件、时间或状态而非用户输入的 Agent；触发后需判断问用户、查环境还是直接行动，并把打断用户当作需要管理的注意力预算。
+    prerequisites: ["agent-loop", "copilot"]
+    related: ["agent-memory-system", "function-calling", "agent-planning"]
+    questions: ["q-proactive-agent-001", "q-proactive-agent-002"]
 
   - id: scaling-laws
     name: 规模定律
@@ -1161,7 +1173,7 @@ concepts:
     summary: Agent 反复执行观察、决定、行动、更新的运行方式，把真实执行结果带回下一轮判断。
     prerequisites: ["agent", "tool"]
     related: ["function-calling", "agent-planning"]
-    questions: ["q-agent-loop-001"]
+    questions: ["q-agent-loop-001", "q-proactive-agent-002"]
 
   - id: multi-agent
     name: 多 Agent 协作
@@ -2001,3 +2013,15 @@ relations:
   - from: harness-reliability
     relation: 把验证从结果扩展到过程
     to: verification
+  - from: agent
+    relation: 触发器扩展到事件与状态
+    to: proactive-agent
+  - from: proactive-agent
+    relation: 把打断当作注意力预算管理
+    to: agent-memory-system
+  - from: proactive-agent
+    relation: 触发后逐轮判断与行动
+    to: function-calling
+  - from: agent-planning
+    relation: 规划在无人值守下的延伸
+    to: proactive-agent
