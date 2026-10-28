@@ -95,6 +95,7 @@ Agent 不是默认终点。它会增加工具选择错误、上下文成本、�
 - Agent 的严格结构：[Agent 到底是什么](./01-Agent到底是什么.md)
 - 循环怎样持续：[Agent Loop 是什么](./03-Agent-Loop是什么.md)
 - 编程场景：[AI Coding 是什么](../11-Coding-Agent/01-AI-Coding是什么.md) · [Coding Agent 是什么](../11-Coding-Agent/04-Coding-Agent是什么.md)
+- 越过用户输入启动的形态：[主动式智能体是什么](./08-主动式智能体是什么.md)
 - 工具权限：[代码执行和 Computer Use 有什么风险](../06-工具与Function-Calling/05-代码执行和Computer-Use有什么风险.md)
 - 返回全局：[知识网络](../../知识网络.md) · [真实问题矩阵](../../真实问题矩阵.md)
 
