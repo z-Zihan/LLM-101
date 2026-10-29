@@ -813,8 +813,8 @@ concepts:
     group: Coding Agent
     summary: 让 Agent 在任务执行中自动修改自身 Harness 并沉淀改进经验的方法，用行为对比代替真值验证，区分任务级与改进机制级两层递归。
     prerequisites: ["coding-agent", "agent"]
-    related: ["context-compaction", "context-engineering", "agent-memory-system", "system-prompt", "harness-reliability"]
-    questions: ["q-harness-self-evolution-001", "q-harness-self-evolution-002", "q-harness-reliability-002"]
+    related: ["context-compaction", "context-engineering", "agent-memory-system", "system-prompt", "harness-reliability", "eval-budget"]
+    questions: ["q-harness-self-evolution-001", "q-harness-self-evolution-002", "q-harness-reliability-002", "q-eval-budget-001", "q-eval-budget-002"]
 
   - id: harness-reliability
     name: Harness 可靠性
@@ -827,6 +827,18 @@ concepts:
     prerequisites: ["coding-agent", "agent"]
     related: ["harness-self-evolution", "context-compaction", "verification"]
     questions: ["q-harness-reliability-001", "q-harness-reliability-002"]
+
+  - id: eval-budget
+    name: 评测预算分配
+    path: docs/11-Coding-Agent/04-Coding-Agent是什么.md
+    aliases: ["Evaluation Budget", "EvalAlloc", "评测分配", "评测预算"]
+    level: Advanced
+    path_type: Optional
+    group: Coding Agent
+    summary: 把 Agent 自进化中有限的评测预算按角色拆开分配：搜索期用稀疏且可比的反馈指路，最终选择用密集评测拍板；EvalAlloc 用共享高信息任务、冻结的任务参数参照尺和热启动配对 successive halving，以约一半评测单元达到全量评测的成绩。
+    prerequisites: ["harness-self-evolution", "coding-agent"]
+    related: ["harness-reliability", "verification", "agent-planning"]
+    questions: ["q-eval-budget-001", "q-eval-budget-002"]
 
   - id: hallucination
     name: 幻觉
@@ -849,8 +861,8 @@ concepts:
     group: RAG与知识
     summary: 用适合问题类型的证据检查 AI 输出，而不是只看表达是否自信。
     prerequisites: ["hallucination"]
-    related: ["rag", "tool"]
-    questions: ["q-hallucination-001", "q-rag-hallucination-001", "q-finetuning-evaluation-001", "q-effective-context-001", "q-quant-quality-001", "q-benchmark-contamination-001"]
+    related: ["rag", "tool", "eval-budget"]
+    questions: ["q-hallucination-001", "q-rag-hallucination-001", "q-finetuning-evaluation-001", "q-effective-context-001", "q-quant-quality-001", "q-benchmark-contamination-001", "q-eval-budget-002"]
 
   - id: database-boundary
     name: LLM 与数据库边界
@@ -2013,6 +2025,15 @@ relations:
   - from: harness-reliability
     relation: 把验证从结果扩展到过程
     to: verification
+  - from: eval-budget
+    relation: 决定自进化能负担多少候选与多少任务
+    to: harness-self-evolution
+  - from: eval-budget
+    relation: 把评测按搜索反馈与终选分角色分配
+    to: verification
+  - from: harness-reliability
+    relation: 筛选改进依赖可比的评分参照
+    to: eval-budget
   - from: agent
     relation: 触发器扩展到事件与状态
     to: proactive-agent
