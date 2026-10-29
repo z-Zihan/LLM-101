@@ -1910,3 +1910,21 @@ questions:
     status: answered
     answer_path: "docs/07-Agent/08-主动式智能体是什么.md"
     cluster: proactive-agent
+
+  - id: q-eval-budget-001
+    question: "Agent 自进化每筛选一个候选改进都要跑评测，固定的评测预算应该怎么在指导搜索和最终选择之间分配？"
+    concepts: ["eval-budget", "harness-self-evolution"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: eval-budget
+
+  - id: q-eval-budget-002
+    question: "为什么进化搜索期用稀疏评测就够，最终选择却值得多花评测？共享任务和统一评分参照在里面起什么作用？"
+    concepts: ["eval-budget", "harness-self-evolution", "verification"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: eval-budget
