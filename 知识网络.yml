@@ -1,5 +1,5 @@
 version: 3
-updated: 2026-10-28
+updated: 2026-10-31
 
 main_path:
   - ai
@@ -826,7 +826,7 @@ concepts:
     summary: 把 Harness 的过程质量（上下文、执行、治理、生命周期、可观测性、工具、验证七个维度）从任务成功率里拆出来单独度量的评测方向；任务成功不等于过程可靠，Skill 类改进还具有能力条件性。
     prerequisites: ["coding-agent", "agent"]
     related: ["harness-self-evolution", "context-compaction", "verification", "prefix-executability"]
-    questions: ["q-harness-reliability-001", "q-harness-reliability-002", "q-prefix-exec-001", "q-prefix-exec-002"]
+    questions: ["q-harness-reliability-001", "q-harness-reliability-002", "q-prefix-exec-001", "q-prefix-exec-002", "q-coral-self-alloc-002"]
 
   - id: eval-budget
     name: 评测预算分配
@@ -1088,8 +1088,8 @@ concepts:
     group: Memory
     summary: 通过写入、存储、检索、使用四个环节，把跨会话信息保存在模型之外或架构之内，并在合适时机取回注入上下文的系统机制。
     prerequisites: ["conversation-history", "context-window", "rag"]
-    related: ["context-compaction", "context-engineering", "agent", "retrieval", "kv-cache", "proactive-agent"]
-    questions: ["q-memory-write-policy-001", "q-memory-vs-rag-001", "q-memory-native-vs-external-001", "q-coding-agent-memory-001", "q-proactive-agent-002"]
+    related: ["context-compaction", "context-engineering", "agent", "retrieval", "kv-cache", "proactive-agent", "coral-context-self-allocation"]
+    questions: ["q-memory-write-policy-001", "q-memory-vs-rag-001", "q-memory-native-vs-external-001", "q-coding-agent-memory-001", "q-proactive-agent-002", "q-coral-self-alloc-002"]
 
   - id: proactive-agent
     name: 主动式智能体
@@ -1184,7 +1184,7 @@ concepts:
     group: Tool与Agent
     summary: 把目标拆为可验证行动，并依据工具结果调整、恢复或安全停止的 Agent 控制能力。
     prerequisites: ["agent", "tool"]
-    related: ["verification", "multi-agent", "prefix-executability"]
+    related: ["verification", "multi-agent", "prefix-executability", "coral-context-self-allocation"]
     questions: ["q-r2-planning-001", "q-r2-planning-002", "q-r2-planning-003", "q-r2-planning-004", "q-r2-planning-005", "q-r2-planning-006", "q-r2-planning-007", "q-prefix-exec-002"]
 
   - id: agent-loop
@@ -1232,8 +1232,20 @@ concepts:
     group: Coding Agent
     summary: 在应用层用模型生成的摘要替换较长历史，并显式保留约束、结构化状态与证据指针的上下文管理机制。
     prerequisites: ["context-engineering", "context-window"]
-    related: ["conversation-history", "kv-cache", "coding-agent", "system-prompt"]
-    questions: ["q-r2-contexteng-004", "q-compaction-loss-001", "q-compaction-window-001", "q-governance-decay-001", "q-governance-decay-002"]
+    related: ["conversation-history", "kv-cache", "coding-agent", "system-prompt", "coral-context-self-allocation"]
+    questions: ["q-r2-contexteng-004", "q-compaction-loss-001", "q-compaction-window-001", "q-governance-decay-001", "q-governance-decay-002", "q-coral-self-alloc-001"]
+
+  - id: coral-context-self-allocation
+    name: 认知资源自分配
+    path: docs/11-Coding-Agent/13-上下文压缩Compaction是什么.md
+    aliases: ["CORAL", "Cognitive Resource Self-Allocation", "工作记忆自管理", "上下文自优化"]
+    level: Advanced
+    path_type: Optional
+    group: Coding Agent
+    summary: 把上下文管理的触发权交给 Agent 本身：Agent 用可调用的工具主动写检查点（计划与已验证事实），判断上下文杂乱时主动硬重置、只携带检查点重新开始；CORAL 在 GAIA 上以 87% 更少的输入 token 超过 ReAct，代价是重置永久关闭会话历史的交叉验证通道。
+    prerequisites: ["context-compaction", "agent-planning"]
+    related: ["agent-memory-system", "agent-loop", "context-engineering", "harness-reliability"]
+    questions: ["q-coral-self-alloc-001", "q-coral-self-alloc-002"]
 
   - id: narrow-ai
     name: 窄域 AI
@@ -1987,6 +1999,18 @@ relations:
   - from: context-compaction
     relation: 可能静默删除
     to: system-prompt
+  - from: context-compaction
+    relation: 触发权可移交给 Agent 主动判断
+    to: coral-context-self-allocation
+  - from: coral-context-self-allocation
+    relation: 检查点外置工作记忆
+    to: agent-memory-system
+  - from: coral-context-self-allocation
+    relation: 由 Agent 在循环内自主决定重置时机
+    to: agent-planning
+  - from: harness-reliability
+    relation: 重置关闭交叉验证通道构成可靠性边界
+    to: coral-context-self-allocation
 
   - from: coarse-to-fine-generation
     relation: 挑战逐步生成范式

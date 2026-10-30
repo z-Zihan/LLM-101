@@ -1,5 +1,5 @@
 version: 4
-updated: "2026-10-29"
+updated: "2026-10-31"
 
 questions:
   - id: q-governance-decay-001
@@ -1946,3 +1946,21 @@ questions:
     status: answered
     answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
     cluster: prefix-executability
+
+  - id: q-coral-self-alloc-001
+    question: "上下文压缩由 Harness 按阈值自动触发、Agent 毫不知情，为什么不把触发权交给 Agent 自己判断？Agent 主动管理上下文（如 CORAL 的检查点加重置）靠什么做得比自动摘要好？"
+    concepts: ["coral-context-self-allocation", "context-compaction"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/13-上下文压缩Compaction是什么.md"
+    cluster: coral-context-self-allocation
+
+  - id: q-coral-self-alloc-002
+    question: "Agent 主动重置上下文时只保留自己写的检查点，重置后检查点内容被篡改为什么永远无法察觉？工作记忆和会话历史各自承担什么验证职责？"
+    concepts: ["coral-context-self-allocation", "agent-memory-system", "harness-reliability"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/11-Coding-Agent/13-上下文压缩Compaction是什么.md"
+    cluster: coral-context-self-allocation
