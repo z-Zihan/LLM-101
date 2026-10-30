@@ -825,8 +825,8 @@ concepts:
     group: Coding Agent
     summary: 把 Harness 的过程质量（上下文、执行、治理、生命周期、可观测性、工具、验证七个维度）从任务成功率里拆出来单独度量的评测方向；任务成功不等于过程可靠，Skill 类改进还具有能力条件性。
     prerequisites: ["coding-agent", "agent"]
-    related: ["harness-self-evolution", "context-compaction", "verification"]
-    questions: ["q-harness-reliability-001", "q-harness-reliability-002"]
+    related: ["harness-self-evolution", "context-compaction", "verification", "prefix-executability"]
+    questions: ["q-harness-reliability-001", "q-harness-reliability-002", "q-prefix-exec-001", "q-prefix-exec-002"]
 
   - id: eval-budget
     name: 评测预算分配
@@ -839,6 +839,18 @@ concepts:
     prerequisites: ["harness-self-evolution", "coding-agent"]
     related: ["harness-reliability", "verification", "agent-planning"]
     questions: ["q-eval-budget-001", "q-eval-budget-002"]
+
+  - id: prefix-executability
+    name: 前缀可执行性
+    path: docs/11-Coding-Agent/04-Coding-Agent是什么.md
+    aliases: ["Prefix Executability", "可执行前缀", "PEC", "首错深度", "FED"]
+    level: Advanced
+    path_type: Optional
+    group: Coding Agent
+    summary: 以轨迹每段前缀是否仍可执行（工具存在、参数合法、前置条件与数据依赖成立）来评测工具调用 Agent 的协议；可执行轨迹率与最终成功率排名会分歧——部分「成功」建立在带伤轨迹的侥幸恢复上，首错深度与恢复率让这种差异可见。
+    prerequisites: ["coding-agent", "harness-reliability"]
+    related: ["harness-reliability", "eval-budget", "verification", "agent-planning"]
+    questions: ["q-prefix-exec-001", "q-prefix-exec-002"]
 
   - id: hallucination
     name: 幻觉
@@ -1172,8 +1184,8 @@ concepts:
     group: Tool与Agent
     summary: 把目标拆为可验证行动，并依据工具结果调整、恢复或安全停止的 Agent 控制能力。
     prerequisites: ["agent", "tool"]
-    related: ["verification", "multi-agent"]
-    questions: ["q-r2-planning-001", "q-r2-planning-002", "q-r2-planning-003", "q-r2-planning-004", "q-r2-planning-005", "q-r2-planning-006", "q-r2-planning-007"]
+    related: ["verification", "multi-agent", "prefix-executability"]
+    questions: ["q-r2-planning-001", "q-r2-planning-002", "q-r2-planning-003", "q-r2-planning-004", "q-r2-planning-005", "q-r2-planning-006", "q-r2-planning-007", "q-prefix-exec-002"]
 
   - id: agent-loop
     name: Agent 循环
@@ -2034,6 +2046,15 @@ relations:
   - from: harness-reliability
     relation: 筛选改进依赖可比的评分参照
     to: eval-budget
+  - from: prefix-executability
+    relation: 把过程质量从运行级细化到前缀级
+    to: harness-reliability
+  - from: prefix-executability
+    relation: 用确定性的模式与前置条件判定路径健康
+    to: verification
+  - from: prefix-executability
+    relation: 暴露无验证计划靠恢复兜底的分歧
+    to: agent-planning
   - from: agent
     relation: 触发器扩展到事件与状态
     to: proactive-agent

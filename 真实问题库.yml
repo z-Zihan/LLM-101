@@ -1928,3 +1928,21 @@ questions:
     status: answered
     answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
     cluster: eval-budget
+
+  - id: q-prefix-exec-001
+    question: "两个 Agent 最终成功率一样高，怎么区分哪个是干净做对的、哪个是中间出错靠侥幸恢复回来的？"
+    concepts: ["prefix-executability", "harness-reliability"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: prefix-executability
+
+  - id: q-prefix-exec-002
+    question: "先规划再执行的 Agent 为什么经常成功率更高、但轨迹可执行率更低？给 Agent 加执行前计划检查值不值？"
+    concepts: ["prefix-executability", "agent-planning", "harness-reliability"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: prefix-executability
