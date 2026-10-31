@@ -1,5 +1,5 @@
 version: 3
-updated: 2026-10-31
+updated: 2026-11-01
 
 main_path:
   - ai
@@ -622,7 +622,7 @@ concepts:
     summary: 使用已经训练好的模型参数，根据当前输入计算输出的过程。
     prerequisites: ["model", "parameter"]
     related: ["training", "context", "token", "prefill", "decode", "sampling", "kv-cache"]
-    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-001", "q-inference-randomness-001", "q-temperature-001", "q-output-context-limit-001", "q-context-length-001", "q-kv-cache-001", "q-speculative-decoding-001", "q-prefill-decode-001", "q-reasoning-think-001", "q-adaptive-thinking-001", "q-quant-model-size-001", "q-quant-quality-001", "q-moe-active-001", "q-distill-quant-001", "q-model-format-conversion-001", "q-ncm-speed-001"]
+    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-001", "q-inference-randomness-001", "q-temperature-001", "q-output-context-limit-001", "q-context-length-001", "q-kv-cache-001", "q-speculative-decoding-001", "q-prefill-decode-001", "q-reasoning-think-001", "q-adaptive-thinking-001", "q-quant-model-size-001", "q-quant-quality-001", "q-moe-active-001", "q-distill-quant-001", "q-model-format-conversion-001", "q-ncm-speed-001", "q-decode-length-002"]
 
   - id: prefill
     name: Prefill
@@ -634,7 +634,7 @@ concepts:
     summary: 推理开始时并行处理已知 Prompt 位置、产生首个输出位置 Logits 并建立各层 KV Cache 的阶段。
     prerequisites: ["inference", "tokenizer", "transformer"]
     related: ["decode", "kv-cache", "gpu-compute"]
-    questions: ["q-token-generation-001", "q-prefill-decode-001", "q-r2-gpu-001", "q-r2-gpu-004"]
+    questions: ["q-token-generation-001", "q-prefill-decode-001", "q-r2-gpu-001", "q-r2-gpu-004", "q-decode-length-002"]
 
   - id: decode
     name: 逐 Token 解码
@@ -646,7 +646,7 @@ concepts:
     summary: 依据当前前缀反复产生 Logits、选择新 Token、追加 Context 并更新 KV Cache 的自回归生成阶段。
     prerequisites: ["inference", "next-token-prediction"]
     related: ["prefill", "sampling", "eos", "kv-cache", "context"]
-    questions: ["q-token-generation-001", "q-output-context-limit-001", "q-speculative-decoding-001", "q-prefill-decode-001", "q-r2-gpu-001", "q-r2-gpu-004", "q-diffusion-lm-001"]
+    questions: ["q-token-generation-001", "q-output-context-limit-001", "q-speculative-decoding-001", "q-prefill-decode-001", "q-r2-gpu-001", "q-r2-gpu-004", "q-diffusion-lm-001", "q-decode-length-001"]
 
   - id: sampling
     name: Token 采样
@@ -658,7 +658,7 @@ concepts:
     summary: 从经过温度与候选过滤处理的 Token 概率分布中选择下一项的生成策略。
     prerequisites: ["probability", "inference"]
     related: ["temperature", "top-k", "top-p", "decode"]
-    questions: ["q-token-generation-001", "q-inference-randomness-001", "q-temperature-001", "q-speculative-decoding-001"]
+    questions: ["q-token-generation-001", "q-inference-randomness-001", "q-temperature-001", "q-speculative-decoding-001", "q-decode-length-001"]
 
   - id: temperature
     name: Temperature
@@ -707,6 +707,18 @@ concepts:
     prerequisites: ["token", "decode"]
     related: ["context-window"]
     questions: ["q-output-context-limit-001"]
+
+  - id: decode-length-prediction
+    name: 解码长度预测
+    path: docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md
+    aliases: ["Decode Length Prediction", "解码长度预测", "输出长度预测"]
+    level: Core
+    path_type: Optional
+    group: 推理与Token
+    summary: 推理调度器在解码开始前估计请求输出长度的原语；停机的随机性给所有只看输入的预测器留下不可消除的误差下限。
+    prerequisites: ["decode", "sampling", "prefill"]
+    related: ["eos", "kv-cache", "inference"]
+    questions: ["q-decode-length-001", "q-decode-length-002"]
 
   - id: kv-cache
     name: KV Cache
@@ -2091,3 +2103,13 @@ relations:
   - from: agent-planning
     relation: 规划在无人值守下的延伸
     to: proactive-agent
+
+  - from: decode-length-prediction
+    relation: 预测停机时刻因而继承停机的随机性
+    to: eos
+  - from: decode-length-prediction
+    relation: 把长度波动归因于采样随机性的宏观累积
+    to: sampling
+  - from: decode-length-prediction
+    relation: 为批调度与 KV Cache 预留提供长度先验
+    to: kv-cache
