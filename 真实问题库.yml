@@ -1982,3 +1982,21 @@ questions:
     status: answered
     answer_path: "docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md"
     cluster: decode-length-prediction
+
+  - id: q-interdep-specs-001
+    question: "给训练任务堆更多需求条目，为什么练出来的 Agent 还是只会打勾？什么样的任务结构才逼得出联合推理？"
+    concepts: ["interdependent-specs", "training", "coding-agent"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: interdependent-specs
+
+  - id: q-interdep-specs-002
+    question: "为什么带耦合约束的编程任务，测试经常要么放过错误实现、要么误杀正确实现？怎么在静态审查之外修测试？"
+    concepts: ["interdependent-specs", "verification", "harness-reliability"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: interdependent-specs
