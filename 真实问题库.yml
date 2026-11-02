@@ -2000,3 +2000,21 @@ questions:
     status: answered
     answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
     cluster: interdependent-specs
+
+  - id: q-hier-sparse-001
+    question: "FlashAttention 已经很快了，为什么上下文到百万 Token 还是非上稀疏注意力不可？两者优化的到底是不是同一件事？"
+    concepts: ["hierarchical-sparse-attention", "gpu-compute", "attention"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: hierarchical-sparse-attention
+
+  - id: q-hier-sparse-002
+    question: "稀疏注意力的「索引器」自己也要扫一遍上下文，为什么它不会变成新的瓶颈？层级化（树形）索引解决了什么？"
+    concepts: ["hierarchical-sparse-attention", "attention", "kv-cache"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: hierarchical-sparse-attention

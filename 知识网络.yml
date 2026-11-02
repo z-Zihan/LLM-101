@@ -454,7 +454,7 @@ concepts:
     summary: 让 Token 依据当前需要读取并汇总其他允许位置的信息，是 Transformer 中的位置间消息传递机制。
     prerequisites: ["token", "transformer"]
     related: ["context", "llm"]
-    questions: ["q-architecture-code-001", "q-more-is-better-001", "q-token-generation-001", "q-positional-encoding-001", "q-kv-cache-001", "q-prefill-decode-001", "q-r2-attention-001", "q-r2-attention-002", "q-r2-attention-003", "q-r2-attention-004", "q-r2-attention-005", "q-r2-attention-006", "q-r2-attention-007"]
+    questions: ["q-architecture-code-001", "q-more-is-better-001", "q-token-generation-001", "q-positional-encoding-001", "q-kv-cache-001", "q-prefill-decode-001", "q-r2-attention-001", "q-r2-attention-002", "q-r2-attention-003", "q-r2-attention-004", "q-r2-attention-005", "q-r2-attention-006", "q-r2-attention-007", "q-hier-sparse-001", "q-hier-sparse-002"]
 
   - id: self-attention
     name: 自注意力
@@ -730,7 +730,19 @@ concepts:
     summary: 保存当前请求中各层历史位置的 Attention K/V 状态，避免每个 Decode 步骤重复计算整段前缀。
     prerequisites: ["attention", "qkv", "inference"]
     related: ["prefill", "decode", "context-window", "gpu-compute"]
-    questions: ["q-token-generation-001", "q-kv-cache-001", "q-prefill-decode-001", "q-r2-gpu-005", "q-memory-native-vs-external-001"]
+    questions: ["q-token-generation-001", "q-kv-cache-001", "q-prefill-decode-001", "q-r2-gpu-005", "q-memory-native-vs-external-001", "q-hier-sparse-002"]
+
+  - id: hierarchical-sparse-attention
+    name: 层级稀疏注意力
+    path: docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md
+    aliases: ["Hierarchical Sparse Attention", "LSA", "ZHA", "稀疏注意力", "Sparse Attention"]
+    level: Advanced
+    path_type: Optional
+    group: 硬件
+    summary: 用聚类或树形索引让每个 Query 只对少量语义相关的 Key 打分，把「选择看哪里」的成本与上下文长度解耦，支撑百万级以上超长上下文。
+    prerequisites: ["attention", "kv-cache", "gpu-compute"]
+    related: ["context-window", "latency", "throughput"]
+    questions: ["q-hier-sparse-001", "q-hier-sparse-002"]
 
   - id: latency
     name: 推理延迟
@@ -1173,7 +1185,7 @@ concepts:
     summary: GPU 计算、显存容量与带宽、缓存和设备互联共同形成的训练及推理性能边界。
     prerequisites: ["inference", "attention", "parameter"]
     related: ["distributed-training", "context-window"]
-    questions: ["q-r2-gpu-001", "q-r2-gpu-002", "q-r2-gpu-003", "q-r2-gpu-004", "q-r2-gpu-005", "q-r2-gpu-006", "q-r2-gpu-007", "q-r2-gpu-008"]
+    questions: ["q-r2-gpu-001", "q-r2-gpu-002", "q-r2-gpu-003", "q-r2-gpu-004", "q-r2-gpu-005", "q-r2-gpu-006", "q-r2-gpu-007", "q-r2-gpu-008", "q-hier-sparse-001"]
 
   - id: distributed-training
     name: 分布式训练
@@ -2140,3 +2152,15 @@ relations:
   - from: harness-reliability
     relation: 只看主目标成功率的评测会掩盖约束违反
     to: interdependent-specs
+  - from: attention
+    relation: 全量打分的二次方成本催生
+    to: hierarchical-sparse-attention
+  - from: hierarchical-sparse-attention
+    relation: 从历史 Key 中稀疏挑选以降低
+    to: kv-cache
+  - from: hierarchical-sparse-attention
+    relation: 压低超长上下文的
+    to: latency
+  - from: hierarchical-sparse-attention
+    relation: 决定超长上下文服务的
+    to: throughput
