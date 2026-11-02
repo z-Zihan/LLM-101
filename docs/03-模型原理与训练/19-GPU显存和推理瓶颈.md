@@ -71,6 +71,16 @@ HBM 容量大、带宽高，但访问仍比寄存器和片上 SRAM 慢。GPU 会
 
 它计算的是精确 Attention 的数值等价实现（受浮点舍入影响），主要收益来自更少的 HBM I/O 和更好的融合，而不是把理论上的所有 `QKᵀ` 乘加都删掉。序列长度、Head Dimension、硬件和实现版本会影响加速比例。
 
+## 把「找 Key」的成本也压下去：从 FlashAttention 到层级稀疏注意力
+
+FlashAttention 解决的是「别把中间结果来回搬」，但每一步 Attention 仍然要给全部历史 Key 打分——计算量随上下文长度平方增长，这个渐近规律它一点也没改。上下文到百万、千万 Token 量级时，平方项会压过一切常数优化，于是问题换了一种问法：能不能让每个 Query 只给一小部分 Key 打分？这就是稀疏注意力的出发点。注意区分两层：注意力在数学上仍是二次方的，但「决定看哪里」的索引器（indexer）可以做得更便宜——难点恰恰在这里，索引器自己若要扫一遍所有 Key，成本还是随长度线性涨。2025 年以来的稀疏注意力方案（NSA、MoBA、各家的块稀疏实现）都在回答「怎么选块」，而 2026 年 10 月底的两篇工作把「索引器本身的成本」也拉下了水。
+
+第一篇是 Prefrontal AI 与 ETH Zürich 的 LSA（Latent Sparse Attention，arXiv:2610.42147）。它的索引器分两步：先把相邻 4 个 Key 池化成小块，再用一种叫 Ward 凝聚聚类的算法把语义相近的块合并成桶（bucket）——注意是按内容相似度聚类，不是按位置切窗口，所以语义相关但散落在 KV Cache 各处的 Key 会落进同一个桶。查询来了先给桶心（centroid）打分，只对选中的桶展开精确 Attention，另外保留 sink（开头的几个 Token）和局部窗口兜底。每个 Query 最终只看约两千多个 Key，与上下文总长无关。部署有两条路：D-LSA 用蒸馏把现成模型的稀疏化器训练出来（只训索引投影，主干冻结）；N-LSA 更激进——不设任何辅助损失和教师，预训练时直接靠「预测下一个 Token」这一个目标，让稀疏选择自己长出来。实测数字（10M Token 上下文）：在 GLM-5.3-Flash 上单层 Attention 的 Prefill 提速 22.7 倍、Decode 提速 4.6 倍；在标准全注意力基线的 Qwen-3.8-27B 上分别是 72.4 倍和 42.5 倍；端到端首 Token 延迟降低 2.2 到 9.2 倍。精度方面，RULER 长上下文基准在 10M 处与训练时就在用稀疏注意力的基线差距保持在 4 分以内；从头预训练的 N-LSA 在 0.5B 混合架构模型上几乎追平全注意力（128k 处 RULER 32.2 对 34.7，远超同预算下 NSA 的 19.2 与 SWA 的 3.0），单层训练还快 1.6 倍。
+
+但 LSA 的 Flat 版本索引器仍要扫所有桶心，每个查询的成本随长度线性增长——只是常数极小。第二篇 Zyphra 的 ZHA（Hierarchical Attention，arXiv:2610.42112）从理论上把这层也解决了。它的出发点是一个实证观察：对自然语言，维持每层注意力概率质量所需的 Key 数量（top-p 集合大小）随上下文呈次线性幂律增长——上下文越长，注意力其实越「可压缩」。既然如此，把 Key 摘要递归地再摘要，建成一棵树；查询自顶向下路由，每层只展开少数分支。树深 L、每层压缩 C 倍时，打分成本按 O(log T) 增长，总注意力成本变成次二次方（但仍超线性）。ZHA 的可学习参数只有一组参考查询（reference query），用 4B Token 的 KL 蒸馏即可把 4B 到 35B 的现成模型转成树形索引，主干权重零改动；深至 6 层的树保持精度，roofline 成本模型预测与单层块稀疏方案的交叉点在约 0.5M Token——超过这个长度，层级索引开始碾压线性扫描。LongBench v2 上，ZHA 用 1.1% 的 Decode Key 比训练 Token 预算多十倍的 MSA 高出 14 分。
+
+把这两篇放回本文的线索：FlashAttention 属于「常数因子」优化——把搬运做省；稀疏注意力属于「渐近复杂度」优化——把要打分的 Key 数量与上下文解耦；而 LSA/ZHA 这类层级索引是在渐近曲线上再压一档——连「找该看的 Key」这个动作本身也不随长度线性涨。三条线索各自独立成立，也常常组合出现。边界照例要说清：22.7 倍/72.4 倍是单层 Attention 的数字，全模型收益会被非全局层摊薄；LSA 的评测集中在 1M–10M 区间，日常几千到几万 Token 的场景下索引开销可能不划算（512k 处 Prefill 增益只有 2.1 倍）；ZHA 的次线性依赖「自然语言注意力可压缩」这一经验观察，对抗性的「随机 Token 任意检索」任务上该前提不成立；两篇都是 2026 年 10 月底论文，第三方复现结果尚待积累。对使用者的判断指引很简单：上下文在十万以内，FlashAttention 加 KV Cache 管理仍是主力；要到百万级以上乃至 Agent 长程任务的千万级，层级稀疏注意力这类方法就是绕不开的基建。
+
 ## 线上变慢怎样定位
 
 先固定可复现负载，分别测 Prefill、Decode、首 Token、单请求和总吞吐，再观察：
@@ -84,7 +94,7 @@ HBM 容量大、带宽高，但访问仍比寄存器和片上 SRAM 慢。GPU 会
 
 只看到“GPU 100%”不能判断是高效计算还是等待内存；只看到显存满也不能证明容量就是延迟根因。需要 profiler、服务指标和受控 A/B 实验一起定位。
 
-## 回答八个真实追问
+## 回答九个真实追问
 
 **Prefill 与 Decode 为什么瓶颈不同？** Prefill 能在大量 Token 间复用权重，Decode 每步常要重新读取大量权重和缓存，算术强度不同。
 
@@ -99,6 +109,8 @@ HBM 容量大、带宽高，但访问仍比寄存器和片上 SRAM 慢。GPU 会
 **HBM、SRAM、Tensor Core、Warp 是什么关系？** 它们分别属于外部显存、片上存储、矩阵计算单元和线程执行组织，共同决定数据能否高效喂给计算。
 
 **FlashAttention 省 FLOPs 还是读写？** 核心优势是分块和融合减少 HBM 中间读写，而非取消精确 Attention 的主要乘加。
+
+**百万级上下文为什么离不开稀疏注意力？** 全注意力的打分量随长度平方增长，常数优化改变不了渐近线；稀疏/层级索引把每步要打分的 Key 数量与总长解耦，才可能把上下文推到百万甚至千万级。
 
 **线上突然变慢先查什么？** 拆阶段与指标，再用 profiler 区分计算、带宽、缓存、Batch、通信和调度。
 
@@ -115,5 +127,7 @@ HBM 容量大、带宽高，但访问仍比寄存器和片上 SRAM 慢。GPU 会
 
 - [Williams, Waterman & Patterson: Roofline](https://doi.org/10.1145/1498765.1498785)
 - [Dao et al.: FlashAttention](https://arxiv.org/abs/2205.14135)
+- [Kubicek et al.: Latent Sparse Attention (LSA)](https://arxiv.org/abs/2610.42147)
+- [Lufkin & Dawes et al.: Subquadratic Attention with a Hierarchical Tree-Structured Indexer (ZHA)](https://arxiv.org/abs/2610.42112)
 - [Kwon et al.: Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180)
 - [NVIDIA CUDA C++ Best Practices Guide](https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/)
