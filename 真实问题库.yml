@@ -1,5 +1,5 @@
 version: 4
-updated: "2026-10-31"
+updated: "2026-11-04"
 
 questions:
   - id: q-governance-decay-001
@@ -2018,3 +2018,77 @@ questions:
     status: answered
     answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
     cluster: hierarchical-sparse-attention
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: hierarchical-sparse-attention
+
+  - id: q-grpo-rlvr-001
+    question: "深度求索训练报告里的 GRPO 到底是什么？它和 PPO 相比省掉了什么，为什么开源训练都爱用它？"
+    concepts: ["verifiable-reward-rl"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/16-GRPO和RLVR是什么.md"
+    cluster: grpo-rlvr
+
+  - id: q-grpo-rlvr-002
+    question: "RLVR 和 RLHF 是什么关系？有标准答案就能不用人工标注和奖励模型了吗？"
+    concepts: ["verifiable-reward-rl", "preference-alignment"]
+    difficulty: beginner
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/16-GRPO和RLVR是什么.md"
+    cluster: grpo-rlvr
+
+  - id: q-grpo-rlvr-003
+    question: "GRPO 为什么对同一道题采样一组回答？组内平均当基线为什么能行，组设多大合适？"
+    concepts: ["verifiable-reward-rl"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/16-GRPO和RLVR是什么.md"
+    cluster: grpo-rlvr
+
+  - id: q-grpo-rlvr-004
+    question: "用可验证奖励训练数学和代码模型，奖励客观了，还有哪些坑？题目污染和判卷漏洞怎么防？"
+    concepts: ["verifiable-reward-rl", "verification"]
+    difficulty: intermediate
+    priority: medium
+    status: answered
+    answer_path: "docs/03-模型原理与训练/16-GRPO和RLVR是什么.md"
+    cluster: grpo-rlvr
+
+  - id: q-grpo-rlvr-005
+    question: "都说基线只要不依赖动作就不改变策略梯度的期望目标，为什么减去组内均值会改变 GRPO 的优化目标？"
+    concepts: ["verifiable-reward-rl", "preference-alignment"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/16-GRPO和RLVR是什么.md"
+    cluster: grpo-rlvr
+
+  - id: q-grpo-rlvr-006
+    question: "为什么用 GRPO 训练多样性或分布对齐会塌缩到多数派答案？K=2 时看不见多样性加成的数学原因是什么？"
+    concepts: ["verifiable-reward-rl"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/16-GRPO和RLVR是什么.md"
+    cluster: grpo-rlvr
+
+  - id: q-grpo-rlvr-007
+    question: "Team-GRPO 把 α 从 −1/(K−1) 改成 +1 为什么就能恢复真实梯度？它为什么不需要额外的模型调用？"
+    concepts: ["verifiable-reward-rl"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/03-模型原理与训练/16-GRPO和RLVR是什么.md"
+    cluster: grpo-rlvr
+
+  - id: q-grpo-rlvr-008
+    question: "我的任务是数学刷题/开放生成/观点对齐，GRPO 的「锦标赛效应」结论适用到我的场景吗？怎么判断？"
+    concepts: ["verifiable-reward-rl"]
+    difficulty: intermediate
+    priority: medium
+    status: answered
+    answer_path: "docs/03-模型原理与训练/16-GRPO和RLVR是什么.md"
+    cluster: grpo-rlvr

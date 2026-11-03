@@ -801,7 +801,7 @@ concepts:
     group: AI与模型
     summary: 根据给定信息和规则经过中间步骤得到结论的任务能力。
     prerequisites: ["model", "generalization"]
-    related: ["inference", "hallucination", "adaptive-thinking"]
+    related: ["inference", "hallucination", "adaptive-thinking", "verifiable-reward-rl"]
     questions: ["q-parameter-capacity-001", "q-intelligence-origin-001", "q-next-token-capability-001", "q-reasoning-consistency-001", "q-reasoning-think-001", "q-adaptive-thinking-001", "q-adaptive-thinking-002"]
 
   - id: adaptive-thinking
@@ -909,8 +909,8 @@ concepts:
     group: RAG与知识
     summary: 用适合问题类型的证据检查 AI 输出，而不是只看表达是否自信。
     prerequisites: ["hallucination"]
-    related: ["rag", "tool", "eval-budget"]
-    questions: ["q-hallucination-001", "q-rag-hallucination-001", "q-finetuning-evaluation-001", "q-effective-context-001", "q-quant-quality-001", "q-benchmark-contamination-001", "q-eval-budget-002", "q-interdep-specs-002"]
+    related: ["rag", "tool", "eval-budget", "verifiable-reward-rl"]
+    questions: ["q-hallucination-001", "q-rag-hallucination-001", "q-finetuning-evaluation-001", "q-effective-context-001", "q-quant-quality-001", "q-benchmark-contamination-001", "q-eval-budget-002", "q-interdep-specs-002", "q-grpo-rlvr-004"]
 
   - id: database-boundary
     name: LLM 与数据库边界
@@ -1208,8 +1208,20 @@ concepts:
     group: 模型训练
     summary: 用人类或规则产生的相对偏好信号调整模型行为，并管理奖励代理偏差的方法体系。
     prerequisites: ["training", "model-lifecycle"]
-    related: ["verification", "generalization"]
-    questions: ["q-r2-rlhf-001", "q-r2-rlhf-002", "q-r2-rlhf-003", "q-r2-rlhf-004", "q-r2-rlhf-005", "q-r2-rlhf-006", "q-r2-rlhf-007", "q-r2-rlhf-008", "q-r2-rlhf-009", "q-r2-rlhf-010"]
+    related: ["verification", "generalization", "verifiable-reward-rl"]
+    questions: ["q-r2-rlhf-001", "q-r2-rlhf-002", "q-r2-rlhf-003", "q-r2-rlhf-004", "q-r2-rlhf-005", "q-r2-rlhf-006", "q-r2-rlhf-007", "q-r2-rlhf-008", "q-r2-rlhf-009", "q-r2-rlhf-010", "q-grpo-rlvr-002", "q-grpo-rlvr-005"]
+
+  - id: verifiable-reward-rl
+    name: GRPO 与可验证奖励
+    path: docs/03-模型原理与训练/16-GRPO和RLVR是什么.md
+    aliases: ["GRPO", "RLVR", "Verifiable Rewards", "组相对策略优化", "Team-GRPO"]
+    level: Advanced
+    path_type: Optional
+    group: 模型训练
+    summary: 用规则验证器替代学习型奖励模型、用组内相对基线替代 Value 模型的训练方法体系；组依赖奖励下组内基线会改变优化目标。
+    prerequisites: ["preference-alignment", "training"]
+    related: ["reasoning", "verification"]
+    questions: ["q-grpo-rlvr-001", "q-grpo-rlvr-002", "q-grpo-rlvr-003", "q-grpo-rlvr-004", "q-grpo-rlvr-005", "q-grpo-rlvr-006", "q-grpo-rlvr-007", "q-grpo-rlvr-008"]
 
   - id: agent-planning
     name: Agent 规划与恢复
@@ -2000,6 +2012,15 @@ relations:
     to: training
   - from: preference-alignment
     relation: 需要独立
+    to: verification
+  - from: verifiable-reward-rl
+    relation: 代替学习型评分器与价值网络
+    to: preference-alignment
+  - from: verifiable-reward-rl
+    relation: 用可验证判分训练
+    to: reasoning
+  - from: verifiable-reward-rl
+    relation: 依赖判卷规则
     to: verification
   - from: agent-planning
     relation: 控制
