@@ -2092,3 +2092,39 @@ questions:
     status: answered
     answer_path: "docs/03-模型原理与训练/16-GRPO和RLVR是什么.md"
     cluster: grpo-rlvr
+
+  - id: q-sparse-evict-001
+    question: "H2O、SnapKV 这些 KV Cache 驱逐方法都在比「怎么打分」，为什么没人问过「该让哪一层打分」？打分层的深度为什么是条坟场曲线？"
+    concepts: ["hierarchical-sparse-attention", "attention", "kv-cache"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: hierarchical-sparse-attention
+
+  - id: q-sparse-evict-002
+    question: "我的模型用了跨层共享缓存（Gemma 3n/4、CLA/YOCO 一类）省显存，为什么长上下文检索掉分比逐层缓存的模型更狠？跟写入层的深度有什么关系？"
+    concepts: ["hierarchical-sparse-attention"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: hierarchical-sparse-attention
+
+  - id: q-sparse-evict-003
+    question: "驱逐（删部分历史）和稀疏注意力（只读选中的块）都是给 Token 挑三拣四，两者是一回事吗？什么场景该用哪个？"
+    concepts: ["kv-cache", "hierarchical-sparse-attention"]
+    difficulty: intermediate
+    priority: medium
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: hierarchical-sparse-attention
+
+  - id: q-sparse-evict-004
+    question: "CISA 声称不训练就能把稠密模型改造成块稀疏注意力，索引器零训练初始化是怎么做到的？名义少做的点积和实测吞吐为什么不一致？"
+    concepts: ["hierarchical-sparse-attention", "gpu-compute"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: hierarchical-sparse-attention
