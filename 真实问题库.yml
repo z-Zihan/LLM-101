@@ -1,7 +1,35 @@
 version: 4
-updated: "2026-11-04"
+updated: "2026-11-06"
 
 questions:
+
+  - id: q-compliance-001
+    question: "压缩之后检查过摘要，规则文本明明还在，Agent 为什么照样违反了它？「规则还在」和「规则管用」差在哪？"
+    concepts: ["context-compaction", "system-prompt"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/13-上下文压缩Compaction是什么.md"
+    cluster: compaction-behavior-failure
+
+  - id: q-compliance-002
+    question: "Agent 压缩时自己写的交接摘要，会不会写进记录里根本没有的权限或要求？这种「无中生有的政策」怎么发现、怎么防？"
+    concepts: ["context-compaction", "system-prompt"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/13-上下文压缩Compaction是什么.md"
+    cluster: compaction-behavior-failure
+
+  - id: q-compliance-003
+    question: "把长文本压成模型内部的记忆向量（不经过文字改写），安全拒绝行为为什么也会失效？语义保真不等于行为保真吗？"
+    concepts: ["context-compaction", "preference-alignment"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/11-Coding-Agent/13-上下文压缩Compaction是什么.md"
+    cluster: compaction-behavior-failure
+
   - id: q-governance-decay-001
     question: "Agent 会话早期明确接受的规则（比如禁止外发邮件），跑了几百轮被压缩之后为什么就开始违反了？是模型变了吗？"
     concepts: ["context-compaction", "system-prompt"]

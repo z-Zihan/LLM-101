@@ -1,5 +1,5 @@
 version: 3
-updated: 2026-11-01
+updated: 2026-11-06
 
 main_path:
   - ai
@@ -1209,7 +1209,7 @@ concepts:
     summary: 用人类或规则产生的相对偏好信号调整模型行为，并管理奖励代理偏差的方法体系。
     prerequisites: ["training", "model-lifecycle"]
     related: ["verification", "generalization", "verifiable-reward-rl"]
-    questions: ["q-r2-rlhf-001", "q-r2-rlhf-002", "q-r2-rlhf-003", "q-r2-rlhf-004", "q-r2-rlhf-005", "q-r2-rlhf-006", "q-r2-rlhf-007", "q-r2-rlhf-008", "q-r2-rlhf-009", "q-r2-rlhf-010", "q-grpo-rlvr-002", "q-grpo-rlvr-005"]
+    questions: ["q-r2-rlhf-001", "q-r2-rlhf-002", "q-r2-rlhf-003", "q-r2-rlhf-004", "q-r2-rlhf-005", "q-r2-rlhf-006", "q-r2-rlhf-007", "q-r2-rlhf-008", "q-r2-rlhf-009", "q-r2-rlhf-010", "q-grpo-rlvr-002", "q-grpo-rlvr-005", "q-compliance-003"]
 
   - id: verifiable-reward-rl
     name: GRPO 与可验证奖励
@@ -1274,14 +1274,14 @@ concepts:
   - id: context-compaction
     name: 上下文压缩
     path: docs/11-Coding-Agent/13-上下文压缩Compaction是什么.md
-    aliases: ["Compaction", "Context Compaction", "上下文压缩", "自动压缩"]
+    aliases: ["Compaction", "Context Compaction", "上下文压缩", "自动压缩", "压缩后行为失守", "handoff summary"]
     level: Advanced
     path_type: Extended
     group: Coding Agent
-    summary: 在应用层用模型生成的摘要替换较长历史，并显式保留约束、结构化状态与证据指针的上下文管理机制。
+    summary: 在应用层用模型生成的摘要替换较长历史，并显式保留约束、结构化状态与证据指针的上下文管理机制；压缩伤害不只丢内容——规则文本还在时遵守仍可变弱、交接摘要可杜撰记录不支持的权限、表示层压缩可绕过文字直接削弱拒绝行为，压缩后需在行为层面复验关键规则。
     prerequisites: ["context-engineering", "context-window"]
-    related: ["conversation-history", "kv-cache", "coding-agent", "system-prompt", "coral-context-self-allocation"]
-    questions: ["q-r2-contexteng-004", "q-compaction-loss-001", "q-compaction-window-001", "q-governance-decay-001", "q-governance-decay-002", "q-coral-self-alloc-001"]
+    related: ["conversation-history", "kv-cache", "coding-agent", "system-prompt", "coral-context-self-allocation", "preference-alignment"]
+    questions: ["q-r2-contexteng-004", "q-compaction-loss-001", "q-compaction-window-001", "q-governance-decay-001", "q-governance-decay-002", "q-coral-self-alloc-001", "q-compliance-001", "q-compliance-002", "q-compliance-003"]
 
   - id: coral-context-self-allocation
     name: 认知资源自分配
@@ -1365,7 +1365,7 @@ concepts:
     summary: 平台或应用在运行时提供、用于说明任务、行为和边界的一类高优先级输入，具体角色与优先规则由平台定义。
     prerequisites: ["prompt", "context"]
     related: ["training", "tool", "agent"]
-    questions: ["q-system-prompt-001", "q-system-prompt-finetune-001", "q-governance-decay-001", "q-governance-decay-002"]
+    questions: ["q-system-prompt-001", "q-system-prompt-finetune-001", "q-governance-decay-001", "q-governance-decay-002", "q-compliance-001", "q-compliance-002"]
 
   - id: jailbreak
     name: Jailbreak
@@ -2056,6 +2056,12 @@ relations:
   - from: context-compaction
     relation: 可能静默删除
     to: system-prompt
+  - from: context-compaction
+    relation: 压缩后仍可能削弱遵守
+    to: system-prompt
+  - from: context-compaction
+    relation: 表示层压缩可削弱
+    to: preference-alignment
   - from: context-compaction
     relation: 触发权可移交给 Agent 主动判断
     to: coral-context-self-allocation
