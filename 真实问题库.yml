@@ -2121,6 +2121,42 @@ questions:
     answer_path: "docs/03-模型原理与训练/16-GRPO和RLVR是什么.md"
     cluster: grpo-rlvr
 
+  - id: q-opd-grpo-001
+    question: "都说蒸馏比强化学习省算力，为什么实测里用外聘教师做在策略蒸馏（OPD）反而更贵？老师换成学生自己的 GRPO 检查点为什么能省 50 倍？"
+    concepts: ["verifiable-reward-rl", "model-compression"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/16-GRPO和RLVR是什么.md"
+    cluster: grpo-rlvr
+
+  - id: q-opd-grpo-002
+    question: "DeepSeek-V4、Kimi K3 用蒸馏把各个领域的 GRPO 专家合并成一个模型，这条流水线为什么在总 FLOPs 上划算？"
+    concepts: ["verifiable-reward-rl", "model-compression"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/16-GRPO和RLVR是什么.md"
+    cluster: grpo-rlvr
+
+  - id: q-opd-grpo-003
+    question: "在策略蒸馏每个 Token 都有教师监督，为什么反而比标量奖励更脆弱？学生 rollout 分布滑向哪里时会出问题？"
+    concepts: ["verifiable-reward-rl"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/16-GRPO和RLVR是什么.md"
+    cluster: grpo-rlvr
+
+  - id: q-opd-grpo-004
+    question: "蒸馏只能监督学生自己走过的轨迹，教师能到达而学生到不了的状态怎么办？CoRD 用投机解码的耦合采样解决了什么？"
+    concepts: ["verifiable-reward-rl"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/16-GRPO和RLVR是什么.md"
+    cluster: grpo-rlvr
+
   - id: q-sparse-evict-001
     question: "H2O、SnapKV 这些 KV Cache 驱逐方法都在比「怎么打分」，为什么没人问过「该让哪一层打分」？打分层的深度为什么是条坟场曲线？"
     concepts: ["hierarchical-sparse-attention", "attention", "kv-cache"]
