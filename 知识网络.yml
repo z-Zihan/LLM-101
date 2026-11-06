@@ -226,8 +226,8 @@ concepts:
     group: 模型训练
     summary: 通过改变结构、数值表示或训练较小学生模型，降低部署所需存储、内存或计算的技术集合。
     prerequisites: ["parameter", "training", "inference"]
-    related: ["model-file-format", "gpu-compute", "verification"]
-    questions: ["q-distill-quant-001", "q-compression-methods-001"]
+    related: ["model-file-format", "gpu-compute", "verification", "verifiable-reward-rl"]
+    questions: ["q-distill-quant-001", "q-compression-methods-001", "q-opd-grpo-001", "q-opd-grpo-002"]
 
   - id: prompt
     name: 提示
@@ -1214,14 +1214,14 @@ concepts:
   - id: verifiable-reward-rl
     name: GRPO 与可验证奖励
     path: docs/03-模型原理与训练/16-GRPO和RLVR是什么.md
-    aliases: ["GRPO", "RLVR", "Verifiable Rewards", "组相对策略优化", "Team-GRPO"]
+    aliases: ["GRPO", "RLVR", "Verifiable Rewards", "组相对策略优化", "Team-GRPO", "On-Policy Distillation", "OPD", "在策略蒸馏", "Multi-teacher OPD", "CoRD", "Coupled-Rollout Distillation"]
     level: Advanced
     path_type: Optional
     group: 模型训练
-    summary: 用规则验证器替代学习型奖励模型、用组内相对基线替代 Value 模型的训练方法体系；组依赖奖励下组内基线会改变优化目标。
+    summary: 用规则验证器替代学习型奖励模型、用组内相对基线替代 Value 模型的训练方法体系；组依赖奖励下组内基线会改变优化目标。延伸覆盖在策略蒸馏（OPD）的算力账：外聘教师不如 GRPO、自产 GRPO 教师蒸馏可省 50 倍、multi-teacher 合并省 42% 总算力；rollout 分布决定 OPD 成败，CoRD 用投机解码耦合调度它。
     prerequisites: ["preference-alignment", "training"]
-    related: ["reasoning", "verification"]
-    questions: ["q-grpo-rlvr-001", "q-grpo-rlvr-002", "q-grpo-rlvr-003", "q-grpo-rlvr-004", "q-grpo-rlvr-005", "q-grpo-rlvr-006", "q-grpo-rlvr-007", "q-grpo-rlvr-008"]
+    related: ["reasoning", "verification", "model-compression"]
+    questions: ["q-grpo-rlvr-001", "q-grpo-rlvr-002", "q-grpo-rlvr-003", "q-grpo-rlvr-004", "q-grpo-rlvr-005", "q-grpo-rlvr-006", "q-grpo-rlvr-007", "q-grpo-rlvr-008", "q-opd-grpo-001", "q-opd-grpo-002", "q-opd-grpo-003", "q-opd-grpo-004"]
 
   - id: agent-planning
     name: Agent 规划与恢复
@@ -2022,6 +2022,12 @@ relations:
   - from: verifiable-reward-rl
     relation: 依赖判卷规则
     to: verification
+  - from: verifiable-reward-rl
+    relation: 用蒸馏合并领域专家
+    to: model-compression
+  - from: verifiable-reward-rl
+    relation: 提供 OPD 的自产教师检查点
+    to: model-compression
   - from: agent-planning
     relation: 控制
     to: agent
