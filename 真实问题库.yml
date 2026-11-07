@@ -2029,6 +2029,42 @@ questions:
     answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
     cluster: interdependent-specs
 
+
+  - id: q-bench-debt-001
+    question: "一个编码基准发布时审查得很严格，为什么一年后它的分数就不再反映模型的真实能力了？"
+    concepts: ["benchmark-maintenance-debt", "verification"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: benchmark-maintenance-debt
+
+  - id: q-bench-debt-002
+    question: "模型在基准上的通过率突然变高，怎么区分是模型变强了还是验证器或环境出问题放水了？"
+    concepts: ["benchmark-maintenance-debt", "verification"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: benchmark-maintenance-debt
+
+  - id: q-bench-debt-003
+    question: "用模型当裁判来审计和修复基准任务，模型裁判的判断到底能信到什么程度？"
+    concepts: ["benchmark-maintenance-debt", "harness-reliability"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: benchmark-maintenance-debt
+
+  - id: q-bench-debt-004
+    question: "为什么引用 Agent 评测结论时必须连同基准版本和资源预算一起引用？"
+    concepts: ["benchmark-maintenance-debt", "harness-reliability"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: benchmark-maintenance-debt
   - id: q-hier-sparse-001
     question: "FlashAttention 已经很快了，为什么上下文到百万 Token 还是非上稀疏注意力不可？两者优化的到底是不是同一件事？"
     concepts: ["hierarchical-sparse-attention", "gpu-compute", "attention"]
