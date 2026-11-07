@@ -1,5 +1,5 @@
 version: 3
-updated: 2026-11-06
+updated: 2026-11-08
 
 main_path:
   - ai
@@ -850,7 +850,7 @@ concepts:
     summary: 把 Harness 的过程质量（上下文、执行、治理、生命周期、可观测性、工具、验证七个维度）从任务成功率里拆出来单独度量的评测方向；任务成功不等于过程可靠，Skill 类改进还具有能力条件性。
     prerequisites: ["coding-agent", "agent"]
     related: ["harness-self-evolution", "context-compaction", "verification", "prefix-executability"]
-    questions: ["q-harness-reliability-001", "q-harness-reliability-002", "q-prefix-exec-001", "q-prefix-exec-002", "q-coral-self-alloc-002", "q-interdep-specs-002"]
+    questions: ["q-harness-reliability-001", "q-harness-reliability-002", "q-prefix-exec-001", "q-prefix-exec-002", "q-coral-self-alloc-002", "q-interdep-specs-002", "q-bench-debt-003", "q-bench-debt-004"]
 
   - id: eval-budget
     name: 评测预算分配
@@ -863,6 +863,18 @@ concepts:
     prerequisites: ["harness-self-evolution", "coding-agent"]
     related: ["harness-reliability", "verification", "agent-planning"]
     questions: ["q-eval-budget-001", "q-eval-budget-002"]
+
+  - id: benchmark-maintenance-debt
+    name: 基准维护债
+    path: docs/11-Coding-Agent/04-Coding-Agent是什么.md
+    aliases: ["Benchmark Maintenance Debt", "Continuous Benchmarks", "基准即软件", "基准维护"]
+    level: Advanced
+    path_type: Optional
+    group: Coding Agent
+    summary: 基准分数与其想测能力之间持续扩大的差距——题面与验证器不匹配、环境漂移、任务漂移三类缺陷随模型变强和依赖移动不断累积；Terminal-Bench 2.0 的审计显示约 30% 任务有缺陷，修复使准确率移动逾 10 个百分点而排名仍高度相关（Spearman ρ=0.958）；资源预算是测量规格的一部分，引用结论须连同基准版本与预算一起引用。
+    prerequisites: ["coding-agent", "harness-reliability"]
+    related: ["verification", "eval-budget", "interdependent-specs"]
+    questions: ["q-bench-debt-001", "q-bench-debt-002", "q-bench-debt-003", "q-bench-debt-004"]
 
   - id: prefix-executability
     name: 前缀可执行性
@@ -910,7 +922,7 @@ concepts:
     summary: 用适合问题类型的证据检查 AI 输出，而不是只看表达是否自信。
     prerequisites: ["hallucination"]
     related: ["rag", "tool", "eval-budget", "verifiable-reward-rl"]
-    questions: ["q-hallucination-001", "q-rag-hallucination-001", "q-finetuning-evaluation-001", "q-effective-context-001", "q-quant-quality-001", "q-benchmark-contamination-001", "q-eval-budget-002", "q-interdep-specs-002", "q-grpo-rlvr-004"]
+    questions: ["q-hallucination-001", "q-rag-hallucination-001", "q-finetuning-evaluation-001", "q-effective-context-001", "q-quant-quality-001", "q-benchmark-contamination-001", "q-eval-budget-002", "q-interdep-specs-002", "q-grpo-rlvr-004", "q-bench-debt-001", "q-bench-debt-002"]
 
   - id: database-boundary
     name: LLM 与数据库边界
@@ -2203,3 +2215,12 @@ relations:
   - from: gpu-compute
     relation: 索引与选择的额外开销折损稀疏化的名义收益
     to: hierarchical-sparse-attention
+  - from: benchmark-maintenance-debt
+    relation: 验证器误杀合法解使分数落后于能力
+    to: verification
+  - from: benchmark-maintenance-debt
+    relation: 修复预算与评测预算同属测量规格须一起校准
+    to: eval-budget
+  - from: harness-reliability
+    relation: 量具可靠性是过程可靠性的前提
+    to: benchmark-maintenance-debt
