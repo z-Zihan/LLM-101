@@ -1,5 +1,5 @@
 version: 3
-updated: 2026-11-08
+updated: 2026-11-09
 
 main_path:
   - ai
@@ -909,7 +909,7 @@ concepts:
     group: RAG与知识
     summary: 模型生成了看似合理、实际上与事实或给定资料不一致的内容。
     prerequisites: ["llm", "inference"]
-    related: ["verification", "rag"]
+    related: ["verification", "rag", "mcp-agent-hallucination"]
     questions: ["q-hallucination-001", "q-rag-001", "q-rag-hallucination-001"]
 
   - id: verification
@@ -922,7 +922,7 @@ concepts:
     summary: 用适合问题类型的证据检查 AI 输出，而不是只看表达是否自信。
     prerequisites: ["hallucination"]
     related: ["rag", "tool", "eval-budget", "verifiable-reward-rl"]
-    questions: ["q-hallucination-001", "q-rag-hallucination-001", "q-finetuning-evaluation-001", "q-effective-context-001", "q-quant-quality-001", "q-benchmark-contamination-001", "q-eval-budget-002", "q-interdep-specs-002", "q-grpo-rlvr-004", "q-bench-debt-001", "q-bench-debt-002"]
+    questions: ["q-hallucination-001", "q-rag-hallucination-001", "q-finetuning-evaluation-001", "q-effective-context-001", "q-quant-quality-001", "q-benchmark-contamination-001", "q-eval-budget-002", "q-interdep-specs-002", "q-grpo-rlvr-004", "q-bench-debt-001", "q-bench-debt-002", "q-mcphallu-004"]
 
   - id: database-boundary
     name: LLM 与数据库边界
@@ -958,7 +958,7 @@ concepts:
     summary: AI 系统可以请求外部程序执行的受控能力。
     prerequisites: ["api"]
     related: ["function-calling", "agent", "mcp", "skill"]
-    questions: ["q-agent-001", "q-function-calling-001", "q-mcp-openapi-001", "q-skill-mcp-001", "q-agent-roadmap-001", "q-agent-loop-001", "q-platform-mcp-001", "q-database-access-001", "q-agent-browser-injection-001", "q-tool-prompt-injection-001", "q-mcp-security-001", "q-web-search-provenance-001", "q-file-access-001", "q-tool-chain-exfiltration-001"]
+    questions: ["q-agent-001", "q-function-calling-001", "q-mcp-openapi-001", "q-skill-mcp-001", "q-agent-roadmap-001", "q-agent-loop-001", "q-platform-mcp-001", "q-database-access-001", "q-agent-browser-injection-001", "q-tool-prompt-injection-001", "q-mcp-security-001", "q-web-search-provenance-001", "q-file-access-001", "q-tool-chain-exfiltration-001", "q-mcphallu-003"]
 
   - id: function-calling
     name: 函数调用
@@ -1054,7 +1054,19 @@ concepts:
     summary: 让 AI 应用用统一方式发现和连接外部工具、资源与提示的开放协议。
     prerequisites: ["api", "tool"]
     related: ["agent", "skill"]
-    questions: ["q-mcp-openapi-001", "q-skill-mcp-001", "q-agent-concepts-roadmap-001", "q-platform-mcp-001", "q-database-access-001", "q-mcp-security-001"]
+    questions: ["q-mcp-openapi-001", "q-skill-mcp-001", "q-agent-concepts-roadmap-001", "q-platform-mcp-001", "q-database-access-001", "q-mcp-security-001", "q-mcphallu-001"]
+
+  - id: mcp-agent-hallucination
+    name: MCP Agent 幻觉
+    path: docs/09-MCP/06-MCP和Agent有什么区别.md
+    aliases: ["MCPHallu", "MCP Agent Hallucination", "Agent 幻觉四分类"]
+    level: Advanced
+    path_type: Optional
+    group: MCP与Skill
+    summary: MCP Agent 把轨迹中与任务指令、环境真实状态或工具真实能力相矛盾的元素当作有效信息使用或写进答复——分支坍缩、目标不可达、工具误用、上下文遗忘四个子类型各由可控结构触发器制造并在轨迹上留检测信号；MCPHallu 实测 14 个模型平均 0.642（最高 0.728），目标不可达任务平均 0.458 且调用 4 次以上工具的运行通过率为 0，正确工具混入混淆工具后通过率从 84.7% 掉到 32.3%，子类型排名平均漂移 6.86/13 位（分支坍缩与目标不可达相关 r=-0.12）。
+    prerequisites: ["mcp", "hallucination", "agent-loop"]
+    related: ["hallucination", "tool", "verification"]
+    questions: ["q-mcphallu-001", "q-mcphallu-002", "q-mcphallu-003", "q-mcphallu-004"]
 
   - id: skill
     name: Skill
@@ -1257,7 +1269,7 @@ concepts:
     summary: Agent 反复执行观察、决定、行动、更新的运行方式，把真实执行结果带回下一轮判断。
     prerequisites: ["agent", "tool"]
     related: ["function-calling", "agent-planning"]
-    questions: ["q-agent-loop-001", "q-proactive-agent-002"]
+    questions: ["q-agent-loop-001", "q-proactive-agent-002", "q-mcphallu-002"]
 
   - id: multi-agent
     name: 多 Agent 协作
@@ -2224,3 +2236,15 @@ relations:
   - from: harness-reliability
     relation: 量具可靠性是过程可靠性的前提
     to: benchmark-maintenance-debt
+  - from: mcp-agent-hallucination
+    relation: 把幻觉从事实虚构扩展到轨迹有效性主张
+    to: hallucination
+  - from: mcp-agent-hallucination
+    relation: 混淆工具输出污染后续推理
+    to: tool
+  - from: mcp-agent-hallucination
+    relation: 完成式答复要靠副作用验证戳穿
+    to: verification
+  - from: agent-loop
+    relation: 循环惯性放大不可达目标上的完成幻觉
+    to: mcp-agent-hallucination
