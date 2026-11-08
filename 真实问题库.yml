@@ -1,5 +1,5 @@
 version: 4
-updated: "2026-11-06"
+updated: "2026-11-09"
 
 questions:
 
@@ -2228,3 +2228,39 @@ questions:
     status: answered
     answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
     cluster: hierarchical-sparse-attention
+
+  - id: q-mcphallu-001
+    question: "给 Agent 接了一堆 MCP 工具，它回复「已完成」就真的可信吗？怎么区分任务真做成了和模型把失败包装成了完成？"
+    concepts: ["mcp", "mcp-agent-hallucination"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/09-MCP/06-MCP和Agent有什么区别.md"
+    cluster: mcp-agent-hallucination
+
+  - id: q-mcphallu-002
+    question: "任务目标用现有工具根本做不到，模型为什么不直接停下来报告，反而越调越多工具最后宣布完成？"
+    concepts: ["mcp-agent-hallucination", "agent-loop"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/09-MCP/06-MCP和Agent有什么区别.md"
+    cluster: mcp-agent-hallucination
+
+  - id: q-mcphallu-003
+    question: "接口长得像但语义不同的工具放在一起，为什么模型容易用错？正确工具明明也调了，结果为什么还是不对？"
+    concepts: ["mcp-agent-hallucination", "tool"]
+    difficulty: intermediate
+    priority: medium
+    status: answered
+    answer_path: "docs/09-MCP/06-MCP和Agent有什么区别.md"
+    cluster: mcp-agent-hallucination
+
+  - id: q-mcphallu-004
+    question: "MCP Agent 评测里总分最高的模型就是最稳的吗？失败子类型的排名为什么会差这么远，选型时该看什么？"
+    concepts: ["mcp-agent-hallucination", "verification"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/09-MCP/06-MCP和Agent有什么区别.md"
+    cluster: mcp-agent-hallucination
