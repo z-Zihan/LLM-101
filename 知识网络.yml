@@ -1,5 +1,5 @@
 version: 3
-updated: 2026-11-09
+updated: 2026-11-10
 
 main_path:
   - ai
@@ -394,7 +394,7 @@ concepts:
     summary: 当前一次计算中，模型实际可以使用的信息。
     prerequisites: ["prompt", "token"]
     related: ["context-window", "inference", "rag", "conversation-history"]
-    questions: ["q-context-window-001", "q-cache-001", "q-prompt-001", "q-rag-001", "q-context-stateless-001", "q-coding-context-001", "q-chat-correction-memory-001", "q-rag-agent-001", "q-ai-memory-001", "q-context-memory-001", "q-coding-agent-memory-001", "q-long-agent-state-001"]
+    questions: ["q-context-window-001", "q-cache-001", "q-prompt-001", "q-rag-001", "q-context-stateless-001", "q-coding-context-001", "q-chat-correction-memory-001", "q-rag-agent-001", "q-ai-memory-001", "q-context-memory-001", "q-coding-agent-memory-001", "q-long-agent-state-001", "q-instr-debt-002"]
 
   - id: context-window
     name: 上下文窗口
@@ -873,8 +873,20 @@ concepts:
     group: Coding Agent
     summary: 基准分数与其想测能力之间持续扩大的差距——题面与验证器不匹配、环境漂移、任务漂移三类缺陷随模型变强和依赖移动不断累积；Terminal-Bench 2.0 的审计显示约 30% 任务有缺陷，修复使准确率移动逾 10 个百分点而排名仍高度相关（Spearman ρ=0.958）；资源预算是测量规格的一部分，引用结论须连同基准版本与预算一起引用。
     prerequisites: ["coding-agent", "harness-reliability"]
-    related: ["verification", "eval-budget", "interdependent-specs"]
+    related: ["verification", "eval-budget", "interdependent-specs", "instruction-documentation-debt"]
     questions: ["q-bench-debt-001", "q-bench-debt-002", "q-bench-debt-003", "q-bench-debt-004"]
+
+  - id: instruction-documentation-debt
+    name: 指令文件维护债
+    path: docs/11-Coding-Agent/08-项目上下文是什么.md
+    aliases: ["Documentation Debt", "Stale Instructions", "指令文件过期", "文档债"]
+    level: Advanced
+    path_type: Optional
+    group: Coding Agent
+    summary: 仓库指令文件（AGENTS.md / CLAUDE.md）里过期的一行是文档债——本金是修复所需的一行编辑，利息是每个后续 Agent 会话多付的工作；受控实验（732 条轨迹）显示利息只在任务路线经过该指令时产生，任务成功率完全不变使成本对结果评测不可见，Agent 会绕过但从不修理（732 次运行零次修改指令文件），改对优于删除。
+    prerequisites: ["coding-agent", "context"]
+    related: ["benchmark-maintenance-debt", "harness-reliability", "conversation-history"]
+    questions: ["q-instr-debt-001", "q-instr-debt-002"]
 
   - id: prefix-executability
     name: 前缀可执行性
@@ -1090,7 +1102,7 @@ concepts:
     summary: 能读取项目、修改文件、运行命令并验证结果的编程任务 Agent。
     prerequisites: ["agent", "tool"]
     related: ["skill", "conversation-history"]
-    questions: ["q-coding-context-001", "q-coding-agent-memory-001", "q-r2-codingagent-001", "q-r2-codingagent-002", "q-r2-codingagent-003", "q-r2-codingagent-004", "q-r2-codingagent-005", "q-r2-codingagent-006", "q-r2-codingagent-007", "q-r2-codingagent-008", "q-copilot-agent-mode-001", "q-copilot-env-001", "q-shell-terminal-001", "q-harness-self-evolution-001", "q-harness-self-evolution-002", "q-harness-reliability-001", "q-harness-reliability-002", "q-interdep-specs-001"]
+    questions: ["q-coding-context-001", "q-coding-agent-memory-001", "q-r2-codingagent-001", "q-r2-codingagent-002", "q-r2-codingagent-003", "q-r2-codingagent-004", "q-r2-codingagent-005", "q-r2-codingagent-006", "q-r2-codingagent-007", "q-r2-codingagent-008", "q-copilot-agent-mode-001", "q-copilot-env-001", "q-shell-terminal-001", "q-harness-self-evolution-001", "q-harness-self-evolution-002", "q-harness-reliability-001", "q-harness-reliability-002", "q-interdep-specs-001", "q-instr-debt-001"]
 
   - id: codex-product
     name: Codex 产品案例
@@ -2235,6 +2247,15 @@ relations:
     to: eval-budget
   - from: harness-reliability
     relation: 量具可靠性是过程可靠性的前提
+    to: benchmark-maintenance-debt
+  - from: instruction-documentation-debt
+    relation: 任务成功率不变使利息对结果评测不可见
+    to: harness-reliability
+  - from: instruction-documentation-debt
+    relation: 指令文件是每个会话全量加载却缺失效机制的项目上下文来源
+    to: context
+  - from: instruction-documentation-debt
+    relation: 维护债从量具延伸到仓库规则文件
     to: benchmark-maintenance-debt
   - from: mcp-agent-hallucination
     relation: 把幻觉从事实虚构扩展到轨迹有效性主张

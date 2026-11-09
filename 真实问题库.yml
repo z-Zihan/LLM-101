@@ -2048,6 +2048,24 @@ questions:
     answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
     cluster: benchmark-maintenance-debt
 
+  - id: q-instr-debt-001
+    question: "AGENTS.md 里的测试命令已经指向不存在的目录了，为什么 Coding Agent 每次都照着执行，却从来没有一次把它修好？"
+    concepts: ["instruction-documentation-debt", "coding-agent"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/08-项目上下文是什么.md"
+    cluster: instruction-documentation-debt
+
+  - id: q-instr-debt-002
+    question: "发现仓库指令文件里有过期的路径，应该直接删掉那行还是改成正确路径？"
+    concepts: ["instruction-documentation-debt", "context"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/08-项目上下文是什么.md"
+    cluster: instruction-documentation-debt
+
   - id: q-bench-debt-003
     question: "用模型当裁判来审计和修复基准任务，模型裁判的判断到底能信到什么程度？"
     concepts: ["benchmark-maintenance-debt", "harness-reliability"]
