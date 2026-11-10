@@ -1,5 +1,5 @@
 version: 4
-updated: "2026-11-09"
+updated: "2026-11-11"
 
 questions:
 
@@ -2282,3 +2282,20 @@ questions:
     status: answered
     answer_path: "docs/09-MCP/06-MCP和Agent有什么区别.md"
     cluster: mcp-agent-hallucination
+  - id: q-skillware-001
+    question: "把 Skill 从 Markdown 说明书改成带类型契约和测试的代码能力包，是不是就万无一失了？"
+    concepts: ["skillware-capability-bundle", "skill", "verification"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/10-Skill/04-MCP和Skill有什么区别.md"
+    cluster: skillware-capability-bundle
+
+  - id: q-skillware-002
+    question: "为什么 8B 小模型装上能力包后反而超过了没装备的前沿大模型？我该给任务选说明书还是代码包？"
+    concepts: ["skillware-capability-bundle", "skill", "tool"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/10-Skill/04-MCP和Skill有什么区别.md"
+    cluster: skillware-capability-bundle
