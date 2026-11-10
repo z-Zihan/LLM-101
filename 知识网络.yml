@@ -1,5 +1,5 @@
 version: 3
-updated: 2026-11-10
+updated: 2026-11-11
 
 main_path:
   - ai
@@ -933,8 +933,8 @@ concepts:
     group: RAG与知识
     summary: 用适合问题类型的证据检查 AI 输出，而不是只看表达是否自信。
     prerequisites: ["hallucination"]
-    related: ["rag", "tool", "eval-budget", "verifiable-reward-rl"]
-    questions: ["q-hallucination-001", "q-rag-hallucination-001", "q-finetuning-evaluation-001", "q-effective-context-001", "q-quant-quality-001", "q-benchmark-contamination-001", "q-eval-budget-002", "q-interdep-specs-002", "q-grpo-rlvr-004", "q-bench-debt-001", "q-bench-debt-002", "q-mcphallu-004"]
+    related: ["rag", "tool", "eval-budget", "verifiable-reward-rl", "skillware-capability-bundle"]
+    questions: ["q-hallucination-001", "q-rag-hallucination-001", "q-finetuning-evaluation-001", "q-effective-context-001", "q-quant-quality-001", "q-benchmark-contamination-001", "q-eval-budget-002", "q-interdep-specs-002", "q-grpo-rlvr-004", "q-bench-debt-001", "q-bench-debt-002", "q-mcphallu-004", "q-skillware-001"]
 
   - id: database-boundary
     name: LLM 与数据库边界
@@ -970,7 +970,7 @@ concepts:
     summary: AI 系统可以请求外部程序执行的受控能力。
     prerequisites: ["api"]
     related: ["function-calling", "agent", "mcp", "skill"]
-    questions: ["q-agent-001", "q-function-calling-001", "q-mcp-openapi-001", "q-skill-mcp-001", "q-agent-roadmap-001", "q-agent-loop-001", "q-platform-mcp-001", "q-database-access-001", "q-agent-browser-injection-001", "q-tool-prompt-injection-001", "q-mcp-security-001", "q-web-search-provenance-001", "q-file-access-001", "q-tool-chain-exfiltration-001", "q-mcphallu-003"]
+    questions: ["q-agent-001", "q-function-calling-001", "q-mcp-openapi-001", "q-skill-mcp-001", "q-agent-roadmap-001", "q-agent-loop-001", "q-platform-mcp-001", "q-database-access-001", "q-agent-browser-injection-001", "q-tool-prompt-injection-001", "q-mcp-security-001", "q-web-search-provenance-001", "q-file-access-001", "q-tool-chain-exfiltration-001", "q-mcphallu-003", "q-skillware-002"]
 
   - id: function-calling
     name: 函数调用
@@ -1065,7 +1065,7 @@ concepts:
     group: MCP与Skill
     summary: 让 AI 应用用统一方式发现和连接外部工具、资源与提示的开放协议。
     prerequisites: ["api", "tool"]
-    related: ["agent", "skill"]
+    related: ["agent", "skill", "skillware-capability-bundle"]
     questions: ["q-mcp-openapi-001", "q-skill-mcp-001", "q-agent-concepts-roadmap-001", "q-platform-mcp-001", "q-database-access-001", "q-mcp-security-001", "q-mcphallu-001"]
 
   - id: mcp-agent-hallucination
@@ -1089,8 +1089,20 @@ concepts:
     group: MCP与Skill
     summary: 面向 Agent 的可复用能力包，用文件组织说明、流程和所需资源。
     prerequisites: ["agent", "tool"]
-    related: ["mcp", "coding-agent"]
-    questions: ["q-skill-mcp-001"]
+    related: ["mcp", "coding-agent", "skillware-capability-bundle"]
+    questions: ["q-skill-mcp-001", "q-skillware-001", "q-skillware-002"]
+
+  - id: skillware-capability-bundle
+    name: 能力包（Skillware）
+    path: docs/10-Skill/04-MCP和Skill有什么区别.md
+    aliases: ["Skillware", "Capability Bundle", "代码化能力包", "五件套能力包"]
+    level: Advanced
+    path_type: Optional
+    group: MCP与Skill
+    summary: 把任务能力从 Markdown 说明书固化为软件包的主张与实践：类型契约、确定性实现、认知指令、离线测试与展示元数据五件套各自承担不可替代的职责（三臂实验 58.2%→71.4%→91.8%，参数错误归零），提升与模型规模成反比（8B 装备后 88.0 分超过未装备的前沿模型），风险从「说明书误导」转移到「软件供应链」；选择尺子是任务方法里不需要模型判断的比例。
+    prerequisites: ["skill", "tool"]
+    related: ["mcp", "verification", "code-execution"]
+    questions: ["q-skillware-001", "q-skillware-002"]
 
   - id: coding-agent
     name: Coding Agent
@@ -1484,7 +1496,7 @@ concepts:
     group: Tool与Agent
     summary: 在受控运行环境中真正启动代码和进程、访问获准资源并返回输出或产物的工具能力。
     prerequisites: ["tool"]
-    related: ["file-tool", "computer-use", "coding-agent"]
+    related: ["file-tool", "computer-use", "coding-agent", "skillware-capability-bundle"]
     questions: ["q-code-interpreter-dependency-001", "q-tool-prompt-injection-001", "q-shell-terminal-001"]
 
   - id: computer-use
@@ -2269,3 +2281,12 @@ relations:
   - from: agent-loop
     relation: 循环惯性放大不可达目标上的完成幻觉
     to: mcp-agent-hallucination
+  - from: skillware-capability-bundle
+    relation: 把方法层从说明书固化为带契约与测试的软件
+    to: skill
+  - from: skillware-capability-bundle
+    relation: 类型契约在执行前拦截参数错误
+    to: verification
+  - from: skillware-capability-bundle
+    relation: 能力包的风险面转移到软件供应链
+    to: code-execution
