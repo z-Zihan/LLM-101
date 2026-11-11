@@ -1,5 +1,5 @@
 version: 3
-updated: 2026-11-11
+updated: 2026-11-12
 
 main_path:
   - ai
@@ -850,7 +850,7 @@ concepts:
     summary: 把 Harness 的过程质量（上下文、执行、治理、生命周期、可观测性、工具、验证七个维度）从任务成功率里拆出来单独度量的评测方向；任务成功不等于过程可靠，Skill 类改进还具有能力条件性。
     prerequisites: ["coding-agent", "agent"]
     related: ["harness-self-evolution", "context-compaction", "verification", "prefix-executability"]
-    questions: ["q-harness-reliability-001", "q-harness-reliability-002", "q-prefix-exec-001", "q-prefix-exec-002", "q-coral-self-alloc-002", "q-interdep-specs-002", "q-bench-debt-003", "q-bench-debt-004"]
+    questions: ["q-harness-reliability-001", "q-harness-reliability-002", "q-prefix-exec-001", "q-prefix-exec-002", "q-coral-self-alloc-002", "q-interdep-specs-002", "q-bench-debt-003", "q-bench-debt-004", "q-durable-agent-002"]
 
   - id: eval-budget
     name: 评测预算分配
@@ -934,7 +934,7 @@ concepts:
     summary: 用适合问题类型的证据检查 AI 输出，而不是只看表达是否自信。
     prerequisites: ["hallucination"]
     related: ["rag", "tool", "eval-budget", "verifiable-reward-rl", "skillware-capability-bundle"]
-    questions: ["q-hallucination-001", "q-rag-hallucination-001", "q-finetuning-evaluation-001", "q-effective-context-001", "q-quant-quality-001", "q-benchmark-contamination-001", "q-eval-budget-002", "q-interdep-specs-002", "q-grpo-rlvr-004", "q-bench-debt-001", "q-bench-debt-002", "q-mcphallu-004", "q-skillware-001"]
+    questions: ["q-hallucination-001", "q-rag-hallucination-001", "q-finetuning-evaluation-001", "q-effective-context-001", "q-quant-quality-001", "q-benchmark-contamination-001", "q-eval-budget-002", "q-interdep-specs-002", "q-grpo-rlvr-004", "q-bench-debt-001", "q-bench-debt-002", "q-mcphallu-004", "q-skillware-001", "q-ma-handoff-integrity-001", "q-durable-agent-002"]
 
   - id: database-boundary
     name: LLM 与数据库边界
@@ -1111,10 +1111,10 @@ concepts:
     level: Core
     path_type: Main
     group: Coding Agent
-    summary: 能读取项目、修改文件、运行命令并验证结果的编程任务 Agent。
+    summary: 能读取项目、修改文件、运行命令并验证结果的编程任务 Agent；跨多小时运行时依赖初始化/执行双 Agent、JSON 功能清单、进度文件与独立评测角色等 Harness 设备维持交接面质量，且每个组件都是一条「模型做不到 X」的假设，模型升级后需逐个拆除验证。
     prerequisites: ["agent", "tool"]
     related: ["skill", "conversation-history"]
-    questions: ["q-coding-context-001", "q-coding-agent-memory-001", "q-r2-codingagent-001", "q-r2-codingagent-002", "q-r2-codingagent-003", "q-r2-codingagent-004", "q-r2-codingagent-005", "q-r2-codingagent-006", "q-r2-codingagent-007", "q-r2-codingagent-008", "q-copilot-agent-mode-001", "q-copilot-env-001", "q-shell-terminal-001", "q-harness-self-evolution-001", "q-harness-self-evolution-002", "q-harness-reliability-001", "q-harness-reliability-002", "q-interdep-specs-001", "q-instr-debt-001"]
+    questions: ["q-coding-context-001", "q-coding-agent-memory-001", "q-r2-codingagent-001", "q-r2-codingagent-002", "q-r2-codingagent-003", "q-r2-codingagent-004", "q-r2-codingagent-005", "q-r2-codingagent-006", "q-r2-codingagent-007", "q-r2-codingagent-008", "q-copilot-agent-mode-001", "q-copilot-env-001", "q-shell-terminal-001", "q-harness-self-evolution-001", "q-harness-self-evolution-002", "q-harness-reliability-001", "q-harness-reliability-002", "q-interdep-specs-001", "q-instr-debt-001", "q-durable-agent-001", "q-durable-agent-002", "q-ma-state-align-001"]
 
   - id: codex-product
     name: Codex 产品案例
@@ -1281,7 +1281,7 @@ concepts:
     summary: 把目标拆为可验证行动，并依据工具结果调整、恢复或安全停止的 Agent 控制能力。
     prerequisites: ["agent", "tool"]
     related: ["verification", "multi-agent", "prefix-executability", "coral-context-self-allocation"]
-    questions: ["q-r2-planning-001", "q-r2-planning-002", "q-r2-planning-003", "q-r2-planning-004", "q-r2-planning-005", "q-r2-planning-006", "q-r2-planning-007", "q-prefix-exec-002"]
+    questions: ["q-r2-planning-001", "q-r2-planning-002", "q-r2-planning-003", "q-r2-planning-004", "q-r2-planning-005", "q-r2-planning-006", "q-r2-planning-007", "q-prefix-exec-002", "q-durable-agent-001"]
 
   - id: agent-loop
     name: Agent 循环
@@ -1302,10 +1302,10 @@ concepts:
     level: Advanced
     path_type: Optional
     group: Tool与Agent
-    summary: 多个具有独立角色、上下文或权限的 Agent 通过任务依赖、共享状态和仲裁协同完成目标。
+    summary: 多个具有独立角色、上下文或权限的 Agent 通过任务依赖、共享状态和仲裁协同完成目标；实证数据显示共享状态的读、写、传三个环节各自需要防护——27.67% 的 Agent PR 有文本合并冲突，写时状态管理优于事后 worktree 合并，签名需求清单能防运输篡改但防不了提取污染。
     prerequisites: ["agent", "agent-planning", "context"]
-    related: ["conversation-history", "coding-agent"]
-    questions: ["q-r2-multiagent-001", "q-r2-multiagent-002", "q-r2-multiagent-003", "q-r2-multiagent-004", "q-r2-multiagent-005"]
+    related: ["conversation-history", "coding-agent", "verification"]
+    questions: ["q-r2-multiagent-001", "q-r2-multiagent-002", "q-r2-multiagent-003", "q-r2-multiagent-004", "q-r2-multiagent-005", "q-ma-state-align-001", "q-ma-handoff-integrity-001"]
 
   - id: context-engineering
     name: 上下文工程
@@ -2269,6 +2269,18 @@ relations:
   - from: instruction-documentation-debt
     relation: 维护债从量具延伸到仓库规则文件
     to: benchmark-maintenance-debt
+  - from: multi-agent
+    relation: 写时状态管理优于事后隔离合并
+    to: coding-agent
+  - from: multi-agent
+    relation: 交接需求需结构化清单加确定性核对
+    to: verification
+  - from: coding-agent
+    relation: 长时运行靠结构化交接产物跨窗口存活
+    to: harness-reliability
+  - from: coding-agent
+    relation: 自评偏乐观需要独立评测角色
+    to: harness-reliability
   - from: mcp-agent-hallucination
     relation: 把幻觉从事实虚构扩展到轨迹有效性主张
     to: hallucination
