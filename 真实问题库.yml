@@ -1,5 +1,5 @@
 version: 4
-updated: "2026-11-11"
+updated: "2026-11-12"
 
 questions:
 
@@ -2299,3 +2299,39 @@ questions:
     status: answered
     answer_path: "docs/10-Skill/04-MCP和Skill有什么区别.md"
     cluster: skillware-capability-bundle
+
+  - id: q-ma-state-align-001
+    question: "多 Agent 并行改同一个仓库，git 合并没报冲突，功能却互相打架了——为什么文本合并通过不等于没冲突？怎么提前拦住？"
+    concepts: ["multi-agent", "coding-agent"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/07-Agent/06-多Agent协作是什么.md"
+    cluster: multi-agent-state-alignment
+
+  - id: q-ma-handoff-integrity-001
+    question: "把需求拆给几个子 Agent 再合并结果，怎么确认没有哪条要求在中途被摘要丢掉或者改了？给交接清单签名有用吗？"
+    concepts: ["multi-agent", "verification"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/07-Agent/06-多Agent协作是什么.md"
+    cluster: multi-agent-state-alignment
+
+  - id: q-durable-agent-001
+    question: "让 Coding Agent 自己跑几个小时做一个完整应用，为什么它总是半路耗尽上下文留下烂摊子，或者做到一半就宣布完工？"
+    concepts: ["coding-agent", "agent-planning"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: durable-agent-harness
+
+  - id: q-durable-agent-002
+    question: "生成代码的 Agent 自己检查自己的产出，为什么总是给自己打高分？单独再开一个评审 Agent 值得吗？"
+    concepts: ["coding-agent", "verification", "harness-reliability"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
+    cluster: durable-agent-harness
