@@ -3,6 +3,42 @@ updated: "2026-11-12"
 
 questions:
 
+  - id: q-memrel-001
+    question: "Agent 把过去任务总结成经验教训存起来，为什么反而会在本来能解决的任务上失败？一条坏教训是怎么混进记忆的？"
+    concepts: ["memory-reliability", "agent-memory-system"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/12-Memory/02-Agent的长期记忆是怎样实现的.md"
+    cluster: memory-reliability
+
+  - id: q-memrel-002
+    question: "经验记忆里的教训条目，怎么判断它可信？为什么教训要链接回原始轨迹才算可靠？"
+    concepts: ["memory-reliability", "verification"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/12-Memory/02-Agent的长期记忆是怎样实现的.md"
+    cluster: memory-reliability
+
+  - id: q-memrel-003
+    question: "Agent 记忆系统会被投毒吗？恶意指令存进记忆后，会在后续会话里被检索出来并执行吗？哪些记忆架构更危险？"
+    concepts: ["memory-reliability", "hallucination"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/12-Memory/02-Agent的长期记忆是怎样实现的.md"
+    cluster: memory-reliability
+
+  - id: q-memrel-004
+    question: "Agent 自进化总结的经验应该直接写进长期记忆吗？写入前需要检验什么，怎么检验？"
+    concepts: ["memory-reliability", "agent-loop"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/12-Memory/02-Agent的长期记忆是怎样实现的.md"
+    cluster: memory-reliability
+
   - id: q-compliance-001
     question: "压缩之后检查过摘要，规则文本明明还在，Agent 为什么照样违反了它？「规则还在」和「规则管用」差在哪？"
     concepts: ["context-compaction", "system-prompt"]
