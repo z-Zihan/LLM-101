@@ -1,5 +1,5 @@
 version: 3
-updated: 2026-11-12
+updated: 2026-11-13
 
 main_path:
   - ai
@@ -633,8 +633,8 @@ concepts:
     group: 推理与Token
     summary: 推理开始时并行处理已知 Prompt 位置、产生首个输出位置 Logits 并建立各层 KV Cache 的阶段。
     prerequisites: ["inference", "tokenizer", "transformer"]
-    related: ["decode", "kv-cache", "gpu-compute"]
-    questions: ["q-token-generation-001", "q-prefill-decode-001", "q-r2-gpu-001", "q-r2-gpu-004", "q-decode-length-002"]
+    related: ["decode", "kv-cache", "gpu-compute", "kv-cache-cross-version-reuse"]
+    questions: ["q-token-generation-001", "q-prefill-decode-001", "q-r2-gpu-001", "q-r2-gpu-004", "q-decode-length-002", "q-kvreuse-003"]
 
   - id: decode
     name: 逐 Token 解码
@@ -729,8 +729,8 @@ concepts:
     group: 推理与Token
     summary: 保存当前请求中各层历史位置的 Attention K/V 状态，避免每个 Decode 步骤重复计算整段前缀。
     prerequisites: ["attention", "qkv", "inference"]
-    related: ["prefill", "decode", "context-window", "gpu-compute"]
-    questions: ["q-token-generation-001", "q-kv-cache-001", "q-prefill-decode-001", "q-r2-gpu-005", "q-memory-native-vs-external-001", "q-hier-sparse-002", "q-sparse-evict-001", "q-sparse-evict-003"]
+    related: ["prefill", "decode", "context-window", "gpu-compute", "kv-cache-cross-version-reuse"]
+    questions: ["q-token-generation-001", "q-kv-cache-001", "q-prefill-decode-001", "q-r2-gpu-005", "q-memory-native-vs-external-001", "q-hier-sparse-002", "q-sparse-evict-001", "q-sparse-evict-003", "q-kvreuse-001", "q-kvreuse-003"]
 
   - id: hierarchical-sparse-attention
     name: 层级稀疏注意力
@@ -743,6 +743,18 @@ concepts:
     prerequisites: ["attention", "kv-cache", "gpu-compute"]
     related: ["context-window", "latency", "throughput"]
     questions: ["q-hier-sparse-001", "q-hier-sparse-002", "q-sparse-evict-001", "q-sparse-evict-002", "q-sparse-evict-003", "q-sparse-evict-004"]
+
+  - id: kv-cache-cross-version-reuse
+    name: KV Cache 跨版本复用
+    path: docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md
+    aliases: ["跨版本缓存复用", "Cross-Version KV Cache Reuse", "KV Cache Reuse", "Functional Cache Divergence", "功能缓存分歧"]
+    level: Advanced
+    path_type: Optional
+    group: 推理与Token
+    summary: 模型更新后直接复用旧版本建立的 KV Cache：缓存携带旧模型对上下文的加工结果，任务效用与行为保真是两条独立评估标准；实测检索类任务兼容性随前缀变长退化、自然文本续写平稳，不同模型更新的有害翻转率从 0.53% 到 78.30%。
+    prerequisites: ["kv-cache", "prefill"]
+    related: ["decode", "verification"]
+    questions: ["q-kvreuse-001", "q-kvreuse-002", "q-kvreuse-003"]
 
   - id: latency
     name: 推理延迟
@@ -933,8 +945,8 @@ concepts:
     group: RAG与知识
     summary: 用适合问题类型的证据检查 AI 输出，而不是只看表达是否自信。
     prerequisites: ["hallucination"]
-    related: ["rag", "tool", "eval-budget", "verifiable-reward-rl", "skillware-capability-bundle"]
-    questions: ["q-hallucination-001", "q-rag-hallucination-001", "q-finetuning-evaluation-001", "q-effective-context-001", "q-quant-quality-001", "q-benchmark-contamination-001", "q-eval-budget-002", "q-interdep-specs-002", "q-grpo-rlvr-004", "q-bench-debt-001", "q-bench-debt-002", "q-mcphallu-004", "q-skillware-001", "q-ma-handoff-integrity-001", "q-durable-agent-002", "q-memrel-002"]
+    related: ["rag", "tool", "eval-budget", "verifiable-reward-rl", "skillware-capability-bundle", "kv-cache-cross-version-reuse"]
+    questions: ["q-hallucination-001", "q-rag-hallucination-001", "q-finetuning-evaluation-001", "q-effective-context-001", "q-quant-quality-001", "q-benchmark-contamination-001", "q-eval-budget-002", "q-interdep-specs-002", "q-grpo-rlvr-004", "q-bench-debt-001", "q-bench-debt-002", "q-mcphallu-004", "q-skillware-001", "q-ma-handoff-integrity-001", "q-durable-agent-002", "q-memrel-002", "q-kvreuse-002"]
 
   - id: database-boundary
     name: LLM 与数据库边界
@@ -2260,6 +2272,15 @@ relations:
   - from: kv-cache
     relation: 显存吃紧时需按分数驱逐
     to: hierarchical-sparse-attention
+  - from: kv-cache-cross-version-reuse
+    relation: 跨模型更新复用
+    to: kv-cache
+  - from: kv-cache-cross-version-reuse
+    relation: 用分布分歧检验答案内容是否走样
+    to: verification
+  - from: prefill
+    relation: 建立可跨版本移交的前缀缓存
+    to: kv-cache-cross-version-reuse
   - from: gpu-compute
     relation: 索引与选择的额外开销折损稀疏化的名义收益
     to: hierarchical-sparse-attention

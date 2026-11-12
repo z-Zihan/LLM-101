@@ -1,5 +1,5 @@
 version: 4
-updated: "2026-11-12"
+updated: "2026-11-13"
 
 questions:
 
@@ -2371,3 +2371,30 @@ questions:
     status: answered
     answer_path: "docs/11-Coding-Agent/04-Coding-Agent是什么.md"
     cluster: durable-agent-harness
+
+  - id: q-kvreuse-001
+    question: "模型更新后，之前缓存好的 KV Cache 还能用吗？为什么有的模型更新几乎无损、有的直接大面积报废？"
+    concepts: ["kv-cache-cross-version-reuse", "kv-cache"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md"
+    cluster: kv-cache-cross-version-reuse
+
+  - id: q-kvreuse-002
+    question: "为什么 KV Cache 跨版本复用在检索任务上容易出错、在自然文本续写上却很稳？首个 Token 答对了能说明答案真的对吗？"
+    concepts: ["kv-cache-cross-version-reuse", "verification"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md"
+    cluster: kv-cache-cross-version-reuse
+
+  - id: q-kvreuse-003
+    question: "用旧模型的缓存给新模型提速，省下的首 Token 延迟和损失的正确率怎么权衡？什么场景敢用、什么场景不能用？"
+    concepts: ["kv-cache-cross-version-reuse", "kv-cache", "prefill"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md"
+    cluster: kv-cache-cross-version-reuse
