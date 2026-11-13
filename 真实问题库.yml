@@ -1,5 +1,5 @@
 version: 4
-updated: "2026-11-13"
+updated: "2026-11-14"
 
 questions:
 
@@ -2398,3 +2398,30 @@ questions:
     status: answered
     answer_path: "docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md"
     cluster: kv-cache-cross-version-reuse
+
+  - id: q-pcmeta-001
+    question: "流量高峰过去之后，推理服务还是一直很慢，前缀缓存命中率趴在低位不再恢复——为什么缓存命中率的崩塌会自我维持？"
+    concepts: ["prefix-cache-metastability", "kv-cache"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: prefix-cache-metastability
+
+  - id: q-pcmeta-002
+    question: "Agent 服务的容量应该按并发会话数规划还是按 KV 工作集的 Token 量规划？为什么固定会话数的上限在长会话和短会话混合时会失灵？"
+    concepts: ["prefix-cache-metastability", "gpu-compute"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: prefix-cache-metastability
+
+  - id: q-pcmeta-003
+    question: "推理服务垮掉之后，只限制新请求进入为什么救不回来？按容量挂起会话和限流准入的区别在哪里？"
+    concepts: ["prefix-cache-metastability", "agent-loop"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
+    cluster: prefix-cache-metastability
