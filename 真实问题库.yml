@@ -1,7 +1,34 @@
 version: 4
-updated: "2026-11-14"
+updated: "2026-11-15"
 
 questions:
+
+  - id: q-divr-001
+    question: "扩散语言模型不是可以反复重掩码修改吗？为什么把错误的格子重新遮住让它重填，它还是填回原来的错值？"
+    concepts: ["diffusion-regeneration", "decode"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/15-一个Token一个Token地生成是唯一的办法吗.md"
+    cluster: diffusion-regeneration
+
+  - id: q-divr-002
+    question: "模型内部明明知道哪里错了（探针 AUROC 0.838），为什么定位错误之后原地修补几乎总是失败？"
+    concepts: ["diffusion-regeneration", "hallucination"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/15-一个Token一个Token地生成是唯一的办法吗.md"
+    cluster: diffusion-regeneration
+
+  - id: q-divr-003
+    question: "给生成模型配一个验证器来决定重试时机，验证器的训练数据从哪来？为什么要用最终结果对错来标注，而不是标注每一步推理的好坏？"
+    concepts: ["diffusion-regeneration", "verification"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/03-模型原理与训练/15-一个Token一个Token地生成是唯一的办法吗.md"
+    cluster: diffusion-regeneration
 
   - id: q-memrel-001
     question: "Agent 把过去任务总结成经验教训存起来，为什么反而会在本来能解决的任务上失败？一条坏教训是怎么混进记忆的？"
