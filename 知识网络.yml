@@ -348,6 +348,17 @@ concepts:
     prerequisites: ["coarse-to-fine-generation", "decode", "verification"]
     related: ["hallucination", "inference"]
     questions: ["q-divr-001", "q-divr-002", "q-divr-003"]
+  - id: memory-design-search
+    name: 记忆设计搜索
+    path: docs/12-Memory/02-Agent的长期记忆是怎样实现的.md
+    aliases: ["Memory Design Search", "MAPE", "全程序进化", "Whole-Program Evolution", "记忆系统自动设计"]
+    level: Advanced
+    path_type: Optional
+    group: Memory
+    summary: 把记忆系统的构建、检索、组合三个阶段开放为可编程接口，用程序进化从最简种子自动搜索设计：LoCoMo 上最高绝对提升 12 分且 serving 成本仅为人工设计的 35%；进化反复再发现两个模式——原始对话留档保住提炼丢失的细节（消融掉 12 分），按查询意图路由组合证据（消融掉 4.4 分，移植进五个人工系统全部提升 2.75–9.25 分）；搜索目标还决定计算投向写入期还是查询期。
+    prerequisites: ["agent-memory-system", "retrieval"]
+    related: ["memory-reliability", "eval-budget", "rag", "context-engineering"]
+    questions: ["q-mdesign-001", "q-mdesign-002", "q-mdesign-003"]
   - id: next-token-prediction
     name: 下一个 Token 预测
     path: docs/03-模型原理与训练/10-为什么预测下一个Token能学到能力.md
@@ -1090,7 +1101,7 @@ concepts:
     summary: 根据查询从候选资料中召回、过滤并排序可能相关的证据。
     prerequisites: ["knowledge-base"]
     related: ["rag", "embedding", "vector-database"]
-    questions: ["q-rag-001", "q-vector-store-001", "q-rag-long-context-001", "q-rag-document-processing-001", "q-rag-chunking-001", "q-rag-retrieval-quality-001", "q-rag-rerank-001", "q-rag-hybrid-search-001", "q-rag-exact-terms-001", "q-rerank-limit-001", "q-rag-global-context-001", "q-vector-irrelevant-001", "q-rag-pipeline-001", "q-memory-vs-rag-001"]
+    questions: ["q-rag-001", "q-vector-store-001", "q-rag-long-context-001", "q-rag-document-processing-001", "q-rag-chunking-001", "q-rag-retrieval-quality-001", "q-rag-rerank-001", "q-rag-hybrid-search-001", "q-rag-exact-terms-001", "q-rerank-limit-001", "q-rag-global-context-001", "q-vector-irrelevant-001", "q-rag-pipeline-001", "q-memory-vs-rag-001", "q-mdesign-002"]
 
   - id: mcp
     name: MCP
@@ -1220,8 +1231,8 @@ concepts:
     group: Memory
     summary: 通过写入、存储、检索、使用四个环节，把跨会话信息保存在模型之外或架构之内，并在合适时机取回注入上下文的系统机制。
     prerequisites: ["conversation-history", "context-window", "rag"]
-    related: ["context-compaction", "context-engineering", "agent", "retrieval", "kv-cache", "proactive-agent", "coral-context-self-allocation", "memory-reliability"]
-    questions: ["q-memory-write-policy-001", "q-memory-vs-rag-001", "q-memory-native-vs-external-001", "q-coding-agent-memory-001", "q-proactive-agent-002", "q-coral-self-alloc-002", "q-memrel-001"]
+    related: ["context-compaction", "context-engineering", "agent", "retrieval", "kv-cache", "proactive-agent", "coral-context-self-allocation", "memory-reliability", "memory-design-search"]
+    questions: ["q-memory-write-policy-001", "q-memory-vs-rag-001", "q-memory-native-vs-external-001", "q-coding-agent-memory-001", "q-proactive-agent-002", "q-coral-self-alloc-002", "q-memrel-001", "q-mdesign-001"]
 
   - id: proactive-agent
     name: 主动式智能体
@@ -1365,7 +1376,7 @@ concepts:
     summary: 按任务阶段选择、组织、压缩和更新模型运行时信息，并保留权威性与可追溯边界的工程方法。
     prerequisites: ["context", "context-window", "coding-agent"]
     related: ["conversation-history", "rag", "multi-agent", "context-compaction"]
-    questions: ["q-r2-contexteng-001", "q-r2-contexteng-002", "q-r2-contexteng-003", "q-r2-contexteng-004", "q-r2-contexteng-005", "q-r2-contexteng-006"]
+    questions: ["q-r2-contexteng-001", "q-r2-contexteng-002", "q-r2-contexteng-003", "q-r2-contexteng-004", "q-r2-contexteng-005", "q-r2-contexteng-006", "q-mdesign-003"]
 
   - id: context-compaction
     name: 上下文压缩
@@ -2407,3 +2418,21 @@ relations:
   - from: memory-reliability
     relation: 坏教训经检索进入执行回路
     to: agent-loop
+  - from: agent-memory-system
+    relation: 把怎么设计本身交给自动搜索
+    to: memory-design-search
+  - from: memory-reliability
+    relation: 防线堵住坏教训进化负责找好设计
+    to: memory-design-search
+  - from: eval-budget
+    relation: 搜索期稀疏指路最终选择密集评测的分工同样适用于设计搜索
+    to: memory-design-search
+  - from: memory-design-search
+    relation: 原始对话留档保证可检索证据不失真
+    to: retrieval
+  - from: memory-design-search
+    relation: 按查询意图组合证据是检索后注入的精细化
+    to: rag
+  - from: memory-design-search
+    relation: 意图路由的组合策略决定证据进入上下文的形式
+    to: context-engineering
