@@ -1,5 +1,5 @@
 version: 4
-updated: "2026-11-15"
+updated: "2026-11-16"
 
 questions:
 
@@ -2452,3 +2452,30 @@ questions:
     status: answered
     answer_path: "docs/03-模型原理与训练/19-GPU显存和推理瓶颈.md"
     cluster: prefix-cache-metastability
+
+  - id: q-mdesign-001
+    question: "搭 Agent 记忆系统时，抄 Mem0 论文的设计和让程序自己进化搜索，哪个更可靠？这里说的「设计」具体指什么？"
+    concepts: ["memory-design-search", "agent-memory-system"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/12-Memory/02-Agent的长期记忆是怎样实现的.md"
+    cluster: memory-design-search
+
+  - id: q-mdesign-002
+    question: "提炼后的记忆笔记明明省 token，为什么进化搜索反复「重新发现」要保留原始对话？只存提炼笔记会丢什么？"
+    concepts: ["memory-design-search", "retrieval"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/12-Memory/02-Agent的长期记忆是怎样实现的.md"
+    cluster: memory-design-search
+
+  - id: q-mdesign-003
+    question: "「按查询意图组合检索证据」是什么意思？为什么一套固定模板组织上下文，不如先路由再按类型组装？"
+    concepts: ["memory-design-search", "context-engineering"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/12-Memory/02-Agent的长期记忆是怎样实现的.md"
+    cluster: memory-design-search
