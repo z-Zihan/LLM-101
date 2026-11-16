@@ -1,7 +1,34 @@
 version: 4
-updated: "2026-11-16"
+updated: "2026-11-17"
 
 questions:
+
+  - id: q-pprov-001
+    question: "RAG 回答里每条主张都带了引用，引用的段落也确实支持主张，这样还能确定答案内容真的来自资料吗？"
+    concepts: ["parametric-provenance", "verification"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/05-幻觉与模型局限/04-怎么验证AI的回答.md"
+    cluster: parametric-provenance
+
+  - id: q-pprov-002
+    question: "用 NLI 模型自动检查“引用是否支持主张”，为什么测出来跟抛硬币差不多？怎么破？"
+    concepts: ["parametric-provenance", "hallucination"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/05-幻觉与模型局限/04-怎么验证AI的回答.md"
+    cluster: parametric-provenance
+
+  - id: q-pprov-003
+    question: "模型越大，RAG 引用越可信还是越不可信？有没有办法直接测出一条主张到底来自资料还是来自参数记忆？"
+    concepts: ["parametric-provenance", "rag"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/05-幻觉与模型局限/04-怎么验证AI的回答.md"
+    cluster: parametric-provenance
 
   - id: q-divr-001
     question: "扩散语言模型不是可以反复重掩码修改吗？为什么把错误的格子重新遮住让它重填，它还是填回原来的错值？"
