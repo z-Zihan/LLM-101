@@ -1,5 +1,5 @@
 version: 4
-updated: "2026-11-17"
+updated: "2026-11-18"
 
 questions:
 
@@ -2407,6 +2407,33 @@ questions:
     status: answered
     answer_path: "docs/07-Agent/06-多Agent协作是什么.md"
     cluster: multi-agent-state-alignment
+
+  - id: q-ma-budget-001
+    question: "对比多 Agent 和单 Agent 时，为什么对照组必须对齐采样数和 token 预算？不对齐会高估还是低估多 Agent？"
+    concepts: ["multi-agent", "inference"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/07-Agent/06-多Agent协作是什么.md"
+    cluster: multi-agent-budget-parity
+
+  - id: q-ma-budget-002
+    question: "几个 AI 互相辩论讨论了很久，给出的材料却都来自同一份提示，讨论真能讨论出新信息吗？"
+    concepts: ["multi-agent", "context"]
+    difficulty: intermediate
+    priority: high
+    status: answered
+    answer_path: "docs/07-Agent/06-多Agent协作是什么.md"
+    cluster: multi-agent-budget-parity
+
+  - id: q-ma-budget-003
+    question: "元分析说多 Agent 平均打不过同预算的自一致性投票，那什么情况下拆多个 Agent 才是正确决策？"
+    concepts: ["multi-agent", "sampling"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/07-Agent/06-多Agent协作是什么.md"
+    cluster: multi-agent-budget-parity
 
   - id: q-durable-agent-001
     question: "让 Coding Agent 自己跑几个小时做一个完整应用，为什么它总是半路耗尽上下文留下烂摊子，或者做到一半就宣布完工？"
