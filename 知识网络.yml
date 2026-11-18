@@ -681,7 +681,7 @@ concepts:
     summary: 从经过温度与候选过滤处理的 Token 概率分布中选择下一项的生成策略。
     prerequisites: ["probability", "inference"]
     related: ["temperature", "top-k", "top-p", "decode"]
-    questions: ["q-token-generation-001", "q-inference-randomness-001", "q-temperature-001", "q-speculative-decoding-001", "q-decode-length-001", "q-ma-budget-003"]
+    questions: ["q-token-generation-001", "q-inference-randomness-001", "q-temperature-001", "q-speculative-decoding-001", "q-decode-length-001", "q-ma-budget-003", "q-ma-weakest-002"]
 
   - id: temperature
     name: Temperature
@@ -993,7 +993,7 @@ concepts:
     summary: 用适合问题类型的证据检查 AI 输出，而不是只看表达是否自信。
     prerequisites: ["hallucination"]
     related: ["rag", "tool", "eval-budget", "verifiable-reward-rl", "skillware-capability-bundle", "kv-cache-cross-version-reuse", "parametric-provenance"]
-    questions: ["q-hallucination-001", "q-rag-hallucination-001", "q-finetuning-evaluation-001", "q-effective-context-001", "q-quant-quality-001", "q-benchmark-contamination-001", "q-eval-budget-002", "q-interdep-specs-002", "q-grpo-rlvr-004", "q-bench-debt-001", "q-bench-debt-002", "q-mcphallu-004", "q-skillware-001", "q-ma-handoff-integrity-001", "q-durable-agent-002", "q-memrel-002", "q-kvreuse-002", "q-divr-003", "q-pprov-001"]
+    questions: ["q-hallucination-001", "q-rag-hallucination-001", "q-finetuning-evaluation-001", "q-effective-context-001", "q-quant-quality-001", "q-benchmark-contamination-001", "q-eval-budget-002", "q-interdep-specs-002", "q-grpo-rlvr-004", "q-bench-debt-001", "q-bench-debt-002", "q-mcphallu-004", "q-skillware-001", "q-ma-handoff-integrity-001", "q-durable-agent-002", "q-memrel-002", "q-kvreuse-002", "q-divr-003", "q-pprov-001", "q-ma-weakest-001", "q-ma-weakest-002"]
 
   - id: database-boundary
     name: LLM 与数据库边界
@@ -1065,7 +1065,7 @@ concepts:
     summary: 在生成前检索外部资料，并把相关内容提供给模型作为上下文的方法。
     prerequisites: ["llm", "context"]
     related: ["embedding", "vector-database", "hallucination", "parametric-provenance"]
-    questions: ["q-rag-001", "q-vector-store-001", "q-rag-hallucination-001", "q-rag-finetuning-001", "q-agent-concepts-roadmap-001", "q-rag-agent-001", "q-rag-long-context-001", "q-rag-document-processing-001", "q-rag-chunking-001", "q-rag-retrieval-quality-001", "q-rag-rerank-001", "q-rag-hybrid-search-001", "q-rag-exact-terms-001", "q-rerank-limit-001", "q-rag-global-context-001", "q-vector-database-selection-001", "q-rag-pipeline-001", "q-ai-memory-001", "q-long-context-memory-001", "q-database-access-001", "q-knowledge-graph-vector-001", "q-memory-vs-rag-001", "q-pprov-003"]
+    questions: ["q-rag-001", "q-vector-store-001", "q-rag-hallucination-001", "q-rag-finetuning-001", "q-agent-concepts-roadmap-001", "q-rag-agent-001", "q-rag-long-context-001", "q-rag-document-processing-001", "q-rag-chunking-001", "q-rag-retrieval-quality-001", "q-rag-rerank-001", "q-rag-hybrid-search-001", "q-rag-exact-terms-001", "q-rerank-limit-001", "q-rag-global-context-001", "q-vector-database-selection-001", "q-rag-pipeline-001", "q-ai-memory-001", "q-long-context-memory-001", "q-database-access-001", "q-knowledge-graph-vector-001", "q-memory-vs-rag-001", "q-pprov-003", "q-ma-weakest-003"]
 
   - id: knowledge-base
     name: 知识库
@@ -1373,10 +1373,10 @@ concepts:
     level: Advanced
     path_type: Optional
     group: Tool与Agent
-    summary: 多个具有独立角色、上下文或权限的 Agent 通过任务依赖、共享状态和仲裁协同完成目标；共享状态的读、写、传三个环节各自需要防护——27.67% 的 Agent PR 有文本合并冲突，写时状态管理优于事后 worktree 合并，签名需求清单能防运输篡改但防不了提取污染；元分析显示同预算对比下协作本身几乎不加分（474 组对比 74% 不优于基线），拆分的正当理由是上下文隔离、并行独立工具和沙箱隔离等结构约束而非准确率目标。
+    summary: 多个具有独立角色、上下文或权限的 Agent 通过任务依赖、共享状态和仲裁协同完成目标；共享状态的读、写、传三个环节各自需要防护——27.67% 的 Agent PR 有文本合并冲突，写时状态管理优于事后 worktree 合并，签名需求清单能防运输篡改但防不了提取污染；元分析显示同预算对比下协作本身几乎不加分（474 组对比 74% 不优于基线），拆分的正当理由是上下文隔离、并行独立工具和沙箱隔离等结构约束而非准确率目标；未修改的 Claude Code / Codex 实测显示委托弱子代理后有害修订从 1080 次里 2 次升到 20/180–553/900，系统安全水位由证据的最弱读者而非最强模型决定，「怀疑」指令与溯源核验防御等效。
     prerequisites: ["agent", "agent-planning", "context"]
-    related: ["conversation-history", "coding-agent", "verification", "inference", "sampling"]
-    questions: ["q-r2-multiagent-001", "q-r2-multiagent-002", "q-r2-multiagent-003", "q-r2-multiagent-004", "q-r2-multiagent-005", "q-ma-state-align-001", "q-ma-handoff-integrity-001", "q-ma-budget-001", "q-ma-budget-002", "q-ma-budget-003"]
+    related: ["conversation-history", "coding-agent", "verification", "inference", "sampling", "rag"]
+    questions: ["q-r2-multiagent-001", "q-r2-multiagent-002", "q-r2-multiagent-003", "q-r2-multiagent-004", "q-r2-multiagent-005", "q-ma-state-align-001", "q-ma-handoff-integrity-001", "q-ma-budget-001", "q-ma-budget-002", "q-ma-budget-003", "q-ma-weakest-001", "q-ma-weakest-002", "q-ma-weakest-003"]
 
   - id: context-engineering
     name: 上下文工程
@@ -1388,7 +1388,7 @@ concepts:
     summary: 按任务阶段选择、组织、压缩和更新模型运行时信息，并保留权威性与可追溯边界的工程方法。
     prerequisites: ["context", "context-window", "coding-agent"]
     related: ["conversation-history", "rag", "multi-agent", "context-compaction"]
-    questions: ["q-r2-contexteng-001", "q-r2-contexteng-002", "q-r2-contexteng-003", "q-r2-contexteng-004", "q-r2-contexteng-005", "q-r2-contexteng-006", "q-mdesign-003"]
+    questions: ["q-r2-contexteng-001", "q-r2-contexteng-002", "q-r2-contexteng-003", "q-r2-contexteng-004", "q-r2-contexteng-005", "q-r2-contexteng-006", "q-mdesign-003", "q-ma-weakest-003"]
 
   - id: context-compaction
     name: 上下文压缩
@@ -2194,6 +2194,12 @@ relations:
     to: multi-agent
   - from: sampling
     relation: 多数投票构成协作对比的预算锚点
+    to: multi-agent
+  - from: multi-agent
+    relation: 安全水位由证据的最弱读者决定
+    to: verification
+  - from: verification
+    relation: 怀疑姿态与溯源核验共同拦截委托链污染
     to: multi-agent
   - from: context-engineering
     relation: 选择和组织
