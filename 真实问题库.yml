@@ -2533,3 +2533,30 @@ questions:
     status: answered
     answer_path: "docs/12-Memory/02-Agent的长期记忆是怎样实现的.md"
     cluster: memory-design-search
+
+  - id: q-ma-weakest-001
+    question: "编排器用的是最强模型，为什么系统还是被一条伪造记录骗过去了？"
+    concepts: ["multi-agent", "verification"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/07-Agent/06-多Agent协作是什么.md"
+    cluster: multi-agent-weakest-link
+
+  - id: q-ma-weakest-002
+    question: "让多个模型互相检查结果，不是比单模型更可靠吗？为什么聚合器会原样复制子代理的错误？"
+    concepts: ["multi-agent", "verification", "sampling"]
+    difficulty: advanced
+    priority: high
+    status: answered
+    answer_path: "docs/07-Agent/06-多Agent协作是什么.md"
+    cluster: multi-agent-weakest-link
+
+  - id: q-ma-weakest-003
+    question: "子代理回来的是摘要，原始记录里的格式异常早就被压掉了，编排器还能靠什么发现伪造？"
+    concepts: ["multi-agent", "rag", "context-engineering"]
+    difficulty: advanced
+    priority: medium
+    status: answered
+    answer_path: "docs/07-Agent/06-多Agent协作是什么.md"
+    cluster: multi-agent-weakest-link
