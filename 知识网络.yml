@@ -882,7 +882,7 @@ concepts:
     level: Advanced
     path_type: Optional
     group: Coding Agent
-    summary: 让 Agent 在任务执行中自动修改自身 Harness 并沉淀改进经验的方法，用行为对比代替真值验证，区分任务级与改进机制级两层递归。
+    summary: 让 Agent 在任务执行中自动修改自身 Harness 并沉淀改进经验的方法，用行为对比代替真值验证，区分任务级与改进机制级两层递归；进化方向有基准分与真实用户需求两种方向盘，AHE-Beta 用模拟用户提需求、需求关单准入来避免基准特定的局部最优。
     prerequisites: ["coding-agent", "agent"]
     related: ["context-compaction", "context-engineering", "agent-memory-system", "system-prompt", "harness-reliability", "eval-budget"]
     questions: ["q-harness-self-evolution-001", "q-harness-self-evolution-002", "q-harness-reliability-002", "q-eval-budget-001", "q-eval-budget-002"]
