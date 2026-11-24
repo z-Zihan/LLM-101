@@ -109,6 +109,14 @@ EvalAlloc 据此把两个角色拆开。开局用一小批候选做全量评测�
 
 边界照例要说。实验任务都有明确的验证器（QA 有标准答案、IFBench 有可执行检查），无验证器场景下的行为对比怎么分配预算，这篇论文没有覆盖；热身候选数、稀疏采样比例这类超参数依赖任务集规模，照搬具体数字没有意义。它和前两节合起来，自进化的三件事算是齐了：改什么（两路分工的提案）、改得对不对（行为对比与过程指标）、花多少评测（按角色分配预算）——剩下的都是工程。
 
+## 改给谁用：需求中心的自进化
+
+前面三节把自进化的「改什么、怎么验证、花多少评测」讲了一遍，但还欠一个更根本的问题：改进的方向由谁定？到目前为止所有循环都有一个共同设定——一个编辑器模型提修改，基准分数选修改。EvalAlloc 解决的是分数太贵，没动「分数是唯一方向盘」这个前提。Agentic Harness Engineering Beta（arXiv:2611.24924，下称 AHE-Beta）挑战的正是它：现实里的 Harness 工程由用户的显性和隐性需求驱动，而基准驱动的进化只对基准上可计分的失败敏感，容易产出针对基准的窄补丁，陷入基准特定的局部最优。
+
+AHE-Beta 的循环分三步，每步都在替换「单模型 + 基准分」的旧设定。第一步用户驱动评测：让模拟用户在多轮真实使用中把不满作为 issue 提出来——「改完文件没提示我测试挂了」这类需求，是基准任务列表里不会出现的。第二步团队式修改：一个「工程团队」把需求实现成可泛化的改动，而不是针对单个任务的特化补丁。第三步需求驱动选择：一条改动只有在「确实解决了某个被验证的需求」并通过 review 时才被合并——准入标准从「分数涨了」换成「需求关了」。留出任务上，pass@1 从 21.9% 提到 33.3%，同时比基础 Harness 少用 40.8% 的 token，成绩高于 Claude Code、Meta-Harness 与 AHE；盲测 A/B 里，真实用户在 48 组有效对比的 31 组中更偏好 AHE-Beta 的产物。对实践者还有一个关键结果：进化完成后不再继续进化，增益仍能迁移到 GLM-5.3（+15.8%）和 DeepSeek-V4.1-Flash（+5.3%）——需求驱动的改动比基准驱动的补丁更接近通用能力而不是应试技巧，这和上一节「换参照尺分数不可比」的教训从两头指向同一个结论。
+
+至此自进化的清单完整了：方向从真实使用中来（需求），改动按证据准入（验证），评测按决策角色分配（预算）。对自建 Agent 的开发者，最便宜的一步是模仿它的需求采集：把用户（哪怕只有你自己）使用中的不满记成结构化 issue，而不是凭直觉猜 Harness 哪里要改——需求的显性化本身就是方向修正。边界照例：模拟用户是对真实用户分布的近似，论文用 48 组盲测部分补上了这个缺口，但「模拟需求是否偏移真实痛点」要在各自场景里自查；实验同样跑在基准任务流上，多轮真实协作环境下的表现还有待更多证据。
+
 ## 成功之前，路径本身靠不靠谱
 
 前面两节把「成功」拆出了过程维度，但那种拆法仍以运行为单位：一条轨迹要么成功要么失败，失败之后才去归因。Prefix Executability（arXiv:2610.40444，2026 年 10 月底，Oracle AI）把镜头再拉近一格：不看整条轨迹，看它的每一段前缀——在任何一步停下时，已经发生的工具调用序列是否仍然可执行（工具存在、参数合法、前置条件满足、数据依赖成立）。这给出一个比「成功/失败」细得多的刻度：轨迹在第几步第一次出现不可执行的调用、可执行前缀能活多深、失败之后有没有恢复。
@@ -216,6 +224,7 @@ Anthropic 的解法分两层。环境层由一个初始化 Agent 在第一次运
 - [Trial by Trace: Benchmarking AI Agent Harnesses for Reliability and Failure Attribution](https://arxiv.org/abs/2610.32285)
 - [Evolving to Match Capabilities: Improving Harness Self-Evolution via Skill Adaptation](https://arxiv.org/abs/2610.33024)
 - [Where Should the Evaluation Budget Go in LLM-Driven Agent Scaffold Evolution?](https://arxiv.org/abs/2610.37276)
+- [Agentic Harness Engineering Beta: Requirement-Centered Evolution of Agent Harnesses](https://arxiv.org/abs/2611.24924)（需求中心的自进化：模拟用户提需求、团队式泛化修改、需求关单准入，2026-11-18，最后核验 2026-11-20）
 - [Prefix Executability: Evaluating Tool-Using Agents Beyond Final Success](https://arxiv.org/abs/2610.40444)
 - [Buchanan et al.: Benchmarks as Software — Terminal-Bench and the Case for Continuous Benchmarks](https://arxiv.org/abs/2611.08417)（基准维护债的三类来源、propose-only 连续验证工作流与资源预算作为测量规格，2026-11-05，最后核验 2026-11-08）
 - [Anthropic: Effective harnesses for long-running agents](https://www.anthropic.com/research/effective-harnesses-for-long-running-agents)（初始化/执行双 Agent、JSON 功能清单、进度文件与端到端测试仪式，2025-11-26，最后核验 2026-11-11）
