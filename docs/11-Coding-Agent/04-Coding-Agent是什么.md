@@ -155,6 +155,16 @@ AHE-Beta 的循环分三步，每步都在替换「单模型 + 基准分」的�
 
 边界照例说清楚。这套工作流审的是任务、验证器和预算，不直接评测模型能力；外部效度只在 Harbor-Index 的 34 个随机任务上验证过（来自 80 任务快照、29 个源基准），样本规模有限；「约 30% 有缺陷」测自一个发布流程已经非常严格的基准，自家基准如果发布审查更松，这个比例只高不低；修复前后的分数变化不代表模型变强或变弱，是量具校准，引用时必须注明版本。把它放回本文的线索里：Prefix Executability 把「成功」拆到了路径级，这一节把「分数」拆到了量具版本级——以后看任何 agent 评测结论，至少要问三个问题：跑的哪个版本的基准、oracle 还过不过、预算是多少。
 
+## 编辑之后，上下文里的旧判断还在生效
+
+前面几节把「改得对不对」「量具准不准」都审过了，还剩一类缺陷藏在更前面：推理本身用错了输入。2026 年 11 月的 Edit-Induced Dependency Mismatch（arXiv:2611.29242）研究了一个迭代改码时特有的失误模式——Agent 在多轮修改中，后续推理继续依赖一份早已过时的依赖判断，而那份判断的文本还原封不动地留在上下文里。比如第 3 轮它判断过「函数 A 没有其他调用方」，第 6 轮改了 A 的签名，第 7 轮推理时引用的还是第 3 轮那句结论——于是所有该跟着改的调用方（论文称为 consumer obligations）被漏掉，而这类缺陷恰恰是原任务评测测不出来的：测试盯着主目标，漏掉的调用方是主目标之外的债。
+
+证据来自真实执行轨迹而非设计出来的演示。作者对 DeepSWE 上 deepseek-v4-flash 的运行做了全语料盲审（另补 Qwen3.8-Flash 在 FeatureBench 上的案例），这个过程的严谨度本身值得注意：先盲审定出终局失配事件，再用补充执行检查复核——复核之后所有保留的终局事件都有执行证据支撑，不是凭模型自述定罪。两个结构性发现比单个失败案例更重要。其一，同一条轨迹里「中途恢复」和「终局遗漏」可以并存：Agent 第 5 轮发现了失配并修复了两个调用方，第 9 轮又漏掉第三个——恢复过不等于这次会全部恢复。其二，过程分析显示，把相关 consumer 代码呈现到上下文里，与显式的依赖判断和后续同步动作在轨迹上强相关：看得见的依赖才会被更新。
+
+干预实验给出一个便宜得可疑的对策：一段显式的依赖审查提示（要求编辑后重新推导哪些调用方受影响）就能减少终局遗漏。对选定案例的本地重放进一步验证了因果方向——把诊断出的 consumer 同步修掉之后，目标行为恢复，而已有的控制用例继续全绿：这不是「多写点测试」能兜住的错误，测试本来就是绿的。跨基准的执行反例则补上最后一击：原任务评测放行的轨迹里，存在执行层面站不住的案例——又是「成功≠过程正确」的一票，和 TraceTrial-Bench、Prefix Executability 从不同侧面指向同一个结论。
+
+对自建 Coding Agent 的开发者，这一节压缩成三条做法。第一，把「编辑后重推依赖」做成流程而非期望：每次修改后强制列出受影响的调用方清单，再动手——论文的提示干预就是这个思路的最低成本版。第二，警惕自己上下文里的陈旧结论：长会话里早先的判断（「这个函数没人用」「这个模块是只读的」）不会因为后来改了代码而自动失效，关键的要在改动后重新验证而不是翻旧话。第三，评测要盯 consumer 而不只是主目标：给评测补一组「受影响调用方同步率」的检查，否则你复刻的正是论文里测不出的盲区。边界照例：审计基于 deepseek-v4-flash 一个主力模型的轨迹，干预实验也只在「被测条件下」声称有效；依赖判断的呈现与同步动作是轨迹上的相关，不是被操纵的因果；哪些任务结构最容易诱发失配，论文自己也标注为尚有争议的开放问题。
+
 ## 跑了几小时的 Agent 靠什么活着
 
 前面所有小节都在讨论单窗口内的质量。把时间拉长——一个要跑几个小时、跨越几十个上下文窗口的 Coding Agent——问题就不再是「这一步做得对不对」，而是「上一个它消失时，给下一个它留了什么」。业界给这类系统的名字叫持久化 Agent（Durable Agent）或长时运行 Agent，Anthropic 工程团队在两篇文章（2025-11 的 Effective harnesses for long-running agents 与 2026-03 的 Harness design for long-running application development）里给出的不是理论，而是一份踩坑清单。
@@ -226,6 +236,7 @@ Anthropic 的解法分两层。环境层由一个初始化 Agent 在第一次运
 - [Where Should the Evaluation Budget Go in LLM-Driven Agent Scaffold Evolution?](https://arxiv.org/abs/2610.37276)
 - [Agentic Harness Engineering Beta: Requirement-Centered Evolution of Agent Harnesses](https://arxiv.org/abs/2611.24924)（需求中心的自进化：模拟用户提需求、团队式泛化修改、需求关单准入，2026-11-18，最后核验 2026-11-20）
 - [Prefix Executability: Evaluating Tool-Using Agents Beyond Final Success](https://arxiv.org/abs/2610.40444)
+- [Edit-Induced Dependency Mismatch: Propagation Omissions, Recovery, and Evaluation Blind Spots in Coding Agents](https://arxiv.org/abs/2611.29242)（编辑后依赖判断失配：全语料盲审+执行复核、依赖审查提示减少终局遗漏、原评测对 consumer 缺陷盲区，2026-11-22，最后核验 2026-11-26）
 - [Buchanan et al.: Benchmarks as Software — Terminal-Bench and the Case for Continuous Benchmarks](https://arxiv.org/abs/2611.08417)（基准维护债的三类来源、propose-only 连续验证工作流与资源预算作为测量规格，2026-11-05，最后核验 2026-11-08）
 - [Anthropic: Effective harnesses for long-running agents](https://www.anthropic.com/research/effective-harnesses-for-long-running-agents)（初始化/执行双 Agent、JSON 功能清单、进度文件与端到端测试仪式，2025-11-26，最后核验 2026-11-11）
 - [Anthropic: Harness design for long-running application development](https://www.anthropic.com/research/harness-design-long-running-apps)（规划/生成/评测三角色、自评偏乐观与组件逐个拆除验证，2026-03-24，最后核验 2026-11-11）
