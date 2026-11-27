@@ -381,7 +381,7 @@ concepts:
     summary: 模型为词表候选产生的未归一化分数；它们不是概率，需结合整组候选解释。
     prerequisites: ["next-token-prediction", "vocabulary"]
     related: ["softmax", "probability"]
-    questions: ["q-token-generation-001", "q-next-token-capability-001", "q-temperature-001"]
+    questions: ["q-token-generation-001", "q-next-token-capability-001", "q-temperature-001", "q-temperature-002"]
 
   - id: softmax
     name: Softmax
@@ -393,7 +393,7 @@ concepts:
     summary: 把一组相对分数转换成总和为 1 的概率分布，并保留候选之间的相对大小关系。
     prerequisites: ["logits"]
     related: ["probability"]
-    questions: ["q-token-generation-001", "q-loss-judgement-001", "q-temperature-001"]
+    questions: ["q-token-generation-001", "q-loss-judgement-001", "q-temperature-001", "q-temperature-002"]
 
   - id: probability
     name: Token 概率
@@ -405,7 +405,7 @@ concepts:
     summary: 在给定当前前缀和模型参数时，各候选 Token 作为下一项的条件概率分布。
     prerequisites: ["softmax", "next-token-prediction"]
     related: ["logits", "training", "inference"]
-    questions: ["q-loss-judgement-001", "q-next-token-capability-001", "q-temperature-001"]
+    questions: ["q-loss-judgement-001", "q-next-token-capability-001", "q-temperature-001", "q-top-k-002"]
 
   - id: context
     name: 上下文
@@ -645,7 +645,7 @@ concepts:
     summary: 使用已经训练好的模型参数，根据当前输入计算输出的过程。
     prerequisites: ["model", "parameter"]
     related: ["training", "context", "token", "prefill", "decode", "sampling", "kv-cache"]
-    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-001", "q-inference-randomness-001", "q-temperature-001", "q-output-context-limit-001", "q-context-length-001", "q-kv-cache-001", "q-speculative-decoding-001", "q-prefill-decode-001", "q-reasoning-think-001", "q-adaptive-thinking-001", "q-quant-model-size-001", "q-quant-quality-001", "q-moe-active-001", "q-distill-quant-001", "q-model-format-conversion-001", "q-ncm-speed-001", "q-decode-length-002", "q-ma-budget-001"]
+    questions: ["q-token-generation-001", "q-compute-memory-001", "q-cache-001", "q-language-model-001", "q-inference-randomness-001", "q-temperature-001", "q-output-context-limit-001", "q-context-length-001", "q-kv-cache-001", "q-speculative-decoding-001", "q-prefill-decode-001", "q-reasoning-think-001", "q-adaptive-thinking-001", "q-quant-model-size-001", "q-quant-quality-001", "q-moe-active-001", "q-distill-quant-001", "q-model-format-conversion-001", "q-ncm-speed-001", "q-decode-length-002", "q-ma-budget-001", "q-temperature-002", "q-top-p-002"]
 
   - id: prefill
     name: Prefill
@@ -669,7 +669,7 @@ concepts:
     summary: 依据当前前缀反复产生 Logits、选择新 Token、追加 Context 并更新 KV Cache 的自回归生成阶段。
     prerequisites: ["inference", "next-token-prediction"]
     related: ["prefill", "sampling", "eos", "kv-cache", "context"]
-    questions: ["q-token-generation-001", "q-output-context-limit-001", "q-speculative-decoding-001", "q-prefill-decode-001", "q-r2-gpu-001", "q-r2-gpu-004", "q-diffusion-lm-001", "q-decode-length-001", "q-divr-001"]
+    questions: ["q-token-generation-001", "q-output-context-limit-001", "q-speculative-decoding-001", "q-prefill-decode-001", "q-r2-gpu-001", "q-r2-gpu-004", "q-diffusion-lm-001", "q-decode-length-001", "q-divr-001", "q-temperature-002", "q-top-k-002", "q-top-p-002"]
 
   - id: sampling
     name: Token 采样
@@ -681,7 +681,7 @@ concepts:
     summary: 从经过温度与候选过滤处理的 Token 概率分布中选择下一项的生成策略。
     prerequisites: ["probability", "inference"]
     related: ["temperature", "top-k", "top-p", "decode"]
-    questions: ["q-token-generation-001", "q-inference-randomness-001", "q-temperature-001", "q-speculative-decoding-001", "q-decode-length-001", "q-ma-budget-003", "q-ma-weakest-002"]
+    questions: ["q-token-generation-001", "q-inference-randomness-001", "q-temperature-001", "q-speculative-decoding-001", "q-decode-length-001", "q-ma-budget-003", "q-ma-weakest-002", "q-temperature-002", "q-top-k-002", "q-top-p-002"]
 
   - id: temperature
     name: Temperature
@@ -693,7 +693,7 @@ concepts:
     summary: 在采样前缩放候选 Logits、调节概率分布集中程度的生成参数，不修改模型知识或权重。
     prerequisites: ["logits", "sampling"]
     related: ["softmax", "top-k", "top-p"]
-    questions: ["q-temperature-001"]
+    questions: ["q-temperature-001", "q-temperature-002", "q-top-p-002"]
 
   - id: top-k
     name: Top-k Sampling
@@ -705,7 +705,7 @@ concepts:
     summary: 只保留分数最高的固定 k 个候选，再在该集合中归一化和采样的过滤方法。
     prerequisites: ["sampling"]
     related: ["top-p", "temperature"]
-    questions: ["q-temperature-001"]
+    questions: ["q-temperature-001", "q-top-k-002"]
 
   - id: top-p
     name: Top-p Sampling
@@ -717,7 +717,7 @@ concepts:
     summary: 按概率从高到低保留累计概率达到阈值 p 的最小动态候选集合，再进行采样。
     prerequisites: ["sampling", "probability"]
     related: ["top-k", "temperature"]
-    questions: ["q-temperature-001"]
+    questions: ["q-temperature-001", "q-top-k-002", "q-top-p-002"]
 
   - id: eos
     name: EOS 结束 Token

@@ -732,6 +732,33 @@ questions:
     answer_path: "docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md"
     cluster: sampling-temperature
 
+  - id: q-temperature-002
+    question: "把 Temperature 设成 0，模型是不是就百分百可复现了？温度 0、贪心解码、top-k / top-p 之间是什么关系？"
+    concepts: ["temperature", "sampling", "decode", "inference", "logits", "softmax"]
+    difficulty: intermediate
+    priority: medium
+    status: answered
+    answer_path: "docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md"
+    cluster: sampling-temperature
+
+  - id: q-top-k-002
+    question: "top-k 和 top-p 都在截断候选 Token，什么情况下两者的行为差别很大？为什么很多实现把两个一起用而不是只留一个？"
+    concepts: ["top-k", "top-p", "sampling", "probability", "decode"]
+    difficulty: intermediate
+    priority: medium
+    status: answered
+    answer_path: "docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md"
+    cluster: sampling-temperature
+
+  - id: q-top-p-002
+    question: "代码生成和创意写作对采样的要求有什么不同？为什么同一组 top-p / temperature 参数不能两头通吃？"
+    concepts: ["top-p", "temperature", "sampling", "decode", "inference"]
+    difficulty: intermediate
+    priority: medium
+    status: answered
+    answer_path: "docs/03-模型原理与训练/14-为什么ChatGPT的字是一个一个蹦出来的.md"
+    cluster: sampling-temperature
+
   - id: q-output-context-limit-001
     question: "模型输出 Token 超过限制时到底会发生什么？输出上限和上下文窗口是什么关系？"
     concepts: ["token", "context-window", "inference", "decode", "eos"]
