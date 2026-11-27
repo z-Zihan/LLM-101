@@ -175,6 +175,18 @@ AHE-Beta 的循环分三步，每步都在替换「单模型 + 基准分」的�
 
 对自建 Coding Agent 的开发者，这一节压缩成三条做法。第一，把「编辑后重推依赖」做成流程而非期望：每次修改后强制列出受影响的调用方清单，再动手——论文的提示干预就是这个思路的最低成本版。第二，警惕自己上下文里的陈旧结论：长会话里早先的判断（「这个函数没人用」「这个模块是只读的」）不会因为后来改了代码而自动失效，关键的要在改动后重新验证而不是翻旧话。第三，评测要盯 consumer 而不只是主目标：给评测补一组「受影响调用方同步率」的检查，否则你复刻的正是论文里测不出的盲区。边界照例：审计基于 deepseek-v4-flash 一个主力模型的轨迹，干预实验也只在「被测条件下」声称有效；依赖判断的呈现与同步动作是轨迹上的相关，不是被操纵的因果；哪些任务结构最容易诱发失配，论文自己也标注为尚有争议的开放问题。
 
+## 补丁比人写的长，就是过度编辑吗
+
+Agent 的补丁比人类开发者的长，是社区反复引用的「过度编辑」证据；但行数多不等于多余——多出来的行可能是测试、文档，也可能是必要的代码。2026 年 11 月的 How Much Do Coding Agents Over-Edit, and Why?（arXiv:2611.34875）给这个问题装上了测量仪器：Delta Residue Attribution（DRA）——重放 Agent 轨迹，把最终补丁的每个单元回溯到写出它的那一步，然后逐个单元「撤掉再看」：回退该单元后重跑任务测试，还过就是不需要。7,660 条已解决的 GitHub Copilot CLI 轨迹（18 个前沿模型，SWE-bench Verified 6,728 条 + DeepSWE 932 条），开发者补丁用同一把尺子重打分。
+
+第一个反直觉发现：Agent 的代码按「必要性」算并不比人类的差。SWE-bench Verified 上代码必要率均值 0.887 对开发者的 0.864，18 个模型里有 11 个留下的不必要代码比开发者还少；DeepSWE 上 0.797 对 0.785，同样不落下风。多出来的行在 Verified 上大多是测试（61%）和文档（13%）——「补丁更长」的主体其实是 Agent 比人更守规矩地补了测试，这顶「过度编辑」的帽子戴错了一半。真正的问题藏在剩余部分：Verified 上平均 11% 的补丁代码单元撤掉也不影响通过，而这 11% 里 89% 是改变行为的——不是废话注释，是实打实的多余逻辑。另一个干净的反证：调试步骤几乎不产生不必要代码，说明问题不在「边试边改」，而在别处。
+
+第二个发现更扎手：代码必要性与解题率在 Verified 上不相关，在 DeepSWE 上竟负相关（Spearman −0.59）——解题率越高的模型，多写的无用代码比例反而越高。一个说得通的机制是：更强的模型靠「多动手」换通过率，用宽改法覆盖不确定性，分数涨了、精度输了。这给「看分挑模型」的做法补了一个缺口：两个解题率相同的模型，一个补丁干净、一个到处撒网，接进真实代码库的维护成本完全不同。
+
+论文还实测了两条「事后修剪」路线：用 DRA 按 Agent 可见的测试（自己写的+仓库原有的）剪掉判定不必要的单元，能剪掉大部分无用代码、89% 的被剪补丁仍能解题，但精度只有 46%——会误剪必要的代码；让 Agent 自己审计 diff 更准（精度 66%）却剪得少（召回 36%）。两条都不成熟，结论是方向性的：过度编辑要靠模型训练和 Harness 层的修剪解决，而评测侧应该把代码必要率和解题率并排报告——只看解题率，你测不出这个维度。
+
+对自建 Coding Agent 的开发者，三条便宜的做法：第一，别再用「diff 行数」当过度编辑的指标，换成一个便宜的低配版 DRA——把每个逻辑单元拆成独立提交，逐个 revert 跑测试，至少对可疑的大补丁做抽查。第二，把「补测试/补文档」和「改行为代码」分开统计：前者是 Agent 在帮你，后者才是要审的。第三，对解题率高但 diff 偏大的模型保持一层怀疑：它可能正用宽改法换分数，接入真实仓库前先看它的补丁必要率。边界照例：DRA 的「必要性」以任务测试为唯一裁判，测试之外的退化（性能、可维护性）测不出；样本限于 Copilot CLI 这一个 harness，必要性分数的模型间可比性依赖同一套任务测试；两条修剪路线的精度-召回权衡都还不到可默认开启的水平。
+
 ## 跑了几小时的 Agent 靠什么活着
 
 前面所有小节都在讨论单窗口内的质量。把时间拉长——一个要跑几个小时、跨越几十个上下文窗口的 Coding Agent——问题就不再是「这一步做得对不对」，而是「上一个它消失时，给下一个它留了什么」。业界给这类系统的名字叫持久化 Agent（Durable Agent）或长时运行 Agent，Anthropic 工程团队在两篇文章（2025-11 的 Effective harnesses for long-running agents 与 2026-03 的 Harness design for long-running application development）里给出的不是理论，而是一份踩坑清单。
@@ -246,6 +258,7 @@ Anthropic 的解法分两层。环境层由一个初始化 Agent 在第一次运
 - [Where Should the Evaluation Budget Go in LLM-Driven Agent Scaffold Evolution?](https://arxiv.org/abs/2610.37276)
 - [Agentic Harness Engineering Beta: Requirement-Centered Evolution of Agent Harnesses](https://arxiv.org/abs/2611.24924)（需求中心的自进化：模拟用户提需求、团队式泛化修改、需求关单准入，2026-11-18，最后核验 2026-11-20）
 - [Prefix Executability: Evaluating Tool-Using Agents Beyond Final Success](https://arxiv.org/abs/2610.40444)
+- [How Much Do Coding Agents Over-Edit, and Why? An Empirical Study of Unneeded Edits in Repository-Level Agent Patches](https://arxiv.org/abs/2611.34875)（DRA 溯源归因：7,660 轨迹逐单元回退重测，Agent 代码必要率不低于开发者、多余单元 89% 改行为、必要率与解题率在 DeepSWE 负相关，2026-11-25，最后核验 2026-11-28）
 - [The Retry Tax: Why Static Same-Task Retries Can Cost More per Completion](https://arxiv.org/abs/2611.29133)（静态同任务重试的成本结构：完成率 59.7%→70.0% 时单次完成成本 $0.70→$1.32，边际成本单调不减，2026-11-22，最后核验 2026-11-27）
 - [Edit-Induced Dependency Mismatch: Propagation Omissions, Recovery, and Evaluation Blind Spots in Coding Agents](https://arxiv.org/abs/2611.29242)（编辑后依赖判断失配：全语料盲审+执行复核、依赖审查提示减少终局遗漏、原评测对 consumer 缺陷盲区，2026-11-22，最后核验 2026-11-26）
 - [Buchanan et al.: Benchmarks as Software — Terminal-Bench and the Case for Continuous Benchmarks](https://arxiv.org/abs/2611.08417)（基准维护债的三类来源、propose-only 连续验证工作流与资源预算作为测量规格，2026-11-05，最后核验 2026-11-08）
